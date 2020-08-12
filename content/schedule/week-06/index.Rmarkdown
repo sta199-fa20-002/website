@@ -1,0 +1,6 @@
+---
+title: "Week 06"
+weight: 6
+---
+
+Check back for details!

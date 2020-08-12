@@ -1,3 +1,3 @@
 ---
-title: Meet the teaching team
+title: 
 ---
