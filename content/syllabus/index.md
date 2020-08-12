@@ -40,7 +40,7 @@ By enrolling in this course, you have agreed to abide by and uphold the provisio
 
 ### Communication 
 
-All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, https://sta199-fa20-02.netlify.app . 
+All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, https://sta199-fa20-002.netlify.app . 
 
 I will periodically send announcements via email, so please check your email regularly. You may also find a copy of announcements on Sakai.
 
