@@ -125,6 +125,8 @@ Stats Experience | 5%
 
 </center>
 
+<br>
+
 The final letter grade will be determined based on the following thresholds:
 
 <center>
