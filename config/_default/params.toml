@@ -1,5 +1,5 @@
 # Description for social sharing and search engines.
-description = "Website for STA 210: Regression Analysis at Duke University"
+description = "Website for STA 199: Intro to Data Science at Duke University"
 
 # Default image for social sharing and search engines. Place image in `static/images/` folder and specify image name here.
 sharing_image = ""
@@ -7,8 +7,8 @@ twitter_image = ""
 
 # Link custom CSS and JS assets
 #   (relative to /static/css and /static/js respectively)
-custom_css = ["sta210.css"]
-custom_js = ["sta210.js"]
+custom_css = ["sta199.css"]
+custom_js = ["sta199.js"]
 
 # Define base hex url for index page (where the stickers link out to)
 hex_base_url = ""
@@ -28,9 +28,9 @@ MathJaxCDN = "//cdn.bootcss.com"
 MathJaxVersion = "2.7.1"
 
 [footer]
-    github_url = ""
+    github_url = "https://github.com/sta199-fa20-002/website"
     twitter_url = ""
-    support = "Website inspired by tidymodels and data viz site."
+    support = "This website was derived from [tidymodels.org](https://tidymodels.org) with inspiration from [Data Visualization](https://datavizm20.classes.andrewheiss.com/) and [introds.org](https://introds.org/)."
 
 # leave blank in quotes for the default = true
 # to turn off, set = false (no quotes)
@@ -52,25 +52,26 @@ MathJaxVersion = "2.7.1"
 [colors]
     text = "#404040" # off-black
     # Links
-    link = "#008eaa" # main accent
-    link_hover = "#cc3168" #lighter
+    link = "#7A4183" # main accent
+    link_hover = "#00b3b3" #lighter
     # Footer
-    footer_primary = "#008eaa"
+    footer_primary = "#7A4183"
     footer_text = "#ffffff" 
     # Backgrounds
     background = "#ffffff" 
     home_section_odd = "#ffffff"
     home_section_even = "#fcfcfc" 
     # Menu
-    menu_primary = "#008eaa"
+    menu_primary = "#7A4183"
     menu_text = "#ffffff"
-    menu_text_active = "#aa008e"
-    menu_text_current = "#aa008e"
+    menu_text_active = "#00b3b3"
+    menu_text_current = "#00b3b3"
     menu_decorate_current = "none"
     menu_title = "#ffffff" 
-    menu_title_active = "#00000075" 
-    menu_box_hover = "white" 
+    menu_title_active = "#00b3b3" 
+    menu_box_hover = "#fcfcfc" 
     menu_box_active = "#fcfcfc" 
+    
     # Tables
     header_background = "#1a162d80"
     table_row_even = "#fcfcfc"

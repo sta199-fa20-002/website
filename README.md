@@ -10,6 +10,7 @@ Designed from tidymodels.org with inspiration from
 - https://introds.org/
 
 - primary color: #7A4183
+- main accent: #00b3b3
 
 
 
