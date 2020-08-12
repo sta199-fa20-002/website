@@ -1,10 +1,9 @@
 # Title of your site
-title = "STA 210"
+title = "STA 199"
 
 # The URL of your site.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
-baseurl = "https://www.tidymodels.org/"
-
+baseurl = "/"
 # Name the theme folder in `themes/`.
 theme = "hugo-tourmaline"
 
@@ -13,7 +12,7 @@ googleAnalytics = ""
 
 relativeurls = false
 languageCode = "en-us"
-description = "Website for STA 210: Regression Analysis at Duke University"
+description = "Website for STA 199: Intro to Data Science at Duke University"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 # below is critical for non-authors to show up in article listing
