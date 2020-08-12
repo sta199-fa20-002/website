@@ -1,6 +1,8 @@
 ---
 title: "Week 05"
 weight: 5
+tags: 
+description:
 ---
 
-Check back for details!
+week the content here.

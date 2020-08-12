@@ -1,7 +1,5 @@
 ---
 title: Syllabus
-toc: true
-toc_depth: 3
 ---
 
 **[Click here](syllabus.pdf) to download a PDF copy of the syllabus.**
@@ -10,11 +8,10 @@ toc_depth: 3
 
 By the end of the semester, you will…
 
-- know methods for analyzing multivariate datasets, with an emphasis on interpretation
-- know how to check whether proposed statistical models are appropriate for given data
-- develop proficiency in addressing complex research questions using statistical evidence
-- develop proficiency in computing tools used to conduct reproducible statistical analyses, specifically R and Git
-- understand the process of data-based research by working on an independent research project
+- learn to explore, visualize, and analyze data in a reproducible and shareable manner
+- gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, and data visualization
+- work on problems and case studies inspired by and based on real-world questions and data
+- learn to effectively communicate results through written assignments and final project presentation
 
 ## Course Community
 
@@ -43,7 +40,7 @@ By enrolling in this course, you have agreed to abide by and uphold the provisio
 
 ### Communication 
 
-All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, https://sta210-fa20.netlify.app . 
+All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, https://sta199-fa20-02.netlify.app . 
 
 I will periodically send announcements via email, so please check your email regularly. You may also find a copy of announcements on Sakai.
 
@@ -60,11 +57,12 @@ Check out the [Help](/help/) tab for more information about getting help and res
 
 The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you've learned in future academic and professional projects.
 
-### A Week in STA 210
+### A Week in STA 199, Section 02!
 
 - ADD PICTURE OR CHART THAT MAPS OUT A WEEK OF CLASS!
 
 ### Lectures
+
 
 
 ### Labs
@@ -72,7 +70,7 @@ The following activities and assessments will help you successfully achieve the 
 
 ### Homework
 
-In homework, you will apply what you've learned during lecture and lab to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Homework must be typed up using R Markdown and GitHub and submitted in Gradescope. 
+There will be three individual homework assignments in this course, one corresponding to each unit. In homework, you will apply what you've learned during lecture and lab to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Homework must be typed up using R Markdown and GitHub and submitted as a PDF in Gradescope. 
 
 Individual homework extensions will only be given for extenuating circumstances. Please contact Professor Tackett if you have an extenuating circumstance that prohibits you from completing the homework by the stated due date.
 
@@ -80,42 +78,34 @@ To accommodate unexpected events, the lowest lab grade will be dropped at the en
 
 ### Labs 
 
-In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. You will work on lab assignments in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's repository on the course's GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab. You will also be asked to evaluate your team members' performance periodically during the semester. 
+In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments must be typed up using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
 
 If you have a scheculed lab time (sections 01 - 03), you are expected to attend lab during your scheduled time. This is a time for you to work with your teammates under the guidance of a teaching assistant who is there to help you as you work on the assignment. 
-
 
 If you do not have a scheduled lab time (section 04), you will still be required to complete the lab with your teammates by the stated due date. It will be up to the team members to identify a meeting time (if feasible) and communication plan, so labs can be completed collaboratively. The teaching team will provide tips and resources to help you establish an asynchronous workflow. 
 
 To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester. 
 
-### Quizzes - UPDATE
+### Exams
 
-The exams are an opportunity to assess the knowledge and skills you’ve learned. They will include both the conceptual and mathematical and conceptual aspects of regression. Both exams will be given during a lecture class period, and you will be permitted to bring one page of hand-written notes to each exam. The exam dates are as follows: 
-
-- Exam 01: Wednesday, February 26
-- Exam 02: Wednesday, April 15
-
-**Exam dates cannot be changed and no make-up exams will be given.** If you must miss an exam, your absence must be officially excused before the exam due date. If your absence is excused, the missing exam grade will be imputed at the end of the semester based on your performance on other relevant individual coursework.
+There are two (2) individual, take-home, open-note exams worth 15% each. The exams are an opportunity to assess the knowledge and skills you’ve learned. Each exam will include small analysis and computational tasks related to the content discussed in lectures, homework assignments, and labs. More details about the content and structure of the exams will be discussed during the semester.
 
 ### Final Project 
 
 The purpose of the project is to apply what you’ve learned throughout the semester to analyze an interesting data-based research question using regression. The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period. More information about the project will be provided a few weeks into the semester. 
 
-### Participation - UPDATE
+### Participation
 
-This part of the final grade will consist of three components. 
+The participation of the course grade will be based primarily on individual Application Exercises (AEs), which give you an opportunity to practice using the statistical concepts and/or code discussed in lecture on short data analyses. AEs will be linked in lecture slides and time will be set aside during the optional live sessions to work on them. These AEs are due by the end of the next day; for instance, an AE associated with a lecture on Monday will be due Tuesday at 11:59p. AEs will be graded based on a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 90% of AEs will result in full points for AEs; anything lower than that will be assigned points accordingly. 
 
-- Team Feedback Surveys. You will be assigned to diverse teams of 3-4 students based on the results of a Get to Know You survey at the beginning of the semester. These teams will stay consistent throughout the semester (barring extraordinary circumstances). You will primarily work in these teams on lab assignments, the final project, and some in-class activities.
+In addition to AEs will be periodic activities help build a learning community. These will be short, fun activiies that will help everyone in the class connect throughout the semester. 
 
-- Daily Engagement Surveys. After each class you will receive a quick survey of consisting of three questions about engagement in the day's lecture. You are expected to fill out the survey even if you did not attend lecture that day. You are required to complete at least 80% of the daily engagement surveys along with the pre-course and post-course surveys to receive full credit for this component of the grade. 
+The last component of participation will be based on periodic team feedback about each team member's overall contribution to labs and the project. 
 
-- In-Class Questions. We will use active learning in class, which will include answering questions through a web browser. You are required to complete at least 75% of these in-class questions to receive full credit for this component of the grade. You will not be graded based on accuracy; however, you should make a earnest attempt at answering the questions, since they will be used in part to give real-time feedback about the class's understanding of the lecture material. You will be identified using your Net Id. It is your responsibility to ensure your Net Id is entered correctly on each survey to receive credit. In-class questions cannot be made up; there is built-in flexibility so you can earn full credit even if you miss multiple lectures.
+### Statistics Experiences - UPDATE 
 
-### Statistics Experiences 
 
-[ADD DESCRIPTION!]
-
+During the course of the semester, we will have periodic brief opportunities for you to reflect on data science, in order to provide you a space to be creative and think about how what you have learned may apply to society and your own experiences.
 
 ## Grading
 
@@ -125,10 +115,11 @@ The final cousre grade will be calculated as follows:
 
  <span></span>   Category  | <span></span> Percentage 
 -----------|---------------------------------
-Quizzes| 35%
-Homework | 25%
-Labs | 15%
-Final Project | 15%
+Homework | 20%
+Labs | 20%
+Final Project | 20
+Exam 01 | 15%
+Exam 02 | 15%
 Participation | 5%
 Stats Experience | 5%
 
@@ -162,7 +153,7 @@ You will have a 24 hour grace period after the due date of homework and lab assi
 
 If there are extenuating circumstances that prevent you from completing an assignment by the stated due date, please let Professor Tackett know as soon as possible.
 
-**Late work will not be accepted for the quizzes or the final project**
+**Late work will not be accepted for the quizzes or the final project.**
 
 
 ### Regrade Requests
@@ -189,6 +180,6 @@ There are times may need help with the class that is beyond what can be provided
 - **Aug 28**: Drop/add ends
 - **Oct 30**: Last day to withdraw with W
 - **Nov 16**: Classes end
-- **Nov 21**: Final exam period, 9a - 12p
+- **Nov 24**: Final exam period, 7p - 10p
 
 
