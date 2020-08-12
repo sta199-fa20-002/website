@@ -70,7 +70,7 @@
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/home/band_two/</guid>
-      <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }     Lecture All Students Mon and Wed 3:30p - 4:45p   Labs Lab 01 Thu 8:30a - 9:45a    Lab 02 Thu 12p - 1:15p    Lab 03 Thu 5:15p - 6:30p    Lab 04 Asynchronous     </description>
+      <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }     Lecture All Students Mon and Wed 10:15a - 11:30a   Labs Lab 01 Thu 8:30a - 9:45a    Lab 02 Thu 3:30p - 4:45p    Lab 03 Thu 5:15p - 6:30p    Lab 04 Asynchronous     </description>
       <content>&lt;style&gt;
   .column {
   width: 100%;
@@ -89,7 +89,7 @@
   &lt;tr&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;Lecture&lt;/td&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;All Students&lt;/td&gt;
-    &lt;td class=&#34;tg-0pky&#34;&gt;Mon and Wed 3:30p - 4:45p&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Mon and Wed 10:15a - 11:30a&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;Labs&lt;/td&gt;
@@ -99,7 +99,7 @@
   &lt;tr&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;&lt;/td&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;Lab 02&lt;/td&gt;
-    &lt;td class=&#34;tg-0pky&#34;&gt;Thu 12p - 1:15p&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Thu 3:30p - 4:45p&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td class=&#34;tg-0pky&#34;&gt;&lt;/td&gt;
@@ -356,7 +356,7 @@ Course Learning Objectives By the end of the semester, you will…
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/home/band_three/</guid>
-      <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }            Instructor Prof. Maria Tackett TBD   TA Betsy Bersson Mon 8a - 10a   TA Meredith Brown Tue 12p - 2p   TA Cody Coombs Mon 11:30a - 1:30p   TA Sophie Dalldorf TBD   TA Emily Tallman Tue 3:30p - 5:30p    </description>
+      <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }            Instructor Prof. Maria Tackett TBD   TA Salvador Arellano TBD   TA Morris Greenberg TBD   TA Caroline Levenson TBD   TA Ezinne Nwankwo TBD   TA Matty Pahren TBD    </description>
       <content>&lt;style&gt;
   .column {
   width: 100%;
@@ -386,28 +386,28 @@ Course Learning Objectives By the end of the semester, you will…
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;TA&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:elb75@duke.edu&#34;&gt;Betsy Bersson&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Mon 8a - 10a&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:meredith.brown@duke.edu&#34;&gt;Meredith Brown&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Tue 12p - 2p&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:cody.coombs@duke.edu&#34;&gt;Cody Coombs&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Mon 11:30a - 1:30p&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:sophia.dalldorf@duke.edu&#34;&gt;Sophie Dalldorf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:salvador.chavero.arellano@duke.edu&#34;&gt;Salvador Arellano&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;TBD&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;TA&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;mailto:emily.tallman@duke.edu&#34;&gt;Emily Tallman&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Tue 3:30p - 5:30p&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:morris.greenberg@duke.edu&#34;&gt;Morris Greenberg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:caroline.levenson@duke.edu&#34;&gt;Caroline Levenson&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:ezinne.nwankwo@duke.edu&#34;&gt;Ezinne Nwankwo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:martha.pahren@duke.edu&#34;&gt;Matty Pahren&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

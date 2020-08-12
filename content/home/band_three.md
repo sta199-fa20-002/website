@@ -19,8 +19,8 @@ title: Teaching team and office hours
 |            |                     |     |
 |------------|---------------------|-----|
 | Instructor | [Prof. Maria Tackett](mailto:maria.tackett@duke.edu) | TBD |
-| TA         | [Betsy Bersson](mailto:elb75@duke.edu)      | Mon 8a - 10a |
-| TA         | [Meredith Brown](mailto:meredith.brown@duke.edu)     | Tue 12p - 2p |
-| TA         | [Cody Coombs](mailto:cody.coombs@duke.edu)         | Mon 11:30a - 1:30p |
-| TA         | [Sophie Dalldorf](mailto:sophia.dalldorf@duke.edu)    | TBD |
-| TA         | [Emily Tallman](mailto:emily.tallman@duke.edu)       | Tue 3:30p - 5:30p  |
+| TA         | [Salvador Arellano](mailto:salvador.chavero.arellano@duke.edu) | TBD |
+| TA         | [Morris Greenberg](mailto:morris.greenberg@duke.edu)     | TBD |
+| TA         | [Caroline Levenson](mailto:caroline.levenson@duke.edu)         | TBD |
+| TA         | [Ezinne Nwankwo](mailto:ezinne.nwankwo@duke.edu)    | TBD |
+| TA         | [Matty Pahren](mailto:martha.pahren@duke.edu)       | TBD

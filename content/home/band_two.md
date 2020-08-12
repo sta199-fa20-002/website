@@ -21,7 +21,7 @@ title: Course info
   <tr>
     <td class="tg-0pky">Lecture</td>
     <td class="tg-0pky">All Students</td>
-    <td class="tg-0pky">Mon and Wed 3:30p - 4:45p</td>
+    <td class="tg-0pky">Mon and Wed 10:15a - 11:30a</td>
   </tr>
   <tr>
     <td class="tg-0pky">Labs</td>
@@ -31,7 +31,7 @@ title: Course info
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky">Lab 02</td>
-    <td class="tg-0pky">Thu 12p - 1:15p</td>
+    <td class="tg-0pky">Thu 3:30p - 4:45p</td>
   </tr>
   <tr>
     <td class="tg-0pky"></td>
