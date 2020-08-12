@@ -52,7 +52,7 @@ MathJaxVersion = "2.7.1"
 [colors]
     text = "#404040" # off-black
     # Links
-    link = "#7A4183" # main accent
+    link = "#00b3b3" # main accent
     link_hover = "#00b3b3" #lighter
     # Footer
     footer_primary = "#7A4183"
