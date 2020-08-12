@@ -1,0 +1,21 @@
+resources:
+- url: /schedule/
+  title: schedule
+  icon: fa-search
+  icon_pack: fas
+  what: |
+    This is the course schedule! whoo! 
+
+- url: /help/
+  title: help
+  icon: fa-book-open
+  icon_pack: fas
+  what: |
+    This is where you'll get help! Whoo! 
+
+- url: https://www.tidyverse.org/tags/tidymodels/
+  title: Github
+  icon: fa-bullhorn
+  icon_pack: fas
+  what: |
+    These are other tags! whoo!

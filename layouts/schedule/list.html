@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+
+<div class="band padForHeader">
+  <div class="bandContent">
+    <div class="full splitColumns withMobileMargins start">
+        
+      {{ partial "schedule-sidebar.html" . }}
+      
+      <div class="column75">
+        <div class="article-title">{{ .Params.subtitle }}</div>
+        <div class="article-content">
+        {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>  <!-- bandContent -->
+</div> <!-- band -->
+{{ end }}

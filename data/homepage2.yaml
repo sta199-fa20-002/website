@@ -1,0 +1,8 @@
+bandtwo:
+- url: /schedule/
+  title: Find out what's happening! 
+  icon: fa-calendar-check
+  icon_pack: fas
+  what: |
+    Click on the [schedule](/schedule/) tab to keep up with all activities and assignments. 
+    

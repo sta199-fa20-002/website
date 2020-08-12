@@ -1,0 +1,8 @@
+bandtwo:
+- url: https://sakai.duke.edu
+  title: Join on Zoom!
+  icon: fa-laptop
+  icon_pack: fas
+  what: |
+    Join live lectures, labs, and office hours using the Zoom links in [Sakai](https://sakai.duke.edu). 
+

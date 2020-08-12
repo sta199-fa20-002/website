@@ -1,0 +1,289 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title>Maria Tackett on STA 210</title>
+  <link>/author/maria-tackett/</link>
+  <description>Recent content in Maria Tackett on STA 210</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+
+<atom:link href="/author/maria-tackett/index.xml" rel="self" type="application/rss+xml" />
+
+
+<item>
+  <title>Week 01</title>
+  <link>/schedule/week-01/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-01/</guid>
+  <description>&lt;p&gt;this is where I&amp;rsquo;d put week one details.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 02</title>
+  <link>/schedule/week-02/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-02/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 03</title>
+  <link>/schedule/week-03/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-03/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 04</title>
+  <link>/schedule/week-04/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-04/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 05</title>
+  <link>/schedule/week-05/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-05/</guid>
+  <description>&lt;p&gt;week the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Course materials?</title>
+  <link>/home/band_three/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_three/</guid>
+  <description>&lt;p&gt;Maybe put course materials here?&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>help</title>
+  <link>/help/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/help/</guid>
+  <description>&lt;h2 id=&#34;asking-for-help&#34;&gt;Asking for help&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;re asking for R help, reporting a bug, or requesting a new feature, you&amp;rsquo;re more likely to succeed if you include a good reproducible example, which is precisely what the &lt;a href=&#34;https://reprex.tidyverse.org/&#34;&gt;reprex&lt;/a&gt; package is built for. You can learn more about reprex, along with other tips on how to help others help you in the &lt;a href=&#34;https://www.tidyverse.org/help/&#34;&gt;tidyverse.org help section&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;where-to-ask&#34;&gt;Where to ask&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/reprex.png&#34; alt=&#34;&#34; width=&#34;400&#34; height=&#34;285&#34; align=&#34;right&#34; style=&#34;padding:1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now that you&amp;rsquo;ve made a reprex, you need to share it in an appropriate forum. Here are some options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://community.rstudio.com/c/ml/15&#34;&gt;&lt;strong&gt;community.rstudio.com&lt;/strong&gt;&lt;/a&gt;: This is a warm
+and welcoming place to ask any questions you might have about
+tidymodels or more generally about modeling, machine learning, and deep learning. (You can also ask questions about the tidyverse and RStudio there, too!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/tagged/tidymodels&#34;&gt;&lt;strong&gt;Stack Overflow&lt;/strong&gt;&lt;/a&gt;. You&amp;rsquo;re probably already familiar
+with Stack Overflow from googling; it&amp;rsquo;s a frequent source of answers to
+coding related questions. Asking a question on Stack Overflow can be
+intimidating, but if you&amp;rsquo;ve taken the time to create a reprex, you&amp;rsquo;re much
+more likely to get a useful answer. Make sure to &lt;a href=&#34;https://stackoverflow.com/help/tagging&#34;&gt;tag your question&lt;/a&gt; with &lt;code&gt;r&lt;/code&gt;
+and &lt;code&gt;tidymodels&lt;/code&gt; so that the right people are more likely to see it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/search?q=%23rstats&amp;amp;src=typd&#34;&gt;&lt;strong&gt;Twitter&lt;/strong&gt;&lt;/a&gt;. It&amp;rsquo;s hard to share your reprex only on twitter, because 280 characters are rarely enough and screenshots don&amp;rsquo;t help others play with your code. However, twitter is a great place to share a link to your reprex that&amp;rsquo;s hosted elsewhere! The &lt;a href=&#34;https://twitter.com/search?q=%23rstats&amp;amp;src=typd&#34;&gt;#rstats twitter&lt;/a&gt; community is extremely friendly and active, and is a great crowd to be a part of. Make sure you tag your tweet with &lt;code&gt;#rstats&lt;/code&gt; and &lt;code&gt;#tidymodels&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you think you&amp;rsquo;ve found a &lt;strong&gt;bug&lt;/strong&gt;, please follow the instructions for filing an issue on
+&lt;a href=&#34;/contribute/&#34;&gt;contributing to tidymodels&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;See what you need to know to &lt;a href=&#34;/start/&#34;&gt;get started with tidymodels&lt;/a&gt;, and learn more about &lt;a href=&#34;/learn/&#34;&gt;using tidymodels for specific tasks&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each tidymodels package has its own documentation site, full of helpful information. Find &lt;a href=&#34;/packages/&#34;&gt;links to all package documentation sites&lt;/a&gt; and explore them!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search &lt;a href=&#34;/find/&#34;&gt;all tidymodels functions&lt;/a&gt;, and check out &lt;a href=&#34;/books/&#34;&gt;our books on these topics&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stay up to date with the latest news about tidymodels through our posts on the &lt;a href=&#34;https://www.tidyverse.org/tags/tidymodels/&#34;&gt;tidyverse blog&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Learn Regression analysis</title>
+  <link>/home/band_two/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_two/</guid>
+  <description>&lt;p&gt;Maybe put insturctor and TA info here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Project</title>
+  <link>/project/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/project/</guid>
+  <description>&lt;p&gt;This is where put the project.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>STA 210</title>
+  <link>/home/band_one/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_one/</guid>
+  <description>&lt;p&gt;Welome to STA 210: Regression Analysis! This is where i&amp;rsquo;ll have the course description&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Tidymodels packages</title>
+  <link>/syllabus/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/syllabus/</guid>
+  <description>&lt;h2 id=&#34;installation-and-use&#34;&gt;Installation and use&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install many of the packages in the tidymodels ecosystem by running &lt;code&gt;install.packages(&amp;quot;tidymodels&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;library(tidymodels)&lt;/code&gt; to load the core packages and make them available in your current R session.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;package-section&#34;&gt;
+&lt;div class=&#34;package-section-info&#34;&gt;
+&lt;h2 id=&#34;core-tidymodels&#34;&gt;Core tidymodels&lt;/h2&gt;
+  &lt;p&gt;The core tidymodels packages work together to enable a wide variety of modeling approaches:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;packages&#34;&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/tidymodels.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/tidymodels/&#34;&gt; tidymodels &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;tidymodels is a meta-package that installs and load the core packages listed below that you need for modeling and machine learning.
+      &lt;a href=&#34;https://tidymodels.github.io/tidymodels/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/rsample.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/rsample/&#34;&gt;rsample&lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;rsample provides infrastructure for efficient data splitting and resampling. &lt;a href=&#34;https://tidymodels.github.io/rsample/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/parsnip.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/parsnip/&#34;&gt; parsnip &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;parsnip is a tidy, unified interface to models that can be used to try a range of models without getting bogged down in the syntactical minutiae of the underlying packages. &lt;a href=&#34;https://tidymodels.github.io/parsnip/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;  
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/recipes.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/recipes/&#34;&gt; recipes &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;recipes is a tidy interface to data pre-processing tools for feature engineering. &lt;a href=&#34;https://tidymodels.github.io/recipes/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/placeholder.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/workflows/&#34;&gt; workflows &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;workflows bundle your pre-processing, modeling, and post-processing together. &lt;a href=&#34;https://tidymodels.github.io/workflows/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt; 
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/tune.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/tune/&#34;&gt; tune &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;tune helps you optimize the hyperparameters of your model and pre-processing steps. &lt;a href=&#34;https://tidymodels.github.io/tune/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;  
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/yardstick.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://tidymodels.github.io/yardstick/&#34;&gt; yardstick &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;yardstick measures the effectiveness of models using performance metrics. &lt;a href=&#34;https://tidymodels.github.io/yardstick/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/broom.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://broom.tidyverse.org/&#34;&gt; broom &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;broom converts the information in common statistical R objects into user-friendly, predictable formats. 
+      &lt;a href=&#34;https://broom.tidyverse.org/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;package&#34;&gt;
+    &lt;img class=&#34;package-image&#34; src=&#34;/images/dials.png&#34; alt=&#34;&#34;&gt;&lt;/img&gt;
+    &lt;div class=&#34;package-info&#34;&gt;
+      &lt;h3&gt;&lt;a href=&#34;https://dials.tidymodels.org/&#34;&gt; dials &lt;/a&gt;&lt;/h3&gt;
+      &lt;p&gt;dials creates and manages tuning parameters and parameter grids. 
+      &lt;a href=&#34;https://dials.tidymodels.org/&#34; aria-hidden=&#34;true&#34;&gt;Go to package ...&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;  
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Learn more about the tidymodels metapackage itself at &lt;a href=&#34;https://tidymodels.github.io/tidymodels/&#34;&gt;https://tidymodels.github.io/tidymodels/&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;specialized-packages&#34;&gt;Specialized packages&lt;/h2&gt;
+&lt;p&gt;The tidymodels framework also includes many other packages designed for specialized data analysis and modeling tasks. They are not loaded automatically with &lt;code&gt;library(tidymodels)&lt;/code&gt;, so you&amp;rsquo;ll need to load each one with its own call to &lt;code&gt;library()&lt;/code&gt;. These packages include:&lt;/p&gt;
+&lt;h3 id=&#34;perform-statistical-analysislearnstatistics&#34;&gt;&lt;a href=&#34;/learn/statistics/&#34;&gt;Perform statistical analysis&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://infer.netlify.com/&#34;&gt;infer&lt;/a&gt; is a high-level API for tidyverse-friendly statistical inference.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&#34;https://tidymodels.github.io/corrr/&#34;&gt;corrr&lt;/a&gt; package has tidy interfaces for working with correlation matrices.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;create-robust-modelslearnmodels&#34;&gt;&lt;a href=&#34;/learn/models/&#34;&gt;Create robust models&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;parsnip also has additional packages that contain more model definitions. &lt;a href=&#34;https://tidymodels.github.io/discrim/&#34;&gt;discrim&lt;/a&gt; contains definitions for discriminant analysis models and &lt;a href=&#34;https://github.com/tidymodels/rules/&#34;&gt;rules&lt;/a&gt; does the same for rule-based classification and regression models.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There are several add-on packages for creating recipes. &lt;a href=&#34;https://tidymodels.github.io/embed/&#34;&gt;embed&lt;/a&gt; contains steps to create embeddings or projections of predictors. &lt;a href=&#34;https://tidymodels.github.io/textrecipes/&#34;&gt;textrecipes&lt;/a&gt; has extra steps for text processing, and &lt;a href=&#34;https://tidymodels.github.io/themis/&#34;&gt;themis&lt;/a&gt; can help alleviate class imbalance using sampling methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://tidymodels.github.io/tidypredict/&#34;&gt;tidypredict&lt;/a&gt; and &lt;a href=&#34;https://tidymodels.github.io/modeldb/&#34;&gt;modeldb&lt;/a&gt; can convert prediction equations to different languages (e.g. SQL) and fit some models in-database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tune-compare-and-work-with-your-modelslearnwork&#34;&gt;&lt;a href=&#34;/learn/work/&#34;&gt;Tune, compare, and work with your models&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://tidymodels.github.io/probably/&#34;&gt;probably&lt;/a&gt; has tools for post-processing class probability estimates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&#34;https://tidymodels.github.io/tidyposterior/&#34;&gt;tidyposterior&lt;/a&gt; package enables users to make formal statistical comparisons between models using resampling and Bayesian methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Some R objects become inconveniently large when saved to disk. The &lt;a href=&#34;https://tidymodels.github.io/butcher/&#34;&gt;butcher&lt;/a&gt; package can reduce the size of those objects by removing the sub-components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To know whether the data that you are predicting are &lt;em&gt;extrapolations&lt;/em&gt; from the training set, &lt;a href=&#34;https://tidymodels.github.io/applicable/&#34;&gt;applicable&lt;/a&gt; can produce metrics the measure extrapolation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;develop-custom-modeling-toolslearndevelop&#34;&gt;&lt;a href=&#34;/learn/develop/&#34;&gt;Develop custom modeling tools&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tidymodels.github.io/hardhat/&#34;&gt;hardhat&lt;/a&gt; is a &lt;em&gt;developer-focused&lt;/em&gt; package that helps beginners create high-quality R packages for modeling.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>

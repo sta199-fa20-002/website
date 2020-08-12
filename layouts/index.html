@@ -1,0 +1,71 @@
+{{ define "main" }}
+
+<!-- page -->
+<div id="homeContent" class="pushFooter">
+
+<!-- band_one.md populates this section -->
+{{ with .Site.GetPage "/home/band_one.md" }}
+  <div class="band first">
+    <div class="bandContent">
+<!-- text on the right -->
+      <div class="blurb">
+        <div class="tagline">
+          {{ .Title }}
+          </div>
+        <div>
+          {{ .Content | markdownify }}
+        </div>
+      </div>
+
+    </div> <!-- bandContent -->
+  </div>  <!-- band -->
+{{ end }}
+
+<!-- band_two.md populates this section -->
+{{ with .Site.GetPage "/home/band_two.md" }}
+
+  <div class="band second">
+    <div class="bandContent">
+      <div class="blurb">
+        <div class="tagline">
+          {{ .Title }}
+        </div>
+        <div>
+          {{ .Content | markdownify }}
+        </div>
+      </div>
+      <div class="blurb">
+        {{ partial "homepage_sticky" . }}
+        {{ partial "homepage_sticky_2" . }}
+      </div>
+    </div> <!-- bandContent -->
+  </div> <!-- band -->
+  
+{{ end }}
+
+<!-- band_three.md populates this section -->
+{{ with .Site.GetPage "/home/band_three.md" }}
+
+  <div class="band third">
+    <div class="bandContent">
+      <div class="blurb">
+        <div class="tagline">
+          {{ .Title }}
+        </div>
+        <div>
+          {{ .Content | markdownify }}
+        </div>
+      </div>
+      <div class="blurb">
+        {{ partial "homepage_sticky_3" . }}
+      <!-- {{ partial "homepage_sticky_4" . }}  -->
+      </div>
+    </div> <!-- bandContent -->
+  </div> <!-- band -->
+
+{{ end }}
+</div> <!-- homeContent -->
+
+
+{{ end }}
+

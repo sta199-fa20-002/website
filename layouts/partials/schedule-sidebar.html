@@ -1,0 +1,27 @@
+{{ $page := . }}
+<div class="column25-left {{ if ne $page.File.Dir "schedule/" }}hideOnMobile{{ end }}">
+  <div class="section">
+    <div class="section">
+      <div class="schedule sectionTitle">
+          {{ with .Site.GetPage "section" "schedule" }}
+          <a class = "sectionTitle {{ if eq $page.RelPermalink .RelPermalink }}current{{ end }}" href="{{ .RelPermalink }}">
+          {{ .Title }}
+          {{ end }}
+          </a>
+      </div>
+    </div>
+  
+  {{ range (where .Site.RegularPages.ByWeight "Section" "schedule" ) }}
+    <div class="section">
+        <div class="sectionTitle"><a class = "sectionTitle {{ if eq $page.RelPermalink .RelPermalink }}current{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+    </div>
+    {{ end }}
+  </div>
+  
+  <!-- Adds Help nudge, but only to single pages --> 
+  <!--{{ if .IsPage }}
+    {{ partial "help.html" . }}
+  {{ end }}-->
+
+</div>

@@ -1,0 +1,460 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+  <title>rsample on STA 210</title>
+  <link>/tags/rsample/</link>
+  <description>Recent content in rsample on STA 210</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+
+<atom:link href="/tags/rsample/index.xml" rel="self" type="application/rss+xml" />
+
+
+<item>
+  <title>Week 01</title>
+  <link>/schedule/week-01/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-01/</guid>
+  <description>&lt;p&gt;this is where I&amp;rsquo;d put week one details.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 02</title>
+  <link>/schedule/week-02/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-02/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 03</title>
+  <link>/schedule/week-03/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-03/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 04</title>
+  <link>/schedule/week-04/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-04/</guid>
+  <description>&lt;p&gt;put the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Week 05</title>
+  <link>/schedule/week-05/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/schedule/week-05/</guid>
+  <description>&lt;p&gt;week the content here.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Course info</title>
+  <link>/home/band_two/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_two/</guid>
+  <description>&lt;style&gt;
+  .column {
+  width: 100%;
+  }
+
+  table {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  }
+  
+&lt;/style&gt;
+&lt;div class = &#34;column&#34;&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Lecture&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;All Students&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Mon and Wed 3:30p - 4:45p&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Labs&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Lab 01&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Thu 8:30a - 9:45a&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Lab 02&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Thu 12p - 1:15p&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Lab 03&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Thu 5:15p - 6:30p&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Lab 04&lt;/td&gt;
+    &lt;td class=&#34;tg-0pky&#34;&gt;Asynchronous&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Project</title>
+  <link>/project/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/project/</guid>
+  <description>&lt;p&gt;This is where put the project.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>STA 210: Regression Analysis</title>
+  <link>/home/band_one/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_one/</guid>
+  <description>&lt;p&gt;Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Syllabus</title>
+  <link>/syllabus/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/syllabus/</guid>
+  <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;syllabus.pdf&#34;&gt;Click here&lt;/a&gt; to download a PDF copy of the syllabus.&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;course-learning-objectives&#34;&gt;Course Learning Objectives&lt;/h1&gt;
+&lt;p&gt;By the end of the semester, you will…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;know methods for analyzing multivariate datasets, with an emphasis on interpretation&lt;/li&gt;
+&lt;li&gt;know how to check whether proposed statistical models are appropriate for given data&lt;/li&gt;
+&lt;li&gt;develop proficiency in addressing complex research questions using statistical evidence&lt;/li&gt;
+&lt;li&gt;develop proficiency in computing tools used to conduct reproducible statistical analyses, specifically R and Git&lt;/li&gt;
+&lt;li&gt;understand the process of data-based research by working on an independent research project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;course-community&#34;&gt;Course Community&lt;/h2&gt;
+&lt;h3 id=&#34;diversity--inclusion&#34;&gt;Diversity &amp;amp; Inclusion&lt;/h3&gt;
+&lt;p&gt;It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students&amp;rsquo; learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke’s Commitment to Diversity and Inclusion] (&lt;a href=&#34;https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion)&#34;&gt;https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion)&lt;/a&gt;. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.&lt;/p&gt;
+&lt;p&gt;Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you feel like your performance in the class is being impacted by your experiences outside of class, please don&amp;rsquo;t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.&lt;/li&gt;
+&lt;li&gt;I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;accessibility&#34;&gt;Accessibility&lt;/h3&gt;
+&lt;p&gt;Duke University is committed to providing equal access to students with documented disabilities. Students with disabilities may contact the &lt;a href=&#34;https://access.duke.edu&#34;&gt;Student Disability Access Office (SDAO)&lt;/a&gt; to ensure your access to this course and to the program. There you can engage in a confidential conversation about the process for requesting reasonable accommodations both in the classroom and in clinical settings. Students are encouraged to register with the SDAO as soon as they begin the program. Please note that accommodations are not provided retroactively.&lt;/p&gt;
+&lt;p&gt;More information can be found online at &lt;a href=&#34;https://access.duke.edu&#34;&gt;access.duke.edu&lt;/a&gt; or by contacting SDAO at 919-668-1267, &lt;a href=&#34;mailto:sdao@duke.edu&#34; title=&#34;email&#34;&gt;&lt;a href=&#34;mailto:SDAO@duke.edu&#34;&gt;SDAO@duke.edu&lt;/a&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;academic-integrity--duke-community-pact&#34;&gt;Academic Integrity &amp;amp; Duke Community Pact&lt;/h3&gt;
+&lt;p&gt;By enrolling in this course, you have agreed to abide by and uphold the provisions of the  &lt;a href=&#34;https://studentaffairs.duke.edu/conduct/about-us/duke-community-standard&#34;&gt;Duke Community Standard&lt;/a&gt; as well as the policies specific to this course. Any violations will automatically result in a grade of 0 on the  assignment and will be reported to &lt;a href=&#34;https://studentaffairs.duke.edu/conduct&#34;&gt;Office of Student Conduct&lt;/a&gt; for further action.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reusing code&lt;/strong&gt;: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.&lt;/li&gt;
+&lt;li&gt;On individual assignments, you may not directly share code or write up with other students. On team assignments, you may not directly share code or write up with another team. Unauthorized sharing of the code or write up will be considered a violation for all students involved.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;communication&#34;&gt;Communication&lt;/h3&gt;
+&lt;p&gt;All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, &lt;a href=&#34;https://sta210-fa20.netlify.app&#34;&gt;https://sta210-fa20.netlify.app&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;I will periodically send announcements via email, so please check your email regularly. You may also find a copy of announcements on Sakai.&lt;/p&gt;
+&lt;h3 id=&#34;getting-help&#34;&gt;Getting Help&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.&lt;/li&gt;
+&lt;li&gt;The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!&lt;/li&gt;
+&lt;li&gt;Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check out the &lt;a href=&#34;/help/&#34;&gt;Help&lt;/a&gt; tab for more information about getting help and resources.&lt;/p&gt;
+&lt;h2 id=&#34;course-components&#34;&gt;Course components&lt;/h2&gt;
+&lt;p&gt;The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you&amp;rsquo;ve learned in future academic and professional projects.&lt;/p&gt;
+&lt;h3 id=&#34;a-week-in-sta-210&#34;&gt;A Week in STA 210&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ADD PICTURE OR CHART THAT MAPS OUT A WEEK OF CLASS!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;lectures&#34;&gt;Lectures&lt;/h3&gt;
+&lt;h3 id=&#34;labs&#34;&gt;Labs&lt;/h3&gt;
+&lt;h3 id=&#34;homework&#34;&gt;Homework&lt;/h3&gt;
+&lt;p&gt;In homework, you will apply what you&amp;rsquo;ve learned during lecture and lab to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Homework must be typed up using R Markdown and GitHub and submitted in Gradescope.&lt;/p&gt;
+&lt;p&gt;Individual homework extensions will only be given for extenuating circumstances. Please contact Professor Tackett if you have an extenuating circumstance that prohibits you from completing the homework by the stated due date.&lt;/p&gt;
+&lt;p&gt;To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester.&lt;/p&gt;
+&lt;h3 id=&#34;labs-1&#34;&gt;Labs&lt;/h3&gt;
+&lt;p&gt;In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. You will work on lab assignments in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team&amp;rsquo;s repository on the course&amp;rsquo;s GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member&amp;rsquo;s relative contribution for each lab. You will also be asked to evaluate your team members&amp;rsquo; performance periodically during the semester.&lt;/p&gt;
+&lt;p&gt;If you have a scheculed lab time (sections 01 - 03), you are expected to attend lab during your scheduled time. This is a time for you to work with your teammates under the guidance of a teaching assistant who is there to help you as you work on the assignment.&lt;/p&gt;
+&lt;p&gt;If you do not have a scheduled lab time (section 04), you will still be required to complete the lab with your teammates by the stated due date. It will be up to the team members to identify a meeting time (if feasible) and communication plan, so labs can be completed collaboratively. The teaching team will provide tips and resources to help you establish an asynchronous workflow.&lt;/p&gt;
+&lt;p&gt;To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester.&lt;/p&gt;
+&lt;h3 id=&#34;quizzes---update&#34;&gt;Quizzes - UPDATE&lt;/h3&gt;
+&lt;p&gt;The exams are an opportunity to assess the knowledge and skills you’ve learned. They will include both the conceptual and mathematical and conceptual aspects of regression. Both exams will be given during a lecture class period, and you will be permitted to bring one page of hand-written notes to each exam. The exam dates are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Exam 01: Wednesday, February 26&lt;/li&gt;
+&lt;li&gt;Exam 02: Wednesday, April 15&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Exam dates cannot be changed and no make-up exams will be given.&lt;/strong&gt; If you must miss an exam, your absence must be officially excused before the exam due date. If your absence is excused, the missing exam grade will be imputed at the end of the semester based on your performance on other relevant individual coursework.&lt;/p&gt;
+&lt;h3 id=&#34;final-project&#34;&gt;Final Project&lt;/h3&gt;
+&lt;p&gt;The purpose of the project is to apply what you’ve learned throughout the semester to analyze an interesting data-based research question using regression. The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period. More information about the project will be provided a few weeks into the semester.&lt;/p&gt;
+&lt;h3 id=&#34;participation---update&#34;&gt;Participation - UPDATE&lt;/h3&gt;
+&lt;p&gt;This part of the final grade will consist of three components.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Team Feedback Surveys. You will be assigned to diverse teams of 3-4 students based on the results of a Get to Know You survey at the beginning of the semester. These teams will stay consistent throughout the semester (barring extraordinary circumstances). You will primarily work in these teams on lab assignments, the final project, and some in-class activities.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Daily Engagement Surveys. After each class you will receive a quick survey of consisting of three questions about engagement in the day&amp;rsquo;s lecture. You are expected to fill out the survey even if you did not attend lecture that day. You are required to complete at least 80% of the daily engagement surveys along with the pre-course and post-course surveys to receive full credit for this component of the grade.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In-Class Questions. We will use active learning in class, which will include answering questions through a web browser. You are required to complete at least 75% of these in-class questions to receive full credit for this component of the grade. You will not be graded based on accuracy; however, you should make a earnest attempt at answering the questions, since they will be used in part to give real-time feedback about the class&amp;rsquo;s understanding of the lecture material. You will be identified using your Net Id. It is your responsibility to ensure your Net Id is entered correctly on each survey to receive credit. In-class questions cannot be made up; there is built-in flexibility so you can earn full credit even if you miss multiple lectures.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;statistics-experiences&#34;&gt;Statistics Experiences&lt;/h3&gt;
+&lt;p&gt;[ADD DESCRIPTION!]&lt;/p&gt;
+&lt;h2 id=&#34;grading&#34;&gt;Grading&lt;/h2&gt;
+&lt;p&gt;The final cousre grade will be calculated as follows:&lt;/p&gt;
+&lt;center&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;span&gt;&lt;/span&gt;   Category&lt;/th&gt;
+&lt;th&gt;&lt;span&gt;&lt;/span&gt; Percentage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Quizzes&lt;/td&gt;
+&lt;td&gt;35%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Homework&lt;/td&gt;
+&lt;td&gt;25%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Labs&lt;/td&gt;
+&lt;td&gt;15%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Final Project&lt;/td&gt;
+&lt;td&gt;15%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Participation&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Stats Experience&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;p&gt;The final letter grade will be determined based on the following thresholds:&lt;/p&gt;
+&lt;center&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;span&gt;&lt;/span&gt; Letter Grade&lt;/th&gt;
+&lt;th&gt;&lt;span&gt;&lt;/span&gt; Final Course Grade&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;&amp;gt;= 93&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;A-&lt;/td&gt;
+&lt;td&gt;90 - 92.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B+&lt;/td&gt;
+&lt;td&gt;87 - 89.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;td&gt;83 - 86.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B-&lt;/td&gt;
+&lt;td&gt;80 - 82.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C+&lt;/td&gt;
+&lt;td&gt;77 - 79.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;73 - 76.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C-&lt;/td&gt;
+&lt;td&gt;70 - 72.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;D+&lt;/td&gt;
+&lt;td&gt;67 - 69.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;td&gt;63 - 66.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;D-&lt;/td&gt;
+&lt;td&gt;60 - 62.99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;&amp;lt; 60&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;h3 id=&#34;late-work&#34;&gt;Late Work&lt;/h3&gt;
+&lt;p&gt;You will have a 24 hour grace period after the due date of homework and lab assignments to turn them in with no penalty. I recommend using this policy as little as possible, but they are there to provide some relief and to accommodate multiple time zones. After the grace period, there is a 20% penalty for each day the assignment is late.&lt;/p&gt;
+&lt;p&gt;If there are extenuating circumstances that prevent you from completing an assignment by the stated due date, please let Professor Tackett know as soon as possible.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Late work will not be accepted for the quizzes or the final project&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;regrade-requests&#34;&gt;Regrade Requests&lt;/h3&gt;
+&lt;p&gt;Regrade requests should be submitted through the regrade request from on Gradescope. &lt;strong&gt;Requests for a regrade must be made within a week of when the assignment is returned; requests submitted later will not be considered.&lt;/strong&gt; You should only submit a regrade request if there is an error in the grade calculation or a correct answer was mistakenly marked as incorrect. You should not submit a regrade to dispute the number of points deducted for an incorrect response. &lt;em&gt;Please note that by submitting a regrade request, your entire assignment may be regraded and you may potentially lose points.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Due to the time consuming nature of responding to regrade requests, you should attend office hours and ask a member of the teaching team about the feedback before submitting the request. When you submit a request, please indicate which member of the teaching team you spoke with. &lt;em&gt;Note: Grades can only be changed by Professor Tackett. Teaching Assistants cannot change grades on returned assignments.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;No grades will be changed after the final project presentations.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;additional-resources&#34;&gt;Additional resources&lt;/h2&gt;
+&lt;h3 id=&#34;academic-resource-center&#34;&gt;Academic Resource Center&lt;/h3&gt;
+&lt;p&gt;There are times may need help with the class that is beyond what can be provided by the teaching team. In those instances, I encourage you to visit the Academic Resource Center. The &lt;a href=&#34;https://arc.duke.edu&#34;&gt;Academic Resource Center (ARC)&lt;/a&gt; offers free services to all students during their undergraduate careers at Duke.  Services include Learning Consultations, Peer Tutoring and Study Groups, ADHD/LD Coaching, Outreach Workshops, and more. Because learning is a process unique to every individual, they work with each student to discover and develop their own academic strategy for success at Duke. Contact the ARC to schedule an appointment. Undergraduates in any year, studying any discipline can benefit! Contact &lt;a href=&#34;mailto:arc@duke.edu&#34; title=&#34;email&#34;&gt;&lt;a href=&#34;mailto:ARC@duke.edu&#34;&gt;ARC@duke.edu&lt;/a&gt;&lt;/a&gt;, 919-684-5917.&lt;/p&gt;
+&lt;h3 id=&#34;caps&#34;&gt;CAPS&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://studentaffairs.duke.edu/caps&#34;&gt;Duke Counseling &amp;amp; Pyschological Services (CAPS)&lt;/a&gt; helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS recognizes that we are living in unprecedented times and that the changes, challenges and stressors brought on by the COVID-19 pandemic have impacted everyone, often in ways that are tax our well-being. CAPS offers many services to Duke undergraduate students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.&lt;/p&gt;
+&lt;h3 id=&#34;important-dates&#34;&gt;Important dates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aug 17&lt;/strong&gt;: Classes begin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aug 28&lt;/strong&gt;: Drop/add ends&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oct 30&lt;/strong&gt;: Last day to withdraw with W&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nov 16&lt;/strong&gt;: Classes end&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nov 21&lt;/strong&gt;: Final exam period, 9a - 12p&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Teaching team and office hours</title>
+  <link>/home/band_three/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/home/band_three/</guid>
+  <description>&lt;style&gt;
+  .column {
+  width: 100%;
+  }
+
+  table {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  
+  }
+  
+&lt;/style&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Instructor&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:maria.tackett@duke.edu&#34;&gt;Prof. Maria Tackett&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:elb75@duke.edu&#34;&gt;Betsy Bersson&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Mon 8a - 10a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:meredith.brown@duke.edu&#34;&gt;Meredith Brown&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Tue 12p - 2p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:cody.coombs@duke.edu&#34;&gt;Cody Coombs&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Mon 11:30a - 1:30p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:sophia.dalldorf@duke.edu&#34;&gt;Sophie Dalldorf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:emily.tallman@duke.edu&#34;&gt;Emily Tallman&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Tue 3:30p - 5:30p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Where to find help</title>
+  <link>/help/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/help/</guid>
+  <description>&lt;h2 id=&#34;asking-for-help&#34;&gt;Asking for help&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;re asking for R help, reporting a bug, or requesting a new feature, you&amp;rsquo;re more likely to succeed if you include a good reproducible example, which is precisely what the &lt;a href=&#34;https://reprex.tidyverse.org/&#34;&gt;reprex&lt;/a&gt; package is built for. You can learn more about reprex, along with other tips on how to help others help you in the &lt;a href=&#34;https://www.tidyverse.org/help/&#34;&gt;tidyverse.org help section&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;where-to-ask&#34;&gt;Where to ask&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/reprex.png&#34; alt=&#34;&#34; width=&#34;400&#34; height=&#34;285&#34; align=&#34;right&#34; style=&#34;padding:1em;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now that you&amp;rsquo;ve made a reprex, you need to share it in an appropriate forum. Here are some options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://community.rstudio.com/c/ml/15&#34;&gt;&lt;strong&gt;community.rstudio.com&lt;/strong&gt;&lt;/a&gt;: This is a warm
+and welcoming place to ask any questions you might have about
+tidymodels or more generally about modeling, machine learning, and deep learning. (You can also ask questions about the tidyverse and RStudio there, too!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/tagged/tidymodels&#34;&gt;&lt;strong&gt;Stack Overflow&lt;/strong&gt;&lt;/a&gt;. You&amp;rsquo;re probably already familiar
+with Stack Overflow from googling; it&amp;rsquo;s a frequent source of answers to
+coding related questions. Asking a question on Stack Overflow can be
+intimidating, but if you&amp;rsquo;ve taken the time to create a reprex, you&amp;rsquo;re much
+more likely to get a useful answer. Make sure to &lt;a href=&#34;https://stackoverflow.com/help/tagging&#34;&gt;tag your question&lt;/a&gt; with &lt;code&gt;r&lt;/code&gt;
+and &lt;code&gt;tidymodels&lt;/code&gt; so that the right people are more likely to see it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/search?q=%23rstats&amp;amp;src=typd&#34;&gt;&lt;strong&gt;Twitter&lt;/strong&gt;&lt;/a&gt;. It&amp;rsquo;s hard to share your reprex only on twitter, because 280 characters are rarely enough and screenshots don&amp;rsquo;t help others play with your code. However, twitter is a great place to share a link to your reprex that&amp;rsquo;s hosted elsewhere! The &lt;a href=&#34;https://twitter.com/search?q=%23rstats&amp;amp;src=typd&#34;&gt;#rstats twitter&lt;/a&gt; community is extremely friendly and active, and is a great crowd to be a part of. Make sure you tag your tweet with &lt;code&gt;#rstats&lt;/code&gt; and &lt;code&gt;#tidymodels&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you think you&amp;rsquo;ve found a &lt;strong&gt;bug&lt;/strong&gt;, please follow the instructions for filing an issue on
+&lt;a href=&#34;/contribute/&#34;&gt;contributing to tidymodels&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;office-hours&#34;&gt;Office hours&lt;/h2&gt;
+&lt;h2 id=&#34;academic-resource-center&#34;&gt;Academic resource center&lt;/h2&gt;
+&lt;p&gt;The Academic Resource Center (ARC) offers free services to all students during their undergraduate careers at Duke.  Services include Learning Consultations, Peer Tutoring, Learning Communities, ADHD/LD Coaching, Outreach Workshops, GRE/MCAT Prep, Study Connect, and more. Because learning is a process unique to every individual, we work with each student to discover and develop their own academic strategy for success at Duke. Contact the ARC to schedule an appointment. Undergraduates in any year, studying any discipline can benefit! arc.duke.edu • &lt;a href=&#34;mailto:theARC@duke.edu&#34;&gt;theARC@duke.edu&lt;/a&gt; • 919-684-5917, 211 Academic Advising Center Building, East Campus – behind Marketplace.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;See what you need to know to &lt;a href=&#34;/start/&#34;&gt;get started with tidymodels&lt;/a&gt;, and learn more about &lt;a href=&#34;/learn/&#34;&gt;using tidymodels for specific tasks&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Each tidymodels package has its own documentation site, full of helpful information. Find &lt;a href=&#34;/packages/&#34;&gt;links to all package documentation sites&lt;/a&gt; and explore them!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search &lt;a href=&#34;/find/&#34;&gt;all tidymodels functions&lt;/a&gt;, and check out &lt;a href=&#34;/books/&#34;&gt;our books on these topics&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stay up to date with the latest news about tidymodels through our posts on the &lt;a href=&#34;https://www.tidyverse.org/tags/tidymodels/&#34;&gt;tidyverse blog&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>
