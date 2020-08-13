@@ -4,7 +4,7 @@ title: Help
 
 ## Getting help in the course
 
-We expect everyone will have questions at some point in the semseter, so we enourage you to use the following resources for help: 
+We expect everyone will have questions at some point in the semester, so we encourage you to use the following resources for help: 
 
 ## Ask questions during lectures and lab
 
@@ -22,7 +22,7 @@ Outside of class and office hours, any general questions about course content or
 
 ## Email 
 
-If you have questions about personal matters that are not approrpriate for the public forum on Piazza (e.g. illness, accommdations, etc.), you may email Professor Tackett at [maria.tackett@duke.edu](mailto:maria.tackett@duke.edu). 
+If you have questions about personal matters that are not appropriate for the public forum on Piazza (e.g. illness, accommodations, etc.), you may email Professor Tackett at [maria.tackett@duke.edu](mailto:maria.tackett@duke.edu). 
 
 Please do not email about course content questions but rather post those on Piazza.
 
@@ -36,12 +36,12 @@ Please do not email about course content questions but rather post those on Piaz
 
 ## Resources for mental health and wellness
 
-- **DukeReach**: Provides comprehensive outreach services to identify and support students in managing all aspects of wellbeing. If you have concerns about a student's behavior or health visit the website for resources and assistance. 
+- **DukeReach**: Provides comprehensive outreach services to identify and support students in managing all aspects of well being. If you have concerns about a student's behavior or health visit the website for resources and assistance. 
 Go to [studentaffairs.duke.edu/dukereach](http://studentaffairs.duke.edu/dukereach)
 
 - **Counseling and Psychological Services (CAPS)**: CAPS services include individual, group, and couples counseling services, health coaching, psychiatric services, and workshops and discussions. Contact CAPS at (919) 660-1000
 
-- **Blue Devils Care**. A convenient and cost-effectie way for Duke students to receive 24/7 mental health support through TalkNow. Go to [bluedevilscare.duke.edu](https://www.timely.md/faq/blue-devils-care-faq/)
+- **Blue Devils Care**. A convenient and cost-effective way for Duke students to receive 24/7 mental health support through TalkNow. Go to [bluedevilscare.duke.edu](https://www.timely.md/faq/blue-devils-care-faq/)
 
 ## Resources for academic support and wellness
 
