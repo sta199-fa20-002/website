@@ -212,6 +212,64 @@
   </item>
   
 <item>
+  <title>Help</title>
+  <link>/help/</link>
+  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+  
+<guid>/help/</guid>
+  <description>&lt;h2 id=&#34;getting-help-in-the-course&#34;&gt;Getting help in the course&lt;/h2&gt;
+&lt;p&gt;We expect everyone will have questions at some point in the semseter, so we enourage you to use the following resources for help:&lt;/p&gt;
+&lt;h2 id=&#34;ask-questions-during-lectures-and-lab&#34;&gt;Ask questions during lectures and lab&lt;/h2&gt;
+&lt;p&gt;If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.&lt;/p&gt;
+&lt;h2 id=&#34;office-hours&#34;&gt;Office hours&lt;/h2&gt;
+&lt;p&gt;The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!&lt;/p&gt;
+&lt;p&gt;Join using the Zoom link in &lt;a href=&#34;https://sakai.duke.edu&#34;&gt;Sakai&lt;/a&gt;. You can find the office hours schedule on the &lt;a href=&#34;https://sta199-fa20-002.netlify.app/&#34;&gt;homepage&lt;/a&gt; and in Sakai.&lt;/p&gt;
+&lt;h2 id=&#34;piazza&#34;&gt;Piazza&lt;/h2&gt;
+&lt;p&gt;Outside of class and office hours, any general questions about course content or assignments should be posted on &lt;a href=&#34;https://www.piazza.com&#34;&gt;Piazza&lt;/a&gt;. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond!&lt;/p&gt;
+&lt;h2 id=&#34;email&#34;&gt;Email&lt;/h2&gt;
+&lt;p&gt;If you have questions about personal matters that are not approrpriate for the public forum on Piazza (e.g. illness, accommdations, etc.), you may email Professor Tackett at &lt;a href=&#34;mailto:maria.tackett@duke.edu&#34;&gt;maria.tackett@duke.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please do not email about course content questions but rather post those on Piazza.&lt;/p&gt;
+&lt;h2 id=&#34;resources-for-the-course&#34;&gt;Resources for the course&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://leanpub.com/openintro-statistics&#34;&gt;OpenIntro Statistics 4th ed&lt;/a&gt; by David Diez, Mine Çetinkaya-Rundel, and Christopher Barr&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt; by Garret Grolemund and Hadley Wickham&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://moderndive.com/&#34;&gt;Statistical Inference via Data Science: A ModernDive into R and the Tidyverse&lt;/a&gt; by Chester Ismay and Albert Kim&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;resources-for-mental-health-and-wellness&#34;&gt;Resources for mental health and wellness&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DukeReach&lt;/strong&gt;: Provides comprehensive outreach services to identify and support students in managing all aspects of wellbeing. If you have concerns about a student&amp;rsquo;s behavior or health visit the website for resources and assistance.
+Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaffairs.duke.edu/dukereach&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Counseling and Psychological Services (CAPS)&lt;/strong&gt;: CAPS services include individual, group, and couples counseling services, health coaching, psychiatric services, and workshops and discussions. Contact CAPS at (919) 660-1000&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Blue Devils Care&lt;/strong&gt;. A convenient and cost-effectie way for Duke students to receive 24/7 mental health support through TalkNow. Go to &lt;a href=&#34;https://www.timely.md/faq/blue-devils-care-faq/&#34;&gt;bluedevilscare.duke.edu&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;resources-for-academic-support-and-wellness&#34;&gt;Resources for academic support and wellness&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;The Academic Resource Center&lt;/strong&gt;: Contact the ARC at (919) 684-5917, &lt;a href=&#34;mailto:theARC@duke.edu&#34;&gt;theARC@duke.edu&lt;/a&gt;, or &lt;a href=&#34;https://arc.duke.edu/&#34;&gt;arc.duke.edu&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DuWell&lt;/strong&gt;: Contact DuWell at (919) 681-8421, &lt;a href=&#34;mailto:duwell@studentaffairs.duke.edu&#34;&gt;duwell@studentaffairs.duke.edu&lt;/a&gt;, or &lt;a href=&#34;https://studentaffairs.duke.edu/duwell&#34;&gt;studentaffairs.duke.edu/duwell&lt;/a&gt;, and&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WellTrack&lt;/strong&gt;: Contact WellTrack at &lt;a href=&#34;https://app.welltrack.com/&#34;&gt;app.welltrack.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+  </item>
+  
+<item>
   <title>Project</title>
   <link>/project/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -277,9 +335,9 @@
 &lt;ul&gt;
 &lt;li&gt;If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.&lt;/li&gt;
 &lt;li&gt;The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!&lt;/li&gt;
-&lt;li&gt;Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond!
-Check out the &lt;a href=&#34;/help/&#34;&gt;Help&lt;/a&gt; tab for more information about getting help and resources.&lt;/li&gt;
+&lt;li&gt;Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond!&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Check out the &lt;a href=&#34;/help/&#34;&gt;Help&lt;/a&gt; tab for more information about getting help and resources.&lt;/p&gt;
 &lt;h2 id=&#34;activities--assessment&#34;&gt;Activities &amp;amp; Assessment&lt;/h2&gt;
 &lt;p&gt;The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you&amp;rsquo;ve learned in future academic and professional projects.&lt;/p&gt;
 &lt;h3 id=&#34;a-week-in-sta-199-section-02&#34;&gt;A Week in STA 199, Section 02!&lt;/h3&gt;
@@ -540,16 +598,6 @@ Check out the &lt;a href=&#34;/help/&#34;&gt;Help&lt;/a&gt; tab for more informa
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-  </item>
-  
-<item>
-  <title>Where to find help</title>
-  <link>/help/</link>
-  <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-  
-<guid>/help/</guid>
-  <description>&lt;h2 id=&#34;asking-for-help&#34;&gt;Asking for help&lt;/h2&gt;
 </description>
   </item>
   

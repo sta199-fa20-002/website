@@ -83,6 +83,10 @@
   </url>
   
   <url>
+    <loc>/help/</loc>
+  </url>
+  
+  <url>
     <loc>/home/</loc>
   </url>
   
@@ -112,10 +116,6 @@
   
   <url>
     <loc>/home/band_three/</loc>
-  </url>
-  
-  <url>
-    <loc>/help/</loc>
   </url>
   
 </urlset>
