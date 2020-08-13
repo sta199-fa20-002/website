@@ -30,7 +30,7 @@ MathJaxVersion = "2.7.1"
 [footer]
     github_url = "https://github.com/sta199-fa20-002/website"
     twitter_url = ""
-    support = "This website was derived from [tidymodels.org](https://tidymodels.org) with inspiration from [Data Visualization](https://datavizm20.classes.andrewheiss.com/) and [introds.org](https://introds.org/)."
+    support = "This website was derived from [tidymodels.org](https://tidymodels.org) with inspiration from [datavizm20](https://datavizm20.classes.andrewheiss.com/) and [introds.org](https://introds.org/)."
 
 # leave blank in quotes for the default = true
 # to turn off, set = false (no quotes)
