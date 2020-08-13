@@ -22,9 +22,9 @@ As a student in this course, you have agreed to uphold the [Duke Community Stand
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_KN97j30ST4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### Diversity & inclusion
+### Inclusive community
 
-It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke’s Commitment to Diversity and Inclusion] (https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion). Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke’s Commitment to Diversity and Inclusion](https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion). Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.
 
 Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:
 
@@ -42,7 +42,7 @@ The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) 
 
 ### Academic honesty
 
-**TL;DR: Don't cheat! **. 
+**TL;DR: Don't cheat!** 
 
 Please abide by the following as you work on assignments in this course:
 
@@ -84,6 +84,14 @@ Lectures will have two components:
 
 ### Labs
 
+In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments willl be completed using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
+
+**Sections 01L - 03L**: If you are in one of these sections, you are expected to attend lab during the scheduled time. You will spend most time working with your team to complete that week's assignment. There will be teaching assistants available if you have questions as you work. 
+
+**Section 04L:** Though you do not have a scheduled lab time, you will find a time with your team to work on the weekly lab assignment. The teaching team will provide tips and resources to help you establish a plan for collaboration. You will be able to ask questions during office hours and on Piazza.  
+
+*To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester for all students.*
+
 
 ### Homework
 
@@ -91,25 +99,15 @@ There will be three individual homework assignments in this course, one correspo
 
 Individual homework extensions will only be given for extenuating circumstances. Please contact Professor Tackett if you have an extenuating circumstance that prohibits you from completing the homework by the stated due date.
 
-To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester. 
-
-### Labs 
-
-In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments must be typed up using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
-
-If you have a scheculed lab time (sections 01 - 03), you are expected to attend lab during your scheduled time. This is a time for you to work with your teammates under the guidance of a teaching assistant who is there to help you as you work on the assignment. 
-
-If you do not have a scheduled lab time (section 04), you will still be required to complete the lab with your teammates by the stated due date. It will be up to the team members to identify a meeting time (if feasible) and communication plan, so labs can be completed collaboratively. The teaching team will provide tips and resources to help you establish an asynchronous workflow. 
-
-To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester. 
-
-### Exams
-
-There are two (2) individual, take-home, open-note exams worth 15% each. The exams are an opportunity to assess the knowledge and skills you’ve learned. Each exam will include small analysis and computational tasks related to the content discussed in lectures, homework assignments, and labs. More details about the content and structure of the exams will be discussed during the semester.
+*To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester.*
 
 ### Final Project 
 
 The purpose of the project is to apply what you’ve learned throughout the semester to analyze an interesting data-based research question using regression. The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period. More information about the project will be provided a few weeks into the semester. 
+
+### Exams
+
+There are two individual, take-home, open-note exams worth 15% each. The exams are an opportunity to assess the knowledge and skills you’ve learned. Each exam will include small analysis and computational tasks related to the content discussed in lectures, homework assignments, and labs. More details about the content and structure of the exams will be discussed during the semester.
 
 ### Participation
 
@@ -119,10 +117,10 @@ In addition to AEs will be periodic activities help build a learning community. 
 
 The last component of participation will be based on periodic team feedback about each team member's overall contribution to labs and the project. 
 
-### Statistics Experiences - UPDATE 
+### Statistics Experiences
 
 
-During the course of the semester, we will have periodic brief opportunities for you to reflect on data science, in order to provide you a space to be creative and think about how what you have learned may apply to society and your own experiences.
+During the course of the semester, there will be periodic opportunties for you to experience statistics and data science outside of the classroom. The goal of these experiences are for you to think about how the material you're learning in the course can connect with your experiences and society at large. 
 
 ## Grading
 
@@ -172,7 +170,7 @@ You will have a 24 hour grace period after the due date of homework and lab assi
 
 If there are extenuating circumstances that prevent you from completing an assignment by the stated due date, please let Professor Tackett know as soon as possible.
 
-**Late work will not be accepted for the quizzes or the final project.**
+**Late work will not be accepted for the exams or the final project.**
 
 
 ### Regrade Requests
