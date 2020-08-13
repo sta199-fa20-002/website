@@ -14,7 +14,7 @@ body {
 body, button, input, textarea {
   font-family: 'Lato', sans-serif; 
  /* font-family: 'Open Sans', sans-serif; */
-  font-size: 18px;
+  font-size: 1px;
   font-weight: normal;
   -webkit-font-smoothing: antialiased; 
   
@@ -691,12 +691,12 @@ sup {
 
 
 #homeContent .blurb .event {
-	border: 1pt solid #aa008e;
+	border: 1pt solid #00b3b3;
 	background-color: #ffffff;
 }
 
 #homeContent .blurb .event a {
-	color: #aa008e;
+	color: #00b3b3;
 }
 
 #homeContent .blurb .event .eventTitle,
@@ -704,7 +704,7 @@ sup {
  /* text-transform: uppercase; */
   letter-spacing: 2pt;
   font-weight: bold !important;
-  color: #aa008e;
+  color: #00b3b3;
   font-size: 1em;
 }
 
