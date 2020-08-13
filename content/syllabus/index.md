@@ -33,13 +33,18 @@ Furthermore, I would like to create a learning environment for my students that 
 
 ### Accessibility 
 
-Duke University is committed to providing equal access to students with documented disabilities. Students with disabilities may contact the [Student Disability Access Office (SDAO)](https://access.duke.edu) to ensure your access to this course and to the program. There you can engage in a confidential conversation about the process for requesting reasonable accommodations both in the classroom and in clinical settings. Students are encouraged to register with the SDAO as soon as they begin the program. Please note that accommodations are not provided retroactively.
+If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make accommdations. 
 
-More information can be found online at [access.duke.edu](https://access.duke.edu) or by contacting SDAO at 919-668-1267, <a href="mailto:sdao@duke.edu" title="email">SDAO@duke.edu</a>.
+In addition to accessibility issues experienced during the typical academic year, I recognize that remote learning may present additional challenges. Students may be experiencing unreliable wi-fi, lack of access to quiet study spaces, varied timeme-zones, or additional responsibilities while studying at home. If you are experiencing these or other difficulties, please contact me to discuss possible accommodations. 
+
+The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to [request or update accommodations](https://access.duke.edu/requests) under these circumstances. 
+
 
 ### Academic honesty
 
-**TL;DR: Don't cheat**. 
+**TL;DR: Don't cheat! **. 
+
+Please abide by the following as you work on assignments in this course:
 
 - You may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.
 - **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. 
@@ -52,15 +57,13 @@ Any violations in academic honesty standards as outlined in the [Duke Community 
 
 All lecture notes, assignment instructions, up-to-date schedule, and other course materials may be found on the course website, https://sta199-fa20-002.netlify.app . 
 
-I will periodically send announcements via email, so please check your email regularly. You may also find a copy of announcements on Sakai.
-
+I will also email announcements through Sakai periodically to ensure everyone has the current information. Please check your email and/or the Announcements page regularly. 
 
 ### Getting Help
 
 - If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone. 
 - The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!
 - Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond! 
-
 Check out the [Help](/help/) tab for more information about getting help and resources.
 
 ## Course components 
@@ -73,7 +76,11 @@ The following activities and assessments will help you successfully achieve the 
 
 ### Lectures
 
+Lectures will have two components: 
 
+- **Lecture content videos**: These are pre-recorded videos that contain the content. You can think of these as a "video textbook". You should watch the content videos before we meet for the live sessions. 
+
+- **Live lecture sessions**: These sessions will be on Zoom Mondays and Wednesdays 10:15a - 11:30a. During this time, we will answer questions from the live lecture videos and most of the time will be used to work on exercises where you apply the material from the content videos.
 
 ### Labs
 
