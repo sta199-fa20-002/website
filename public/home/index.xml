@@ -568,17 +568,18 @@ Course Learning Objectives By the end of the semester, you will…
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/home/band_three/</guid>
-      <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }            Instructor Prof. Maria Tackett TBD   TA Salvador Arellano Tue 10a - 12p   TA Morris Greenberg Fri 12p - 1p   TA Caroline Levenson Wed 2p - 4p   TA Ezinne Nwankwo Mon &amp;amp; Wed 8:30a - 9:30a   TA Matty Pahren Tue &amp;amp; Thu 2p - 3p    </description>
+      <description> .column { width: 100%; } table { width: 500px; font-size: 17px; font-weight: 400; padding-top: 5px; padding-bottom: 5px; }            Instructor Prof. Maria Tackett TBD   TAs Salvador Arellano Tue 10a - 12p    Morris Greenberg Fri 12p - 1p    Caroline Levenson Wed 2p - 4p    Ezinne Nwankwo Mon &amp;amp; Wed 8:30a - 9:30a    Matty Pahren Tue &amp;amp; Thu 2p - 3p    </description>
       <content>&lt;style&gt;
   .column {
   width: 100%;
   }
 
   table {
-  width: 100%;
-  font-size: 20px;
+  width: 500px;
+  font-size: 17px;
   font-weight: 400;
-  
+  padding-top: 5px;
+  padding-bottom: 5px;
   }
   
 &lt;/style&gt;
@@ -597,27 +598,27 @@ Course Learning Objectives By the end of the semester, you will…
 &lt;td&gt;TBD&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;TAs&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:salvador.chavero.arellano@duke.edu&#34;&gt;Salvador Arellano&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Tue 10a - 12p&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:morris.greenberg@duke.edu&#34;&gt;Morris Greenberg&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Fri 12p - 1p&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:caroline.levenson@duke.edu&#34;&gt;Caroline Levenson&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Wed 2p - 4p&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:ezinne.nwankwo@duke.edu&#34;&gt;Ezinne Nwankwo&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Mon &amp;amp; Wed 8:30a - 9:30a&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;TA&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:martha.pahren@duke.edu&#34;&gt;Matty Pahren&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Tue &amp;amp; Thu 2p - 3p&lt;/td&gt;
 &lt;/tr&gt;
