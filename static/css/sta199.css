@@ -14,7 +14,7 @@ body {
 body, button, input, textarea {
   font-family: 'Lato', sans-serif; 
  /* font-family: 'Open Sans', sans-serif; */
-  font-size: 1px;
+  font-size: 18px;
   font-weight: normal;
   -webkit-font-smoothing: antialiased; 
   
@@ -38,6 +38,9 @@ body, button, input, textarea {
 
 .bandContent{
   max-width: 100%; /*Main container width with page content */
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .splitColumns {
@@ -378,6 +381,17 @@ a.productName {
   font-weight: 600;
 }
 
+#homeContent .band.second .blurb .blurb1 {
+ float: left;
+ max-width: 60%;
+}
+
+#homeContent .band.second .blurb .blurb2 {
+ float: left;
+ max-width: 35%;
+}
+
+
 /*second band*/
 #homeContent .band.second{
   color: black;
@@ -388,32 +402,6 @@ a.productName {
   margin-bottom: 0px;
 } 
 
-
-#homeContent .blurb_2col{
-  font-size: 20px;
-  color: blue;
-  width: 100%;
-  float: left;
-  height: auto;
-  
-}
-
-
-#homeContent .blurb_2col .left {
-  width: 80%;
-  float: left;
-}
-
-#homeContent .blurb_2col .right {
-  width: 20%;
-  float: left;
-}
-
-
-#homeContent .blurb_3col .col {
-  width: 33.33%;
-  float: left;
-}
 
 /*-----TABLES-----*/
 
@@ -684,6 +672,10 @@ sup {
   color: #ffffff;
 }
 
+#homeContent .blurb  .blurb1 .Title {
+  color: #ffffff;
+}
+
 /*stickies in the  bands */
 #homeContent .blurb .event {
   background-color: #ffffff;
@@ -708,9 +700,36 @@ sup {
   font-size: 1em;
 }
 
+
+
+#homeContent .blurb2 .event {
+  background-color: #ffffff;
+}
+
+
+#homeContent .blurb2 .event {
+	border: 1pt solid #00b3b3;
+	background-color: #ffffff;
+}
+
+#homeContent .blurb2 .event a {
+	color: #00b3b3;
+}
+
+#homeContent  .blurb2 .event .eventTitle,
+#homeContent .blurb2  .event .eventTitle a {
+ /* text-transform: uppercase; */
+  letter-spacing: 2pt;
+  font-weight: bold !important;
+  color: #00b3b3;
+  font-size: 1em;
+}
+
+
+
 #homeContent .event .eventTitle a:hover {
-  color: #3c061e;
-  text-decoration: none;
+  color: #00b3b3;
+  text-decoration: underline;
 }
 
 #homeContent .event .eventTitle a .fa-xs { /* font awesome icon */
@@ -724,6 +743,27 @@ sup {
 }
 
 #homeContent .event .eventDetails a {
+	text-decoration: none;
+}
+
+
+
+#homeContent .blurb2 .event .eventTitle a:hover {
+  color: #00b3b3;
+  text-decoration: underline;
+}
+
+#homeContent .blurb2 .event .eventTitle a .fa-xs { /* font awesome icon */
+  font-size: 1em; 
+}
+
+#homeContent .blurb2 .event .eventDetails {
+  color: #272626;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+#homeContent .blurb2 .event .eventDetails a {
 	text-decoration: none;
 }
 
