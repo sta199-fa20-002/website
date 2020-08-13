@@ -4,7 +4,7 @@ title: Syllabus
 
 **[Click here](syllabus.pdf) to download a PDF copy of the syllabus.**
 
-# Course Learning Objectives
+## Course Learning Objectives
 
 By the end of the semester, you will…
 
@@ -66,13 +66,21 @@ I will also email announcements through Sakai periodically to ensure everyone ha
 - Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond! 
 Check out the [Help](/help/) tab for more information about getting help and resources.
 
-## Course components 
+## Activities & Assessment
 
 The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you've learned in future academic and professional projects.
 
 ### A Week in STA 199, Section 02!
 
-- ADD PICTURE OR CHART THAT MAPS OUT A WEEK OF CLASS!
+<center> 
+
+|                   |   <span></span>         Monday            |      <span></span>      Tuesday       |         <span></span>      Wednesday          |     <span></span>         Thursday          |        Friday        |
+|-------------------|:----------------------------:|:--------------------:|:----------------------------:|:--------------------------:|:--------------------:|
+| **Lectures**      | Live session 10:15a - 11:30a | Watch content videos | Live session 10:15a - 11:30a |                            | Watch content videos |
+| **App. Ex. (AE)** |                              |     Mon's AE due     |                              |        Wed's AE due        |                      |
+| **Labs**          |                              |                      |            Lab due           | Attend lab / start new lab |                      |
+
+</center> 
 
 ### Lectures
 
