@@ -33,9 +33,9 @@ Furthermore, I would like to create a learning environment for my students that 
 
 ### Accessibility 
 
-If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make accommdations. 
+If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make accommodations. 
 
-In addition to accessibility issues experienced during the typical academic year, I recognize that remote learning may present additional challenges. Students may be experiencing unreliable wi-fi, lack of access to quiet study spaces, varied timeme-zones, or additional responsibilities while studying at home. If you are experiencing these or other difficulties, please contact me to discuss possible accommodations. 
+In addition to accessibility issues experienced during the typical academic year, I recognize that remote learning may present additional challenges. Students may be experiencing unreliable wi-fi, lack of access to quiet study spaces, varied time-zones, or additional responsibilities while studying at home. If you are experiencing these or other difficulties, please contact me to discuss possible accommodations. 
 
 The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to [request or update accommodations](https://access.duke.edu/requests) under these circumstances. 
 
@@ -92,7 +92,7 @@ Lectures will have two components:
 
 ### Labs
 
-In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments willl be completed using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
+In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments will be completed using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
 
 **Sections 01L - 03L**: If you are in one of these sections, you are expected to attend lab during the scheduled time. You will spend most time working with your team to complete that week's assignment. There will be teaching assistants available if you have questions as you work. 
 
@@ -121,18 +121,18 @@ There are two individual, take-home, open-note exams worth 15% each. The exams a
 
 The participation of the course grade will be based primarily on individual Application Exercises (AEs), which give you an opportunity to practice using the statistical concepts and/or code discussed in lecture on short data analyses. AEs will be linked in lecture slides and time will be set aside during the optional live sessions to work on them. These AEs are due by the end of the next day; for instance, an AE associated with a lecture on Monday will be due Tuesday at 11:59p. AEs will be graded based on a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 90% of AEs will result in full points for AEs; anything lower than that will be assigned points accordingly. 
 
-In addition to AEs will be periodic activities help build a learning community. These will be short, fun activiies that will help everyone in the class connect throughout the semester. 
+In addition to AEs will be periodic activities help build a learning community. These will be short, fun activities that will help everyone in the class connect throughout the semester. 
 
 The last component of participation will be based on periodic team feedback about each team member's overall contribution to labs and the project. 
 
 ### Statistics Experiences
 
 
-During the course of the semester, there will be periodic opportunties for you to experience statistics and data science outside of the classroom. The goal of these experiences are for you to think about how the material you're learning in the course can connect with your experiences and society at large. 
+During the course of the semester, there will be periodic opportunities for you to experience statistics and data science outside of the classroom. The goal of these experiences are for you to think about how the material you're learning in the course can connect with your experiences and society at large. 
 
 ## Grading
 
-The final cousre grade will be calculated as follows:
+The final course grade will be calculated as follows:
 
 <center>
 
