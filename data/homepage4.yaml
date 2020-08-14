@@ -1,7 +1,8 @@
 bandtwo:
-- url: https://sakai.duke.edu
-  title: Join on Zoom!
-  icon: fa-laptop
-  icon_pack: far
+- url: /help/#resources-for-the-course
+  title: Textbooks
+  icon: fa-book
+  icon_pack: fas
   what: |
-    Join all live lectures, labs, and office hours using the Zoom links in [Sakai](https://sakai.duke.edu). 
+    - [OpenIntro Statistics 4th ed](https://leanpub.com/openintro-statistics) 
+    - [R for Data Science](https://r4ds.had.co.nz/) 
