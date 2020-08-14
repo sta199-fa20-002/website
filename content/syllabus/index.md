@@ -141,7 +141,7 @@ The final course grade will be calculated as follows:
 -----------|---------------------------------
 Homework | 20%
 Labs | 20%
-Final Project | 20
+Final Project | 20%
 Exam 01 | 15%
 Exam 02 | 15%
 Participation | 5%
