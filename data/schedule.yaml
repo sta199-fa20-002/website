@@ -10,13 +10,13 @@ lessons:
   - date: "Thu, Aug 20"
     title: "Lab 01"
 
-  - week:    "Week 02"
-    date:    "Mon, Aug 24"
-    title:   "Data visualization 1"
-  - date:    "Wed, Aug 26"
-    title:   "Data visualization 2"
-  - date:    "Thu, Aug 27"
-    title:   "Lab 02"
+  - week:  "Week 02"
+    date:  "Mon, Aug 24"
+    title: "Data visualization 1"
+  - date:  "Wed, Aug 26"
+    title: "Data visualization 2"
+  - date:  "Thu, Aug 27"
+    title: "Lab 02"
     
   - week: "Week 03"
     date: "Mon, Aug 31"
@@ -31,7 +31,9 @@ lessons:
     title: "Introduction to probability"
   - date: "Wed, Sep 09"
     title: "Conditional probability"
+    hw: "hw-01.html"
   - date: "Thu, Sep 10"
+  
     title: "Lab 04"
 
   - week: "Week 05"
@@ -49,6 +51,7 @@ lessons:
     title: "Simulation based testing"
   - date: "Thu, Sep 24"
     title: "Exam 01 assigned"
+    exam: "exam-01.html"
    
   - week: "Week 07"
     date: "Mon, Sep 28"
@@ -63,6 +66,7 @@ lessons:
     title: "Two-sample inference 1"
   - date: "Wed, Oct 07"
     title: "Two-sample inference 2"
+    hw: "hw-02.html"
   - date: "Thu, Oct 08"
     title: "Lab 07"
   
@@ -81,12 +85,14 @@ lessons:
     title: "Model diagnostics and assessment"
   - date: "Thu, Oct 22"
     title: "Exam 02 assigned"
+    exam: "exam-02.html"
     
   - week: "Week 11"
     date: "Mon, Oct 26"
     title: "Classification"
   - date: "Wed, Oct 28"
     title: "Text analysis"
+    hw: "hw-03.html"
   - date: "Thu, Oct 29"
     title: "Lab 08"
 
