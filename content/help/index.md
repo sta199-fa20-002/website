@@ -18,7 +18,7 @@ Join using the Zoom link in [Sakai](https://sakai.duke.edu). You can find the of
 
 ## Piazza
 
-Outside of class and office hours, any general questions about course content or assignments should be posted on [Piazza](https://www.piazza.com). There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond! 
+Outside of class and office hours, any general questions about course content or assignments should be posted on [Piazza](https://piazza.com/class/kdtl7z2npb07ds). There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond! 
 
 ## Email 
 
