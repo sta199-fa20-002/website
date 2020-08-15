@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Welcome to STA 199!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Welcome to STA 199!
+### Prof. Maria Tackett
+
+---
+
+
+
+
+
+
+class: center, middle
+
+# Welcome!
+
+---
+
+## What is data science?
+
+*"Data science is a concept to unify statistics, data analysis, machine learning and their related methods in order to understand and analyze actual phenomena with data. It employs techniques and theories drawn from many fields within the context of &lt;font class="vocab"&gt;mathematics, statistics, information science, and computer science&lt;/font&gt;."*
+
+.pull-right[
+[-Wikipedia](https://en.wikipedia.org/wiki/Data_science)
+]
+---
+
+## Course objectives
+
+- Learn to explore, visualize, and analyze data in a *reproducible* and *shareable* manner
+
+- Gain experience in data wrangling, exploratory data analysis, predictive modeling, and data visualization
+
+- Work on problems and case studies inspired by and based on *real-world questions* and data
+
+- Learn to effectively communicate results through written assignments and final project presentation
+
+---
+
+## Some of what you will learn
+
+.pull-left[
+- Fundamentals of `R`
+
+- Data visualization and wrangling with `ggplot2` and `dplyr` from the `tidyverse`
+
+- Web scraping
+
+- Web based applications with `RShiny`
+
+- Spatial data visualization
+
+]
+
+.pull-right[
+- Data types and functions
+
+- Version control with `GitHub`
+
+- Reproducible reports with `R Markdown`
+
+- Regression and classification
+
+- Statistical inference
+
+]
+---
+
+## Where to find information
+
+.vocab[Course Website]: [sta199-fa20-002.netlify.app/](https://sta199-fa20-002.netlify.app/)
+  - Central hub for the course!
+
+.vocab[Sakai]
+  - Gradebook
+  - Class videos
+  - Link to class meetings on Zoom
+  
+  
+.vocab[GitHub]: [https://github.com/sta199-fa20-002](https://github.com/sta199-fa20-002)
+  - Assignment repos (we'll talk more about that later)
+
+---
+
+class: middle, center
+
+## Course strcture
+
+---
+
+## Class meetings 
+
+.vocab[Lecture]
+- Focus on concepts behind data analysis
+- Has two components:
+  - **Lecture content videos** to watch before we meet
+  - **Live lecture session** to ask questions and apply concepts from videos
+
+
+.vocab[Lab]
+- Focus on computing using R `tidyverse` syntax
+- Apply concepts from lecture to case study scenarios
+- Work on labs individually or in teams of 3 - 4
+
+---
+
+## Textbooks and readings
+
+- [OpenIntro Statistics](https://www.openintro.org/stat/textbook.php?stat_book=os)
+
+
+- [R for Data Science](http://r4ds.had.co.nz/)
+
+
+- Occasional articles and other readings posted on the course website
+
+---
+
+## Activities and assessments
+
+- .vocab[Homework]: Individual assignments combining conceptual and computational skills. 
+
+--
+
+- .vocab[Labs]: Individual or team assignments focusing on computational skills. 
+
+--
+
+- .vocab[Exams]: Two take-home exams.
+
+--
+
+- .vocab[Final Project]: Team project presented during the final exam period.
+
+--
+
+- .vocab[Application Exercises]: Exercises worked on during the live lecture session.
+
+--
+
+- .vocab[Statistics Experiences]: Engage with statistics outside of the classroom and reflect on your experience.
+
+---
+
+## Where to find help in the course
+
+- Attend .vocab[Office hours] to meet with a member of the teaching team.
+
+- Use .vocab[Piazza] for general questions about course content and/or assignments, since other students may benefit from the response.
+
+- Use email for questions regarding personal matters and/or grades.
+
+---
+
+## Academic Resource Center
+
+The [Academic Resource Center (ARC)](https://arc.duke.edu/) offers free services to all students during their undergraduate careers at Duke. 
+
+Services include 
+  - Learning Consultations
+  - Peer Tutoring and Study Groups
+  - ADHD/LD Coaching, Outreach Workshops
+  - and more. 
+
+  
+Contact the ARC at [ARC@duke.edu](mailto:arc@duke.edu) or call 919-684-5917 to schedule an appointment. 
+
+---
+
+## CAPS
+
+[Duke Counseling &amp; Psychological Services (CAPS)](https://studentaffairs.duke.edu/caps) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. 
+
+Services include 
+- brief individual and group counseling
+- couples counseling
+- outreach to student groups
+- and more...
+
+Services provided via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.
+
+---
+
+class: middle, center
+
+[sta199-fa20-002.netlify.app/](https://sta199-fa20-002.netlify.app/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
