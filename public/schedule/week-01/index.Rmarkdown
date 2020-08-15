@@ -16,7 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|
 | Monday    | [Welcome to STA 199!](https://sta199-fa20-002.netlify.app/slides/01-intro.html#1) | Welcome to STA 199  |
 |  |  | The course website |
-| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.#1)       |   R + RStudio Demo     |
+| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.html)       |   R + RStudio Demo     |
 
 
 ## Readings
