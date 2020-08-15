@@ -8,6 +8,7 @@ lessons:
     slides: "01-intro.html"
   - date: "Wed, Aug 19"
     title: "Meet the Toolkit"
+    slides: "02-meet-toolkit.html"
   - date: "Thu, Aug 20"
     title: "Lab 01"
 
