@@ -68,11 +68,19 @@ class: center, middle
 
 ## Course objectives
 
+--
+
 - Learn to explore, visualize, and analyze data in a *reproducible* and *shareable* manner
+
+--
 
 - Gain experience in data wrangling, exploratory data analysis, predictive modeling, and data visualization
 
+--
+
 - Work on problems and case studies inspired by and based on *real-world questions* and data
+
+--
 
 - Learn to effectively communicate results through written assignments and final project presentation
 
@@ -131,12 +139,15 @@ class: middle, center
 
 ## Class meetings 
 
+--
+
 .vocab[Lecture]
 - Focus on concepts behind data analysis
 - Has two components:
   - **Lecture content videos** to watch before we meet
   - **Live lecture session** to ask questions and apply concepts from videos
 
+--
 
 .vocab[Lab]
 - Focus on computing using R `tidyverse` syntax
@@ -158,6 +169,8 @@ class: middle, center
 ---
 
 ## Activities and assessments
+
+--
 
 - .vocab[Homework]: Individual assignments combining conceptual and computational skills. 
 
@@ -185,9 +198,15 @@ class: middle, center
 
 ## Where to find help in the course
 
+--
+
 - Attend .vocab[Office hours] to meet with a member of the teaching team.
 
+--
+
 - Use .vocab[Piazza] for general questions about course content and/or assignments, since other students may benefit from the response.
+
+--
 
 - Use email for questions regarding personal matters and/or grades.
 
@@ -224,4 +243,4 @@ Services provided via Telehealth. To initiate services, you can contact their fr
 
 class: middle, center
 
-[sta199-fa20-002.netlify.app/](https://sta199-fa20-002.netlify.app)
+[sta199-fa20-002.netlify.app](https://sta199-fa20-002.netlify.app)
