@@ -15,7 +15,7 @@
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-01/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Welcome to STA 199! Welcome to STA 199! UN Votes     Tour of website + Sakai    Wednesday Meet the Toolkit R + RStudio Demo     Readings          How to read an R help page Required   The murky tale of Flint&amp;rsquo;s deceptive water data Required   ROpenSci&amp;rsquo;s Reproducibility Guide Optional   1500 scientists lift the lid on reproducibility Optional    Assignments          Submit GitHub username due Wed, Aug 19 at 11:59p   Complete Getting to know you survey    Lab 01 (assigned Thursday) due Wed, Aug 26 at 11:59p   Read syllabus     Other resources Complete the following Duke StatSci Learning R tutorials to prepare for Thursday&amp;rsquo;s lab.</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Welcome to STA 199! Welcome to STA 199! Live lecture slides     Tour of website + Sakai UN Votes   Wednesday Meet the Toolkit R + RStudio Demo     Readings          How to read an R help page Required   The murky tale of Flint&amp;rsquo;s deceptive water data Required   ROpenSci&amp;rsquo;s Reproducibility Guide Optional   1500 scientists lift the lid on reproducibility Optional    Assignments          Submit GitHub username due Wed, Aug 19 at 11:59p   Complete Getting to know you survey    Lab 01 (assigned Thursday) due Wed, Aug 26 at 11:59p   Read syllabus     Other resources Complete the following Duke StatSci Learning R tutorials to prepare for Thursday&amp;rsquo;s lab.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -37,13 +37,13 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/01-intro.html#1&#34;&gt;Welcome to STA 199!&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/qx4EAA/&#34;&gt;Welcome to STA 199!&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex01-unvotes.html&#34;&gt;UN Votes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/01-intro.html&#34;&gt;Live lecture slides&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/PR4EAA/&#34;&gt;Tour of website + Sakai&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex01-unvotes.html&#34;&gt;UN Votes&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;

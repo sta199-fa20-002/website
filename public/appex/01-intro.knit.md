@@ -95,11 +95,7 @@ class: center, middle
 
 - [Tracking their life via Fitbit](https://livefreeordichotomize.com/2017/12/27/a-year-as-told-by-fitbit/)
 
-- [Artificially composing Bach chorales](https://magenta.tensorflow.org/coconet)
-
-- [Detecting metastatic breast cancer from still images](https://ai.googleblog.com/2018/10/applying-deep-learning-to-metastatic.html)
-
-- [https://projects.fivethirtyeight.com/redistricting-maps/north-carolina/](https://projects.fivethirtyeight.com/redistricting-maps/north-carolina/)
+- [US Spread of COVID-19 maps and analytics](https://www.sharedgeo.org/COVID-19/)
 
 ---
 
