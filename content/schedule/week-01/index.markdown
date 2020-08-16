@@ -12,11 +12,11 @@ font-size: 18px;
 
 ## Lectures
 
-|           | Slides                   | Videos |
-|-----------|--------------------------|--------|
-| Monday    | [Welcome to STA 199!](https://sta199-fa20-002.netlify.app/slides/01-intro.html#1) | [Welcome to STA 199!](https://warpwire.duke.edu/w/qx4EAA/)  |
-|  |  | [Tour of website + Sakai](https://warpwire.duke.edu/w/PR4EAA/) |
-| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.html)       |   R + RStudio Demo     |
+|           | Slides                   | Videos | Application Exercise (AE) |
+|-----------|--------------------------|--------|--------|
+| Monday    | [Welcome to STA 199!](https://sta199-fa20-002.netlify.app/slides/01-intro.html#1) | [Welcome to STA 199!](https://warpwire.duke.edu/w/qx4EAA/)  | [UN Votes](https://sta199-fa20-002.netlify.app/appex/appex01-unvotes.html) |
+|  |  | [Tour of website + Sakai](https://warpwire.duke.edu/w/PR4EAA/) | |
+| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.html)       |   R + RStudio Demo     | |
 
 
 ## Readings
