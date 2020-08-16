@@ -24,8 +24,6 @@ class: center, middle
 
 # Welcome to STA 199! 
 
-[INCLUDE INSTRUCTIONS TO PREPARE FOR CLASS!]
-
 ---
 
 ### How are you feeling right now?
@@ -134,9 +132,25 @@ class: center, middle
 
 ---
 
-## Introduction
+### Instructor: Prof. Maria Tackett
 
-[INTRODUCE ME!]
+**Email**: [maria.tackett@duke.edu](mailto:maria.tackett@duke.edu)
+
+--
+
+.pull-left[
+<img src="img/01/capital-one-logo.jpg" width="75%" style="display: block; margin: auto;" />
+
+<img src="img/01/fbi-fingerprint.jpg" width="75%" style="display: block; margin: auto;" />
+
+]
+
+--
+
+.pull-right[
+<img src="img/01/education.jpg" width="75%" style="display: block; margin: auto;" />
+]
+
 
 ---
 
