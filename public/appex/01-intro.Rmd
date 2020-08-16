@@ -336,35 +336,18 @@ Some tips from [Happy Git with R](http://happygitwithr.com/github-acct.html#user
 
 ## Let's do an analysis!
 
-1. In the Files pane in the bottom right corner, spot the file called `unvotes.Rmd`. Open it, and then click on the "Knit" button.
+- Let's take a look at the [UN Votes](https://sta199-fa20-002.netlify.app/appex/appex01-unvotes.html) analysis.
 
-2. Go back to the file and put your name in the author field at the top of the file (in the  `yaml` -- we will discuss what this is at a later date). Knit again.
+--
 
-3. Change the country names in parts 1 and 2 to countries that interest you. The spelling and capitalization must match what's in the data, so you can use the Appendix to see the correct spelling and capitalization. Knit again.
+- Talk about the questions under the "Discussion" section in your breakout rooms. 
 
-You have made your first data visualization!
-
-.instructions[
-Raise your hand if you have any questions.
-]
-
----
-
-## Discussion 
-
-Discuss the following with a partner.
-
-1. Start by introducing yourself! Name, year, major/ academic interest, favorite hobby.
-
-2. Consider the plot in Part 1. Describe how the voting behaviors of the four countries have changed over time.
-
-3. Consider the plot in Part 2. 
-    - On which issues have the two countries voted most similarly in recent years?  
-    - On which issues have they voted most differently in recent years? 
-    - Has this changed over time?
+- We'll choose a few rooms to share their conclusions. 
 
 ---
 
 class: middle, center
 
 [sta199-fa20-002.netlify.app](https://sta199-fa20-002.netlify.app)
+
+Look under "Week 01" for this week's assignments. 
