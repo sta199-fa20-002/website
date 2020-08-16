@@ -16,39 +16,9 @@ output:
       ratio: "16:9"
 ---
 
-```{r setup, include=FALSE}
-# R options
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  warm = 1
-  )
-# Set dpi and height for images
-library(knitr)
-opts_chunk$set(fig.height = 2.65, dpi = 300) 
-# ggplot2 color palette with gray
-color_palette <- list(gray = "#999999", 
-                      salmon = "#E69F00", 
-                      lightblue = "#56B4E9", 
-                      green = "#009E73", 
-                      yellow = "#F0E442", 
-                      darkblue = "#0072B2", 
-                      red = "#D55E00", 
-                      purple = "#CC79A7")
 
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(
-	fig.align = "center",
-	fig.height = 3.75,
-	fig.width = 6.25,
-	message = FALSE,
-	warning = FALSE
-)
-```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-```
+
 
 class: center, middle
 
@@ -66,7 +36,7 @@ class: center, middle
 .col-3[
 
 <font class = "large-emoji">
-1) `r emo::ji("slightly_smiling_face")` 
+1) 🙂 
 </font>
 
 
@@ -74,35 +44,35 @@ class: center, middle
 <br>
 
 <font class = "large-emoji">
-4) `r emo::ji("nerd_face")`
+4) 🤓
 </font>
 ]
 
 .col-3[
 
 <font class = "large-emoji">
-2) `r emo::ji("laughing")`
+2) 😆
 </font>
 
 <br>
 <br>
 
 <font class = "large-emoji">
-5) `r emo::ji("slightly_frowning_face")`
+5) 🙁
 </font>
 
 ]
 
 .col-3[
 <font class = "large-emoji">
-3) `r emo::ji("sleeping")`
+3) 😴
 </font>
 
 <br>
 <br>
 
 <font class = "large-emoji">
-6) `r emo::ji("sunglasses")`
+6) 😎
 </font>
 ]
 ]
@@ -331,6 +301,7 @@ Some tips from [Happy Git with R](http://happygitwithr.com/github-acct.html#user
 - <small> Be as unique as possible in as few characters as possible. Shorter is better than longer.</small>
 - <small> Make it timeless.</small>
 - <small> Avoid words with special meaning in programming (e.g. `NA`).</small>
+</small>
 
 ---
 

@@ -81,7 +81,7 @@ un_votes %>%
 
 Next, let's see how the voting records have changed over the years on each of the issues.
 
-```{r plot-yearly-yes-issue, fig.width=10, warning=FALSE}
+```{r plot-yearly-yes-issue, fig.width=10, message = FALSE, warning=FALSE}
 un_votes %>%
   filter(country %in% c("United States of America", "France")) %>%
   inner_join(un_roll_calls, by = "rcid") %>%

@@ -120,8 +120,9 @@ li{
 
 .large {
   font-size: 130%;
-  
 }
+
+
 .midi {
   font-size: 90%;
   
@@ -294,5 +295,9 @@ div.my-footer a {
 .col-3{
   float: left;
   width: 33.33%;
+}
+
+.large-emoji {
+  font-size: 40pt;
 }
 

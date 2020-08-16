@@ -58,46 +58,55 @@ class: center, middle
 
 ---
 
-.vocab[
-Which emoji best describes how you feel right now? 
-]
+### How are you feeling right now?
 
 <br>
 
 .center[
 .col-3[
-.large[
-1) `r emo::ji("slightly_smiling_face")`
-]
+
+<font class = "large-emoji">
+1) `r emo::ji("slightly_smiling_face")` 
+</font>
+
 
 <br>
 <br>
 
+<font class = "large-emoji">
 4) `r emo::ji("nerd_face")`
+</font>
 ]
 
 .col-3[
+
+<font class = "large-emoji">
 2) `r emo::ji("laughing")`
+</font>
 
 <br>
 <br>
 
+<font class = "large-emoji">
 5) `r emo::ji("slightly_frowning_face")`
+</font>
 
 ]
 
 .col-3[
-.large[
+<font class = "large-emoji">
 3) `r emo::ji("sleeping")`
+</font>
 
 <br>
 <br>
 
-6) `r emo::ji("thinking")`
+<font class = "large-emoji">
+6) `r emo::ji("sunglasses")`
+</font>
 ]
 ]
 
-]
 ---
 
 ## What is data science?
@@ -151,37 +160,57 @@ Which emoji best describes how you feel right now?
 - Regression and classification
 
 - Statistical inference
-
 ]
 
 ---
 
 ## Introduction
 
-[ADD MY INTRO SLIDES!]
+[INTRODUCE ME!]
 
 ---
 
-class: middle, center
+## Meet your classmates!
 
-- Go to Zoom breakout room 
-- Introduce yourself: Name, year, What is something you're looking forward to this semester (either in this class or in general?)
+(~ 7 minutes)
 
-- I will pop into some of the breakout rooms.
+- Go to a breakout room
+
+- Introduce yourself!
+  - Name
+  - Year
+  - What is something you're looking forward to this semester (either in this class or in general)?
+
+- I'll visit some of the breakout rooms.
+
+- *The breakout rooms are not recorded.*
 
 ---
 
 ## Practice with Zoom 
 
-- Display your name
+--
 
-- Raise your hand
+- Display your name (first and last name)
+
+--
+
+- Raise your hand 
+
+--
 
 - Reactions
 
+--
+
 - Chat
 
+--
+
+
 - Poll 
+
+--
 
 - Breakout rooms (not recorded)
 
@@ -302,7 +331,6 @@ Some tips from [Happy Git with R](http://happygitwithr.com/github-acct.html#user
 - <small> Be as unique as possible in as few characters as possible. Shorter is better than longer.</small>
 - <small> Make it timeless.</small>
 - <small> Avoid words with special meaning in programming (e.g. `NA`).</small>
-</small>
 
 ---
 
