@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>STA 199</title>
-    <link>/lessons/</link>
+    <link>https://sta199-fa20-002.netlify.app/lessons/</link>
     <description>Recent content on STA 199</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>en-us</copyright>
     
-        <atom:link href="/lessons/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://sta199-fa20-002.netlify.app/lessons/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Week 01</title>
-      <link>/schedule/week-01/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-01/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-01/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-01/</guid>
       <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Welcome to STA 199! Welcome to STA 199! Live lecture slides     Tour of website + Sakai UN Votes   Wednesday Meet the Toolkit R + RStudio Demo     Readings          How to read an R help page Required   The murky tale of Flint&amp;rsquo;s deceptive water data Required   ROpenSci&amp;rsquo;s Reproducibility Guide Optional   1500 scientists lift the lid on reproducibility Optional    Assignments          Submit GitHub username due Wed, Aug 19 at 11:59p   Complete Getting to know you survey    Lab 01 (assigned Thursday) due Wed, Aug 26 at 11:59p   Read syllabus     Other resources Complete the following Duke StatSci Learning R tutorials to prepare for Thursday&amp;rsquo;s lab.</description>
       <content>&lt;style&gt;
 table {
@@ -122,10 +122,10 @@ font-size: 18px;
     
     <item>
       <title>Week 02</title>
-      <link>/schedule/week-02/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-02/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-02/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-02/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -133,10 +133,10 @@ font-size: 18px;
     
     <item>
       <title>Week 03</title>
-      <link>/schedule/week-03/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-03/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-03/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-03/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -144,10 +144,10 @@ font-size: 18px;
     
     <item>
       <title>Week 04</title>
-      <link>/schedule/week-04/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-04/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-04/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-04/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -155,10 +155,10 @@ font-size: 18px;
     
     <item>
       <title>Week 05</title>
-      <link>/schedule/week-05/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-05/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-05/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-05/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -166,10 +166,10 @@ font-size: 18px;
     
     <item>
       <title>Week 06</title>
-      <link>/schedule/week-06/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-06/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-06/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-06/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -177,10 +177,10 @@ font-size: 18px;
     
     <item>
       <title>Week 07</title>
-      <link>/schedule/week-07/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-07/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-07/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-07/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -188,10 +188,10 @@ font-size: 18px;
     
     <item>
       <title>Week 08</title>
-      <link>/schedule/week-08/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-08/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-08/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-08/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -199,10 +199,10 @@ font-size: 18px;
     
     <item>
       <title>Week 09</title>
-      <link>/schedule/week-09/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-09/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-09/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-09/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -210,10 +210,10 @@ font-size: 18px;
     
     <item>
       <title>Week 10</title>
-      <link>/schedule/week-10/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-10/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-10/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-10/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -221,10 +221,10 @@ font-size: 18px;
     
     <item>
       <title>Week 11</title>
-      <link>/schedule/week-11/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-11/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-11/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-11/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -232,10 +232,10 @@ font-size: 18px;
     
     <item>
       <title>Week 12</title>
-      <link>/schedule/week-12/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-12/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-12/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-12/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -243,10 +243,10 @@ font-size: 18px;
     
     <item>
       <title>Week 13</title>
-      <link>/schedule/week-13/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-13/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-13/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-13/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -254,10 +254,10 @@ font-size: 18px;
     
     <item>
       <title>Week 14</title>
-      <link>/schedule/week-14/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-14/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-14/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-14/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -265,10 +265,10 @@ font-size: 18px;
     
     <item>
       <title>Week 15</title>
-      <link>/schedule/week-15/</link>
+      <link>https://sta199-fa20-002.netlify.app/schedule/week-15/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/schedule/week-15/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/schedule/week-15/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -276,10 +276,10 @@ font-size: 18px;
     
     <item>
       <title>Course info</title>
-      <link>/home/band_two/</link>
+      <link>https://sta199-fa20-002.netlify.app/home/band_two/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/home/band_two/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/home/band_two/</guid>
       <description> .column { width: 100%; } table { width: 100%; font-size: 20px; font-weight: 400; }     Lecture All Students Mon and Wed 10:15a - 11:30a   Labs Lab 01 Thu 8:30a - 9:45a    Lab 02 Thu 3:30p - 4:45p    Lab 03 Thu 5:15p - 6:30p    Lab 04 Asynchronous     </description>
       <content>&lt;style&gt;
   .column {
@@ -329,10 +329,10 @@ font-size: 18px;
     
     <item>
       <title>Help</title>
-      <link>/help/</link>
+      <link>https://sta199-fa20-002.netlify.app/help/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/help/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/help/</guid>
       <description>Getting help in the course We expect everyone will have questions at some point in the semester, so we encourage you to use the following resources for help:
 Ask questions during lectures and lab If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
 Office hours The teaching team is here to help you be successful in the course.</description>
@@ -390,10 +390,10 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
     
     <item>
       <title>Project</title>
-      <link>/project/</link>
+      <link>https://sta199-fa20-002.netlify.app/project/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/project/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/project/</guid>
       <description>Check back for details!</description>
       <content>&lt;p&gt;Check back for details!&lt;/p&gt;
 </content>
@@ -401,10 +401,10 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
     
     <item>
       <title>STA 199: Intro to Data Science</title>
-      <link>/home/band_one/</link>
+      <link>https://sta199-fa20-002.netlify.app/home/band_one/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/home/band_one/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/home/band_one/</guid>
       <description>Intro to data science and statistical thinking. Learn to explore, visualize,and analyze data to understand natural phenomena, investigate patterns, model outcomes,and make predictions, and do so in a reproducible and shareable manner. Gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, data visualization, and effectively communicating results. Work on problems and case studies inspired by and based on real-world questions and data. The course will focus on the R statistical computing language.</description>
       <content>&lt;p&gt;Intro to data science and statistical thinking. Learn to explore, visualize,and analyze data to understand natural phenomena, investigate patterns, model outcomes,and make predictions, and do so in a reproducible and shareable manner. Gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, data visualization, and effectively communicating results. Work on problems and case studies inspired by and based on real-world questions and data. The course will focus on the R statistical computing language.&lt;/p&gt;
 </content>
@@ -412,10 +412,10 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
     
     <item>
       <title>Syllabus</title>
-      <link>/syllabus/</link>
+      <link>https://sta199-fa20-002.netlify.app/syllabus/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/syllabus/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/syllabus/</guid>
       <description>Click here to download a PDF copy of the syllabus.
 Course Learning Objectives By the end of the semester, you will…
  learn to explore, visualize, and analyze data in a reproducible and shareable manner gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, and data visualization work on problems and case studies inspired by and based on real-world questions and data learn to effectively communicate results through written assignments and final project presentation  Course community Duke Community Standard As a student in this course, you have agreed to uphold the Duke Community Standard as well as the practices specific to this course.</description>
@@ -461,7 +461,7 @@ Course Learning Objectives By the end of the semester, you will…
 &lt;li&gt;The teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!&lt;/li&gt;
 &lt;li&gt;Outside of class and office hours, any general questions about course content or assignments should be posted on Piazza. There is a chance another student has already asked a similar question, so please check the other posts on Piazza before adding a new question. If you know the answer to a question posted on Piazza, I encourage you to respond!&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Check out the &lt;a href=&#34;/help/&#34;&gt;Help&lt;/a&gt; tab for more information about getting help and resources.&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href=&#34;https://sta199-fa20-002.netlify.app/help/&#34;&gt;Help&lt;/a&gt; tab for more information about getting help and resources.&lt;/p&gt;
 &lt;h2 id=&#34;activities--assessment&#34;&gt;Activities &amp;amp; Assessment&lt;/h2&gt;
 &lt;p&gt;The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you&amp;rsquo;ve learned in future academic and professional projects.&lt;/p&gt;
 &lt;h3 id=&#34;a-week-in-sta-199-section-02&#34;&gt;A Week in STA 199, Section 02!&lt;/h3&gt;
@@ -664,10 +664,10 @@ Course Learning Objectives By the end of the semester, you will…
     
     <item>
       <title>Teaching team and office hours</title>
-      <link>/home/band_three/</link>
+      <link>https://sta199-fa20-002.netlify.app/home/band_three/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
-      <guid>/home/band_three/</guid>
+      <guid>https://sta199-fa20-002.netlify.app/home/band_three/</guid>
       <description> .column { width: 100%; } table { width: 500px; font-size: 17px; font-weight: 400; padding-top: 5px; padding-bottom: 5px; }            Instructor Prof. Maria Tackett TBD   TAs Salvador Arellano Tue 10a - 12p    Morris Greenberg Fri 12p - 1p    Caroline Levenson Wed 2p - 4p    Ezinne Nwankwo Mon &amp;amp; Wed 8:30a - 9:30a    Matty Pahren Tue &amp;amp; Thu 2p - 3p    </description>
       <content>&lt;style&gt;
   .column {
