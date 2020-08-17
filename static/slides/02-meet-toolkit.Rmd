@@ -283,14 +283,6 @@ knitr::include_graphics("img/02/git-github.png")
 
 ---
 
-## Integrating RStudio Cloud with GitHub
-
-Each assignment, application exercise, and lab in this course will have an associated link used to create a private **repository** on the class organization page.
-
-We'll talk more about this later! 
-
----
-
 ## Recap 
 
 Can you answer these questions? 
