@@ -308,14 +308,14 @@ knitr::include_graphics("img/01/education.jpg")
 ## Lectures
 
 - Focus on concepts behind data analysis
+
 - Has two components:
   - **Lecture content videos** to watch before we meet
-  - **Live lecture session** to ask questions and apply concepts from videos
+  - **Live lecture session** to ask questions and apply concepts from videos by working on exercises in small groups. 
+  
+- Ask questions by "raising your hand" or posting them in the chat. 
 
-- Add some stuff!
-
-- Raise your hand or post your question in the chat. I will check it periodically
-
+- I encourage you to use your video if you are comfortable. 
 ---
 
 ## Course community 
