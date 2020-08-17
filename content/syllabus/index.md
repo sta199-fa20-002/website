@@ -95,7 +95,7 @@ Lectures will have two components:
 
 In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be performed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team's Git repository on the course's GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and you will also be asked to evaluate your team members' engagement periodically during the semester. Lab assignments will be completed using R Markdown, correspond to an appropriate GitHub repository, and submitted as a .pdf file to Gradescope. 
 
-**Sections 05L-07L**: If you are in one of these sections, you are expected to attend lab during the scheduled time. You will spend most time working with your team to complete that week's assignment. There will be teaching assistants available if you have questions as you work. 
+**Sections 05L - 07L**: If you are in one of these sections, you are expected to attend lab during the scheduled time. You will spend most time working with your team to complete that week's assignment. There will be teaching assistants available if you have questions as you work. 
 
 **Section 08L:** Though you do not have a scheduled lab time, you will find a time with your team to work on the weekly lab assignment. The teaching team will provide tips and resources to help you establish a plan for collaboration. You will be able to ask questions during office hours and on Piazza.  
 
