@@ -34,6 +34,8 @@ Please do not email about course content questions but rather post those on Piaz
 
 - [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/) by Chester Ismay and Albert Kim
 
+- [Modern Data Science with R](https://beanumber.github.io/mdsr2e/) by Ben Baumer, Daniel Kaplan, and Nick Horton
+
 ## Resources for mental health and wellness
 
 - **DukeReach**: Provides comprehensive outreach services to identify and support students in managing all aspects of well being. If you have concerns about a student's behavior or health visit the website for resources and assistance. 
