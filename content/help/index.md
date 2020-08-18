@@ -47,9 +47,9 @@ Go to [studentaffairs.duke.edu/dukereach](http://studentaffairs.duke.edu/dukerea
 
 ## Resources for academic support and wellness
 
-- **The Academic Resource Center**: Contact the ARC at (919) 684-5917, [theARC@duke.edu](mailto:theARC@duke.edu), or [arc.duke.edu](https://arc.duke.edu/)
+- **The Academic Resource Center**: Contact the ARC at (919) 684-5917, [theARC@duke.edu](mailto:theARC@duke.edu), or visit their website [arc.duke.edu](https://arc.duke.edu/)
 
-- **DuWell**: Contact DuWell at (919) 681-8421, [duwell@studentaffairs.duke.edu](mailto:duwell@studentaffairs.duke.edu), or [studentaffairs.duke.edu/duwell](https://studentaffairs.duke.edu/duwell), and 
+- **DuWell**: Contact DuWell at (919) 681-8421, [duwell@studentaffairs.duke.edu](mailto:duwell@studentaffairs.duke.edu), or [studentaffairs.duke.edu/duwell](https://studentaffairs.duke.edu/duwell)
 
 - **WellTrack**: Contact WellTrack at [app.welltrack.com](https://app.welltrack.com/)
 
