@@ -16,8 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|--------|
 | Monday    | [Welcome to STA 199!](https://sta199-fa20-002.netlify.app/slides/01-intro.html#1) | [Welcome to STA 199!](https://warpwire.duke.edu/w/qx4EAA/)  | [Live lecture slides](https://sta199-fa20-002.netlify.app/appex/01-intro.html) |
 |  |  | [Tour of website + Sakai](https://warpwire.duke.edu/w/PR4EAA/) | [UN Votes](https://sta199-fa20-002.netlify.app/appex/appex01-unvotes.html) |
-| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.html)       |   [Meet the Toolkit](https://warpwire.duke.edu/w/wyYEAA/)   | |
-|  
+| Wednesday | [Meet the Toolkit](https://sta199-fa20-002.netlify.app/slides/02-meet-toolkit.html)       |   [Meet the Toolkit](https://warpwire.duke.edu/w/wyYEAA/)   | [Tour of RStudio + GitHub](https://sta199-fa20-002.netlify.app/appex/02-rstudio-tour.html)| |  
 
 
 ## Readings

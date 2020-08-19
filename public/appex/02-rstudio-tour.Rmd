@@ -1,0 +1,92 @@
+---
+title: "Application exercise 02"
+subtitle: "Tour of RStudio + RMarkdown + GitHub"
+date: "8/18/2020"
+output: 
+  html_document: 
+    theme: readable
+---
+
+## Getting started
+
+- Go to the course GitHub organization: https://github.com/sta199-fa20-002. 
+
+- If you see a pending invite at the top of the page, accept the invite to join the course invite. We'll come back to GitHub later.
+
+## Tour of R and RStudio 
+
+Let's take a tour of R and RStudio. I'll do a short demo, then give you a few minutes to try out yourself. 
+
+### Concepts introduced
+
+- Console
+- Using R as a calculator
+- Environment
+- Loading and viewing a data frame
+- Accessing a variable in a data frame
+- R functions
+
+### Your turn!
+
+- Go to https://vm-manage.oit.duke.edu/containers and log into the Docker container titled "RStudio - statistics application with Rmarkdown and knitr support". This is where you'll use RStudio during the semester. 
+
+- Use R as a calculator by typing the following in the **console**. 
+
+```{r eval = F}
+3 * 5 + 10
+```
+
+```{r eval = F}
+x <- 3
+x + x^2
+```
+
+```{r eval = F}
+x <- 1:10
+x*7
+```
+
+## Git and GitHub
+
+### Concepts introduced:
+ 
+- Clone a GitHub repo and make a new RStudio project 
+- Configure Git
+- Working with a local and remote repository
+- Making a change locally, committing, and pushing
+- Making a change on GitHub and pulling
+
+### Your turn!
+
+- Go to the [course organization](https://github.com/sta199-fa20-002) on GitHub  and find the repo with the prefix **ae-02-**. 
+
+- Clone the repo and make a new project in RStudio. 
+
+- You should see the files for the Flint Water Crisis analysis in the **Files** pane. 
+
+- Configure git by running the following code in the **console**. Fill in your GitHub username and the email address associated with your GitHub account. 
+
+
+```{r eval  = F}
+library(usethis)
+use_git_config(user.name = "GitHub username", user.email="your email")
+```
+
+- Open the RMarkdown file **ae02-flint.Rmd**. We will use that for the next part of class. 
+
+- Put your name for the author, then knit the document. 
+
+- Select **all** of the updated files in the Git pane, click to commit and write the commit message "Updated author name". 
+- Click to push your changes.
+
+- If you refresh your repo on GitHub, you will see the updated files with your commit message. 
+
+## Flint Water Crisis analysis
+
+Follow along with the instructions in **app02-flint.Rmd**. An html version of the file can be found [here](https://sta199-fa20-002.netlify.app/appex/ae02-flint.html).
+
+
+## Submitting application exercises 
+
+**Once you have completed the activity, push your final changes to your GitHub repo! Make sure your repo is updated on GitHub, and that's all you need to do to submit application exercises for participation.**
+
