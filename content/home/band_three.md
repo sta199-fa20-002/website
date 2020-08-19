@@ -19,7 +19,7 @@ title: Teaching team and office hours
   
 |            |                     |     |
 |------------|---------------------|-----|
-| Instructor | [Prof. Maria Tackett](mailto:maria.tackett@duke.edu) | TBD |
+| Instructor | [Prof. Maria Tackett](mailto:maria.tackett@duke.edu) | Mon 1p - 2p |
 | TAs         | [Salvador Arellano](mailto:salvador.chavero.arellano@duke.edu) | Tue 10a - 12p |
 |       | [Morris Greenberg](mailto:morris.greenberg@duke.edu)     | Fri 12p - 1p |
 |         | [Caroline Levenson](mailto:caroline.levenson@duke.edu)         | Wed 2p - 4p |
