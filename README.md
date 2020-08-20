@@ -9,9 +9,11 @@
 - primary color: #7A4183
 - main accent: #00b3b3
 
-## Acknowledgements
+## Attribution
 
-This site is derived from [tidymodels.org](https://www.tidymodels.org) with inspiration from [datavizm20](https://datavizm20.classes.andrewheiss.com) and [introds.org](https://introds.org/).
+- The website design is derived from [tidymodels.org](https://www.tidymodels.org) with inspiration from [datavizm20](https://datavizm20.classes.andrewheiss.com) and [introds.org](https://introds.org/).
+
+- Many of the slides are derived from [Data Science in a Box](https://datasciencebox.org/) by Mine &Ccedil;etinkaya-Rundel.
 
 <hr> 
 
