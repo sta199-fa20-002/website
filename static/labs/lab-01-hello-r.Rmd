@@ -230,15 +230,18 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-<div class = "commit"> This is a good place to pause, knit and <b>commit changes</b> with the commit message "Added answer for Ex 2." Push these changes when you're done.</div>
+<div class = "commit"> This is a good place to pause, knit and <b>commit changes</b> with the commit message "Added answer for Ex 2." Push these changes when you're done.
+</div>
 
 3. Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
-<div class = "commit"> This is another good place to pause, knit, commit changes with the commit message "Added answer for Ex 3", and push.</div>
+<div class = "commit"> This is another good place to pause, knit, commit changes with the commit message "Added answer for Ex 3", and push.
+</div>
 
 4. Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
-<div class = "commit"> You should pause again, commit changes with the commit message "Added answer for Ex 4", and push.</div>
+<div class = "commit"> You should pause again, commit changes with the commit message "Added answer for Ex 4", and push.
+</div>
 
 ```{marginfigure}
 Facet by the dataset variable, placing the plots in a 3 column grid, and don't add a legend.
@@ -285,7 +288,8 @@ Now, save and knit.
 
 Once you've created this .pdf file, you're done! 
 
-<div class = "commit"> Commit all remaining changes, use the commit message "Done with Lab 1!" and push. </div> 
+<div class = "commit"> Commit all remaining changes, use the commit message "Done with Lab 1!" and push. 
+</div> 
 
 
 
