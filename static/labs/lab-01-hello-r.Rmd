@@ -1,6 +1,6 @@
 ---
 title: "Lab 01 - Hello R!"
-subtitle: "due Wed, August 26 at 11:59p Eastern"
+subtitle: "due Wed, August 26 at 11:59p "
 output: 
   tufte::tufte_html:
     css: "./sta199-labs.css"
@@ -27,26 +27,28 @@ As the labs progress, you are encouraged to explore beyond what the labs dictate
 
 To make versioning simpler, this and the next lab are solo labs. In the future, you'll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.
 
-**Your lab TA will lead you through the Getting Started, Packages, and and Warm up sections.** 
+**Your lab TA will lead you through the Getting Started, Packages, and Warm up sections.** 
+
+# Getting started
 
 ## Clone the repo & start new RStudio project
 
 - Go to the STA199-002 organization on GitHub (http://www.github.com/sta199-fa20-002). Click on the repo with the prefix **lab-01-hello-r-**. It contains the starter documents you need to complete the lab.
 
-```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, fig.width=3}
+```{r clone-repo-link, echo = FALSE, fig.width = 5}
 knitr::include_graphics("img/01/clone-repo.png")
 ```
 
 - Click on the green **Clone or download** button, select **Use HTTPS** (this might already be selected by default, and if it is, you'll see the text **Clone with HTTPS** as in the image below). Click on the clipboard icon to copy the repo URL.
 
 
-- Go to https://vm-manage.oit.duke.edu/containers and login with your Duke NetId and Password.
+- Go to https://vm-manage.oit.duke.edu/containers and login with your Duke NetID and Password.
 
 - Click to log into the Docker container **RStudio -  statistics application with Rmarkdown and knitr support**. You should now see the RStudio environment. 
 
 - Go to *File* `r emo::ji("arrow_right")` *New Project* `r emo::ji("arrow_right")` *Version Control* `r emo::ji("arrow_right")` *Git*. 
 
-```{r paste-gh-repo-url, fig.margin = TRUE, echo = FALSE, fig.width=5}
+```{r paste-gh-repo-url, echo = FALSE,  out.width = "80%"}
 knitr::include_graphics("img/01/paste-url.png")
 ```
 
@@ -60,7 +62,7 @@ knitr::include_graphics("img/01/paste-url.png")
 
 There is one more piece of housekeeping we need to take care of before we get started. Specifically,  we need to configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.
 
-To do so, you will use the `use_git_config()` function from the `usethis` package. 
+To do so, you will use the `use_git_config` function from the `usethis` package. 
 
 Type the following lines of code in the **console** in RStudio filling in your name and email address.
 
@@ -96,17 +98,15 @@ Once you run the configuration code, your values for `user.name` and `user.email
 
 ## RStudio & R Markdown
 
-<br>
-
 Below are the general components of an RStudio project. 
 
-```{r echo=FALSE, fig.fullwidth = TRUE, out.width = "70%"}
+```{r echo=FALSE, fig.fullwidth = TRUE, out.width = "90%"}
 knitr::include_graphics("img/01/rstudio-panes.png")
 ```
 
 Below are the general components of an RMarkdown file. 
 
-```{r echo=FALSE, fig.fullwidth = TRUE, out.width = "70%"}
+```{r echo=FALSE, fig.fullwidth = TRUE, out.width = "90%"}
 knitr::include_graphics("img/01/rmarkdown.jpg")
 ```
 
@@ -126,7 +126,7 @@ Open the R Markdown (Rmd) file in your project, change the author name to your n
 
 Now, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.
 
-If you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes. You should see deletions in red and additions in green. As well, you can see exactly which lines were changed. 
+If you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on **Diff**. This shows you the <u>diff</u>erence between the last committed state of the document and its current state that includes your changes. You should see deletions in red and additions in green. As well, you can see exactly which lines were changed. 
 
 If you're happy with these changes, we'll prepare the changes to be pushed to your remote repository. First, **stage** your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, "Updated author name") in the **Commit message** box. Finally, click **Commit**. Note that every commit needs to have a commit message associated with it.
 
@@ -212,7 +212,7 @@ Second, the assignment operator: `<-`, assigns the name `dino_data` to the filte
 
 Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the `aes`thetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the `x` axis will represent the variable called `x` and the `y` axis will represent the variable called `y`. Then, we add another layer to this plot where we define which `geom`etric shapes we want to use to represent each observation in the data. In this case we want these to be points, hence `geom_point`.
 
-```{r fig.fullwidth=TRUE}
+```{r fig.width = 6}
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
