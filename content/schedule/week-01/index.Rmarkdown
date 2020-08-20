@@ -35,7 +35,7 @@ font-size: 18px;
 |------------------------|---|
 | [Submit GitHub username](https://forms.gle/evRuoBinXY9mJ6ge8) | **due Wed, Aug 19 at 11:59p** |
 | Complete [Get to know you survey](https://duke.qualtrics.com/jfe/form/SV_3UvMVtrlp8TlQUd)  | **due Wed, Aug 19 at 11:59p**  |
-| Lab 01 (assigned Thursday)              |  **due Wed, Aug 26 at 11:59p** |
+| [Lab 01](https://sta199-fa20-002.netlify.app/labs/lab-01-hello-r.html)              |  **due Wed, Aug 26 at 11:59p** |
 | Read [syllabus](https://sta199-fa20-002.netlify.app/syllabus/)              |  |
 
 ## Other resources

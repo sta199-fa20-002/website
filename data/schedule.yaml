@@ -10,7 +10,8 @@ lessons:
     title: "Meet the Toolkit"
     slides: "02-meet-toolkit.html"
   - date: "Thu, Aug 20"
-    title: "Lab 01"
+    title: "Lab 01: Hello R!"
+    lab: "lab-01-hello-r.html"
 
   - week:  "Week 02"
     date:  "Mon, Aug 24"

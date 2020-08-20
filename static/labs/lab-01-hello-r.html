@@ -342,33 +342,35 @@ src: local('Source Code Pro Regular'), local('SourceCodePro-Regular'), url(data:
 }
 @charset "UTF-8";
 
+html {
+font-size: 15px;
+}
 body {
 font-family: 'Source Sans Pro', sans-serif;
 font-weight: 350;
 background-color: #fefefe;
 color: #222;
-font-size: 16px;
 counter-reset: li;
 }
 h1.title {
 font-weight: 700;
 font-family: 'Source Sans Pro', sans-serif;
-color: #875687;
+color: #7A4183;
 }
 h1 {
 font-style: normal;
 font-family: 'Source Sans Pro', sans-serif;
-color: #875687;
+color: #7A4183;
 }
 h2 {
 font-style: normal;
 font-family: 'Source Sans Pro', sans-serif;
 font-weight: 400;
-color: #875687;
+color: #7A4183;
 }
 h3.subtitle {
 font-style: normal;
-color: #875687;
+color: #7A4183;
 }
 h4 {
 font-style: normal;
@@ -381,15 +383,15 @@ line-height: 1;
 h4.author,
 h4.date {
 font-family: 'Source Sans Pro', sans-serif;
-font-weight: 300;
+font-weight: 350;
 }
 .numeral {
 font-family: "Source Sans Pro";
-font-weight: 300;
+font-weight: 350;
 }
 em {
 font-style: italic;
-font-weight: 300;
+font-weight: 350;
 font-family: "Source Sans Pro";
 }
 strong {
@@ -398,10 +400,12 @@ font-weight: 600;
 font-family: "Source Sans Pro";
 }
 
+
 @media screen and (max-width: 760px) {
 pre {
 width: 100%;
 font-size: 15px;
+overflow-x: auto;
 }
 }
 code {
@@ -409,20 +413,25 @@ font-family: 'Source Code Pro', Consolas, "Liberation Mono", Menlo, Courier, mon
 font-size: 16px;
 line-height: 1.6;
 }
-pre code {
-font-size: 16px;
+pre {
+background-color: #FFFFFF;
+
+
+border-width: 0px;
+border-radius: 4px;*/
+overflow-x: auto;
+padding: 1em;
+white-space: inherit;
+word-break: normal;
+word-wrap: normal;
+}
+pre.r {
+background-color: #F5F5F5;	
+white-space: inherit;
 }
 .marginnote code,
 .sidenote code {
-font-size: 1rem;
-}
-.marginnote{
 font-size: 14px;
-}
-pre {
-width: 100%;
-font-size: 15px;
-overflow-x: auto;
 }
 
 ol {
@@ -446,8 +455,8 @@ content: "Exercise " counter(li)".";
 
 counter-increment: li;
 position: absolute;
-color: #875687;
-left: -0.1px;
+color: #7A4183;
+left: -0.5px;
 font-weight: bold;
 margin-right: 10px;
 }
@@ -457,16 +466,23 @@ width: 92%;
 ol ol {
 counter-reset: subitem;
 }
-.td {
+td {
+font-size: 15px;
+}
+
+.footer {
+left: 0;
+bottom: 0;
+width: 100%;
+color: #7C878E;
 font-size: 14px;
 }
-html .commit {
-font-size: 20px;
+
+div .commit {
+font-size: 16px;
 font-weight: 400;
-width: 500px;
-border: 2px solid green;
-padding: 20px;
-margin: 20px;
+color: #00b3b3;
+text-decoration: italic;
 }
 </style>
 
