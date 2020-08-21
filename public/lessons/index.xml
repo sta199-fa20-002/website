@@ -126,7 +126,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-02/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -168,7 +168,7 @@ font-size: 18px;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://socviz.co/lookatdata.html&#34;&gt;Look at Data&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://socviz.co/lookatdata.html&#34;&gt;Ch 1: Look at Data&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;

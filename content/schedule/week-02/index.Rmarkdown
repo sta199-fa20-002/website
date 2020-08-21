@@ -22,7 +22,7 @@ font-size: 18px;
 
 |            |   |
 |------------|---|
-| [Look at Data](https://socviz.co/lookatdata.html)  | **Required**   |
+| [Ch 1: Look at Data](https://socviz.co/lookatdata.html)  | **Required**   |
 | [R for Data Science: Data visualization](https://r4ds.had.co.nz/data-visualisation.html) | **Required**  |
 |  [The evolution of a ggplot](https://cedricscherer.netlify.app/2019/05/17/the-evolution-of-a-ggplot-ep.-1/)     | Optional  |
 
