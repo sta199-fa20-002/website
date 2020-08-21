@@ -75,12 +75,15 @@ The following activities and assessments will help you successfully achieve the 
 
 <center> 
 
-|                   |   <span></span>         Monday            |      <span></span>      Tuesday       |         <span></span>      Wednesday          |     <span></span>         Thursday          |        Friday        |
-|-------------------|:----------------------------:|:--------------------:|:----------------------------:|:--------------------------:|:--------------------:|
-| **Lectures**      | Live session 10:15a - 11:30a | Watch content videos | Live session 10:15a - 11:30a |                            | Watch content videos |
-| **App. Ex. (AE)** |                              |     Mon's AE due     |                              |        Wed's AE due        |                      |
-| **Labs**          |                              |                      |            Lab due           | Attend lab / start new lab |                      |
-
+| **Monday**    | Attend live lecture session 10:15a - 11:30a |
+|---------------|---------------------------------------------|
+| **Tuesday**   | Watch lecture content videos for Wednesday  |
+|               | Monday's AE due                             |
+| **Wednesday** | Attend live lecture session 10:15a - 11:30a |
+|               | Previous week's lab due                     |
+| **Thursday**  | Attend lab session / start new lab          |
+|               | Wednesday's AE due                          |
+| **Friday**    | Watch lecture content videos for Monday     |
 </center> 
 
 ### Lectures
