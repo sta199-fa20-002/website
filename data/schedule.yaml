@@ -15,11 +15,14 @@ lessons:
 
   - week:  "Week 02"
     date:  "Mon, Aug 24"
-    title: "Data visualization 1"
+    title: "Data and visualization"
+    slides: "03-data-and-viz.html"
   - date:  "Wed, Aug 26"
-    title: "Data visualization 2"
+    title: "Visualizing different types of data"
+    slides: "04-data-and-viz-pt2.html"
   - date:  "Thu, Aug 27"
-    title: "Lab 02"
+    title: "Lab 02: Data wrangling and visualization"
+    lab: "lab-02-data-viz.html"
     
   - week: "Week 03"
     date: "Mon, Aug 31"
