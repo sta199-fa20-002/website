@@ -298,8 +298,7 @@ starwars
 ```
 ]
 
-- Each row is an .vocab[observation]
-- Each column is a .vocab[variable]
+Each row is an .vocab[observation]. Each column is a .vocab[variable]
 ---
 
 ## Luke Skywalker
@@ -438,7 +437,8 @@ in the data are
 
 
 ```r
-ggplot(data = starwars, mapping = aes(x = height, y = mass, color = hair_color)) +
+ggplot(data = starwars, mapping = aes(x = height, y = mass, 
+                                      color = hair_color)) +
   geom_point()
 ```
 
@@ -452,8 +452,8 @@ Let's map `shape` and `color` to `hair_color`
 
 
 ```r
-ggplot(data = starwars, mapping = aes(x = height, y = mass, 
-                                      color = hair_color,
+ggplot(data = starwars, 
+       mapping = aes(x = height, y = mass, color = hair_color,
 *                                     shape = hair_color
                                       )) +
   geom_point()
@@ -465,7 +465,6 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
 
 ### Mass vs. height + hair_color + birth year
 
-.pull-left[
 
 ```r
 ggplot(data = starwars, mapping = aes(x = height, y = mass, 
@@ -475,19 +474,8 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
   geom_point()
 ```
 
-```
-## Warning: Removed 51 rows containing missing values (geom_point).
-```
-]
+&lt;img src="03-data-and-viz_files/figure-html/plot-birth-year-1.png" style="display: block; margin: auto;" /&gt;
 
-.pull-right[
-
-```
-## Warning: Removed 51 rows containing missing values (geom_point).
-```
-
-![](03-data-and-viz_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
-]
 ---
 
 ## Mass vs. height + hair color
@@ -496,11 +484,12 @@ Let's increase the size of all points across the board:
 
 
 ```r
-ggplot(data = starwars, mapping = aes(x = height, y = mass, color = hair_color)) +
+ggplot(data = starwars, mapping = aes(x = height, y = mass, 
+                                      color = hair_color)) +
 * geom_point(size = 3)
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -537,19 +526,31 @@ class: center, middle
 - Smaller plots that display different subsets of the data
 - Useful for exploring conditional relationships and large data
 
-.small[
+
 
 ```r
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 * facet_grid(. ~ sex) +
   geom_point() +
   labs(title = "Mass vs. height of Starwars characters",
-*      subtitle = "Faceted by sexr",
+*      subtitle = "Faceted by sex",
+       x = "Height (cm)", y = "Weight (kg)")
+```
+
+
+---
+
+
+```r
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+* facet_grid(. ~ sex) +
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+*      subtitle = "Faceted by sex",
        x = "Height (cm)", y = "Weight (kg)")
 ```
 
 &lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
-]
 
 ---
 

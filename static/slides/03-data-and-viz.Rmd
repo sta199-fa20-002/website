@@ -153,7 +153,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 
 ## What is the dataset being plotted?
 
-```{r fig.width = 6, fig.height=2, fig.align='center'}
+```{r fig.width = 7, fig.height=2, fig.align='center'}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) + #<<
   geom_point() + 
   labs(title = "Mass vs. height of Starwars characters",
@@ -165,7 +165,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) + #<<
 ## Which variable is on the x-axis? On the y-axis?
 
 
-```{r fig.width = 6, fig.height=2, fig.align='center'}
+```{r fig.width = 7, fig.height=2, fig.align='center'}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) + #<<
   geom_point() + 
   labs(title = "Mass vs. height of Starwars characters",
@@ -177,7 +177,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) + #<<
 ## What does the warning mean?
 
 
-```{r fig.width = 6, fig.height=2, fig.align='center'}
+```{r fig.width = 7, fig.height=2, fig.align='center'}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point() +
   labs(title = "Mass vs. height of Starwars characters",
@@ -188,7 +188,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 
 ## What does `geom_smooth()` do?
 
-```{r fig.width = 6, fig.height=2, fig.align='center', warning = FALSE, message = FALSE}
+```{r fig.width = 7, fig.height=2, fig.align='center', warning = FALSE, message = FALSE}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point() +
   geom_smooth() + #<<
@@ -264,8 +264,7 @@ starwars
 ```
 ]
 
-- Each row is an .vocab[observation]
-- Each column is a .vocab[variable]
+Each row is an .vocab[observation]. Each column is a .vocab[variable]
 ---
 
 ## Luke Skywalker
@@ -397,7 +396,8 @@ in the data are
 ## Mass vs. height + hair color
 
 ```{r fig.width = 8, fig.height = 2.5, fig.align='center', warning=FALSE}
-ggplot(data = starwars, mapping = aes(x = height, y = mass, color = hair_color)) +
+ggplot(data = starwars, mapping = aes(x = height, y = mass, 
+                                      color = hair_color)) +
   geom_point()
 ```
 
@@ -407,9 +407,9 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass, color = hair_color))
 
 Let's map `shape` and `color` to `hair_color`
 
-```{r fig.width = 8, fig.height = 2.5, fig.align='center', warning=FALSE}
-ggplot(data = starwars, mapping = aes(x = height, y = mass, 
-                                      color = hair_color,
+```{r fig.width = 7, fig.height = 2, fig.align='center', warning=FALSE}
+ggplot(data = starwars, 
+       mapping = aes(x = height, y = mass, color = hair_color,
                                       shape = hair_color#<<
                                       )) +
   geom_point()
@@ -419,20 +419,14 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
 
 ### Mass vs. height + hair_color + birth year
 
-.pull-left[
-```{r plot-birth-year, fig.show = 'hide'}
+```{r plot-birth-year, fig.width = 8, fig.height = 2.5, fig.align='center', warning=FALSE}
 ggplot(data = starwars, mapping = aes(x = height, y = mass, 
                                       color = hair_color, shape = hair_color, 
                                       size = birth_year #<<
                                       )) +
   geom_point()
 ```
-]
 
-.pull-right[
-```{r ref.label = 'plot-birth-year', echo = FALSE}
-```
-]
 ---
 
 ## Mass vs. height + hair color
@@ -440,7 +434,8 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
 Let's increase the size of all points across the board:
 
 ```{r fig.width = 8, fig.height=2.5, fig.align='center' , warning=FALSE}
-ggplot(data = starwars, mapping = aes(x = height, y = mass, color = hair_color)) +
+ggplot(data = starwars, mapping = aes(x = height, y = mass, 
+                                      color = hair_color)) +
   geom_point(size = 3) #<<
 ```
 
@@ -479,16 +474,27 @@ class: center, middle
 - Smaller plots that display different subsets of the data
 - Useful for exploring conditional relationships and large data
 
-.small[
-```{r fig.height=1, fig.width=3, fig.align='center', warning=FALSE}
+
+```{r warning=FALSE, eval = F}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(. ~ sex) + #<<
   geom_point() +
   labs(title = "Mass vs. height of Starwars characters",
-       subtitle = "Faceted by sexr",  #<<
+       subtitle = "Faceted by sex",  #<<
        x = "Height (cm)", y = "Weight (kg)")
 ```
-]
+
+
+---
+
+```{r fig.height = 2.5, fig.width=7, fig.align='center', warning=FALSE}
+ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
+  facet_grid(. ~ sex) + #<<
+  geom_point() +
+  labs(title = "Mass vs. height of Starwars characters",
+       subtitle = "Faceted by sex",  #<<
+       x = "Height (cm)", y = "Weight (kg)")
+```
 
 ---
 
@@ -510,7 +516,7 @@ should always label your plots!
 
 ---
 
-```{r fig.height=2.5,fig.align='center', warning=FALSE}
+```{r fig.height=2,fig.align='center', warning=FALSE}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point() +
   facet_grid(hair_color ~ .)
@@ -518,7 +524,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 
 ---
 
-```{r fig.height=2.5,fig.align='center', warning=FALSE}
+```{r fig.height=2,fig.align='center', warning=FALSE}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point() +
   facet_grid(. ~ hair_color)
@@ -526,7 +532,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 
 ---
 
-```{r fig.height=2.5, warning=FALSE}
+```{r fig.height= 2.5, warning=FALSE}
 ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   geom_point() +
   facet_wrap(~ eye_color)
