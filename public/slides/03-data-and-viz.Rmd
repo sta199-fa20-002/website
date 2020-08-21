@@ -58,6 +58,13 @@ dev.off <- function(){
 ggplot2::theme_set(ggplot2::theme_bw())
 ```
 
+
+class: middle, center
+
+## [Click for PDF of slides](03-data-and-viz.pdf)
+
+---
+
 class: center, middle
 
 # Exploratory data analysis
@@ -243,21 +250,6 @@ class: center, middle
 
 ## Dataset terminology
 
-.question[
-What does each row represent? What does each column represent?
-]
-
-
-.small[
-```{r message=FALSE}
-starwars
-```
-]
-
----
-
-## Dataset terminology
-
 .small[
 ```{r message=FALSE}
 starwars
@@ -283,10 +275,6 @@ glimpse(starwars)
 ---
 
 ## What's in the Star Wars data?
-
-.question[
-How many rows and columns does this dataset have? What does each row represent? What does each column represent?
-]
 
 Run the following **<u>in the Console</u>** to view the help
 ```{r eval = FALSE}

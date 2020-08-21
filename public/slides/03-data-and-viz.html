@@ -33,6 +33,13 @@ layout: true
 
 
 
+
+class: middle, center
+
+## [Click for PDF of slides](03-data-and-viz.pdf)
+
+---
+
 class: center, middle
 
 # Exploratory data analysis
@@ -239,40 +246,6 @@ class: center, middle
 
 ## Dataset terminology
 
-.question[
-What does each row represent? What does each column represent?
-]
-
-
-.small[
-
-```r
-starwars
-```
-
-```
-## # A tibble: 87 x 14
-##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
-##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Luke…    172    77 other      fair       blue            19   male  mascu…
-##  2 C-3PO    167    75 none       gold       yellow         112   none  mascu…
-##  3 R2-D2     96    32 none       white, bl… red             33   none  mascu…
-##  4 Dart…    202   136 none       white      yellow          41.9 male  mascu…
-##  5 Leia…    150    49 brown      light      brown           19   fema… femin…
-##  6 Owen…    178   120 brown      light      blue            52   male  mascu…
-##  7 Beru…    165    75 brown      light      blue            47   fema… femin…
-##  8 R5-D4     97    32 none       white, red red             NA   none  mascu…
-##  9 Bigg…    183    84 black      light      brown           24   male  mascu…
-## 10 Obi-…    182    77 other      fair       blue-gray       57   male  mascu…
-## # … with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;
-```
-]
-
----
-
-## Dataset terminology
-
 .small[
 
 ```r
@@ -338,10 +311,6 @@ glimpse(starwars)
 
 ## What's in the Star Wars data?
 
-.question[
-How many rows and columns does this dataset have? What does each row represent? What does each column represent?
-]
-
 Run the following **&lt;u&gt;in the Console&lt;/u&gt;** to view the help
 
 ```r
@@ -364,7 +333,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 ## Warning: Removed 28 rows containing missing values (geom_point).
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -391,7 +360,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
 How would you describe this **relationship**? Who is the not so tall but really heavy character?
 ]
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -442,7 +411,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
   geom_point()
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -459,7 +428,7 @@ ggplot(data = starwars,
   geom_point()
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -489,7 +458,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass,
 * geom_point(size = 3)
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -550,7 +519,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
        x = "Height (cm)", y = "Weight (kg)")
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -579,7 +548,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(hair_color ~ .)
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -590,7 +559,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_grid(. ~ hair_color)
 ```
 
-&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="03-data-and-viz_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -601,7 +570,7 @@ ggplot(data = starwars, mapping = aes(x = height, y = mass)) +
   facet_wrap(~ eye_color)
 ```
 
-![](03-data-and-viz_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+![](03-data-and-viz_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
 
 ---
 
