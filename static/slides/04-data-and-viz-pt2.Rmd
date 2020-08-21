@@ -431,9 +431,3 @@ knitr::include_graphics("img/04/time-series.story.png")
 .footnote[
 Credit: Angela Zoss and Eric Monson, Duke DVS
 ]
-
----
-
-class: center, middle
-
-<iframe width="768" height="432" src="https://www.youtube.com/embed/Z8t4k0Q8e8Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
