@@ -126,7 +126,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-02/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03: Visualizing Starwars   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -148,7 +148,7 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/03-data-and-viz.html#1&#34;&gt;Data and visualization&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/HzoEAA/&#34;&gt;Data and visualization&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 03&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex03-starwars.html&#34;&gt;AE 03: Visualizing Starwars&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
