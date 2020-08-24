@@ -1,5 +1,5 @@
 ---
-title: "Visualizing Star Wars"
+title: "AE 03: Visualizing Star Wars"
 author: "Your Name"
 date: "`r Sys.Date()`"
 output: 
@@ -17,12 +17,32 @@ library(tidyverse)
 knitr::include_graphics("img/data-analysis-life-cycle.png")
 ```
 
+## Examining data visualizations 
+
+Discuss the following questions for each visualization:
+
+- What is the visualization trying to show?
+- What is effective, i.e. what is done well? 
+- What is ineffective, i.e. what could be improved? 
+- What are you curious about after looking at the visualization? 
+
+### Figure 1
+
+```{r echo = F, fig.align = "center", fig.cap = "Figure from the New York Times [\"What's Going on with this Graph?\"](https://www.nytimes.com/2020/04/02/learning/whats-going-on-in-this-graph-bus-ridership-in-metropolitan-areas.html) series."}
+knitr::include_graphics("img/bus-ridership.png")
+```
+
+### Figure 2
+
+```{r echo = F, fig.align = "center", fig.cap = "Figure originally seen on  [Twitter](https://twitter.com/reina_sabah/status/1291509085855260672)."}
+knitr::include_graphics("img/female-heights.png")
+```
 
 ## Clone a repo + start a new project
 
 - Click on the link provided in the slides to create your own private repo for this exercise.
 
-- Go to the `ae-02-[GITHUB USERNAME]` repo on GitHub that you created
+- Go to the `ae-03-[GITHUB USERNAME]` repo on GitHub that you created
 
 - Click on the green **Code** button, **Use HTTPS**, and click on the clipboard icon to copy the repo URL.
 
