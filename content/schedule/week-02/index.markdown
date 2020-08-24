@@ -33,6 +33,9 @@ font-size: 18px;
 |------------------------|---|
 | [Lab 02](https://sta199-fa20-002.netlify.app/labs/lab-02-data-viz.html) | **due Wed, Sep 2 at 11:59p** |
 
+## Announcements
+
+- Peer tutoring groups and other services available through the [Academic Resource Center](https://sta199-fa20-002.netlify.app/appex/arc-fall-2020.pdf)
 
 
 

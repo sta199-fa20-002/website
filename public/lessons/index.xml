@@ -126,7 +126,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-02/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03: Visualizing Starwars   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03: Visualizing Starwars   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -196,6 +196,10 @@ font-size: 18px;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Peer tutoring groups and other services available through the &lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/arc-fall-2020.pdf&#34;&gt;Academic Resource Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </item>
     
