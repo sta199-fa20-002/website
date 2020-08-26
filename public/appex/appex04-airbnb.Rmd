@@ -11,6 +11,12 @@ output:
 library(tidyverse)
 ```
 
+## Identify variable type (Zoom poll)
+
+- Favorite food
+- Number of classes you're taking this semester
+- Zip code
+
 ## Clone a repo + start a new project
 
 - Click on the link provided in the slides to create your own private repo for this exercise.
