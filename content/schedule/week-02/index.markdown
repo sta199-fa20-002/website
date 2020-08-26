@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Data and visualization](https://sta199-fa20-002.netlify.app/slides/03-data-and-viz.html#1) | [Data and visualization](https://warpwire.duke.edu/w/HzoEAA/)  | [AE 03: Visualizing Starwars](https://sta199-fa20-002.netlify.app/appex/appex03-starwars.html) |
-| Wednesday | [Visualizing different types of data](https://sta199-fa20-002.netlify.app/slides/04-data-and-viz-pt2.html#1)       |   [Visualizing different types of data](https://warpwire.duke.edu/w/0zkEAA/)   | AE 04 |  
+| Wednesday | [Visualizing different types of data](https://sta199-fa20-002.netlify.app/slides/04-data-and-viz-pt2.html#1)       |   [Visualizing different types of data](https://warpwire.duke.edu/w/0zkEAA/)   | [AE 04: Airbnb in Edinburgh](https://sta199-fa20-002.netlify.app/appex/appex04-airbnb.html) |  
 
 
 ## Readings

@@ -126,7 +126,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-02/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03: Visualizing Starwars   Wednesday Visualizing different types of data Visualizing different types of data AE 04    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Data and visualization Data and visualization AE 03: Visualizing Starwars   Wednesday Visualizing different types of data Visualizing different types of data AE 04: Airbnb in Edinburgh    Readings          Ch 1: Look at Data Required   R for Data Science: Data visualization Required   The evolution of a ggplot Optional    Assignments          Lab 02 due Wed, Sep 2 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -154,7 +154,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/04-data-and-viz-pt2.html#1&#34;&gt;Visualizing different types of data&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/0zkEAA/&#34;&gt;Visualizing different types of data&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 04&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex04-airbnb.html&#34;&gt;AE 04: Airbnb in Edinburgh&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
