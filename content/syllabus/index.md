@@ -67,6 +67,10 @@ I will also email announcements through Sakai periodically to ensure everyone ha
 
 Check out the [Help](/help/) tab for more information about getting help and resources.
 
+### Email 
+
+If there is a question that's not appropriate for the public forum (Piazza), you are welcome to email me directly. **If you email me, please include "STA 199" in the subject line.** Barring extenuating circumstances, I will respond to STA 199 emails within 48 hours Monday - Friday. I have more limited access to email on weekends.
+
 ## Activities & Assessment
 
 The following activities and assessments will help you successfully achieve the course learning objectives. By experiencing the course content in different ways, you will not only gain a better understanding of regression analysis, but you will also get experiences that can guide you as you apply what you've learned in future academic and professional projects.

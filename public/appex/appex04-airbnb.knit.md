@@ -1,7 +1,7 @@
 ---
 title: "Airbnbs in Edinburgh"
 author: "Your Name"
-date: "2020-08-25"
+date: "2020-08-26"
 output: 
   html_document:
     theme: readable
@@ -11,6 +11,27 @@ output:
 ```r
 library(tidyverse)
 ```
+
+## Announcements
+
+- Lab 01 due tonight
+- Email (see syllabus) 
+
+## Questions? 
+
+## Identify variable type (Zoom poll)
+
+- Favorite food
+- Number of classes you're taking this semester
+- Zip code
+
+## The way data is displayed matters
+
+<div class="figure" style="text-align: center">
+<img src="img/barplots.jpeg" alt="Source: [Twitter](https://twitter.com/CoralTKrueger/status/1296425438403796992)" width="70%" />
+<p class="caption">Source: [Twitter](https://twitter.com/CoralTKrueger/status/1296425438403796992)</p>
+</div>
+
 
 ## Clone a repo + start a new project
 
@@ -51,22 +72,6 @@ Use the code below to load the data from the .csv file.
 
 ```r
 edibnb <- read_csv("data/edibnb.csv")
-```
-
-```
-## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   price = col_double(),
-##   neighbourhood = col_character(),
-##   accommodates = col_double(),
-##   bathrooms = col_double(),
-##   bedrooms = col_double(),
-##   beds = col_double(),
-##   review_scores_rating = col_double(),
-##   number_of_reviews = col_double(),
-##   listing_url = col_character()
-## )
 ```
 
 ### Part 0

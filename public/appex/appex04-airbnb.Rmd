@@ -13,8 +13,8 @@ library(tidyverse)
 
 ## Announcements
 
-- Lab 01 due tonight
-- If you email me, please include "STA 199" in the subject line.
+- Lab 01 due today at 11:59p
+- Email (see syllabus) 
 
 ## Questions? 
 
