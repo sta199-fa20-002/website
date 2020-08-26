@@ -1,13 +1,14 @@
 ---
 title: "Airbnbs in Edinburgh"
 author: "Your Name"
-date: "`r Sys.Date()`"
+date: "2020-08-25"
 output: 
   html_document:
     theme: readable
 ---
 
-```{r load-packages, warning = FALSE, message = FALSE}
+
+```r
 library(tidyverse)
 ```
 
@@ -33,7 +34,8 @@ Before we start the exercise, we need to configure your git so that RStudio can 
 
 Type the following lines of code in the **Console** in RStudio filling in your GitHub username and email address associated with your GitHub account.
 
-```{r eval=FALSE}
+
+```r
 library(usethis)
 use_git_config(user.name= "github username", user.email="your email")
 ```
@@ -46,8 +48,25 @@ The data contains information about Airbnb listings in Edinburgh Scotland. The d
 
 Use the code below to load the data from the .csv file. 
 
-```{r load-data}
+
+```r
 edibnb <- read_csv("data/edibnb.csv")
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   id = col_double(),
+##   price = col_double(),
+##   neighbourhood = col_character(),
+##   accommodates = col_double(),
+##   bathrooms = col_double(),
+##   bedrooms = col_double(),
+##   beds = col_double(),
+##   review_scores_rating = col_double(),
+##   number_of_reviews = col_double(),
+##   listing_url = col_character()
+## )
 ```
 
 ### Part 0
@@ -56,7 +75,7 @@ The dataset you’ll be using is called `edibnb`. Run `View(edibnb)` in the **co
 
 ### Part 1
 
-The `edibnb` data set set has `r nrow(edibnb)` observations (rows).
+The `edibnb` data set set has 13245 observations (rows).
 
 How many columns (variables) does the dataset have? Instead of hard coding the number in your answer, use the function `ncol()` to write your answer in inline code. *Hint: Use the statement above as a guide.*
 
@@ -66,7 +85,8 @@ Knit to see the updates.
 
 Fill in the code below to create a histogram to display the distribution of `price`.  Once you have modified the code, remove the option `eval = FALSE` from the code chunk header. Knit again to see the updates.
 
-```{r plot-price, eval = FALSE}
+
+```r
 ggplot(data = ___, mapping = aes(x = ___)) +
   geom_histogram()
 ```
@@ -80,7 +100,8 @@ Fill in the code below to create the faceted histogram with informative labels. 
 
 *Hint: Run `names(edibnb)` in the <b>console</b> to get a list of variable names. Note how the variable for neighborhood is spelled in the data set.*
 
-```{r plot-price-facet, eval = FALSE}
+
+```r
 ggplot(data = ___, mapping = aes(x = ___)) +
   geom_histogram() +
   facet_wrap(~___) +

@@ -15,7 +15,7 @@ library(tidyverse)
 
 - Click on the link provided in the slides to create your own private repo for this exercise.
 
-- Go to the `ae-04-airbnb-[GITHUB USERNAME]` repo on GitHub that you created
+- Go to the `ae-04-[GITHUB USERNAME]` repo on GitHub that you created
 
 - Click on the green **Code** button, **Use HTTPS**, and click on the clipboard icon to copy the repo URL.
 
