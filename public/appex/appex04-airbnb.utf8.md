@@ -14,8 +14,9 @@ library(tidyverse)
 
 ## Announcements
 
-- Lab 01 due tonight
+- Lab 01 due today at 11:59p
 - Email (see syllabus) 
+- Introduce George, the R support TA
 
 ## Questions? 
 
