@@ -11,11 +11,25 @@ output:
 library(tidyverse)
 ```
 
+## Announcements
+
+- Lab 01 due tonight
+- If you email me, please include "STA 199" in the subject line.
+
+## Questions? 
+
 ## Identify variable type (Zoom poll)
 
 - Favorite food
 - Number of classes you're taking this semester
 - Zip code
+
+## The way data is displayed matters
+
+```{r echo = F, out.width = "70%", fig.align = "center", fig.cap = "Source: [Twitter](https://twitter.com/CoralTKrueger/status/1296425438403796992)"}
+knitr::include_graphics("img/barplots.jpeg")
+```
+
 
 ## Clone a repo + start a new project
 
@@ -52,7 +66,7 @@ The data contains information about Airbnb listings in Edinburgh Scotland. The d
 
 Use the code below to load the data from the .csv file. 
 
-```{r load-data}
+```{r load-data, warning = FALSE, message = FALSE}
 edibnb <- read_csv("data/edibnb.csv")
 ```
 
