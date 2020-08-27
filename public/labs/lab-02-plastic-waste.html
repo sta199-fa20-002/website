@@ -510,7 +510,7 @@ text-decoration: italic;
 </ul>
 </div>
 
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>A note on expectations: </strong> For each exercise your answer include any relevant output (tables, summary statistics, plots) in your answer. Doing this is easy! Just place any relevant R code in a code chunk, and hit Knit HTML.</span></span></p>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>A note on expectations: </strong> For each exercise your answer include any relevant output (tables, summary statistics, plots) in your answer. Doing this is easy! Just place any relevant R code in a code chunk, and hit Knit HTML.</span></span></p>
 <p>Plastic pollution is a major and growing problem, negatively affecting oceans and wildlife health. <a href="https://ourworldindata.org/plastic-pollution">Our World in Data</a> has a lot of great data at various levels including globally, per country, and over time. For this lab we focus on data from 2010.</p>
 <p>Additionally, National Geographic recently ran a data visualization communication contest on plastic waste as seen <a href="https://www.nationalgeographic.org/funding-opportunities/innovation-challenges/plastic/dataviz/">here</a>.</p>
 <p>Learning goals for this lab are</p>
@@ -521,11 +521,11 @@ text-decoration: italic;
 </ul>
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>IMPORTANT:</strong> If there is no GitHub repo created for you for this assignment, it means I didn’t have your GitHub username as of when I assigned the homework. Please let me know your GitHub username asap, and I can create your repo.</span></span></p>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>IMPORTANT:</strong> If there is no GitHub repo created for you for this assignment, it means I didn’t have your GitHub username as of when I assigned the homework. Please let me know your GitHub username asap, and I can create your repo.</span></span></p>
 <p>Go to the course GitHub organization and locate your Lab 02 repo, which should be named <code>lab-02-plastic-waste-[GITHUB USERNAME]</code>. Grab the URL of the repo, and clone it in RStudio. Refer to Lab 01 for step-by-step for cloning a repo and creating a new RStudio project.</p>
 <div id="configure-git" class="section level2">
 <h2>Configure git</h2>
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">The name should be your github username and your email address is the one tied to your GitHub account.</span></span></p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">The name should be your github username and your email address is the one tied to your GitHub account.</span></span></p>
 <p>Before we can get started we need to do one more thing. Specifically, we need to configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your email address and your GitHub username.</p>
 <p>To do so, run the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>usethis<span class="op">::</span><span class="kw">use_git_config</span>(<span class="dt">user.name =</span> <span class="st">&quot;github username&quot;</span>, <span class="dt">user.email =</span> <span class="st">&quot;your email&quot;</span>)</span></code></pre></div>
@@ -577,7 +577,7 @@ text-decoration: italic;
 <ol style="list-style-type: decimal">
 <li>Plot, using histograms, the distribution of plastic waste per capita faceted by continent. What can you say about how the continents compare to each other in terms of their plastic waste per capita?</li>
 </ol>
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">From this point onwards the plots / output of the code won’t be printed in the lab, but you can run the code and view the results yourself.</span></span></p>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">From this point onwards the plots / output of the code won’t be printed in the lab, but you can run the code and view the results yourself.</span></span></p>
 <p>Another way of visualizing numerical data is using density plots.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> plastic_waste, <span class="kw">aes</span>(<span class="dt">x =</span> plastic_waste_per_cap)) <span class="op">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span><span class="kw">geom_density</span>()</span></code></pre></div>
@@ -619,7 +619,7 @@ text-decoration: italic;
 <ol style="list-style-type: decimal">
 <li>Learn something new: violin plots! Read about them at <a href="http://ggplot2.tidyverse.org/reference/geom_violin.html" class="uri">http://ggplot2.tidyverse.org/reference/geom_violin.html</a>, and convert your side-by-side box plots from the previous task to violin plots. What do the violin plots reveal that box plots do not? What features are apparent in the box plots but not in the violin plots?</li>
 </ol>
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">Remember that we use <code>geom_point()</code> to make scatterplots.</span></span></p>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;">Remember that we use <code>geom_point()</code> to make scatterplots.</span></span></p>
 <ol style="list-style-type: decimal">
 <li><p>Next, visualize the relationship between plastic waste per capita and mismanaged plastic waste per capita using a scatterplot. Describe the relationship between the two variables.</p></li>
 <li><p>Color the points in the scatterplot by continent. Does there seem to be any clear distinctions between continents with respect to how plastic waste per capita and mismanaged plastic waste per capita are associated?</p></li>
@@ -628,7 +628,7 @@ text-decoration: italic;
 <div class="commit">
 <p>✅ ⬆️ Now is another good time to knit, commit and push your changes to GitHub with a short, informative commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.</p>
 </div>
-<p><label for="tufte-mn-" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">Hint: The colors are from the viridis color palette. Take a look at the functions starting with <code>scale_color_viridis_*</code> in the <a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">ggplot2 reference page</a>..</span></span></p>
+<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote"><span style="display: block;">Hint: The colors are from the viridis color palette. Take a look at the functions starting with <code>scale_color_viridis_*</code> in the <a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">ggplot2 reference page</a>..</span></span></p>
 <ol style="list-style-type: decimal">
 <li>Recreate the following plot, and interpret what you see in context of the data. Use the code below to filter out a country with plastic waste per capita over 3 kg/per day. Use the filtered data set for the plot. <em>Again, we’ll talk about the <code>filter</code> function in class soon!.</em></li>
 </ol>

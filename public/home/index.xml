@@ -209,8 +209,80 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-03/</guid>
-      <description>Check back for details!</description>
-      <content>&lt;p&gt;Check back for details!&lt;/p&gt;
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling     Wednesday Joining data from multiple sources      Readings          Update    Update    Update     Assignments          Lab 03 due Wed, Sep 9 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
+      <content>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html&#34;&gt;Tidy data and data wrangling&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html&#34;&gt;Joining data from multiple sources&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Update&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Update&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Update&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Lab 03&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Sep 9 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Peer tutoring groups and other services available through the &lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/arc-fall-2020.pdf&#34;&gt;Academic Resource Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </item>
     

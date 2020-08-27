@@ -1,0 +1,532 @@
+---
+title: "Joining data from multiple sources"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE) 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+library(knitr)
+library(skimr)
+library(scales)
+```
+
+class: middle, center
+
+## [Click for PDF of slides](06-data-join-merge.pdf)
+
+---
+
+class: middle, center
+
+# Working with multiple data frames
+
+---
+
+## Fisheries of the world
+
+Fisheries and Aquaculture Department of the Food and Agriculture Organization of 
+the United Nations collects data on fisheries production of countries.
+
+```{r echo=FALSE, out.width="60%", fig.align="center"}
+include_graphics("img/06/fisheries-data.png")
+```
+.center[
+.hand[...]
+]
+
+.footnote[
+Source: https://en.wikipedia.org/wiki/Fishing_industry_by_country
+]
+
+---
+
+## Load data
+
+```{r}
+fisheries <- read_csv("data/fisheries.csv")
+```
+
+---
+
+## First look at the data 
+
+```{r}
+glimpse(fisheries)
+```
+
+---
+
+## Quick summaries of the data
+
+.xsmall[
+```{r render = normal_print, echo=2}
+options(width=140)
+skim(fisheries) #skimr package
+```
+]
+
+---
+
+## Some summary stats
+
+```{r}
+fisheries %>%
+  summarise(
+    mean_cap = mean(capture),
+    mean_aqc = mean(aquaculture),
+    mean_tot = mean(total)
+  )
+```
+
+--
+
+<br>
+
+.hand[
+well, that was boring...
+]
+
+---
+
+## A new approach!
+
+```{r}
+fisheries %>%
+  summarise(across(capture:total, mean))
+```
+
+---
+
+.discussion[
+The (not-so-great) visualization below shows the distribution of fishery harvest 
+of countries for 2016, by capture and aquaculture. What are some ways you would 
+improve this visualization? Note that countries whose total harvest was less 
+than 100,000 tons are not included in the visualization.
+]
+
+
+```{r echo=FALSE, out.width="60%", fig.align="center"}
+include_graphics("img/06/fisheries.png")
+```
+
+
+---
+
+class: middle 
+
+
+### Goal: calculate summary statistics at the continent level and visualize them
+
+---
+
+## Data prep
+
+.midi[
+```{r message=FALSE}
+continents <- read_csv("data/continents.csv")
+```
+]
+--
+
+Filter out countries whose total harvest was less than 100,000 tons since they 
+are not included in the visualization:
+
+```{r}
+fisheries <- fisheries %>%
+  filter(total > 100000)
+
+fisheries
+```
+
+---
+
+class: middle, center
+
+# Data joins
+
+---
+
+.pull-left[
+```{r}
+fisheries %>% select(country)
+```
+]
+.pull-right[
+```{r}
+continents
+```
+]
+
+---
+
+## Joining data frames
+
+```
+something_join(x, y)
+```
+
+- `inner_join()`: all rows from x where there are matching values in y, return 
+all combination of multiple matches in the case of multiple matches
+- `left_join()`: all rows from x
+- `right_join()`: all rows from y
+- `full_join()`: all rows from both x and y
+- `semi_join()`: all rows from x where there are matching values in y, keeping just columns from x.
+- `anti_join()`: return all rows from x where there are not matching values in y, never duplicate rows of x
+- ...
+ 
+---
+
+## Setup
+
+For the next few slides...
+
+.pull-left[
+```{r echo=FALSE}
+x <- tibble(value = c(1, 2, 3))
+```
+```{r}
+x
+```
+]
+.pull-right[
+```{r echo=FALSE}
+y <- tibble(value = c(1, 2, 4))
+```
+```{r}
+y
+```
+]
+
+---
+
+## `inner_join()`
+
+.pull-left[
+```{r}
+inner_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/inner-join.gif")
+```
+]
+
+---
+
+## `left_join()`
+
+.pull-left[
+```{r}
+left_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/left-join.gif")
+```
+]
+
+---
+
+## `right_join()`
+
+.pull-left[
+```{r}
+right_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/right-join.gif")
+```
+]
+
+---
+
+## `full_join()`
+
+.pull-left[
+```{r}
+full_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/full-join.gif")
+```
+]
+
+---
+
+## `semi_join()`
+
+.pull-left[
+```{r}
+semi_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/semi-join.gif")
+```
+]
+
+---
+
+## `anti_join()`
+
+.pull-left[
+```{r}
+anti_join(x, y)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+include_graphics("img/06/anti-join.gif")
+```
+]
+
+---
+
+.discussion[
+We want to keep all rows and columns from `fisheries` and add a column for 
+corresponding continents. Which join function should we use?
+]
+
+.pull-left[
+```{r}
+fisheries %>% select(country)
+```
+]
+.pull-right[
+```{r}
+continents
+```
+]
+
+---
+
+## Join fisheries and continents 
+
+```{r}
+fisheries <- left_join(fisheries, continents) 
+```
+
+--
+
+.discussion[
+How does `left_join()` know to join the two data frames by `country`?
+]
+
+Hint:
+
+- Variables in the original fisheries dataset:
+
+```{r echo=FALSE}
+fisheries %>% select(-continent) %>% names()
+```
+
+- Variables in the continents dataset:
+
+```{r echo=FALSE}
+names(continents)
+```
+
+
+---
+
+## Check the data
+
+```{r}
+fisheries %>%
+  filter(is.na(continent))
+```
+
+---
+
+## Implement fixes
+
+.small[
+```{r}
+fisheries <- fisheries %>%
+  mutate(continent = case_when(
+    country == "Democratic Republic of the Congo" ~ "Africa",
+    country == "Hong Kong"                        ~ "Asia",
+    country == "Myanmar"                          ~ "Asia",
+    TRUE                                          ~ continent
+    )
+  )
+```
+
+...and check again
+
+```{r include=FALSE}
+options(width=90)
+```
+]
+
+```{r}
+fisheries %>%
+  filter(is.na(continent))
+```
+
+---
+
+.discussion[
+What does the following code do?
+]
+
+```{r eval=FALSE}
+fisheries %>%
+  mutate(aquaculture_perc = aquaculture / total)
+```
+
+---
+
+class: middle, center
+
+## Demo
+<!--
+.your-turn[
+- [RStudio Cloud](http://rstd.io/dsbox-cloud) > `AE 05 - Fisheries + Data joins` > open `fisheries.Rmd` and knit.
+- Knit the document and work on the Exercise 1.
+- Once done, place a green sticky on your laptop. If you have questions, place a pink sticky.
+]
+-->
+
+---
+
+class: middle, center
+
+## Demo
+
+<!--
+.your-turn[
+- [RStudio Cloud](http://rstd.io/dsbox-cloud) > `AE 05 - Fisheries + Data joins` > open `fisheries.Rmd` and knit.
+- Knit the document and work on the Exercises 2 - 4.
+- Once done, place a green sticky on your laptop. If you have questions, place a pink sticky.
+]
+
+-->
+---
+
+```{r include=FALSE}
+fisheries <- fisheries %>%
+  mutate(aquaculture_perc = aquaculture / total)
+
+fisheries_summary <- fisheries %>%
+  group_by(continent) %>%
+  summarise(
+    min_ap  = min(aquaculture_perc),
+    mean_ap = mean(aquaculture_perc),
+    max_ap  = max(aquaculture_perc)
+  )
+```
+
+## Visualize continent summary stats
+
+```{r fig.height=4,fig.width=10}
+ggplot(fisheries_summary, aes(x = continent, y = mean_ap)) +
+  geom_col()
+```
+
+---
+
+## Improve visualization
+
+```{r fig.height=4,fig.width=10}
+ggplot(fisheries_summary, 
+       aes(x = fct_reorder(continent, mean_ap), y = mean_ap)) + #<<
+  geom_col()
+```
+
+---
+
+## Improve visualization further
+
+```{r eval=FALSE}
+ggplot(fisheries_summary, 
+       aes(y = fct_reorder(continent, mean_ap), x = mean_ap)) +
+  geom_col() +
+  scale_x_continuous(labels = label_percent(accuracy = 1)) + #<<
+  labs( #<<
+    x = "",  #<<
+    y = "",  #<<
+    title = "Average share of aquaculture by continent",  #<<
+    subtitle = "out of total fisheries harvest, 2016",  #<<
+    caption = "Source: bit.ly/2VrawTt" #<<
+  ) +  #<<
+  theme_minimal() #<<
+```
+
+`r emo::ji("arrow_right")` See next slide...
+
+---
+
+```{r echo=FALSE}
+ggplot(fisheries_summary, 
+       aes(y = fct_reorder(continent, mean_ap), x = mean_ap)) +
+  geom_col() +
+  scale_x_continuous(labels = label_percent(accuracy = 1)) +
+  labs(
+    x = "", y = "",
+    title = "Average share of aquaculture by continent",
+    subtitle = "out of total fisheries harvest, 2016",
+    caption = "Source: bit.ly/2VrawTt"
+  ) +
+  theme_minimal()
+```
