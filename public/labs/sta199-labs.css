@@ -12,11 +12,13 @@ html {
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 350;
+	font-weight: 400;
 	background-color: #fefefe;
 	color: #222;
 	counter-reset: li;
+	font-size: 16px;
 }
+
 
 h1.title {
 	font-weight: 700;
@@ -95,7 +97,7 @@ strong {
 code {
 	font-family: 'Source Code Pro', Consolas, "Liberation Mono", Menlo, Courier, monospace;
 	font-size: 16px;
-	line-height: 1.6;
+	line-height: 1.6; 
 }
 
 pre {
@@ -166,7 +168,7 @@ ol ol {
 }
 
 td {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /*Style for the Footer*/

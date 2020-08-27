@@ -22,7 +22,7 @@ lessons:
     slides: "04-data-and-viz-pt2.html"
   - date:  "Thu, Aug 27"
     title: "Lab 02: Data wrangling and visualization"
-    lab: "lab-02-data-viz.html"
+    lab: "lab-02-plastic-waste.html"
     
   - week: "Week 03"
     date: "Mon, Aug 31"

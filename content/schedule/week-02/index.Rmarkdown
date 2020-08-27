@@ -31,7 +31,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| [Lab 02](https://sta199-fa20-002.netlify.app/labs/lab-02-data-viz.html) | **due Wed, Sep 2 at 11:59p** |
+| [Lab 02](https://sta199-fa20-002.netlify.app/labs/lab-02-plastic-waste.html) | **due Wed, Sep 2 at 11:59p** |
 
 ## Announcements
 
