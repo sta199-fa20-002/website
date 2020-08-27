@@ -254,7 +254,50 @@ div.my-footer a {
 /* Footnote */
 .footnote {
   position: absolute;
-  bottom: 3em;
+  bottom: 1em;
   padding-right: 4em;
   font-size: 50%;
+}
+
+/*New formatting*/
+.discussion, .your-turn, .tip {
+  padding: 5px 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.discussion{
+  border-left: solid 5px #A7D5E8;
+  background-color: #E7E7E7;
+}
+
+.your-turn {
+  border-left: solid 5px #FFD748;
+  background-color: #fff9e5;
+}
+.your-turn:before{
+  content: "Your turn!";
+  font-size: 150%;
+  font-weight: bold;
+  color: #FFD748;
+  margin-bottom: 10px;
+}
+.your-turn ul li:before {
+  content: "✚"; 
+  color: #FFD748; 
+  display: inline-block; 
+  width: 1.5em;
+  margin-left: -1.5em
+}
+
+.tip {
+  border-right: solid 5px #F26BAA;
+  background-color: #E7E7E7;
+}
+.tip:before{
+  content: "Tip:";
+  font-size: 100%;
+  font-weight: bold;
+  color: #F26BAA;
+  margin-bottom: 2px;
 }
