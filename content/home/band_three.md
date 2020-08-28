@@ -8,7 +8,7 @@ title: Teaching team and office hours
   }
 
   table {
-  width: 600px;
+  width: 550px;
   font-size: 17px;
   font-weight: 400;
   padding-top: 5px;

@@ -823,14 +823,14 @@ Course Learning Objectives By the end of the semester, you will…
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/home/band_three/</guid>
-      <description> .column { width: 100%; } table { width: 600px; font-size: 17px; font-weight: 400; padding-top: 5px; padding-bottom: 5px; }            Instructor Prof. Maria Tackett Mon 1p - 2p   TAs Salvador Arellano Tue 10a - 12p    Morris Greenberg Fri 12p - 1p    Caroline Levenson Wed 2p - 4p    Ezinne Nwankwo Mon &amp;amp; Wed 8:30a - 9:30a    Matty Pahren Tue &amp;amp; Thu 2p - 3p    Felipe Ossa Wed &amp;amp; Fri 5p - 6p   R Support TA George Lindner Tue 5p - 6p &amp;amp; Fri 3:30p - 4:30p    </description>
+      <description> .column { width: 100%; } table { width: 550px; font-size: 17px; font-weight: 400; padding-top: 5px; padding-bottom: 5px; }            Instructor Prof. Maria Tackett Mon 1p - 2p   TAs Salvador Arellano Tue 10a - 12p    Morris Greenberg Fri 12p - 1p    Caroline Levenson Wed 2p - 4p    Ezinne Nwankwo Mon &amp;amp; Wed 8:30a - 9:30a    Matty Pahren Tue &amp;amp; Thu 2p - 3p    Felipe Ossa Wed &amp;amp; Fri 5p - 6p   R Support TA George Lindner Tue 5p - 6p &amp;amp; Fri 3:30p - 4:30p    </description>
       <content>&lt;style&gt;
   .column {
   width: 100%;
   }
 
   table {
-  width: 600px;
+  width: 550px;
   font-size: 17px;
   font-weight: 400;
   padding-top: 5px;
