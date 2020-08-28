@@ -247,7 +247,7 @@ glimpse(hotels)
 
 ## Select a single column
 
-View only the `lead_time` type (number of days between booking and arrival date):
+View only the `lead_time` (number of days between booking and arrival date):
 
 --
 .pull-left[
@@ -406,8 +406,7 @@ knitr::include_graphics("img/05/magrittr.jpg")
 
 ## How does a pipe work?
 
-- You can think about the following sequence of actions - find key, 
-unlock car, start car, drive to work, park.
+- You can think about the following sequence of actions - find keys,  start car, drive to work, park.
 
 --
 - Expressed as a set of nested functions in R pseudocode this would look like:

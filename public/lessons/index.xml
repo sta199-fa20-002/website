@@ -209,7 +209,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-03/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling     Wednesday Joining data from multiple sources      Readings          Update    Update    Update     Assignments          Lab 03 due Wed, Sep 9 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05     Tidy data and data wrangling: Part 2    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          Update    Update    Update     Assignments          Lab 03 due Wed, Sep 9 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -230,14 +230,20 @@ font-size: 18px;
 &lt;tr&gt;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html&#34;&gt;Tidy data and data wrangling&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/AVAEAA/&#34;&gt;Tidy data and data wrangling: Part 1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AE 05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Tidy data and data wrangling: Part 2&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html&#34;&gt;Joining data from multiple sources&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Joining data from multiple data sources&lt;/td&gt;
+&lt;td&gt;AE 06&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

@@ -186,7 +186,7 @@ are not included in the visualization:
 
 ```{r}
 fisheries <- fisheries %>%
-  filter(total > 100000)
+  filter(total >= 100000)
 
 fisheries
 ```

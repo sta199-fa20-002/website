@@ -14,8 +14,9 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Tidy data and data wrangling](https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html)|   |  |
-| Wednesday |  [Joining data from multiple sources](https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html)   |    |  |  
+| Monday    | [Tidy data and data wrangling](https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html)| [Tidy data and data wrangling: Part 1](https://warpwire.duke.edu/w/AVAEAA/) | AE 05 |
+|     | | Tidy data and data wrangling: Part 2 |  |
+| Wednesday |  [Joining data from multiple sources](https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html)   | Joining data from multiple data sources    | AE 06  |  
 
 
 ## Readings
