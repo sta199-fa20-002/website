@@ -26,9 +26,11 @@ lessons:
     
   - week: "Week 03"
     date: "Mon, Aug 31"
-    title: "Data wrangling/manipulation 1"
+    title: "Tidy data and data wrangling"
+    slides: "05-tidy-data-wrangle.html"
   - date: "Wed, Sep 02"
-    title: "Data wrangling/manipulation 2"
+    title: "Joining data from multiple sources"
+    slides: "06-join-data-merge.html"
   - date: "Thu, Sep 03"
     title: "Lab 03"
   
