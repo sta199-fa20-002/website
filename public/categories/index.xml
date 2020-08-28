@@ -805,7 +805,7 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
   }
 
   table {
-  width: 550px;
+  width: 525px;
   font-size: 17px;
   font-weight: 400;
   padding-top: 5px;
