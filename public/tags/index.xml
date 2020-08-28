@@ -805,12 +805,13 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
   }
 
   table {
-  width: 500px;
+  width: 600px;
   font-size: 17px;
   font-weight: 400;
   padding-top: 5px;
   padding-bottom: 5px;
   }
+  
   
 &lt;/style&gt;
 &lt;table&gt;
@@ -851,6 +852,16 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;mailto:martha.pahren@duke.edu&#34;&gt;Matty Pahren&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Tue &amp;amp; Thu 2p - 3p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:felipe.ossa@duke.edu&#34;&gt;Felipe Ossa&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Wed &amp;amp; Fri 5p - 6p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;R Support TA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;mailto:george.lindner@duke.edu&#34;&gt;George Lindner&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Tue 5p - 6p &amp;amp; Fri 3:30p - 4:30p&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
