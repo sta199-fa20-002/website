@@ -209,7 +209,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-03/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05     Tidy data and data wrangling: Part 2    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          Update    Update    Update     Assignments          Lab 03 due Wed, Sep 9 at 11:59p    Announcements  Peer tutoring groups and other services available through the Academic Resource Center  </description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05     Tidy data and data wrangling: Part 2      Data wrangling demo (optional)    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          OpenIntro Statistics: 2.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -236,7 +236,13 @@ font-size: 18px;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Tidy data and data wrangling: Part 2&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/Z1AEAA/&#34;&gt;Tidy data and data wrangling: Part 2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/fVAEAA/&#34;&gt;Data wrangling demo (optional)&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -257,16 +263,12 @@ font-size: 18px;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Update&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://leanpub.com/openintro-statistics&#34;&gt;OpenIntro Statistics: 2.1.1 - 2.1.7, 2.2&lt;/a&gt; &lt;br&gt; (click “Read Free Sample” to access PDF)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Update&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Update&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://r4ds.had.co.nz/transform.html&#34;&gt;R for Data Science: Data transformations&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
