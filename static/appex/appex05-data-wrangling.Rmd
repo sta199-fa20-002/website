@@ -15,14 +15,11 @@ output:
 ## Questions? 
 
 
-## The way data is displayed matters
-
-
 ## Clone a repo + start a new project
 
 Go to the `ae-05-[GITHUB USERNAME]` repo, clone it, and start a new project in RStudio. See the [Lab 01](https://sta199-fa20-002.netlify.app/labs/lab-01-hello-r.html#getting-started) for more detailed instructions about cloning a repo and starting a new project. 
 
-### Configure git
+## Configure git
 
 Run the following code to configure Git. Fill in your GitHub username and the email address associated with your GitHub account. 
 
