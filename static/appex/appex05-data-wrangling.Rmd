@@ -69,7 +69,7 @@ ncbikecrash <- read_csv("data/ncbikecrash.csv")
 
 ### Part 4
 
-**Calculate the average estimated driver speed (`driver_est_speed`) based on whether the crash was a hit and run (`hit_run`).**
+**Calculate the average estimated crash hour, `crash_hour` (<u>not</u> driver_est_speed) based on whether the crash was a hit and run (`hit_run`).**
 
 ```{r}
 
