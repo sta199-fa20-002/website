@@ -209,7 +209,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-03/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05     Tidy data and data wrangling: Part 2      Data wrangling demo (optional)    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          OpenIntro Statistics: 2.</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05: NC Bike Crashes     Tidy data and data wrangling: Part 2      Data wrangling demo (optional)    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          OpenIntro Statistics: 2.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -231,7 +231,7 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html&#34;&gt;Tidy data and data wrangling&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/AVAEAA/&#34;&gt;Tidy data and data wrangling: Part 1&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 05&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex05-data-wrangling.html&#34;&gt;AE 05: NC Bike Crashes&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;

@@ -14,7 +14,7 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Tidy data and data wrangling](https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html)| [Tidy data and data wrangling: Part 1](https://warpwire.duke.edu/w/AVAEAA/) | AE 05 |
+| Monday    | [Tidy data and data wrangling](https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html)| [Tidy data and data wrangling: Part 1](https://warpwire.duke.edu/w/AVAEAA/) | [AE 05: NC Bike Crashes](https://sta199-fa20-002.netlify.app/appex/appex05-data-wrangling.html)|
 |     | | [Tidy data and data wrangling: Part 2](https://warpwire.duke.edu/w/Z1AEAA/) |  |
 |     | | [Data wrangling demo (optional)](https://warpwire.duke.edu/w/fVAEAA/) |  |
 | Wednesday |  [Joining data from multiple sources](https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html)   | Joining data from multiple data sources    | AE 06  |  
