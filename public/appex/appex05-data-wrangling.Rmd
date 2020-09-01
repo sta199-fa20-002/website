@@ -42,6 +42,7 @@ Use the code below to load the data from the .csv file
 ncbikecrash <- read_csv("data/ncbikecrash.csv")
 ```
 
+
 ### Part 1
 
 **Display the first 10 rows of the ncbikecrash data set.**
