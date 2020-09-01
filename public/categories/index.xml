@@ -10,7 +10,7 @@
 
 
 <item>
-  <title>Week 01</title>
+  <title>Week 01: Intro</title>
   <link>/schedule/week-01/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
   
@@ -120,7 +120,7 @@ font-size: 18px;
   </item>
   
 <item>
-  <title>Week 02</title>
+  <title>Week 02: Data viz</title>
   <link>/schedule/week-02/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
   
@@ -202,7 +202,7 @@ font-size: 18px;
   </item>
   
 <item>
-  <title>Week 03</title>
+  <title>Week 03: Data wrangle</title>
   <link>/schedule/week-03/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
   

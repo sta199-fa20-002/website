@@ -1,5 +1,5 @@
 ---
-title: "Week 02"
+title: "Week 02: Data viz"
 weight: 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 03"
+title: "Week 03: Data wrangle"
 weight: 3
 ---
 

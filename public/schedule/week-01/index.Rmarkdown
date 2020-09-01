@@ -1,5 +1,5 @@
 ---
-title: "Week 01"
+title: "Week 01: Intro"
 weight: 1
 ---
 
