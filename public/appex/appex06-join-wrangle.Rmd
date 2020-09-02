@@ -47,6 +47,7 @@ use_git_config(user.name= "your github username", user.email="your email")
 
 ```{r setup, eval  = FALSE}
 library(tidyverse)
+library(scales)
 fisheries <- read_csv("data/fisheries.csv")
 continents <- read_csv("data/continents.csv")
 ```
