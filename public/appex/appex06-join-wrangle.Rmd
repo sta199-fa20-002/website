@@ -11,7 +11,7 @@ output:
 
 - Lab 02 due today at 11:59p
 - Start working with lab teams tomorrow
-- Lab 01 grading + solutions
+- Lab 01 grading +  solutions in Sakai 
 - Regrade requests 
   - On Gradescope 24 hours after assignment returned and due within a week
   - Consult the solutions + attend office hours 
