@@ -139,7 +139,7 @@ Confirm that once you have filtered for these characteristics you are left with 
 <b>Team Member 2</b>: It's your turn! Type the team's response to exercise 3.
 </div>
 
-### Most living Nobel laureates were based in the US when they won their prizes
+### "Most living Nobel laureates were based in the US when they won their prizes"
 
 ... says the Buzzfeed article. Let's see if that's true.
 
@@ -163,7 +163,11 @@ nobel_living_science <- nobel_living %>%
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
 
-For the next exercise work with the `nobel_living_science` data frame you created above. This means you'll need to define this data frame in your R Markdown document, even though the next exercise doesn't explicitly ask you to do so.
+**You will work with the `nobel_living_science` data frame you created above for the remainder of the lab.** This means you'll need to define this data frame in your R Markdown document.
+
+```{marginfigure}
+**Hint:** You can change the orientation of the bars using the `coord_flip()` function in ggplot2. Click [here](https://ggplot2.tidyverse.org/reference/coord_flip.html) to read more about the function.
+```
 
 3. Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners in the US and one for Other. Flip the coordinates so the bars are horizontal, not vertical. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
@@ -176,13 +180,13 @@ For the next exercise work with the `nobel_living_science` data frame you create
 </div>
 
 
-### But of those US-based Nobel laureates, many were born in other countries
+### "But of those US-based Nobel laureates, many were born in other countries..."
 
 ```{marginfigure}
-**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
+**Hint:** You should be able to borrow from code you used earlier to create the `country_us` variable.
 ```
 
-4. Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
+4. Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise. Be sure to save the variable to the `nobel_living_science` data frame.
 
 5. Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Your final visualization should contain a facet for each category, within each facet a bar for whether they won the award in the US or not, and within each bar whether they were born in the US or not. Based on your visualization, do the data appear to support Buzzfeed's claim? Explain your reasoning in 1-2 sentences.
 
