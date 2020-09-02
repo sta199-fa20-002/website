@@ -10,9 +10,7 @@ output:
 link-citations: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 # Meet your team! 
 
@@ -20,11 +18,11 @@ See [STA 199 Teams](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke
 
 Before you get started on the lab assignment, we will take a few minutes to help you develop a plan for working as a team. 
 
-`r emo::ji("white_check_mark")` Come up with a team name. I encourage you to be creative! Your TA will get your team name by the end of lab. 
+✅ Come up with a team name. I encourage you to be creative! Your TA will get your team name by the end of lab. 
 
-`r emo::ji("white_check_mark")` Identify something everyone on the team has in common that's not necessarily in common with everyone else in the class. 
+✅ Identify something everyone on the team has in common that's not necessarily in common with everyone else in the class. 
 
-`r emo::ji("white_check_mark")` Fill out the team agreement. This will help you figure out a plan for working together during labs and outside of lab times. You can find the team agreement in the GitHub repo **team-agreement-[github_team_name]**. 
+✅ Fill out the team agreement. This will help you figure out a plan for working together during labs and outside of lab times. You can find the team agreement in the GitHub repo **team-agreement-[github_team_name]**. 
   
   - Have **one person** from the team clone the repo and start a new RStudio project. This person will type the team's responses as you discuss the sections of the agreement. Share your screen, if possible, so the rest of the team can see the updates. No one else in the team should type at this point but should be contributing to the discussion.
   - Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference.
@@ -68,7 +66,8 @@ The following exercises must be done in order. **Only one person should type in 
 
 We'll use the **tidyverse** package for this analysis. Run the following code in the Console to load this package.
 
-```{r load-packages, message=FALSE, eval=TRUE}
+
+```r
 library(tidyverse)
 ```
 
@@ -76,7 +75,8 @@ library(tidyverse)
 
 The dataset for this assignment can be found as a csv file in the `data` folder of your repository. You can read it in using the following.
 
-```{r load-data, message=FALSE, eval=TRUE}
+
+```r
 nobel <- read_csv("data/nobel.csv")
 ```
 
@@ -132,7 +132,7 @@ There are some observations in this dataset that we will exclude from our analys
 Confirm that once you have filtered for these characteristics you are left with a data frame with 228 observations.
 
 <div class = "commit">
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 1</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
+✅ ⬆️ <b>Team Member 1</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
 </b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2. **
 
@@ -145,11 +145,10 @@ Confirm that once you have filtered for these characteristics you are left with 
 
 First, we'll create a new variable to identify whether the laureate was in the US when they won their prize. We'll use the `mutate()` function for this. The following pipeline mutates the `nobel_living` data frame by adding a new variable called `country_us`. We use an if/else statement to create this variable. The first argument in the `if_else()` function is the condition we're testing for. If `country` is equal to `"USA"`, we set `country_us` to `"USA"`. If not, we set the `country_us` to `"Other"`.
 
-```{marginfigure}
-Note that we can achieve the same result using the `fct_other()` function (i.e. with `country_us = fct_other(country, "USA")`).
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that we can achieve the same result using the <code>fct_other()</code> function (i.e. with <code>country_us = fct_other(country, "USA")</code>).</span></span>
 
-```{r}
+
+```r
 nobel_living <- nobel_living %>%
   mutate(
     country_us = if_else(country == "USA", "USA", "Other")
@@ -158,7 +157,8 @@ nobel_living <- nobel_living %>%
 
 Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.
 
-```{r}
+
+```r
 nobel_living_science <- nobel_living %>%
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
@@ -168,7 +168,7 @@ For the next exercise work with the `nobel_living_science` data frame you create
 3. Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners in the US and one for Other. Flip the coordinates so the bars are horizontal, not vertical. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
 <div class = "commit">
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 2</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+✅ ⬆️ <b>Team Member 2</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 <b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercise 3. 
 
@@ -178,9 +178,7 @@ For the next exercise work with the `nobel_living_science` data frame you create
 
 ### But of those US-based Nobel laureates, many were born in other countries
 
-```{marginfigure}
-**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> You should be able to <del>cheat</del> borrow from code you used earlier to create the <code>country_us</code> variable.</span></span>
 
 4. Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
 
@@ -188,7 +186,7 @@ For the next exercise work with the `nobel_living_science` data frame you create
 
 <div class = "commit">
 
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 3</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
+✅ ⬆️ <b>Team Member 3</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
 <b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5. 
 
@@ -198,14 +196,12 @@ For the next exercise work with the `nobel_living_science` data frame you create
 
 ### Here’s where those immigrant Nobelists were born
 
-```{marginfigure}
-Note that your bar plot won't exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.</span></span>
 
 6. In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()`) function for their birth country, `born_country`, and arrange the resulting data frame in descending order of number of observations for each country.
 
 <div class = "commit">
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
+✅ ⬆️ <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
 <b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the team's completed lab!
 </b>
@@ -224,7 +220,7 @@ All other team members can click to pull the finalized document.
 
 ## Submission 
 
-<b>Team Member 3</b>: Upload the team's PDF to Gradescope. Be sure to include every team member's name in the Gradescope submission Associate the "Overall" graded section with the first page of your PDF, and mark where each answer is  to the exercises. If any answer spans multiple pages, then mark all pages.
+<b>Team Member 3<?b>: Upload the team's PDF to Gradescope. Be sure to include every team member's name in the Gradescope submission Associate the "Overall" graded section with the first page of your PDF, and mark where each answer is  to the exercises. If any answer spans multiple pages, then mark all pages.
 
 There should only be **<u>one</u>** submission per team on Gradescope. 
 

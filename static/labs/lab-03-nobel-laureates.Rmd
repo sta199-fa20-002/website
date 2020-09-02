@@ -1,17 +1,35 @@
 ---
 title: "Lab 03 - Nobel laureates"
-subtitle: "due date"
-output:
+output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
     highlight: pygments
-   # css: "sta199-labs.css"
+    css: "./sta199-labs.css"
+    toc: true
+    toc_depth: 2
 link-citations: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
+
+# Meet your team! 
+
+See [STA 199 Teams](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EWHnLjejWF5Ghwj_Vk59nZ0BwG4drTrwwAjo7Hw996V10Q?e=KnVbbn) to see your team assignment. This will be your team for labs and the final project. 
+
+Before you get started on the lab assignment, we will take a few minutes to help you develop a plan for working as a team. 
+
+`r emo::ji("white_check_mark")` Come up with a team name. I encourage you to be creative! Your TA will get your team name by the end of lab. 
+
+`r emo::ji("white_check_mark")` Identify something everyone on the team has in common that's not necessarily in common with everyone else in the class. 
+
+`r emo::ji("white_check_mark")` Fill out the team agreement. This will help you figure out a plan for working together during labs and outside of lab times. You can find the team agreement in the GitHub repo **team-agreement-[github_team_name]**. 
+  
+  - Have **one person** from the team clone the repo and start a new RStudio project. This person will type the team's responses as you discuss the sections of the agreement. Share your screen, if possible, so the rest of the team can see the updates. No one else in the team should type at this point but should be contributing to the discussion.
+  - Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference.
+  
+# Lab 03
 
 In January 2017, Buzzfeed published an article titled ["These Nobel Prize Winners Show Why Immigration Is So Important For American Science"](https://www.buzzfeednews.com/article/peteraldhous/immigration-and-science). In the article they explore where many Nobel laureates in the sciences were born and where they lived when they won their prize.
 
@@ -25,13 +43,11 @@ The learning goals of this lab are:
 - Summarize data.
 - Practice working on a team.
 
-## Getting started
-
-## Clone Assignment Repo
+## Clone assignment repo + start new project
 
 A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.
 
-- Go to the GitHub course organization. 
+- Go to [course organization](https://www.github.com/sta199-fa20-002) on GitHub.
 
 - In addition to your private individual repositories, you should now see a repo named lab-03-nobel-[github_team_name]. Go to that repository.
   
@@ -48,7 +64,7 @@ The following exercises must be done in order. **Only one person should type in 
 **Team Member 1: Change the author to your team name and include each team member's name in the `author` field of the YAML in the following format. `Team Name: Member 1, Member 2, Member 3, Member 4`.**
 
 
-### Packages
+## Packages
 
 We'll use the **tidyverse** package for this analysis. Run the following code in the Console to load this package.
 
@@ -100,7 +116,9 @@ In a few cases the name of the city/country changed after prize was given (e.g. 
 
 ### Get to know your data
 
-**Team Member 1: Type the team's responses to exercises 1 and 2.**
+<div class = "commit">
+<b>Team Member 1</b>: Type the team's responses to exercises 1 and 2.
+</div>
 
 1. How many observations and how many variables are in the dataset? Use inline code to answer this question.
 
@@ -113,11 +131,13 @@ There are some observations in this dataset that we will exclude from our analys
   
 Confirm that once you have filtered for these characteristics you are left with a data frame with 228 observations.
 
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Team Member 1: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+<div class = "commit">
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 1</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
-**All other team members: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2. **
+</b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2. **
 
-**Team Member 2: It's your turn! Type the team's response to exercise 3.**
+<b>Team Member 2</b>: It's your turn! Type the team's response to exercise 3.
+</div>
 
 ### Most living Nobel laureates were based in the US when they won their prizes
 
@@ -147,11 +167,13 @@ For the next exercise work with the `nobel_living_science` data frame you create
 
 3. Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners in the US and one for Other. Flip the coordinates so the bars are horizontal, not vertical. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
 
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Team Member 2: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+<div class = "commit">
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 2</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
-**All other team members: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercise 3. **
+<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercise 3. 
 
-**Team Member 3: It's your turn! Type the team's response to exercises 4 - 5.**
+<b>Team Member 3</b>: It's your turn! Type the team's response to exercises 4 - 5.
+</div>
 
 
 ### But of those US-based Nobel laureates, many were born in other countries
@@ -164,11 +186,14 @@ For the next exercise work with the `nobel_living_science` data frame you create
 
 5. Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Your final visualization should contain a facet for each category, within each facet a bar for whether they won the award in the US or not, and within each bar whether they were born in the US or not. Based on your visualization, do the data appear to support Buzzfeed's claim? Explain your reasoning in 1-2 sentences.
 
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Team Member 3: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+<div class = "commit">
 
-**All other team members: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5. **
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 3</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
-**Team Member 4. It's your turn! Type the team's response to exercise 6.**
+<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5. 
+
+<b>Team Member 4</b>: It's your turn! Type the team's response to exercise 6.
+</div>
 
 
 ### Here’s where those immigrant Nobelists were born
@@ -179,9 +204,11 @@ Note that your bar plot won't exactly match the one from the Buzzfeed article. T
 
 6. In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()`) function for their birth country, `born_country`, and arrange the resulting data frame in descending order of number of observations for each country.
 
-`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Team Member 4: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+<div class = "commit">
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
-**All other team members: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the team's completed lab!**
+<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the team's completed lab!
+</b>
 
 
 ## Wrapping up
@@ -190,13 +217,14 @@ Go back through your write up to make sure you followed the coding style guideli
  
 Also, make sure all of your R chunks are properly labeled, and your figures are reasonably sized.
 
-**Team Member 2:** Make any edits as needed. Then knit, commit, and push the updated documents to GitHub if you made any changes. 
+
+<b>Team Member 2:</b> Make any edits as needed. Then knit, commit, and push the updated documents to GitHub if you made any changes. 
 
 All other team members can click to pull the finalized document. 
 
 ## Submission 
 
-**Team Member 3**: Upload the team's PDF to Gradescope. Be sure to include every team member's name in the Gradescope submission Associate the "Overall" graded section with the first page of your PDF, and mark where each answer is  to the exercises. If any answer spans multiple pages, then mark all pages.
+<b>Team Member 3</b>: Upload the team's PDF to Gradescope. Be sure to include every team member's name in the Gradescope submission Associate the "Overall" graded section with the first page of your PDF, and mark where each answer is  to the exercises. If any answer spans multiple pages, then mark all pages.
 
 There should only be **<u>one</u>** submission per team on Gradescope. 
 
