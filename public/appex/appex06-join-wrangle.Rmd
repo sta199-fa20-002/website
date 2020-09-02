@@ -12,6 +12,11 @@ output:
 - Lab 02 due today at 11:59p
 - Start working with lab teams tomorrow
 - Lab 01 grading + solutions
+- Regrade requests 
+  - On Gradescope 24 hours after assignment returned and due within a week
+  - Consult the solutions + attend office hours 
+  - Only submit if something was incorrectly graded.
+  - We reserve the right to regrade the entire assignment which could result in a lower grade.
 
 ## Code styling + workflow 
 
@@ -103,11 +108,11 @@ fisheries_summary <- fisheries %>%
 
 ### Exercise 4.
 
-Take the `fisheries_summary_continent` data frame and order the results in descending 
+Take the `fisheries_summary` data frame and order the results in descending 
 order of mean aquaculture percentage.
 
 ```{r fisheries-summary-continent-sorted, eval=FALSE}
-fisheries_summary %>%      # start with the fisheries_summary_continent data frame
+fisheries_summary %>%      # start with the fisheries_summary data frame
   ___                                # order in descending order of mean_ap
 ```
 
