@@ -1,5 +1,5 @@
 ---
-title: "AE 06: Joining data sets + data wrangling"
+title: "AE 06: Join data sets + data wrangling"
 author: "Your Name"
 date: "`r Sys.Date()`"
 output: 

@@ -1,7 +1,7 @@
 ---
 title: "AE 06: Join data sets + data wrangling"
 author: "Your Name"
-date: "`r Sys.Date()`"
+date: "2020-09-01"
 output: 
   html_document:
     theme: readable
@@ -33,14 +33,16 @@ Go to the `ae-06-[GITHUB USERNAME]` repo, clone it, and start a new project in R
 
 Run the following code to configure Git. Fill in your GitHub username and the email address associated with your GitHub account. 
 
-```{r eval=FALSE}
+
+```r
 library(usethis)
 use_git_config(user.name= "your github username", user.email="your email")
 ```
 
 ## Practice with data joins and wrangling
 
-```{r setup, eval  = FALSE}
+
+```r
 library(tidyverse)
 fisheries <- read_csv("data/fisheries.csv")
 continents <- read_csv("data/continents.csv")
@@ -48,7 +50,8 @@ continents <- read_csv("data/continents.csv")
 
 The code below fills in the gaps from joining the data sets to creating the updated visualizations. 
 
-```{r catch-up, eval = FALSE}
+
+```r
 fisheries <- fisheries %>%
   filter(total > 100000) %>%
   left_join(continents) %>%
@@ -72,7 +75,8 @@ Calculate the mean aquaculture percentage (we'll call it `mean_ap` for short)
 for continents in the fisheries data using the `summarise()` function in dplyr. 
 Note that the function for calculating the mean is `mean()` in R.
 
-```{r fisheries-mean, eval=FALSE}
+
+```r
 fisheries %>%                  # start with the fisheries data frame
   ___ %>%                      # group by continent
   ___(mean_ap = ___)           # calculate mean aquaculture
@@ -85,7 +89,8 @@ aquaculture percentage for continents in the fisheries data. Note that the
 functions for calculating minimum and maximum in R are `min()` and `max()`
 respectively.
 
-```{r fisheries-summary, eval=FALSE}
+
+```r
 fisheries %>%                  # start with the fisheries data frame
   # and the rest of the code goes here         
 ```
@@ -96,7 +101,8 @@ Create a new data frame called `fisheries_summary` that calculates
 minimum, mean, and maximum aquaculture percentage for each continent in the 
 fisheries data. 
 
-```{r fisheries-summary-continent, eval=FALSE}
+
+```r
 fisheries_summary <- fisheries %>%
   # you can reuse code from Exercise 2 here                        
 ```
@@ -106,7 +112,8 @@ fisheries_summary <- fisheries %>%
 Take the `fisheries_summary_continent` data frame and order the results in descending 
 order of mean aquaculture percentage.
 
-```{r fisheries-summary-continent-sorted, eval=FALSE}
+
+```r
 fisheries_summary %>%      # start with the fisheries_summary_continent data frame
   ___                                # order in descending order of mean_ap
 ```
@@ -115,7 +122,8 @@ fisheries_summary %>%      # start with the fisheries_summary_continent data fra
 
 The code below creates the graph you originally saw in the lecture slides. Change the theme to change the look of the graph. Choose one of the [complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) found in the ggplot2 reference page.
 
-```{r plot-continent-summary, eval = FALSE}
+
+```r
 ggplot(fisheries_summary, 
        aes(y = fct_reorder(continent, mean_ap), x = mean_ap)) +
   geom_col() +
