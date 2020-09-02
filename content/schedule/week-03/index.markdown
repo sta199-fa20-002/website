@@ -17,7 +17,7 @@ font-size: 18px;
 | Monday    | [Tidy data and data wrangling](https://sta199-fa20-002.netlify.app/slides/05-tidy-data-wrangle.html)| [Tidy data and data wrangling: Part 1](https://warpwire.duke.edu/w/AVAEAA/) | [AE 05: NC Bike Crashes](https://sta199-fa20-002.netlify.app/appex/appex05-data-wrangling.html)|
 |     | | [Tidy data and data wrangling: Part 2](https://warpwire.duke.edu/w/Z1AEAA/) |  |
 |     | | [Data wrangling demo (optional)](https://warpwire.duke.edu/w/fVAEAA/) |  |
-| Wednesday |  [Joining data from multiple sources](https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html)   | [Joining data from multiple data sources](https://warpwire.duke.edu/w/C1cEAA/)   | AE 06  |  
+| Wednesday |  [Joining data from multiple sources](https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html)   | [Joining data from multiple data sources](https://warpwire.duke.edu/w/C1cEAA/)   | [AE 06: Joining data + data wrangling](https://sta199-fa20-002.netlify.app/appex/appex06-join-wrangle.html)  |  
 
 
 ## Readings

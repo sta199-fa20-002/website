@@ -209,7 +209,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-03/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05: NC Bike Crashes     Tidy data and data wrangling: Part 2      Data wrangling demo (optional)    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06    Readings          OpenIntro Statistics: 2.</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Tidy data and data wrangling Tidy data and data wrangling: Part 1 AE 05: NC Bike Crashes     Tidy data and data wrangling: Part 2      Data wrangling demo (optional)    Wednesday Joining data from multiple sources Joining data from multiple data sources AE 06: Joining data + data wrangling    Readings          OpenIntro Statistics: 2.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -249,7 +249,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/06-data-join-merge.html&#34;&gt;Joining data from multiple sources&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/C1cEAA/&#34;&gt;Joining data from multiple data sources&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 06&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex06-join-wrangle.html&#34;&gt;AE 06: Joining data + data wrangling&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
