@@ -206,7 +206,7 @@ nobel_living_science <- nobel_living %>%
 Note that your bar plot won't exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.
 ```
 
-6. In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()`) function for their birth country, `born_country`, and arrange the resulting data frame in descending order of number of observations for each country.
+6. In a single pipeline, filter for laureates who were living in the US when they won their prize, but were born outside of the US, then create a frequency table (with the `count` function) for their birth country (`born_country`), and arrange the resulting data frame in descending order of number of observations for each country.
 
 <div class = "commit">
 `r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
