@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Conditional Probability</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Conditional Probability
+### Prof. Maria Tackett
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+## Conditional probability
+
+The probability an event will occur *given* that another event has already 
+occurred is a .vocab[conditional probability]. The conditional probability of
+event `\(A\)` given event `\(B\)` is:
+
+.instructions[
+`$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$`
+]
+---
+
+## Conditional probabilities 
+
+.instructions[
+`$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$`
+]
+
+Examples come up all the time in the real world:
+
+- *Given* that it rained yesterday, what is the probability that it will rain
+today?
+- *Given* that a mammogram comes back positive, what is the probability that a
+woman has breast cancer?
+- *Given* that I've already watched six episodes of How I Met Your Mother tonight,
+what is the probability that I'll get any work done this evening?
+
+---
+
+## Coffee and mortality
+
+&lt;img src="img/07/coffee.png" width="700" style="display: block; margin: auto;" /&gt;
+
+.midi[
+
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
+]
+
+---
+
+## Three probabilities
+
+.midi[
+
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
+]
+
+&lt;br&gt; 
+
+.question[
+.midi[
+Define events *A* = died and *B* = non-coffee drinker. Calculate the following for a randomly selected person in the cohort:]
+- .vocab[Marginal probability]: `\(P(A)\)`, `\(P(B)\)`
+- .vocab[Joint probability]: `\(P(A \text{ and } B)\)`
+- .vocab[Conditional probability]: `\(P(A | B)\)`, `\(P(B | A)\)`
+]
+
+
+
+
+---
+
+class: center, middle
+
+# Independence
+
+---
+
+## The multiplicative rule
+
+We can write the definition of condition probability
+
+.instructions[
+`$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$`
+]
+
+.instructions[
+Using the equation above, we get...
+
+`$$P(B) \times P(A | B) = P(A | B)$$`
+]
+
+.center[
+**What does the multiplicative rule mean in plain English?**
+]
+
+---
+
+## Defining independence
+
+Events `\(A\)` and `\(B\)` are said to be .vocab[independent] when
+
+
+`$$P(A | B) = P(A) \hspace{10mm} \textbf{OR} \hspace{10mm}
+P(B | A) = P(B)$$`
+
+&lt;br&gt; 
+
+In other words, knowing that one event has occurred doesn't cause us to "adjust"
+the probability we assign to another event.
+
+---
+
+## Checking independence
+
+We can use the multiplicative rule to see if two events are independent. 
+
+.instructions[
+If events `\(A\)` and `\(B\)` are independent, then 
+
+`$$P(A \text{ and } B) = P(A) \times P(B)$$`
+]
+
+---
+
+## Independent vs. disjoint events
+
+Since for two independent events `\(P(A|B) = P(A)\)` and `\(P(B|A) = P(B)\)`, knowing
+that one event has occurred tells us nothing more about the probability of the
+other occurring.
+
+For two disjoint events `\(A\)` and `\(B\)`, knowing that one has occurred
+tells us that the other definitely has not occurred: `\(P(A \text{ and } B) = 0\)`.
+
+.instructions[
+.center[
+Disjoint events are **&lt;u&gt;not&lt;/u&gt;** independent!
+]
+]
+
+---
+
+## Checking independence
+
+
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
+
+&lt;br&gt;
+
+.question[
+Are dying and abstaining from coffee independent events? How might we check?
+]
+
+
+---
+
+class: center, middle
+
+# Bayes' Rule
+
+---
+
+## An example
+
+In an introductory statistics course, 50% of students were first years, 30% were
+sophomores, and 20% were upperclassmen.
+
+80% of the first years didn’t get enough sleep, 40% of the sophomores didn’t get
+enough sleep, and 10% of the upperclassmen didn’t get enough sleep.
+
+.question[
+What is the probability that a randomly selected student in this class didn’t
+get enough sleep?
+]
+
+---
+
+## Bayes' Rule
+
+As we saw before, the two conditional probabilities `\(P(A | B)\)` and `\(P(B | A)\)` 
+are not the same. But are they related in some way?
+
+--
+
+Yes they are (!) using .vocab[Bayes' rule]:
+
+.instructions[
+Bayes' rule: 
+
+`$$\begin{align}P(A | B) &amp;= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
+&amp;= \frac{P(B | A)P(A)}{P(B)}
+\end{align}$$`
+]
+
+---
+
+## Bayes' Rule (continued)
+
+By using the rules of probability we've learned so far, we have
+
+`$$\begin{align}P(A | B) &amp;= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
+&amp;= \frac{P(B | A)P(A)}{P(B)}\\[15pt]
+&amp;= \frac{P(B | A)P(A)}{P(B | A)P(A) + P(B | A^c)P(A^c)}\end{align}$$`
+
+Let's took at an example to see how this works. 
+
+---
+
+class: center, middle
+
+# Diagnostic Testing
+
+---
+
+## Definitions
+
+Suppose we're interested in the performance of a diagnostic test. Let `\(D\)` be
+the event that a patient has the disease, and let `\(T\)` be the event that the
+test is positive for that disease.
+
+- .vocab[Prevalence]: `\(P(D)\)`
+- .vocab[Sensitivity]: `\(P(T | D)\)`
+- .vocab[Specificity]: `\(P(T^c | D^c)\)`
+- .vocab[Positive predictive value]: `\(P(D | T)\)`
+- .vocab[Negative predictive value]: `\(P(D^c | T^c)\)`
+
+.question[
+What do these probabilities mean in plain English?
+]
+
+---
+
+## Rapid self-administered HIV tests
+
+.pull-left[
+From the FDA package insert for the Oraquick ADVANCE Rapid HIV-1/2 Antibody
+Test, 
+- Sensitivity, `\(P(T | D)\)`, is 99.3%
+- Specificity, `\(P(T^c | D^c)\)`, is 99.8%
+From CDC statistics in 2016, 14.3/100,000 Americans aged 13 or older are HIV+.
+]
+
+.pull-right[
+&lt;img src="img/08/oraquick.png" width="400" style="display: block; margin: auto;" /&gt;
+]
+
+.question[
+Suppose a randomly selected American aged 13+ has a positive test result. What 
+do you think is the probability they have HIV?
+]
+
+Let me know [**here**](link goes here)!
+
+---
+
+## Using Bayes' Rule
+
+`\begin{align*}
+P(D | T) &amp;= \frac{P(D \text{ and } T)}{P(T)}\\
+&amp;= \frac{P(T | D)P(D)}{P(T)}\\[5pt]
+&amp;= \frac{P(T | D)P(D)}{P(T | D)P(D) + P(T | D^c)P(D^c)}\\[5pt]
+&amp;= \frac{P(T | D)P(D)}{P(T | D)P(D) + (1 - P(T^c | D^c))(1 - P(D))}
+\end{align*}`
+
+.question[**What does all of this mean? Let's take a look!**]
+
+---
+
+## Work through example
+
+
+
+---
+
+
+## A discussion
+
+Think about the following questions:
+
+- Is this calculation surprising?
+- What is the explanation?
+- Was this calculation actually reasonable to perform?
+- What if we tested in a different population, such as high-risk individuals?
+-  What if we were to
+test a random individual in a country where the prevalence of HIV is approximately 25%?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

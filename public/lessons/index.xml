@@ -295,13 +295,81 @@ font-size: 18px;
     </item>
     
     <item>
-      <title>Week 04</title>
+      <title>Week 04: Probability</title>
       <link>/schedule/week-04/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-04/</guid>
-      <description>Check back for details!</description>
-      <content>&lt;p&gt;Check back for details!&lt;/p&gt;
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Intro to probability Intro to probability AE 07   Wednesday Conditional probability Conditional probability AE 08    Readings          TBD Required        Assignments          HW 01 due Wed, Sep 16 at 11:59p   Lab 04 due Wed, Sep 16 at 11:59p    </description>
+      <content>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/07-probability-intro.html&#34;&gt;Intro to probability&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Intro to probability&lt;/td&gt;
+&lt;td&gt;AE 07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;(https://sta199-fa20-002.netlify.app/slides/08-conditional-prob.html)&#34;&gt;Conditional probability&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Conditional probability&lt;/td&gt;
+&lt;td&gt;AE 08&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;TBD&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;HW 01&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Sep 16 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lab 04&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Sep 16 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </item>
     

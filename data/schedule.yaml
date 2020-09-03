@@ -38,8 +38,10 @@ lessons:
   - week: "Week 04"
     date: "Mon, Sep 07"
     title: "Introduction to probability"
+    slides: "07-probability-intro.html"
   - date: "Wed, Sep 09"
     title: "Conditional probability"
+    slides: "08-conditional-prob.html"
     hw: "hw-01.html"
   - date: "Thu, Sep 10"
   

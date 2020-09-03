@@ -1,0 +1,354 @@
+---
+title: "Conditional Probability"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE) 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+## Conditional probability
+
+The probability an event will occur *given* that another event has already 
+occurred is a .vocab[conditional probability]. The conditional probability of
+event $A$ given event $B$ is:
+
+.instructions[
+$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$
+]
+---
+
+## Conditional probabilities 
+
+.instructions[
+$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$
+]
+
+Examples come up all the time in the real world:
+
+- *Given* that it rained yesterday, what is the probability that it will rain
+today?
+- *Given* that a mammogram comes back positive, what is the probability that a
+woman has breast cancer?
+- *Given* that I've already watched six episodes of How I Met Your Mother tonight,
+what is the probability that I'll get any work done this evening?
+
+---
+
+## Coffee and mortality
+
+```{r gunter, echo=FALSE, out.width = 700, fig.align="center"}
+knitr::include_graphics("img/07/coffee.png")
+```
+
+.midi[
+```{r, echo = F}
+coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
+died <- c(rep("Died", 1039), rep("Did not die", 5438), 
+          rep("Died", 4440), rep("Did not die", 29712),
+          rep("Died", 3601), rep("Did not die", 24934))
+knitr::kable(table(coffee, died))
+```
+]
+
+---
+
+## Three probabilities
+
+.midi[
+```{r, echo = F}
+coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
+died <- c(rep("Died", 1039), rep("Did not die", 5438), 
+          rep("Died", 4440), rep("Did not die", 29712),
+          rep("Died", 3601), rep("Did not die", 24934))
+knitr::kable(table(coffee, died))
+```
+]
+
+<br> 
+
+.question[
+.midi[
+Define events *A* = died and *B* = non-coffee drinker. Calculate the following for a randomly selected person in the cohort:]
+- .vocab[Marginal probability]: $P(A)$, $P(B)$
+- .vocab[Joint probability]: $P(A \text{ and } B)$
+- .vocab[Conditional probability]: $P(A | B)$, $P(B | A)$
+]
+
+
+
+
+---
+
+class: center, middle
+
+# Independence
+
+---
+
+## The multiplicative rule
+
+We can write the definition of condition probability
+
+.instructions[
+$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$
+]
+
+.instructions[
+Using the equation above, we get...
+
+$$P(B) \times P(A | B) = P(A | B)$$
+]
+
+.center[
+**What does the multiplicative rule mean in plain English?**
+]
+
+---
+
+## Defining independence
+
+Events $A$ and $B$ are said to be .vocab[independent] when
+
+
+$$P(A | B) = P(A) \hspace{10mm} \textbf{OR} \hspace{10mm}
+P(B | A) = P(B)$$
+
+<br> 
+
+In other words, knowing that one event has occurred doesn't cause us to "adjust"
+the probability we assign to another event.
+
+---
+
+## Checking independence
+
+We can use the multiplicative rule to see if two events are independent. 
+
+.instructions[
+If events $A$ and $B$ are independent, then 
+
+$$P(A \text{ and } B) = P(A) \times P(B)$$
+]
+
+---
+
+## Independent vs. disjoint events
+
+Since for two independent events $P(A|B) = P(A)$ and $P(B|A) = P(B)$, knowing
+that one event has occurred tells us nothing more about the probability of the
+other occurring.
+
+For two disjoint events $A$ and $B$, knowing that one has occurred
+tells us that the other definitely has not occurred: $P(A \text{ and } B) = 0$.
+
+.instructions[
+.center[
+Disjoint events are **<u>not</u>** independent!
+]
+]
+
+---
+
+## Checking independence
+
+```{r, echo = F}
+coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
+died <- c(rep("Died", 1039), rep("Did not die", 5438), 
+          rep("Died", 4440), rep("Did not die", 29712),
+          rep("Died", 3601), rep("Did not die", 24934))
+knitr::kable(table(coffee, died))
+```
+
+<br>
+
+.question[
+Are dying and abstaining from coffee independent events? How might we check?
+]
+
+
+---
+
+class: center, middle
+
+# Bayes' Rule
+
+---
+
+## An example
+
+In an introductory statistics course, 50% of students were first years, 30% were
+sophomores, and 20% were upperclassmen.
+
+80% of the first years didn’t get enough sleep, 40% of the sophomores didn’t get
+enough sleep, and 10% of the upperclassmen didn’t get enough sleep.
+
+.question[
+What is the probability that a randomly selected student in this class didn’t
+get enough sleep?
+]
+
+---
+
+## Bayes' Rule
+
+As we saw before, the two conditional probabilities $P(A | B)$ and $P(B | A)$ 
+are not the same. But are they related in some way?
+
+--
+
+Yes they are (!) using .vocab[Bayes' rule]:
+
+.instructions[
+Bayes' rule: 
+
+$$\begin{align}P(A | B) &= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
+&= \frac{P(B | A)P(A)}{P(B)}
+\end{align}$$
+]
+
+---
+
+## Bayes' Rule (continued)
+
+By using the rules of probability we've learned so far, we have
+
+$$\begin{align}P(A | B) &= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
+&= \frac{P(B | A)P(A)}{P(B)}\\[15pt]
+&= \frac{P(B | A)P(A)}{P(B | A)P(A) + P(B | A^c)P(A^c)}\end{align}$$
+
+Let's took at an example to see how this works. 
+
+---
+
+class: center, middle
+
+# Diagnostic Testing
+
+---
+
+## Definitions
+
+Suppose we're interested in the performance of a diagnostic test. Let $D$ be
+the event that a patient has the disease, and let $T$ be the event that the
+test is positive for that disease.
+
+- .vocab[Prevalence]: $P(D)$
+- .vocab[Sensitivity]: $P(T | D)$
+- .vocab[Specificity]: $P(T^c | D^c)$
+- .vocab[Positive predictive value]: $P(D | T)$
+- .vocab[Negative predictive value]: $P(D^c | T^c)$
+
+.question[
+What do these probabilities mean in plain English?
+]
+
+---
+
+## Rapid self-administered HIV tests
+
+.pull-left[
+From the FDA package insert for the Oraquick ADVANCE Rapid HIV-1/2 Antibody
+Test, 
+- Sensitivity, $P(T | D)$, is 99.3%
+- Specificity, $P(T^c | D^c)$, is 99.8%
+From CDC statistics in 2016, 14.3/100,000 Americans aged 13 or older are HIV+.
+]
+
+.pull-right[
+```{r fda2, echo=FALSE, out.width = 400, fig.align="center"}
+knitr::include_graphics("img/08/oraquick.png")
+```
+]
+
+.question[
+Suppose a randomly selected American aged 13+ has a positive test result. What 
+do you think is the probability they have HIV?
+]
+
+Let me know [**here**](link goes here)!
+
+---
+
+## Using Bayes' Rule
+
+\begin{align*}
+P(D | T) &= \frac{P(D \text{ and } T)}{P(T)}\\
+&= \frac{P(T | D)P(D)}{P(T)}\\[5pt]
+&= \frac{P(T | D)P(D)}{P(T | D)P(D) + P(T | D^c)P(D^c)}\\[5pt]
+&= \frac{P(T | D)P(D)}{P(T | D)P(D) + (1 - P(T^c | D^c))(1 - P(D))}
+\end{align*}
+
+.question[**What does all of this mean? Let's take a look!**]
+
+---
+
+## Work through example
+
+
+
+---
+
+
+## A discussion
+
+Think about the following questions:
+
+- Is this calculation surprising?
+- What is the explanation?
+- Was this calculation actually reasonable to perform?
+- What if we tested in a different population, such as high-risk individuals?
+-  What if we were to
+test a random individual in a country where the prevalence of HIV is approximately 25%? 
+
