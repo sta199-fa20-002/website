@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intro to Probability</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Intro to Probability
+### Prof. Maria Tackett
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+class: center, middle
+
+
+# What's the use?
+
+---
+
+## What we've done so far...
+
+- Use visualization techniques to *visualize* data  
+- Use descriptive statistics to *describe* and *summarize* data
+- Use data wrangling tools to *manipulate* data
+- ...all using the reproducible, shareable tools of R and git
+
+That's all great, but what we eventually want to do is to *quantify uncertainty*
+in order to make **principled conclusions** about the data
+  
+---
+
+## The statistical process
+
+.pull-left[
+Statistics is a process that converts data into useful information, where
+practitioners
+
+1️⃣ form a question of interest,
+
+2️⃣ collect and summarize data,
+
+3️⃣ and interpret the results.
+]
+
+.pull-right[
+&lt;img src="img/07/quack.jpg" width="300" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## The population of interest
+
+The .vocab[population] is the group we'd like to learn something about. For 
+example:
+
+.small[
+- What is the prevalence of diabetes among **U.S. adults**, and has it changed
+over time? 
+- Does the average amount of caffeine vary by vendor in **12 oz. cups of**
+**coffee at Duke coffee shops**?
+- Is there a relationship between tumor type and five-year mortality among
+**breast cancer patients**?
+]
+
+The .vocab[research question of interest] is what we want to answer - often 
+relating one or more numerical quantities or summary statistics.
+
+If we had data from every unit in the population, we could just calculate what
+we wanted and be done!
+
+---
+
+## Sampling from the population
+
+Unfortunately, we (usually) have to settle with a .vocab[sample] from the
+population.
+
+Ideally, the sample is .vocab[representative] (has similar characteristics as the population), allowing us to make conclusions 
+that are .vocab[generalizable] (i.e. applicable) to the broader population of interest. 
+
+&lt;br&gt; 
+
+We'll use probability and statistical inference (more on this later!) to draw conclusions about the population based on our sample.
+
+---
+
+class: center, middle
+
+
+# Interpreting probabilities
+
+---
+
+## Interpretations of probability
+
+&lt;br&gt;
+
+&lt;img src="img/07/box.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.center[
+*"There is a 1 in 3 chance of selecting a white ball"*
+]
+
+---
+
+## Interpretations of probability
+
+&lt;br&gt;
+
+&lt;img src="img/07/rain.jfif" width="50%" style="display: block; margin: auto;" /&gt;
+
+.center[
+*"There is a 75% chance of rain tomorrow"*
+]
+
+---
+
+## Interpretations of probability
+
+&lt;br&gt;
+
+&lt;img src="img/07/surgery.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+.center[
+*"The surgery has a 50% probability of success"*
+]
+
+---
+
+## Interpretations of probability
+
+&lt;br&gt;
+
+&lt;img src="img/07/surgery.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+.center[
+.vocab[Long-run frequencies] vs. .vocab[degree of belief]
+]
+
+---
+
+class: center, middle
+
+
+# Formalizing probabilities
+
+---
+
+## What do we need?
+
+We can think of probabilities as objects that model random phenomena. We'll use three components to talk about probabilities:
+
+
+1️⃣ .vocab[Sample space]: the set of all possible .vocab[outcomes]
+
+2️⃣ .vocab[Events]: Subsets of the sample space, comprise any number of possible outcomes (including none of them!)
+
+3️⃣ .vocab[Probability]: Proportion of times an event would occur if we observed the random phenomenon an infinite number of times.
+
+---
+
+## Sample spaces
+
+Sample spaces depend on the random phenomenon in question
+
+- Tossing a single fair coin
+
+- Sum of rolling two fair six-sided dice
+
+- Guessing the answer on a multiple choice question with choices *a, b, c, d*.
+
+&lt;br&gt; 
+
+.question[
+What are the sample spaces for the random experiments above?
+]
+
+---
+
+## Events
+
+.vocab[Events] are subsets of the sample space that comprise all possible outcomes from
+that event. These are the "plausibly reasonable" outcomes we may want to calculate the probabilities for*
+
+- Tossing a single fair coin
+
+- Sum of rolling two fair six-sided dice
+
+- Guessing the answer on a multiple choice question with choices *a, b, c, d*.
+
+.question[
+What are some examples of events for the random experiments above?
+]
+
+---
+
+## Probabilities
+
+Consider the following possible events and their corresponding probabilities:
+
+- Getting a head from a single fair coin toss: **0.5**
+- Getting a prime number sum from rolling two fair six-sided dice: **5/12**
+- Guessing the correct answer: **1/4**
+
+&lt;br&gt; 
+
+*We'll talk more about how we calculated these probabilities, but for now remember that
+probabilities are numbers describing the likelihood of each event's occurrence,
+which map events to a number between 0 and 1, inclusive.*
+
+---
+
+class: center, middle
+
+# Working with probabilities
+
+---
+
+## Set operations
+
+Remember that events are (sub)sets of the outcome space. For two sets (in this
+case events) `\(A\)` and `\(B\)`, the most common relationships are:
+ 
+- .vocab[Intersection] `\((A \cap B)\)`: `\(A\)` **and** `\(B\)` both occur
+- .vocab[Union] `\((A \cup B)\)`: `\(A\)` **or** `\(B\)` occurs (including when both occur)
+- .vocab[Complement] `\((A^c)\)`: `\(A\)` does **not** occur
+
+&lt;br&gt; 
+
+Two sets `\(A\)` and `\(B\)` are said to be .vocab[disjoint] or .vocab[mutually exclusive] if they cannot happen at the same time, i.e. `\(A \cap B = \emptyset\)`. 
+
+---
+
+## Combining set operations
+
+.pull-left[
+DeMorgan's laws
+
+- Complement of union: `\((A \cup B)^c = A^c \cap B^c\)`
+- Complement of intersection: `\((A \cap B)^c = A^c \cup B^c\)`
+
+These can be straightforwardly extended to more than two events
+]
+
+.pull-right[
+&lt;img src="img/07/demorgan.jpg" width="400" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## How do probabilities work?
+
+.vocab[Kolmogorov axioms]
+
+✅ The probability of any event is real number that's `\(\geq 0\)` 
+
+✅ The probability of the entire sample space is 1
+
+✅ If `\(A\)` and `\(B\)` are disjoint events, then `\(P(A \cup B) = P(A) + P(B)\)`
+
+&lt;br&gt; 
+
+The Kolmogorov axioms lead to all probabilities being between 0 and 1 inclusive, and also lead to important rules...
+
+---
+
+## Two important rules
+
+Suppose we have events `\(A\)` and `\(B\)`, with probabilities `\(P(A)\)` and `\(P(B)\)` of
+occurring. Based on the Kolmogorov axioms: 
+
+- .vocab[Complement Rule]: `\(P(A^c) = 1 - P(A)\)`
+- .vocab[Inclusion-Exclusion]: `\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)`
+
+&lt;img src="img/07/ie.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Practicing with probabilities
+
+&lt;img src="img/07/coffee.png" width="700" style="display: block; margin: auto;" /&gt;
+
+
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
+
+&lt;br&gt; 
+
+Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5788283/
+
+
+---
+
+## Practicing with probabilities
+.midi[
+
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
+]
+
+.question[
+Define events `\(A\)` = died and `\(B\)` = non-coffee drinker. Calculate the following:
+- `\(P(A)\)`
+- `\(P(B)\)`
+- `\(P(A \cap B)\)`
+- `\(P(A \cup B)\)`
+- `\(P(A \cup B^c)\)`
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
