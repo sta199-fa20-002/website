@@ -1,5 +1,6 @@
 ---
 title: "Lab 03 - Nobel laureates"
+subtitle: "due Wed, Sep 9 at 11:59p"
 output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
@@ -133,8 +134,14 @@ Confirm that once you have filtered for these characteristics you are left with 
 
 <div class = "commit">
 `r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 1</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
+</div>
 
-</b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2. **
+```{marginfigure}
+You can *pull* by clicking the blue down arrow in the Git pane in RStudio. Once you click to pull, you will see the updates your team member pushed to GitHub in your RStudio project.
+```
+
+<div class = "commit">
+</b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2.
 
 <b>Team Member 2</b>: It's your turn! Type the team's response to exercise 3.
 </div>
@@ -174,7 +181,7 @@ nobel_living_science <- nobel_living %>%
 <div class = "commit">
 `r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 2</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
-<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercise 3. 
+<b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercise 3. 
 
 <b>Team Member 3</b>: It's your turn! Type the team's response to exercises 4 - 5.
 </div>
@@ -194,7 +201,7 @@ nobel_living_science <- nobel_living %>%
 
 `r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 3</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
-<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5. 
+<b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5. 
 
 <b>Team Member 4</b>: It's your turn! Type the team's response to exercise 6.
 </div>
@@ -211,7 +218,7 @@ Note that your bar plot won't exactly match the one from the Buzzfeed article. T
 <div class = "commit">
 `r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.
 
-<b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the team's completed lab!
+<b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the team's completed lab!
 </b>
 
 

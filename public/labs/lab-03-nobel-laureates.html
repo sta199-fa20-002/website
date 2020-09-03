@@ -497,6 +497,7 @@ text-decoration: italic;
 
 
 <h1 class="title toc-ignore">Lab 03 - Nobel laureates</h1>
+<h3 class="subtitle">due Wed, Sep 9 at 11:59p</h3>
 
 
 <div id="TOC">
@@ -621,15 +622,18 @@ text-decoration: italic;
 <p>Confirm that once you have filtered for these characteristics you are left with a data frame with 228 observations.</p>
 <div class="commit">
 <p>✅ ⬆️ <b>Team Member 1</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.</p>
-<p></b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2. **</p>
+</div>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">You can <em>pull</em> by clicking the blue down arrow in the Git pane in RStudio. Once you click to pull, you will see the updates your team member pushed to GitHub in your RStudio project.</span></span></p>
+<div class="commit">
+<p></b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 1 and 2.</p>
 <p><b>Team Member 2</b>: It’s your turn! Type the team’s response to exercise 3.</p>
 </div>
 </div>
 <div id="most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes" class="section level3">
-<h3>Most living Nobel laureates were based in the US when they won their prizes</h3>
+<h3>“Most living Nobel laureates were based in the US when they won their prizes”</h3>
 <p>… says the Buzzfeed article. Let’s see if that’s true.</p>
 <p>First, we’ll create a new variable to identify whether the laureate was in the US when they won their prize. We’ll use the <code>mutate()</code> function for this. The following pipeline mutates the <code>nobel_living</code> data frame by adding a new variable called <code>country_us</code>. We use an if/else statement to create this variable. The first argument in the <code>if_else()</code> function is the condition we’re testing for. If <code>country</code> is equal to <code>&quot;USA&quot;</code>, we set <code>country_us</code> to <code>&quot;USA&quot;</code>. If not, we set the <code>country_us</code> to <code>&quot;Other&quot;</code>.</p>
-<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that we can achieve the same result using the <code>fct_other()</code> function (i.e. with <code>country_us = fct_other(country, “USA”)</code>).</span></span></p>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that we can achieve the same result using the <code>fct_other()</code> function (i.e. with <code>country_us = fct_other(country, “USA”)</code>).</span></span></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>nobel_living &lt;-<span class="st"> </span>nobel_living <span class="op">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">country_us =</span> <span class="kw">if_else</span>(country <span class="op">==</span><span class="st"> &quot;USA&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Other&quot;</span>)</span>
@@ -637,38 +641,39 @@ text-decoration: italic;
 <p>Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>nobel_living_science &lt;-<span class="st"> </span>nobel_living <span class="op">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">filter</span>(category <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Physics&quot;</span>, <span class="st">&quot;Medicine&quot;</span>, <span class="st">&quot;Chemistry&quot;</span>, <span class="st">&quot;Economics&quot;</span>))</span></code></pre></div>
-<p>For the next exercise work with the <code>nobel_living_science</code> data frame you created above. This means you’ll need to define this data frame in your R Markdown document, even though the next exercise doesn’t explicitly ask you to do so.</p>
+<p><strong>You will work with the <code>nobel_living_science</code> data frame you created above for the remainder of the lab.</strong> This means you’ll need to define this data frame in your R Markdown document.</p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> You can change the orientation of the bars using the <code>coord_flip()</code> function in ggplot2. Click <a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">here</a> to read more about the function.</span></span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Note: Your visualization should be faceted by category. For each facet you should have two bars, one for winners in the US and one for Other. Flip the coordinates so the bars are horizontal, not vertical. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.</li>
 </ol>
 <div class="commit">
 <p>✅ ⬆️ <b>Team Member 2</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*</p>
-<p><b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercise 3.</p>
+<p><b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercise 3.</p>
 <p><b>Team Member 3</b>: It’s your turn! Type the team’s response to exercises 4 - 5.</p>
 </div>
 </div>
 <div id="but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries" class="section level3">
-<h3>But of those US-based Nobel laureates, many were born in other countries</h3>
-<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> You should be able to <del>cheat</del> borrow from code you used earlier to create the <code>country_us</code> variable.</span></span></p>
+<h3>“But of those US-based Nobel laureates, many were born in other countries…”</h3>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> You should be able to borrow from code you used earlier to create the <code>country_us</code> variable.</span></span></p>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Create a new variable called <code>born_country_us</code> that has the value <code>&quot;USA&quot;</code> if the laureate is born in the US, and <code>&quot;Other&quot;</code> otherwise.</p></li>
+<li><p>Create a new variable called <code>born_country_us</code> that has the value <code>&quot;USA&quot;</code> if the laureate is born in the US, and <code>&quot;Other&quot;</code> otherwise. Be sure to save the variable to the <code>nobel_living_science</code> data frame.</p></li>
 <li><p>Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Your final visualization should contain a facet for each category, within each facet a bar for whether they won the award in the US or not, and within each bar whether they were born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim? Explain your reasoning in 1-2 sentences.</p></li>
 </ol>
 <div class="commit">
 <p>✅ ⬆️ <b>Team Member 3</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.</p>
-<p><b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5.</p>
+<p><b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 4 and 5.</p>
 <p><b>Team Member 4</b>: It’s your turn! Type the team’s response to exercise 6.</p>
 </div>
 </div>
 <div id="heres-where-those-immigrant-nobelists-were-born" class="section level3">
 <h3>Here’s where those immigrant Nobelists were born</h3>
-<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.</span></span></p>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;">Note that your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.</span></span></p>
 <ol start="6" style="list-style-type: decimal">
-<li>In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the <code>count()</code>) function for their birth country, <code>born_country</code>, and arrange the resulting data frame in descending order of number of observations for each country.</li>
+<li>In a single pipeline, filter for laureates who were living in the US when they won their prize, but were born outside of the US, then create a frequency table (with the <code>count</code> function) for their birth country (<code>born_country</code>), and arrange the resulting data frame in descending order of number of observations for each country.</li>
 </ol>
 <div class="commit">
 <p>✅ ⬆️ <b>Team Member 4</b>: Knit, commit and push your changes to GitHub with an appropriate commit message again. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.</p>
-<p><b>All other team members</b>: <b>Pull</b> to get the updated documents GitHub. Click on the .Rmd file, and you should see the team’s completed lab! </b></p>
+<p><b>All other team members</b>: <b>Pull</b> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the team’s completed lab! </b></p>
 </div>
 </div>
 <div id="wrapping-up" class="section level2">

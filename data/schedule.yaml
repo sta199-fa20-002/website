@@ -32,7 +32,8 @@ lessons:
     title: "Joining data from multiple sources"
     slides: "06-join-data-merge.html"
   - date: "Thu, Sep 03"
-    title: "Lab 03"
+    title: "Lab 03: Nobel laureates"
+    lab: "lab-03-nobel-laureates.html"
   
   - week: "Week 04"
     date: "Mon, Sep 07"

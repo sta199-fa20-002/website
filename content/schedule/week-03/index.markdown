@@ -32,7 +32,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| Lab 03 | **due Wed, Sep 9 at 11:59p** |
+| [Lab 03](https://sta199-fa20-002.netlify.app/labs/lab-03-nobel-laureates.html) | **due Wed, Sep 9 at 11:59p** |
 
 ## Announcements
 
