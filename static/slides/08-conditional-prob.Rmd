@@ -58,6 +58,12 @@ ggplot2::theme_set(ggplot2::theme_bw())
 library(tidyverse)
 ```
 
+class: middle, center
+
+## [Click for PDF of slides](08-conditional-prob.pdf)
+
+---
+
 ## Conditional probability
 
 The probability an event will occur *given* that another event has already 

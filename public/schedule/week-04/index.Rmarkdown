@@ -22,8 +22,7 @@ font-size: 18px;
 
 |            |   |
 |------------|---|
-|TBD | **Required**   |
-| | |
+|[OpenIntro Statistics: 3.1 - 3.2](https://leanpub.com/openintro-statistics) <br> (click “Read Free Sample” to access PDF) | **Required**   |
 
 
 ## Assignments

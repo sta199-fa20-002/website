@@ -58,10 +58,9 @@ ggplot2::theme_set(ggplot2::theme_bw())
 library(tidyverse)
 ```
 
-class: center, middle
+class: middle, center
 
-
-# What's the use?
+## [Click for PDF of slides](07-probability-intro.pdf)
 
 ---
 
