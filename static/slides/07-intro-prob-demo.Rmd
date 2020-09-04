@@ -1,0 +1,42 @@
+---
+title: "07-intro-prob-demo"
+author: "Maria Tackett"
+output: html_document
+---
+
+```{r load-packages}
+library(tidyverse)
+```
+
+```{r coffee-data}
+coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
+died <- c(rep("Died", 1039), rep("Did not die", 5438), 
+          rep("Died", 4440), rep("Did not die", 29712),
+          rep("Died", 3601), rep("Did not die", 24934))
+coffee_data = tibble(coffee = coffee, 
+                     died = died)
+```
+
+
+Let A = died, B = non-coffee drinker (Does not drink coffee). Calculate the following for a randomly selected person in the cohort:
+
+```{r prob-a}
+#P(A)
+```
+
+```{r prob-b}
+#P(B)
+
+```
+
+```{r}
+#P(A and B)
+
+```
+
+```{r}
+#P(A or not B)
+
+
+```
+

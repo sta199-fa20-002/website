@@ -229,7 +229,7 @@ Sample spaces depend on the random phenomenon in question
 <br> 
 
 .question[
-What are the sample spaces for the random experiments above?
+What are the sample spaces for the random phenomena above?
 ]
 
 ---
@@ -237,7 +237,7 @@ What are the sample spaces for the random experiments above?
 ## Events
 
 .vocab[Events] are subsets of the sample space that comprise all possible outcomes from
-that event. These are the "plausibly reasonable" outcomes we may want to calculate the probabilities for*
+that event. These are the "plausibly reasonable" outcomes we may want to calculate the probabilities for
 
 - Tossing a single fair coin
 
@@ -246,7 +246,7 @@ that event. These are the "plausibly reasonable" outcomes we may want to calcula
 - Guessing the answer on a multiple choice question with choices *a, b, c, d*.
 
 .question[
-What are some examples of events for the random experiments above?
+What are some examples of events for the random phenomena above?
 ]
 
 ---
@@ -378,5 +378,4 @@ Define events *A* = died and *B* = non-coffee drinker. Calculate the following f
 - $\small{P(A \text{ or } B)}$
 - $\small{P(A \text{ or } B^c)}$
 ]
-
 
