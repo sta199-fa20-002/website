@@ -19,6 +19,12 @@ library(tidyverse)
 
 ## Questions from Lec 07 video? 
 
+## Using a Venn Diagram
+
+```{r echo = F, fig.align = "center"}
+knitr::include_graphics("img/venn-diagram.png")
+```
+
 
 ## Coffee vs. Mortality (from Lec 07 video)
 
