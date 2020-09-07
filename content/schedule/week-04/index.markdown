@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Intro to probability](https://sta199-fa20-002.netlify.app/slides/07-probability-intro.html) |  [Intro to probability](https://warpwire.duke.edu/w/M2EEAA/) | [AE 07: Asthma](https://sta199-fa20-002.netlify.app/appex/appex07-asthma.html) |
-| Wednesday |  [Conditional probability]((https://sta199-fa20-002.netlify.app/slides/08-conditional-prob.html)) | Conditional probability   | AE 08  |  
+| Wednesday |  [Conditional probability](https://sta199-fa20-002.netlify.app/slides/08-conditional-prob.html) | Conditional probability   | AE 08  |  
 
 
 ## Readings
