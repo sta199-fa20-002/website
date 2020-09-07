@@ -1,14 +1,12 @@
 ---
 title: "AE 07: Asthma"
-date: "`r Sys.Date()`"
+date: "2020-09-07"
 output: 
   html_document:
     theme: readable
 ---
 
-```{r include = F}
-library(tidyverse)
-```
+
 
 
 ## Announcements
@@ -21,22 +19,17 @@ library(tidyverse)
 
 ## Using a Venn Diagram
 
-```{r echo = F, fig.align = "center"}
-knitr::include_graphics("img/venn-diagram.png")
-```
+<img src="img/venn-diagram.png" width="632" style="display: block; margin: auto;" />
 
 
 ## Coffee vs. Mortality (from Lec 07 video)
 
-**Note: There are 69,164 people included in this study.**s
 
-```{r, echo = F}
-coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
-died <- c(rep("Died", 1039), rep("Did not die", 5438), 
-          rep("Died", 4440), rep("Did not die", 29712),
-          rep("Died", 3601), rep("Did not die", 24934))
-knitr::kable(table(coffee, died))
-```
+|                           | Did not die| Died|
+|:--------------------------|-----------:|----:|
+|Does not drink coffee      |        5438| 1039|
+|Drinks coffee occasionally |       29712| 4440|
+|Drinks coffee regularly    |       24934| 3601|
 
 Define events *A* = died and *B* = non-coffee drinker. Calculate the following for a randomly selected person in the cohort:
 
@@ -54,12 +47,14 @@ Go to the `ae-07-[GITHUB USERNAME]` repo, clone it, and start a new project in R
 
 Run the following code to configure Git. Fill in your GitHub username and the email address associated with your GitHub account. 
 
-```{r eval=FALSE}
+
+```r
 library(usethis)
 use_git_config(user.name = "your github username", user.email ="your email")
 ```
 
-```{r load-packages, eval = F}
+
+```r
 library(tidyverse)
 ```
 
@@ -71,23 +66,20 @@ information for patients enrolled in the file. **There were 1204 patients in thi
 You may knit the document to see the tables. "Q4W" means "every four weeks" and 
 "Q8W" means "every eight weeks.
 
-```{r asthma-data, echo = F}
 
-trt <- c(rep("Placebo", 407), 
-         rep("Benralizumab Q4W", 398), 
-         rep("Benralizumab Q8W", 399))
+|                 | Female| Male|
+|:----------------|------:|----:|
+|Benralizumab Q4W |    274|  124|
+|Benralizumab Q8W |    253|  146|
+|Placebo          |    269|  138|
 
-sex <- c(rep("Male", 138), rep("Female", 269),
-         rep("Male", 124), rep("Female", 275),
-         rep("Male", 146), rep("Female", 252))
 
-race <- c(rep("White", 302), rep("Black", 16), rep("Asian", 50), rep("Other", 39),
-          rep("White", 285), rep("Black", 15), rep("Asian", 54), rep("Other", 45),
-          rep("White", 287), rep("Black", 15), rep("Asian", 50), rep("Other", 46))
 
-knitr::kable(table(trt, sex))
-knitr::kable(table(trt, race))
-```
+|                 | Asian| Black| Other| White|
+|:----------------|-----:|-----:|-----:|-----:|
+|Benralizumab Q4W |    54|    15|    44|   285|
+|Benralizumab Q8W |    50|    15|    47|   287|
+|Placebo          |    50|    16|    39|   302|
 
 Answer the following questions using the table provided above (knit this
 document first to see the tables!). If a probability cannot be calculated, indicate what 

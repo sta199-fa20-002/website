@@ -28,6 +28,8 @@ knitr::include_graphics("img/venn-diagram.png")
 
 ## Coffee vs. Mortality (from Lec 07 video)
 
+**Note: There are 69,164 people included in this study.**s
+
 ```{r, echo = F}
 coffee <- c(rep("Does not drink coffee", 6477), rep("Drinks coffee occasionally", 34152), rep("Drinks coffee regularly", 28535))
 died <- c(rep("Died", 1039), rep("Did not die", 5438), 
