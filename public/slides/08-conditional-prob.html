@@ -121,10 +121,12 @@ We can write the definition of condition probability
 `$$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$`
 ]
 
+--
+
 .instructions[
 Using the equation above, we get...
 
-`$$P(B) \times P(A | B) = P(A | B)$$`
+`$$P(B) \times P(A | B) = P(A \text{ and } B)$$`
 ]
 
 .center[
@@ -166,8 +168,12 @@ Since for two independent events `\(P(A|B) = P(A)\)` and `\(P(B|A) = P(B)\)`, kn
 that one event has occurred tells us nothing more about the probability of the
 other occurring.
 
+--
+
 For two disjoint events `\(A\)` and `\(B\)`, knowing that one has occurred
 tells us that the other definitely has not occurred: `\(P(A \text{ and } B) = 0\)`.
+
+--
 
 .instructions[
 .center[
@@ -226,7 +232,7 @@ are not the same. But are they related in some way?
 Yes they are (!) using .vocab[Bayes' rule]:
 
 .instructions[
-Bayes' rule: 
+**Bayes' rule:**
 
 `$$\begin{align}P(A | B) &amp;= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
 &amp;= \frac{P(B | A)P(A)}{P(B)}
@@ -237,7 +243,7 @@ Bayes' rule:
 
 ## Bayes' Rule (continued)
 
-By using the rules of probability we've learned so far, we have
+Putting together a few rules of probability...
 
 `$$\begin{align}P(A | B) &amp;= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
 &amp;= \frac{P(B | A)P(A)}{P(B)}\\[15pt]
@@ -286,11 +292,8 @@ From CDC statistics in 2016, 14.3/100,000 Americans aged 13 or older are HIV+.
 ]
 
 .question[
-Suppose a randomly selected American aged 13+ has a positive test result. What 
-do you think is the probability they have HIV?
+Suppose a randomly selected American aged 13+ has a positive test result. What is the probability they have HIV?
 ]
-
-Let me know [**here**](link goes here)!
 
 ---
 
@@ -302,6 +305,8 @@ P(D | T) &amp;= \frac{P(D \text{ and } T)}{P(T)}\\
 &amp;= \frac{P(T | D)P(D)}{P(T | D)P(D) + P(T | D^c)P(D^c)}\\[5pt]
 &amp;= \frac{P(T | D)P(D)}{P(T | D)P(D) + (1 - P(T^c | D^c))(1 - P(D))}
 \end{align*}`
+
+&lt;br&gt; 
 
 .question[**What does all of this mean? Let's take a look!**]
 

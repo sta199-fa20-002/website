@@ -151,10 +151,12 @@ We can write the definition of condition probability
 $$P(A | B) = \frac{P(A \text{ and } B)}{P(B)}$$
 ]
 
+--
+
 .instructions[
 Using the equation above, we get...
 
-$$P(B) \times P(A | B) = P(A | B)$$
+$$P(B) \times P(A | B) = P(A \text{ and } B)$$
 ]
 
 .center[
@@ -196,8 +198,12 @@ Since for two independent events $P(A|B) = P(A)$ and $P(B|A) = P(B)$, knowing
 that one event has occurred tells us nothing more about the probability of the
 other occurring.
 
+--
+
 For two disjoint events $A$ and $B$, knowing that one has occurred
 tells us that the other definitely has not occurred: $P(A \text{ and } B) = 0$.
+
+--
 
 .instructions[
 .center[
@@ -257,7 +263,7 @@ are not the same. But are they related in some way?
 Yes they are (!) using .vocab[Bayes' rule]:
 
 .instructions[
-Bayes' rule: 
+**Bayes' rule:**
 
 $$\begin{align}P(A | B) &= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
 &= \frac{P(B | A)P(A)}{P(B)}
@@ -268,7 +274,7 @@ $$\begin{align}P(A | B) &= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
 
 ## Bayes' Rule (continued)
 
-By using the rules of probability we've learned so far, we have
+Putting together a few rules of probability...
 
 $$\begin{align}P(A | B) &= \frac{P(A \text{ and } B)}{P(B)}\\[10pt]
 &= \frac{P(B | A)P(A)}{P(B)}\\[15pt]
@@ -319,11 +325,8 @@ knitr::include_graphics("img/08/oraquick.png")
 ]
 
 .question[
-Suppose a randomly selected American aged 13+ has a positive test result. What 
-do you think is the probability they have HIV?
+Suppose a randomly selected American aged 13+ has a positive test result. What is the probability they have HIV?
 ]
-
-Let me know [**here**](link goes here)!
 
 ---
 
@@ -335,6 +338,8 @@ P(D | T) &= \frac{P(D \text{ and } T)}{P(T)}\\
 &= \frac{P(T | D)P(D)}{P(T | D)P(D) + P(T | D^c)P(D^c)}\\[5pt]
 &= \frac{P(T | D)P(D)}{P(T | D)P(D) + (1 - P(T^c | D^c))(1 - P(D))}
 \end{align*}
+
+<br> 
 
 .question[**What does all of this mean? Let's take a look!**]
 
