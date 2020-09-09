@@ -34,16 +34,19 @@ seen previously in the course. They are similar to the types of exercises you ma
 
 # Packages
 
-In this assignment we will work with the `tidyverse` as usual and the **dsbox** package for the data.
+In this assignment we will work with the `tidyverse` package as usual.
 
 ```{r load-package, eval=FALSE}
 library(tidyverse)
-library(dsbox)
 ```
 
 # Lego sales
 
-We have (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.  The dataset is called `lego_sales` and is in the `dsbox` R package. You can find descriptions of each of the variables in the help file for the dataset, which you can access by running `?lego_sales` in the **console**.
+We have (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.  The dataset is called `lego_sales` and can be found in the data folder in your repo. You can find descriptions of each of the variables in the help file for the dataset, which you can access by running `?lego_sales` in the **console**.
+
+```{r eval = FALSE}
+lego_sales <- read_csv("data/lego_sales.csv")
+```
 
 Answer the following questions using pipes (`%>%`) and the `tidyverse` functions we've discussed. For each question, show your code and output and state your answer in a sentence, e.g. "The first three common names of customers are ...".
 
