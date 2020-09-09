@@ -44,9 +44,8 @@ lessons:
     slides: "08-conditional-prob.html"
     hw: "hw-01.html"
   - date: "Thu, Sep 10"
-  
     title: "Lab 04: Examining smoking and health outcomes"
-    labs: "lab-04-cond-prob.html"
+    lab: "lab-04-cond-prob.html"
     
   - week: "Week 05"
     date: "Mon, Sep 14"
