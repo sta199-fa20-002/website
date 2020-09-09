@@ -42,7 +42,9 @@ library(tidyverse)
 
 # Lego sales
 
-We have (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.  The dataset is called `lego_sales` and can be found in the data folder in your repo. You can find descriptions of each of the variables in the help file for the dataset, which you can access by running `?lego_sales` in the **console**.
+We have (simulated) data from Lego sales in 2018 for a sample of customers who bought Legos in the US.  The dataset is called `lego_sales` and can be found in the data folder in your repo. **You can find descriptions of each of each of the variables in the data set [here](https://rstudio-education.github.io/dsbox/reference/lego_sales.html).**
+
+
 
 ```{r eval = FALSE}
 lego_sales <- read_csv("data/lego_sales.csv")
