@@ -5,7 +5,7 @@ output:
   tufte::tufte_html:
     tufte_variant: "envisioned"
     highlight: pygments
- #   css: "./sta199-labs.css"
+    css: "./sta199-labs.css"
 link-citations: yes
 ---
 

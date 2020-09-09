@@ -9,17 +9,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 # Introduction 
 
@@ -28,26 +18,32 @@ The goal of the today's lab is to practice visualizing and calculating probabili
 # Merge Conflicts (uh oh)
 
 
-```{r fig.margin=TRUE, eval=TRUE, echo=FALSE}
-include_graphics("img/04/merge-no-conflict.png")
-```
+<p><span class="marginnote shownote">
+<!--
+<div class="figure">-->
+<img src="img/04/merge-no-conflict.png" alt=" " width="1052"  />
+<!--
+<p class="caption marginnote">--> <!--</p>-->
+<!--</div>--></span></p>
 
 You may have seen this already through the course of your collaboration last 
 week in Lab 03. When two collaborators make changes to a file and push the file 
 to their repository, git merges these two files.
 
-```{r fig.margin=TRUE, eval = TRUE, echo=FALSE}
-include_graphics("img/04/merge-conflict.png")
-```
+<p><span class="marginnote shownote">
+<!--
+<div class="figure">-->
+<img src="img/04/merge-conflict.png" alt=" " width="1052"  />
+<!--
+<p class="caption marginnote">--> <!--</p>-->
+<!--</div>--></span></p>
 
 
 If these two files have conflicting content on the same line, git will produce a
 **merge conflict**. Merge conflicts need to be resolved manually, as they require a human 
 intervention:
 
-```{r fig.margin=FALSE, eval=TRUE, echo=FALSE}
-include_graphics("img/04/merge-conflict-identifiers.png")
-```
+<img src="img/04/merge-conflict-identifiers.png" width="1172"  />
 
 To resolve the merge conflict, decide if you want to keep only your text, the 
 text on GitHub, or incorporate changes from both texts. Delete the conflict 
@@ -63,7 +59,8 @@ lab grade.
 
 **Step 1: Everyone** clone your assignment repo in RStudio Cloud and open file *merge-conflict.Rmd*. Don't forget to configure git if you haven't already done so:
 
-```{r eval = FALSE}
+
+```r
 library(tidyverse) 
 library(usethis)
 use_git_config(user.name="your github username", user.email="your email")
@@ -94,7 +91,8 @@ Click to pull.  Then, knit, commit, and push.
 
 In this lab we will work with the `tidyverse` and `mosaicData` packages.
 
-```{r}
+
+```r
 library(tidyverse) 
 library(mosaicData) 
 ```
@@ -107,13 +105,15 @@ Today's data comes from a study of conducted in Whickham, England. In this study
 
 The data is in the `mosaicData` package. You can load it with
 
-```{r load-data}
+
+```r
 data(Whickham)
 ```
 
 Take a peek at the codebook with
 
-```{r eval=FALSE}
+
+```r
 ?Whickham
 ```
 
