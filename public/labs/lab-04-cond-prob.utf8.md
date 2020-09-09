@@ -1,11 +1,13 @@
 ---
 title: "Lab 04: Examining smoking and health outcomes"
-date: ""
+subtitle: "due Wed, Sep 16 at 11:59p"
 output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
     highlight: pygments
     css: "./sta199-labs.css"
+    toc: true
+    toc_depth: 1
 link-citations: yes
 ---
 
@@ -13,7 +15,7 @@ link-citations: yes
 
 # Introduction 
 
-The goal of the today's lab is to practice visualizing and calculating probabilities using the tidyverse. Before we get to that, however, we will look at something that may happen as you collaborate with your lab team (or any other team!) in GitHub.
+The goal of today's lab is to practice visualizing and calculating probabilities using the tidyverse. Before we get to that, however, we will look at something that may happen as you collaborate with your lab team (or any other team!) in GitHub.
 
 # Merge Conflicts (uh oh)
 
@@ -57,7 +59,7 @@ lab grade.
 
 ## Resolving a merge conflict
 
-**Step 1: Everyone** clone your assignment repo in RStudio Cloud and open file *merge-conflict.Rmd*. Don't forget to configure git if you haven't already done so:
+**Step 1: Everyone** clone the **lab-04-whickham** assignment repo in RStudio and open file **merge-conflict.Rmd**. Don't forget to configure git if you haven't already done so:
 
 
 ```r
@@ -72,7 +74,7 @@ members’ files are pushed to GitHub after every step.
 **Step 2: Member 1** Change the team name to your team name. *Knit, commit, and push*.
 
 **Step 3: Member 2** Change the team name to something different (i.e., not your
-team name). *Knit, stage, commit, and push*. 
+team name). *Knit, commit, and push*. 
 
 You should get an error.
 
@@ -85,9 +87,9 @@ then knit, commit and push again.
 This time, no merge conflicts should occur, since you edited a different part of
 the document from Members 1 and 2. Read the error to your teammates. You can also show them the error by sharing your screen. 
 
-Click to pull.  Then, knit, commit, and push.
+Click to pull.  *Then, knit, commit, and push.*
 
-## Packages
+# Packages
 
 In this lab we will work with the `tidyverse` and `mosaicData` packages.
 
@@ -99,7 +101,7 @@ library(mosaicData)
 
 Note that these packages are also loaded in your R Markdown document.
 
-## The data
+# The data
 
 Today's data comes from a study of conducted in Whickham, England. In this study, the researchers recorded each participant's age, smoking status at the start of the study, and their health outcome 20 years later. 
 
@@ -125,7 +127,7 @@ especially careful about staying within the 80 character limit, as demonstrated
 by your lab TAs! Finally, make sure your team name is correct. *Only one* 
 submission should be made per team.
 
-**All team members must commit and push to receive full credit**
+**All team members must commit and push to receive full credit.**
 
 1. How many observations are in this dataset? What does each observation 
    represent?
@@ -154,7 +156,7 @@ submission should be made per team.
 
 # Submission
 
-Knit to PDF to create a PDF document. Stage and commit all remaining changes, 
+Knit to PDF to create a PDF document. Knit and commit all remaining changes, 
 and push your work to GitHub. Make sure all files are updated on your GitHub 
 repo.
 
