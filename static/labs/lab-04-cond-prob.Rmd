@@ -90,7 +90,7 @@ then knit, commit and push again.
 This time, no merge conflicts should occur, since you edited a different part of
 the document from Members 1 and 2. Read the error to your teammates. You can also show them the error by sharing your screen. 
 
-Click to pull.  Then, knit, commit, and push.
+Click to pull.  *Then, knit, commit, and push.*
 
 # Packages
 
@@ -127,7 +127,7 @@ especially careful about staying within the 80 character limit, as demonstrated
 by your lab TAs! Finally, make sure your team name is correct. *Only one* 
 submission should be made per team.
 
-**All team members must commit and push to receive full credit**
+**All team members must commit and push to receive full credit.**
 
 1. How many observations are in this dataset? What does each observation 
    represent?
