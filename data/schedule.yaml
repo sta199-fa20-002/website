@@ -45,13 +45,14 @@ lessons:
     hw: "hw-01.html"
   - date: "Thu, Sep 10"
   
-    title: "Lab 04"
-
+    title: "Lab 04: Examining smoking and health outcomes"
+    labs: "lab-04-cond-prob.html"
+    
   - week: "Week 05"
     date: "Mon, Sep 14"
-    title: "Data science ethics"
-  - date: "Wed, Sep 16"
     title: "Estimation via bootstrapping"
+  - date: "Wed, Sep 16"
+    title: "Data Ethics"
   - date: "Thu, Sep 18"
     title: "Lab 05"
 
