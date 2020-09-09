@@ -31,7 +31,7 @@ font-size: 18px;
 |                        |   |
 |------------------------|---|
 | [HW 01](https://sta199-fa20-002.netlify.app/hw/hw-01.html) | **due Wed, Sep 16 at 11:59p** |
-| Lab 04 | **due Wed, Sep 16 at 11:59p** |
+| [Lab 04](https://sta199-fa20-002.netlify.app/labs/lab-04-cond-prob.html) | **due Wed, Sep 16 at 11:59p** |
 
 
 
