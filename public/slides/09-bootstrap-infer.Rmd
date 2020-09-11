@@ -1,0 +1,793 @@
+---
+title: "Bootstrap Estimation"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(patchwork)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](09-bootstrap-infer.pdf)
+
+---
+
+class: center, middle
+
+# Inference
+
+---
+
+## Terminology
+
+.vocab[Population]: a group of individuals or objects we are interested in studying
+
+.vocab[Parameter]: a numerical quantity derived from the population
+(almost always unknown)
+
+If we had data from every unit in the population, we could just calculate 
+population parameters and be done!
+
+--
+
+**Unfortunately, we usually cannot do this.**
+
+.vocab[Sample]: a subset of our population of interest
+
+.vocab[Statistic]: a numerical quantity derived from a sample
+
+---
+
+## Inference
+
+If the sample is .vocab[representative], then we can use the tools of probability and statistical inference to make .vocab[generalizable] conclusions to the broader population of interest.
+
+
+```{r echo=FALSE, out.width=406, out.height= 234, fig.align="center"}
+knitr::include_graphics("img/09/soup.png")
+```
+
+Similar to tasting a spoonful of soup while cooking to make an inference about the entire pot.
+
+---
+
+## Statistical inference
+
+.vocab[Statistical inference] is the process of using sample data to make 
+  conclusions about the underlying population the sample came from.
+
+- .vocab[Estimation]: using the sample to estimate a plausible range of values for the unknown parameter
+
+- .vocab[Testing]: evaluating whether our observed sample provides evidence 
+for or against some claim about the population
+
+Today we will focus on **estimation**.
+
+---
+
+class: center, middle
+
+# Estimation
+
+---
+
+## Let's \*virtually\* go to Asheville! 
+
+.center[
+![](img/09/asheville.jpg)
+
+**How much should we expect to pay for an Airbnb in Asheville?**
+]
+
+---
+
+## Asheville data
+
+[Inside Airbnb](http://insideairbnb.com/) scraped all Airbnb listings in 
+Asheville, NC, that were active on June 25, 2020.
+
+**Population of interest**: listings in the Asheville with at least ten reviews.
+
+**Parameter of interest**: Mean price per guest per night among these 
+listings.
+
+.question[
+What is the mean price per guest per night among Airbnb rentals in June 2020, 
+among Airbnbs with at least ten reviews in Asheville (zip codes 28801 - 28806)?
+]
+
+We have data on the price per guest (`ppg`) for a random
+sample of 50 Airbnb listings.
+
+---
+
+## Point estimate
+
+A .vocab[point estimate] is a single value computed from the sample data to serve
+as the "best guess", or estimate, for the population parameter. 
+
+```{r}
+abb <- read_csv("data/asheville.csv")
+
+abb %>% 
+  summarize(mean_price = mean(ppg))
+```
+
+---
+
+## Visualizing our sample
+
+```{r, echo = F, out.width = "80%"}
+ggplot(data = abb, aes(ppg)) +
+  geom_histogram(binwidth = 25,
+                 color = "darkblue",
+                 fill = "skyblue") +
+  labs(title = "Right-skewed distribution of price per guest",
+       x = "Price per guest per night",
+       y = "Count") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  theme_minimal()
+```
+
+---
+
+.question[
+If you want to catch a fish, do you prefer a spear or a net?
+]
+
+.pull-left[
+```{r echo=FALSE, out.width=300, fig.align="center"}
+knitr::include_graphics("img/09/spear.png")
+```
+]
+.pull-right[
+```{r echo=FALSE, out.width=300, fig.align="center"}
+knitr::include_graphics("img/09/net.png")
+```
+]
+
+---
+
+.question[
+If you want to estimate a population parameter, do you prefer to report a range 
+of values the parameter might be in, or a single value?
+]
+
+.pull-left[
+```{r echo=FALSE, out.width=300, fig.align="center"}
+knitr::include_graphics("img/09/spear.png")
+```
+]
+.pull-right[
+```{r echo=FALSE, out.width=300, fig.align="center"}
+knitr::include_graphics("img/09/net.png")
+```
+]
+
+---
+
+- If we report a point estimate, we probably won’t hit the exact population 
+parameter.
+
+- If we report a range of plausible values we have a good shot at capturing 
+the parameter.
+
+---
+
+```{r echo=FALSE, out.width = "70%", fig.align="center"}
+knitr::include_graphics("img/09/ft-election-poll.png")
+```
+
+.footnote[
+Source: [Biden vs Trump: who is leading the 2020 US election polls?](https://ig.ft.com/us-election-2020/), 10 Sep 2020.
+]
+
+
+---
+
+class: middle, center
+
+## Confidence intervals
+
+---
+
+## Variability of sample statistics
+
+For a confidence interval for the population mean, we need to come up with a
+range of plausible values around our observed sample mean.
+
+- Remember that random samples may differ from each other. If we took another
+random sample of 50 Airbnb listings, we probably wouldn't get the same mean
+price per guest.
+
+- There is some .vocab[variability] of the sample mean from these listings.
+
+- To construct a confidence interval, we need to quantify this variability. This
+gives us a measurement of how much we expect the sample mean to vary from
+sample to sample.
+
+---
+
+.question[
+Suppose we split the class in half and ask each student their height. Then, we calculate the mean height of students 
+on each side of the classroom. Would you expect these two means to be exactly 
+equal, close but not equal, or wildly different?
+]
+
+--
+
+<br><br>
+
+.question[
+Suppose you randomly sample 50 students and 5 of them are left handed. If you 
+were to take another random sample of 50 students, how many would you expect to 
+be left handed? Would you be surprised if only 3 of them were left handed? Would 
+you be surprised if 40 of them were left handed?
+]
+
+---
+
+## Quantifying the variability
+
+We can quantify the variability of sample statistics using different approaches:
+
+- **Simulation**: via bootstrapping or "resampling" techniques (**today's focus**)
+
+or
+
+- **Theory**: via the Central Limit Theorem (**coming soon!**)
+
+---
+
+class: center, middle
+
+# Bootstrapping
+
+---
+
+## The bootstrap principle
+
+<img src="img/09/boot.png" style="float:right">
+
+- The term .vocab[bootstrapping] comes from the phrase "pulling oneself up by one’s 
+bootstraps", which is a metaphor for accomplishing an impossible task without 
+any outside help.
+
+- In this case the impossible task is estimating a population parameter, and we’ll 
+accomplish it using data from only the given sample.
+
+- This notion of saying something about a population parameter using 
+only information from an observed sample is the crux of statistical inference, 
+it is not limited to bootstrapping.
+
+---
+
+## The bootstrap procedure
+
+1. Take a .vocab[bootstrap sample] - a random sample taken **with replacement**
+from the original sample, **of the same size** as the original sample.
+
+2. Calculate the bootstrap statistic: the statistic you’re interested in (the 
+mean, the median, the correlation, etc.) computed on the bootstrap sample.
+
+3. Repeat steps (1) and (2) many times to create a .vocab[bootstrap distribution] - a distribution of bootstrap statistics.
+
+4. Calculate the bounds of the XX% confidence interval as the middle XX% of the bootstrap distribution.
+
+---
+
+## The original sample
+
+<br><br>
+
+```{r, echo = F, out.width = "70%"}
+ggplot(data = abb, aes(ppg)) +
+  geom_histogram(binwidth = 25,
+                 color = "darkblue",
+                 fill = "skyblue") +
+  labs(caption = "Original sample",
+       x = "Price per guest per night",
+       y = "Count") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(abb$ppg), lwd = 2, color = "red") + 
+  theme_minimal()
+```
+
+---
+
+## Step-by-step
+
+**Step 1.** Take a .vocab[bootstrap sample]: a random sample taken 
+**with replacement** from the original sample, **of the same size** as the 
+original sample:
+
+```{r, echo = F, out.width = "70%"}
+set.seed(1)
+indices <- sample(1:nrow(abb), 50, replace = T)
+
+boot_samp_1 <- abb %>% 
+  slice(indices)
+```
+
+```{r, echo = F, out.width = "70%"}
+ggplot(data = boot_samp_1, aes(ppg)) +
+  geom_histogram(binwidth = 25,
+                 color = "darkblue",
+                 fill = "skyblue") +
+  labs(caption = "Bootstrap sample 1",
+       x = "Price per guest per night",
+       y = "Count") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+# geom_vline(xintercept = mean(boot_samp_1$ppg), lwd = 2, color = "red") + 
+  theme_minimal()
+```
+
+---
+
+## Step-by-step
+
+**Step 2.** Calculate the bootstrap statistic (in this case, the sample mean) 
+using the bootstrap sample:
+
+```{r, echo = F, out.width = "70%"}
+ggplot(data = boot_samp_1, aes(ppg)) +
+  geom_histogram(binwidth = 25,
+                 color = "darkblue",
+                 fill = "skyblue") +
+  labs(caption = "Bootstrap sample 1",
+       x = "Price per guest per night",
+       y = "Count") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) + 
+  geom_vline(xintercept = mean(boot_samp_1$ppg), lwd = 2, color = "red") + 
+  theme_minimal()
+```
+
+---
+
+## Step-by-step
+
+**Step 3.** Do steps 1 and 2 over and over again to create a bootstrap 
+distribution of sample means:
+
+.pull-left[
+```{r, echo = F}
+set.seed(1)
+
+temp <- abb %>% slice(sample(1:50, replace = T))
+samp1 <- ggplot(data = temp, aes(ppg)) +
+  geom_histogram(binwidth = 25, color = "darkblue", fill = "skyblue") +
+  labs(x = "", y = "") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(temp$ppg), lwd = 1, color = "red") + 
+  theme_minimal()
+```
+```{r, echo = F}
+set.seed(2)
+
+temp <- abb %>% slice(sample(1:50, replace = T))
+samp2 <- ggplot(data = temp, aes(ppg)) +
+  geom_histogram(binwidth = 25, color = "darkblue", fill = "skyblue") +
+  labs(x = "", y = "") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(temp$ppg), lwd = 1, color = "red") + 
+  theme_minimal()
+```
+]
+
+.pull-right[
+```{r, echo = F}
+set.seed(3)
+
+temp <- abb %>% slice(sample(1:50, replace = T))
+samp3 <- ggplot(data = temp, aes(ppg)) +
+  geom_histogram(binwidth = 25, color = "darkblue", fill = "skyblue") +
+  labs(x = "", y = "") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(temp$ppg), lwd = 1, color = "red") + 
+  theme_minimal()
+```
+```{r, echo = F}
+set.seed(4)
+
+temp <- abb %>% slice(sample(1:50, replace = T))
+samp4 <- ggplot(data = temp, aes(ppg)) +
+  geom_histogram(binwidth = 25, color = "darkblue", fill = "skyblue") +
+  labs(x = "", y = "") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(temp$ppg), lwd = 1, color = "red") + 
+  theme_minimal()
+```
+]
+
+```{r echo = F, out.width = "75%"}
+
+(samp1 + samp3) / (samp2 + samp4)
+```
+              
+---
+
+## Step-by-step
+
+**Step 3.** In this plot, we've taken 500 bootstrap samples, calculated the
+sample mean for each, and plotted them in a histogram:
+
+```{r, echo = F, out.width = "70%"}
+boot_dist <- tibble(boot_mean = numeric(500))
+for(i in 1:500){
+  set.seed(i)
+  indices <- sample(1:50, replace = T)
+  boot_dist$boot_mean[i] <- mean(abb$ppg[indices])
+}
+
+ggplot(data = boot_dist, aes(boot_mean)) +
+  geom_histogram(binwidth = 5, color = "darkred", fill = "pink") +
+  labs(x = "", y = "") +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  theme_minimal()
+```
+
+---
+
+**Here we compare the bootstrap distribution of sample means to that 
+of the original data. What do you notice?**
+
+```{r, echo = F, fig.height = 2.7}
+
+boot_dist <- tibble(boot_mean = numeric(500))
+for(i in 1:500){
+  set.seed(i)
+  indices <- sample(1:50, replace = T)
+  boot_dist$boot_mean[i] <- mean(abb$ppg[indices])
+}
+
+p1 <- ggplot(data = abb, aes(ppg)) +
+  geom_histogram(binwidth = 25,
+                 color = "darkblue",
+                 fill = "skyblue") +
+  labs(x = "", y = "", title = "Original sample") +
+  scale_y_continuous(breaks = seq(0, 20, by = 5)) + 
+  ylim(0, 20) +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = mean(abb$ppg), lwd = 2, color = "red") + 
+  theme_minimal() +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
+p2 <- ggplot(data = boot_dist, aes(boot_mean)) +
+  geom_histogram(binwidth = 5, color = "darkred", fill = "pink") +
+  labs(x = "", y = "", title = "Bootstrap distribution of sample means") +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  theme_minimal() +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+
+p1 / p2
+```
+
+---
+
+## Step-by-step
+
+**Step 4.** Calculate the bounds of the bootstrap interval by using percentiles 
+of the bootstrap distribution
+
+```{r, echo = F, out.width = "70%"}
+boot_dist <- tibble(boot_mean = numeric(500))
+for(i in 1:500){
+  set.seed(i)
+  indices <- sample(1:50, replace = T)
+  boot_dist$boot_mean[i] <- mean(abb$ppg[indices])
+}
+
+ggplot(data = boot_dist, aes(boot_mean)) +
+  geom_histogram(binwidth = 5, color = "darkred", fill = "pink") +
+  labs(x = "", y = "") +
+  scale_x_continuous(breaks = seq(0, 250, by = 50)) + 
+  xlim(0, 250) +
+  geom_vline(xintercept = quantile(boot_dist$boot_mean, 0.025), 
+             lwd = 1, color = "black") +
+  geom_vline(xintercept = quantile(boot_dist$boot_mean, 0.975), 
+             lwd = 1, color = "black") +
+  theme_minimal()
+```
+
+---
+
+class: center, middle
+
+# Bootstrapping in R
+
+---
+
+## Package `infer`
+
+.pull-left[
+![](img/09/infer.png)
+<br><br>
+[infer.netlify.com](http://infer.netlify.com)
+]
+
+.pull-right[
+<br/><br/><br/><br/>
+The objective of package `infer` is to perform statistical inference using an 
+expressive statistical grammar that coheres with the tidyverse design framework.
+
+```{r}
+library(infer)
+```
+]
+
+---
+
+## Set a seed
+
+Let's set a seed
+
+```{r}
+set.seed(123)
+```
+
+Function `set.seed()` is a base R function that allows us to control R's
+random number generation. Use this to make your simulation work reproducible.
+
+In other words, it ensures we'll get the same random sample each time we run the code or knit.
+
+---
+
+## Generate bootstrap means
+
+```{r eval=FALSE}
+abb %>%
+  # specify the variable of interest
+  specify(response = ppg) #<<
+```
+
+---
+
+## Generate bootstrap means
+
+```{r eval=FALSE}
+abb %>%
+  # specify the variable of interest
+  specify(response = ppg) %>% 
+  # generate 15000 bootstrap samples
+  generate(reps = 15000, type = "bootstrap") #<<
+```
+
+---
+
+## Generate bootstrap means
+
+```{r eval=FALSE}
+abb %>%
+  # specify the variable of interest
+  specify(response = ppg) %>% 
+  # generate 15000 bootstrap samples
+  generate(reps = 15000, type = "bootstrap") %>% 
+  # calculate the statistic of each bootstrap sample
+  calculate(stat = "mean") #<<
+```
+
+---
+
+## Generate bootstrap means
+
+```{r include=FALSE}
+set.seed(834782)
+```
+
+
+```{r}
+# save resulting bootstrap distribution
+boot_dist <- abb %>% #<<
+  # specify the variable of interest
+  specify(response = ppg) %>% 
+  # generate 15000 bootstrap samples
+  generate(reps = 15000, type = "bootstrap") %>% 
+  # calculate the statistic of each bootstrap sample
+  calculate(stat = "mean")
+```
+
+---
+
+## Sample means
+
+How many observations are there in `boot_dist`? What does each observation 
+represent?
+
+--
+
+```{r}
+boot_dist
+```
+
+---
+
+## Visualize the distribution
+
+```{r echo=FALSE}
+ggplot(data = boot_dist, mapping = aes(x = stat)) +
+  geom_histogram(binwidth = 5) +
+  labs(title = "Bootstrap distribution centered around 75",
+       x = "Price per guest", y = "Count", caption = "Binwidth of 5") +
+  theme_minimal()
+```
+
+---
+
+## Calculate the confidence interval
+
+A 95% confidence interval is bounded by the middle 95% of the bootstrap 
+distribution.
+
+--
+
+Use `dplyr` functions:
+
+```{r}
+boot_dist %>%
+  summarize(lower_bound = quantile(stat, 0.025),
+            upper_bound = quantile(stat, 0.975))
+```
+
+---
+
+## Visualize a confidence interval
+
+Using `geom_vline()` to mark the bounds of the confidence interval
+
+```{r echo=FALSE}
+lower_bound <- boot_dist %>% 
+  summarize(lower_bound = quantile(stat, 0.025)) %>% 
+  pull()
+
+upper_bound <- boot_dist %>% 
+  summarize(upper_bound = quantile(stat, 0.975)) %>% 
+  pull()
+```
+
+```{r echo=FALSE, out.width = "75%"}
+ggplot(data = boot_dist, mapping = aes(x = stat)) +
+  geom_histogram(binwidth = 5, alpha = .5) +
+  geom_vline(xintercept = c(lower_bound, upper_bound), 
+             color = "steelblue", lty = 2, size = 1) +
+  labs(title = "Bootstrap distribution of means",
+       subtitle = "with 95% confidence interval",
+       x = "Median", y = "Count") +
+  theme_minimal()
+```
+
+
+---
+
+## Interpreting a confidence interval
+
+Using the 2.5th and 97.5th quantiles as bounds for our confidence interval gives 
+us the middle 95% of the bootstrap means. Our 95% CI is 
+(`r round(lower_bound, 1)`, `r round(upper_bound, 1)`).
+
+.question[
+Does this mean there is a 95% chance that the true mean price per night in the
+population is contained in the interval 
+(`r round(lower_bound, 1)`, `r round(upper_bound, 1)`)?
+]
+
+
+
+---
+
+class: center, middle
+
+# <span style="color:red">NO</span> `r emo::ji("x")`
+
+---
+
+## Interpreting a confidence interval
+
+- The population parameter is either in our interval or it isn't. It can't have a
+"95% chance" of being in any specific interval.
+
+--
+
+- The bootstrap distribution captures the variability of the sample mean, but is
+based on our original sample. If we started with a different sample,then maybe our estimated 95% confidence 
+interval would have been different also.
+
+--
+
+- All we can say is that, if we were to independently take repeated samples from
+this population and calculate a 95% CI for the mean in the exact same way, then
+we would *expect* 95% of these intervals to contian the population mean.
+
+--
+
+- However, we never know if any particular interval(s) actually do!
+
+---
+
+## Interpretation 
+
+.question[
+**We are 95% confident that the mean price per night for Airbnbs in Asheville, NC is between $`r round(lower_bound,1)` and $ `r round(upper_bound,1)`. **
+]

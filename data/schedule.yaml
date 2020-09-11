@@ -51,6 +51,7 @@ lessons:
   - week: "Week 05"
     date: "Mon, Sep 14"
     title: "Estimation via bootstrapping"
+    slides: "09-bootstrap-infer.html"
   - date: "Wed, Sep 16"
     title: "Data Ethics"
   - date: "Thu, Sep 18"

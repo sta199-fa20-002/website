@@ -110,7 +110,7 @@ Similar to tasting a spoonful of soup while cooking to make an inference about t
 .vocab[Statistical inference] is the process of using sample data to make 
   conclusions about the underlying population the sample came from.
 
-- .vocab[Estimation]: using the sample to estimate a plausible range of values for the unknown parameter using 
+- .vocab[Estimation]: using the sample to estimate a plausible range of values for the unknown parameter
 
 - .vocab[Testing]: evaluating whether our observed sample provides evidence 
 for or against some claim about the population
@@ -620,7 +620,7 @@ In other words, it ensures we'll get the same random sample each time we run the
 ```{r eval=FALSE}
 abb %>%
   # specify the variable of interest
-  specify(response = ppg) #<
+  specify(response = ppg) #<<
 ```
 
 ---
@@ -632,7 +632,7 @@ abb %>%
   # specify the variable of interest
   specify(response = ppg) %>% 
   # generate 15000 bootstrap samples
-  generate(reps = 15000, type = "bootstrap") #<
+  generate(reps = 15000, type = "bootstrap") #<<
 ```
 
 ---
@@ -644,9 +644,9 @@ abb %>%
   # specify the variable of interest
   specify(response = ppg) %>% 
   # generate 15000 bootstrap samples
-  generate(reps = 15000, type = "bootstrap") %>% #<
+  generate(reps = 15000, type = "bootstrap") %>% 
   # calculate the statistic of each bootstrap sample
-  calculate(stat = "mean")
+  calculate(stat = "mean") #<<
 ```
 
 ---
@@ -660,7 +660,7 @@ set.seed(834782)
 
 ```{r}
 # save resulting bootstrap distribution
-boot_dist <- abb %>% #<
+boot_dist <- abb %>% #<<
   # specify the variable of interest
   specify(response = ppg) %>% 
   # generate 15000 bootstrap samples
