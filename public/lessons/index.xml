@@ -376,13 +376,79 @@ font-size: 18px;
     </item>
     
     <item>
-      <title>Week 05</title>
+      <title>Week 05: Bootstrap &#43; Data Ethics</title>
       <link>/schedule/week-05/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-05/</guid>
-      <description>Check back for details!</description>
-      <content>&lt;p&gt;Check back for details!&lt;/p&gt;
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Bootstrap Estimation Bootstrap Estimation: Pt 1 AE 09     Bootstrap Estimation: Pt 2    Wednesday Data Ethics Data Ethics AE 09    Readings          Introduction to Modern Statistics: 5.2 Required    Assignments          Lab 05     </description>
+      <content>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html&#34;&gt;Bootstrap Estimation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/L3AEAA/&#34;&gt;Bootstrap Estimation: Pt 1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AE 09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/v3AEAA/&#34;&gt;Bootstrap Estimation: Pt 2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;Data Ethics&lt;/td&gt;
+&lt;td&gt;Data Ethics&lt;/td&gt;
+&lt;td&gt;AE 09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://openintro-ims.netlify.app/intro-stat-inference.html#boot-ci&#34;&gt;Introduction to Modern Statistics: 5.2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Lab 05&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </item>
     

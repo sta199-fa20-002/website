@@ -1,6 +1,38 @@
 ---
-title: "Week 05"
-weight: 5
+title: "Week 05: Bootstrap + Data Ethics"
+weight: 4
 ---
 
-Check back for details!
+<style>
+table {
+font-size: 18px;
+}
+
+</style>
+
+## Lectures
+
+|           | Slides                   | Videos | Application Exercise (AE) |
+|-----------|--------------------------|--------|--------|
+| Monday    | [Bootstrap Estimation](https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html)  |  [Bootstrap Estimation: Pt 1](https://warpwire.duke.edu/w/L3AEAA/) | AE 09 |
+|   |  |  [Bootstrap Estimation: Pt 2](https://warpwire.duke.edu/w/v3AEAA/)|  |
+| Wednesday |  Data Ethics | Data Ethics   |AE 09  |
+
+## Readings
+
+|            |   |
+|------------|---|
+|[Introduction to Modern Statistics: 5.2](https://openintro-ims.netlify.app/intro-stat-inference.html#boot-ci) | **Required**   |
+
+
+## Assignments
+
+|                        |   |
+|------------------------|---|
+| Lab 05 |
+
+
+
+
+
+
