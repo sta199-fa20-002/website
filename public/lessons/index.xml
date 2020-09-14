@@ -381,7 +381,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-05/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Bootstrap Estimation Bootstrap Estimation: Pt 1 AE 09     Bootstrap Estimation: Pt 2    Wednesday Data Ethics Data Ethics AE 09    Readings          Introduction to Modern Statistics: 5.2 Required    Assignments          Lab 05     </description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Bootstrap Estimation Bootstrap Estimation: Pt 1 AE 09: Time spent on email     Bootstrap Estimation: Pt 2    Wednesday Data Ethics Data Ethics AE 10    Readings          Introduction to Modern Statistics: 5.2 Required    Assignments          Lab 05     </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -403,7 +403,7 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html&#34;&gt;Bootstrap Estimation&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/L3AEAA/&#34;&gt;Bootstrap Estimation: Pt 1&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 09&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex09-email.html&#34;&gt;AE 09: Time spent on email&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -415,7 +415,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;Data Ethics&lt;/td&gt;
 &lt;td&gt;Data Ethics&lt;/td&gt;
-&lt;td&gt;AE 09&lt;/td&gt;
+&lt;td&gt;AE 10&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

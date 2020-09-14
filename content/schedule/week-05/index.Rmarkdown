@@ -14,9 +14,9 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Bootstrap Estimation](https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html)  |  [Bootstrap Estimation: Pt 1](https://warpwire.duke.edu/w/L3AEAA/) | AE 09 |
+| Monday    | [Bootstrap Estimation](https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html)  |  [Bootstrap Estimation: Pt 1](https://warpwire.duke.edu/w/L3AEAA/) | [AE 09: Time spent on email](https://sta199-fa20-002.netlify.app/appex/appex09-email.html) |
 |   |  |  [Bootstrap Estimation: Pt 2](https://warpwire.duke.edu/w/v3AEAA/)|  |
-| Wednesday |  Data Ethics | Data Ethics   |AE 09  |
+| Wednesday |  Data Ethics | Data Ethics   |AE 10  |
 
 ## Readings
 
