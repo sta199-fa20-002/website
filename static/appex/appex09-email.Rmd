@@ -24,7 +24,7 @@ library(infer)
 
 ### Data 
 
-The General Social Survey (GSS) gathers data on contemporary American society in order to monitor and explain trends and constants in attitudes, behaviors, and attributes. Hundreds of trends have been tracked since 1972. In addition, since the GSS adopted questions from earlier surveys, trends can be followed for up to 70 years.
+The General Social Survey (GSS) gathers data on contemporary American society in order to understand and explain trends and constants in attitudes, behaviors, and attributes. Hundreds of trends have been tracked since 1972. In addition, since the GSS adopted questions from earlier surveys, trends can be followed for up to 70 years.
 
 The GSS contains a standard core of demographic, behavioral, and attitudinal questions, plus topics of special interest. Among the topics covered are civil liberties, crime and violence, intergroup tolerance, morality, national spending priorities, psychological well-being, social mobility, and stress and traumatic events.
 
@@ -34,12 +34,9 @@ We will analyze data from the 2016 GSS, using to understand how much time US adu
 gss_email <- read_csv("data/gss_email.csv")
 ```
 
-
 We'll use the variable `email`: the number of minutes the respondents spend on email weekly. 
 
 **We want to calculate a 95% confidence interval for the mean amount of time Americans spend on email weekly.**
-
-
 
 ### Set seed
 
@@ -89,14 +86,14 @@ ggplot(data = boot_dist, aes(x = stat)) +
 
 ### Interpretation (Zoom poll)
 
-The 95% confidence interval for the mean number of minutes Americans spend on email weekly is (`r ci$lower`, `r ci$upper`). Which of the following is the correct interpretation of this interval?
+The 95% confidence interval for the mean number of minutes Americans spend on email weekly is (`r round(ci$lower,3)`, `r round(ci$upper,3)`). Which of the following is the correct interpretation of this interval?
 
 
-(a) 95% of the time Americans spend on email weekly in the sample is between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes.
+(a) 95% of the time Americans spend on email in the sample is between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes weekly.
 
 (b) 95% of all Americans spend between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes on email weekly.
 
-(c) We are 95% confident that the mean time on email for all Americans is between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes weekly.
+(c) We are 95% confident that the mean time spent on email by all Americans is between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes weekly.
 
 (d) We are 95% confident that the time American spend on email in this sample is between `r round(ci$lower,3)` and `r round(ci$upper,3)` minutes weekly. 
 
@@ -117,7 +114,7 @@ use_git_config(user.name = "your github username", user.email ="your email")
 
 ### Bootstrap confidence intervals
 
-We will use the `infer` package to calculate a 95% confidence interval for the **median** amount of time Americans spend on email weekly. 
+**We will use the `infer` package to calculate a 95% confidence interval for the median amount of time Americans spend on email weekly.**
 
 We start by setting a seed. We'll use 1234 to set our seed today but you can use any value you want on assignments.
 
@@ -127,7 +124,7 @@ set.seed(1234)
 
 ### Creating the data frame
 
-Create the bootstrap data frame. Uncomment the lines and fill in the code below to create a data frame for the bootstrap distribution. 
+Uncomment the lines and fill in the blanks to create a data frame containing the bootstrapped data - sample medians in our case.  
 
 ```{r create-bootstrap-dist}
 boot_dist <- gss_email #%>%
@@ -136,7 +133,8 @@ boot_dist <- gss_email #%>%
   #calculate(______)
 ```
 
-Glimpe the bootstrapped data frame below. 
+Glimpse the data frame of the bootstrapped data.  
+
 ```{r glimpse-bootstrap-dist}
 ### Glimpse the bootstrapped data frame
 
@@ -144,33 +142,30 @@ Glimpe the bootstrapped data frame below.
 
 ### Find the confidence interval
 
-Fill in the blanks and uncomment the lines to construct the 95% bootstrap confidence interval for the median amount of time Americans spend on email weekly.
+Uncomment the lines and fill in the blanks to construct the 95% bootstrap confidence interval for the median amount of time Americans spend on email weekly.
 
 ```{r confidence-interval-email}
 #___ %>%
-#  summarize(lower = quantile(___, ___),
-  #          upper = ___(___, ___))
+#  summarise(lower = quantile(______),
+  #          upper = quantile(______))
 ```
 
 ### Interpret the interval
+
 Write the interpretation for the interval calculated above. 
 
-### Changing confidence level 
+### Changing the confidence level 
 
-Fill in the code and uncomment the lines to calculate a 90% confidence interval of the median time American spend on email weekly. Is your interval wider, narrower, or the same as the 95% confidence interval?
+Modify the code used to calculate a 95% confidence interval to calculate a **90% confidence interval** of the median time American spend on email weekly. Is your interval wider, narrower, or the same as the 95% confidence interval?
 
 ```{r confidence-interval-90}
-#___ %>%
-#  summarize(lower = quantile(___, ___),
-  #          upper = ___(___, ___))
+#calculate a 90% confidence interval
 ```
 
-
-Try calculating a 99% confidence interval for the median time Americans spend on email weekly.
+Now let's calculate a 99% confidence interval for the median time Americans spend on email weekly.
 
 ```{r confidence-interval-99}
-#  Code for 99% confidence interval 
+#calculate a 99% confidence interval
 ```
 
-
-How do the 95%, 90%, and 99% confidence intervals compare?
+Leaving everything else the same, how does decreasing the confidence level affect the confidence interval? How does increasing the confidence level affect the confidence interval?

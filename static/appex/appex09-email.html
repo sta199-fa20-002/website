@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2020-09-13" />
+<meta name="date" content="2020-09-14" />
 
 <title>AE 09: Time spent on email</title>
 
@@ -375,7 +375,7 @@ summary {
 
 
 <h1 class="title toc-ignore">AE 09: Time spent on email</h1>
-<h4 class="date">2020-09-13</h4>
+<h4 class="date">2020-09-14</h4>
 
 </div>
 
@@ -399,7 +399,7 @@ summary {
 library(infer)</code></pre>
 <div id="data" class="section level3">
 <h3>Data</h3>
-<p>The General Social Survey (GSS) gathers data on contemporary American society in order to monitor and explain trends and constants in attitudes, behaviors, and attributes. Hundreds of trends have been tracked since 1972. In addition, since the GSS adopted questions from earlier surveys, trends can be followed for up to 70 years.</p>
+<p>The General Social Survey (GSS) gathers data on contemporary American society in order to understand and explain trends and constants in attitudes, behaviors, and attributes. Hundreds of trends have been tracked since 1972. In addition, since the GSS adopted questions from earlier surveys, trends can be followed for up to 70 years.</p>
 <p>The GSS contains a standard core of demographic, behavioral, and attitudinal questions, plus topics of special interest. Among the topics covered are civil liberties, crime and violence, intergroup tolerance, morality, national spending priorities, psychological well-being, social mobility, and stress and traumatic events.</p>
 <p>We will analyze data from the 2016 GSS, using to understand how much time US adults spend on email.</p>
 <pre class="r"><code>gss_email &lt;- read_csv(&quot;data/gss_email.csv&quot;)</code></pre>
@@ -452,11 +452,11 @@ ci</code></pre>
 </div>
 <div id="interpretation-zoom-poll" class="section level3">
 <h3>Interpretation (Zoom poll)</h3>
-<p>The 95% confidence interval for the mean number of minutes Americans spend on email weekly is (386.0863554, 447.843299). Which of the following is the correct interpretation of this interval?</p>
+<p>The 95% confidence interval for the mean number of minutes Americans spend on email weekly is (386.086, 447.843). Which of the following is the correct interpretation of this interval?</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>95% of the time Americans spend on email weekly in the sample is between 386.086 and 447.843 minutes.</p></li>
+<li><p>95% of the time Americans spend on email in the sample is between 386.086 and 447.843 minutes weekly.</p></li>
 <li><p>95% of all Americans spend between 386.086 and 447.843 minutes on email weekly.</p></li>
-<li><p>We are 95% confident that the mean time on email for all Americans is between 386.086 and 447.843 minutes weekly.</p></li>
+<li><p>We are 95% confident that the mean time spent on email by all Americans is between 386.086 and 447.843 minutes weekly.</p></li>
 <li><p>We are 95% confident that the time American spend on email in this sample is between 386.086 and 447.843 minutes weekly.</p></li>
 </ol>
 </div>
@@ -472,40 +472,38 @@ ci</code></pre>
 use_git_config(user.name = &quot;your github username&quot;, user.email =&quot;your email&quot;)</code></pre>
 <div id="bootstrap-confidence-intervals" class="section level3">
 <h3>Bootstrap confidence intervals</h3>
-<p>We will use the <code>infer</code> package to calculate a 95% confidence interval for the <strong>median</strong> amount of time Americans spend on email weekly.</p>
+<p><strong>We will use the <code>infer</code> package to calculate a 95% confidence interval for the median amount of time Americans spend on email weekly.</strong></p>
 <p>We start by setting a seed. We’ll use 1234 to set our seed today but you can use any value you want on assignments.</p>
 <pre class="r"><code>set.seed(1234)</code></pre>
 </div>
 <div id="creating-the-data-frame" class="section level3">
 <h3>Creating the data frame</h3>
-<p>Create the bootstrap data frame. Uncomment the lines and fill in the code below to create a data frame for the bootstrap distribution.</p>
+<p>Uncomment the lines and fill in the blanks to create a data frame containing the bootstrapped data - sample medians in our case.</p>
 <pre class="r"><code>boot_dist &lt;- gss_email #%&gt;%
   #specify(______) %&gt;%
   #generate(______) %&gt;%
   #calculate(______)</code></pre>
-<p>Glimpe the bootstrapped data frame below.</p>
+<p>Glimpse the data frame of the bootstrapped data.</p>
 <pre class="r"><code>### Glimpse the bootstrapped data frame</code></pre>
 </div>
 <div id="find-the-confidence-interval" class="section level3">
 <h3>Find the confidence interval</h3>
-<p>Fill in the blanks and uncomment the lines to construct the 95% bootstrap confidence interval for the median amount of time Americans spend on email weekly.</p>
+<p>Uncomment the lines and fill in the blanks to construct the 95% bootstrap confidence interval for the median amount of time Americans spend on email weekly.</p>
 <pre class="r"><code>#___ %&gt;%
-#  summarize(lower = quantile(___, ___),
-  #          upper = ___(___, ___))</code></pre>
+#  summarise(lower = quantile(______),
+  #          upper = quantile(______))</code></pre>
 </div>
 <div id="interpret-the-interval" class="section level3">
 <h3>Interpret the interval</h3>
 <p>Write the interpretation for the interval calculated above.</p>
 </div>
-<div id="changing-confidence-level" class="section level3">
-<h3>Changing confidence level</h3>
-<p>Fill in the code and uncomment the lines to calculate a 90% confidence interval of the median time American spend on email weekly. Is your interval wider, narrower, or the same as the 95% confidence interval?</p>
-<pre class="r"><code>#___ %&gt;%
-#  summarize(lower = quantile(___, ___),
-  #          upper = ___(___, ___))</code></pre>
-<p>Try calculating a 99% confidence interval for the median time Americans spend on email weekly.</p>
-<pre class="r"><code>#  Code for 99% confidence interval </code></pre>
-<p>How do the 95%, 90%, and 99% confidence intervals compare?</p>
+<div id="changing-the-confidence-level" class="section level3">
+<h3>Changing the confidence level</h3>
+<p>Modify the code used to calculate a 95% confidence interval to calculate a <strong>90% confidence interval</strong> of the median time American spend on email weekly. Is your interval wider, narrower, or the same as the 95% confidence interval?</p>
+<pre class="r"><code>#calculate a 90% confidence interval</code></pre>
+<p>Now let’s calculate a 99% confidence interval for the median time Americans spend on email weekly.</p>
+<pre class="r"><code>#calculate a 99% confidence interval</code></pre>
+<p>Leaving everything else the same, how does decreasing the confidence level affect the confidence interval? How does increasing the confidence level affect the confidence interval?</p>
 </div>
 </div>
 
