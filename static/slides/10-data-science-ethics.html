@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data science ethics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data science ethics
+### Prof. Maria Tackett
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+class: middle, center
+
+## [Click for PDF of slides](10-data-science-ethics.pdf)
+
+---
+
+## Topics
+
+🚫 Misrepresenting data
+
+🚫 Privacy
+
+🚫 Algorithmic bias
+
+---
+
+class: middle, center
+
+## Misrepresenting data
+
+---
+
+.question[
+What is the difference between these two pictures? Which presents a better way to represent these data?
+]
+
+&lt;br&gt;
+
+&lt;img src="img/10/axis-start-at-0.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[Ingraham, C. (2019) ["You’ve been reading charts wrong. Here’s how a pro does it."](https://www.washingtonpost.com/business/2019/10/14/youve-been-reading-charts-wrong-heres-how-pro-does-it/), The Washington Post, 14 Oct.]
+
+---
+
+.question[
+Do you recognize this map? What does it show?
+]
+
+&lt;img src="img/10/election-2016-county.png" width="650" style="display: block; margin: auto;" /&gt;
+
+.footnote[Gamio, L. (2016) ["Election maps are telling you big lies about small things"](https://www.washingtonpost.com/graphics/politics/2016-election/how-election-maps-lie/), The Washington Post, 1 Nov.]
+
+
+---
+
+&lt;img src="img/10/cairo-what-matters.png" width="900" style="display: block; margin: auto;" /&gt;
+
+.footnote[Credit: Alberto Cairo, [Visual Trumpery talk](https://visualtrumperytour.wordpress.com/).]
+
+
+
+---
+
+class: middle, center
+
+## Privacy
+
+---
+
+## OK Cupid Data Breach
+
+- In 2016, researchers published data of 70,000 OkCupid users—including usernames, political leanings, drug usage, and intimate sexual details.
+
+&gt;"Some may object to the ethics of gathering and releasing this data. However, all the data found in the dataset are or were already publicly available, so releasing this dataset merely presents it in a more useful form.""
+
+&gt; Researchers Emil Kirkegaard and Julius Daugbjerg Bjerrekær
+
+- Although the researchers did not release the real names and pictures of the OkCupid users, critics noted that their identities could easily be uncovered from the details provided—such as from the usernames.
+
+&lt;br&gt;
+
+&lt;small&gt;[*OKCupid Study Reveals the Perils of Big-Data Science*](https://www.wired.com/2016/05/okcupid-study-reveals-perils-big-data-science/)&lt;/small&gt;
+
+---
+
+class: middle
+
+.question[
+In analysis of data individuals willingly shared publicly on a given platform (e.g. social media data), how do you make sure you don't violate reasonable expectations of privacy?
+]
+
+&lt;img src="img/10/okcupid-tweet.png" width="70%" style="display: block; margin: auto;" /&gt;
+---
+
+
+## Facebook &amp; Cambridge Analytica
+
+&lt;img src="img/10/facebook-cambridge-analytica-explained.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+
+&lt;br&gt;
+
+[How Cambridge Analytica turned Facebook 'likes' into a lucrative political tool](https://www.theguardian.com/technology/2018/mar/17/facebook-cambridge-analytica-kogan-data-algorithm)
+
+---
+
+class: middle, center
+
+## Algorithmic bias
+
+---
+
+class: middle, center
+
+## The Hathaway Effect
+
+---
+
+&lt;img src="img/10/hathaway.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.footnote[["Does Anne Hathaway News Drive Berkshire Hathaway's Stock?"](https://www.theatlantic.com/technology/archive/2011/03/does-anne-hathaway-news-drive-berkshire-hathaways-stock/72661/)]
+
+---
+
+## The Hathaway Effect
+
+- **Oct. 3, 2008** - Rachel Getting Married opens: .vocab[BRK.A up .44%]
+
+- **Jan. 5, 2009** - Bride Wars opens: .vocab[BRK.A up 2.61%]
+
+- **Feb. 8, 2010** - Valentine’s Day opens: .vocab[BRK.A up 1.01%]
+
+- **March 5, 2010** - Alice in Wonderland opens: .vocab[BRK.A up .74%]
+
+- **Nov. 24, 2010** - Love and Other Drugs opens: .vocab[BRK.A up 1.62%]
+
+- **Nov. 29, 2010** - Anne announced as co-host of the Oscars: .vocab[BRK.A up .25%]
+
+.footnote[[The Hathaway Effect: How Anne Gives Warren Buffet a Rise](https://www.huffpost.com/entry/the-hathaway-effect-how-a_b_830041)]
+---
+
+## Amazon's experimental hiring algorithm
+
+- Used AI to give job candidates scores ranging from one to five stars - much like shoppers rate products on Amazon, some of the people said
+- Company realized its new system was not rating candidates for software developer jobs and other technical posts in a gender-neutral way
+- Amazon’s system taught itself that male candidates were preferable
+
+&gt;Gender bias was not the only issue. Problems with the data that underpinned the models’ judgments meant that unqualified candidates were often recommended for all manner of jobs, the people said.
+
+.footnote[Dastin, J. (2018) [Amazon scraps secret AI recruiting tool that showed bias against women](https://reut.rs/2Od9fPr), Reuters, 10 Oct.]
+
+---
+
+## Bias in algorithms used for sentencing
+
+--
+
+&lt;img src="img/10/propublica-criminal-sentencing.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+There’s software used across the country to predict future criminal activity. And it's biased...
+
+[Pro Publica, May 23, 2016](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+
+---
+
+class: middle
+
+&gt;“Although these measures were crafted with the best of intentions, I am concerned that they inadvertently undermine our efforts to ensure individualized and equal justice,” he said, adding, “they may exacerbate unwarranted and unjust disparities that are already far too common in our criminal justice system and in our society.”
+
+&gt; Then  U.S. Attorney General Eric Holder (2014)
+
+---
+
+## ProPublica analysis
+
+.vocab[Data:]
+
+Risk scores assigned to more than 7,000 people arrested in Broward County, Florida, in 2013 and 2014 + whether they were charged with new crimes over the next two years
+
+---
+
+## ProPublica analysis
+
+.vocab[Results:]
+
+- 20% of those predicted to commit violent crimes actually did
+
+- Algorithm had higher accuracy (61%) when full range of crimes taken into account (e.g. misdemeanors)
+
+&lt;img src="img/10/propublica-results.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+- Algorithm was more likely to falsely flag African American defendants as higher risk, at almost twice the rate as Caucasian defendants
+
+---
+
+class: middle, center 
+
+Read more at 
+
+[propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing).
+
+---
+
+class: center, middle
+
+## Further study on data science ethics
+
+---
+
+## Further reading
+
+
+.pull-left[
+&lt;img src="img/10/ethics-data-science.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+[Ethics and Data Science](https://www.amazon.com/Ethics-Data-Science-Mike-Loukides-ebook/dp/B07GTC8ZN7)  
+
+by Mike Loukides, Hilary Mason, DJ Patil  
+
+(free Kindle download)
+]
+
+---
+
+## Further reading
+
+.pull-left[
+&lt;img src="img/10/how-charts-lie.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+[How Charts Lie: Getting Smarter About Visual Information](https://wwnorton.com/books/9781324001560)  
+
+by Alberto Cairo
+]
+
+
+
+---
+
+## Further reading
+
+.pull-left[
+&lt;img src="img/10/weapons-of-math-destruction.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+
+]
+.pull-right[
+[Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy ](https://www.amazon.com/Ethics-Data-Science-Mike-Loukides-ebook/dp/B07GTC8ZN7)  
+
+by Cathy O'Neil
+]
+
+---
+
+## Further watching
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/MfThopD7L1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Predictive Policing: Bias In, Bias Out  
+by Kristian Lum 
+]
+
+---
+
+## Parting thoughts
+
+- At some point during your data science journey you will learn tools that can be used unethically
+
+- You might also be tempted to use your knowledge in a way that is ethically questionable either because of business goals or for the pursuit of further knowledge (or because your boss told you to do so)
+
+.question[
+How do you train yourself to make the right decisions (or reduce the likelihood of accidentally making the wrong decisions) at those points?
+]
+
+---
+
+## Do good with data
+
+- Data Science for Social Good:
+
+  - [at the University of Chicago](http://www.dssgfellowship.org/)
+  - [at the Alan Turing Institute](https://www.turing.ac.uk/collaborate-turing/data-science-social-good)
+
+- [DataKind](https://www.datakind.org/): DataKind brings high-impact organizations together with leading data scientists to use data science in the service of humanity 
+- [Pledge to promote data values &amp; practices](https://datapractices.org/manifesto/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

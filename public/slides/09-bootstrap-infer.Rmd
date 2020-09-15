@@ -734,7 +734,7 @@ ggplot(data = boot_dist, mapping = aes(x = stat)) +
              color = "steelblue", lty = 2, size = 1) +
   labs(title = "Bootstrap distribution of means",
        subtitle = "with 95% confidence interval",
-       x = "Median", y = "Count") +
+       x = "Means", y = "Count") +
   theme_minimal()
 ```
 
