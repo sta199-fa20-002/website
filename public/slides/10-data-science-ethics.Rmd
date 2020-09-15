@@ -1,0 +1,363 @@
+---
+title: "Data science ethics"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      echo = FALSE,
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+class: middle, center
+
+## [Click for PDF of slides](10-data-science-ethics.pdf)
+
+---
+
+## Topics
+
+`r emo::ji("no_entry_sign")` Misrepresenting data
+
+`r emo::ji("no_entry_sign")` Privacy
+
+`r emo::ji("no_entry_sign")` Algorithmic bias
+
+---
+
+class: middle, center
+
+## Misrepresenting data
+
+---
+
+.question[
+What is the difference between these two pictures? Which presents a better way to represent these data?
+]
+
+<br>
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/10/axis-start-at-0.png")
+```
+
+
+.footnote[Ingraham, C. (2019) ["You’ve been reading charts wrong. Here’s how a pro does it."](https://www.washingtonpost.com/business/2019/10/14/youve-been-reading-charts-wrong-heres-how-pro-does-it/), The Washington Post, 14 Oct.]
+
+---
+
+.question[
+Do you recognize this map? What does it show?
+]
+
+```{r echo=FALSE, out.width=650}
+knitr::include_graphics("img/10/election-2016-county.png")
+```
+
+.footnote[Gamio, L. (2016) ["Election maps are telling you big lies about small things"](https://www.washingtonpost.com/graphics/politics/2016-election/how-election-maps-lie/), The Washington Post, 1 Nov.]
+
+
+---
+
+```{r echo=FALSE, out.width=900}
+  knitr::include_graphics("img/10/cairo-what-matters.png")
+```
+
+.footnote[Credit: Alberto Cairo, [Visual Trumpery talk](https://visualtrumperytour.wordpress.com/).]
+
+
+
+---
+
+class: middle, center
+
+## Privacy
+
+---
+
+## OK Cupid Data Breach
+
+- In 2016, researchers published data of 70,000 OkCupid users—including usernames, political leanings, drug usage, and intimate sexual details.
+
+>"Some may object to the ethics of gathering and releasing this data. However, all the data found in the dataset are or were already publicly available, so releasing this dataset merely presents it in a more useful form.""
+
+> Researchers Emil Kirkegaard and Julius Daugbjerg Bjerrekær
+
+- Although the researchers did not release the real names and pictures of the OkCupid users, critics noted that their identities could easily be uncovered from the details provided—such as from the usernames.
+
+<br>
+
+<small>[*OKCupid Study Reveals the Perils of Big-Data Science*](https://www.wired.com/2016/05/okcupid-study-reveals-perils-big-data-science/)</small>
+
+---
+
+class: middle
+
+.question[
+In analysis of data individuals willingly shared publicly on a given platform (e.g. social media data), how do you make sure you don't violate reasonable expectations of privacy?
+]
+
+```{r out.width = "70%", echo = FALSE}
+knitr::include_graphics("img/10/okcupid-tweet.png")
+```
+---
+
+
+## Facebook & Cambridge Analytica
+
+```{r out.width = "70%", echo = FALSE}
+knitr::include_graphics("img/10/facebook-cambridge-analytica-explained.jpg")
+```
+
+<br>
+
+[How Cambridge Analytica turned Facebook 'likes' into a lucrative political tool](https://www.theguardian.com/technology/2018/mar/17/facebook-cambridge-analytica-kogan-data-algorithm)
+
+---
+
+class: middle, center
+
+## Algorithmic bias
+
+---
+
+class: middle, center
+
+## The Hathaway Effect
+
+---
+
+```{r out.width = "50%", echo = FALSE}
+knitr::include_graphics("img/10/hathaway.png")
+```
+
+.footnote[["Does Anne Hathaway News Drive Berkshire Hathaway's Stock?"](https://www.theatlantic.com/technology/archive/2011/03/does-anne-hathaway-news-drive-berkshire-hathaways-stock/72661/)]
+
+---
+
+## The Hathaway Effect
+
+- **Oct. 3, 2008** - Rachel Getting Married opens: .vocab[BRK.A up .44%]
+
+- **Jan. 5, 2009** - Bride Wars opens: .vocab[BRK.A up 2.61%]
+
+- **Feb. 8, 2010** - Valentine’s Day opens: .vocab[BRK.A up 1.01%]
+
+- **March 5, 2010** - Alice in Wonderland opens: .vocab[BRK.A up .74%]
+
+- **Nov. 24, 2010** - Love and Other Drugs opens: .vocab[BRK.A up 1.62%]
+
+- **Nov. 29, 2010** - Anne announced as co-host of the Oscars: .vocab[BRK.A up .25%]
+
+.footnote[[The Hathaway Effect: How Anne Gives Warren Buffet a Rise](https://www.huffpost.com/entry/the-hathaway-effect-how-a_b_830041)]
+---
+
+## Amazon's experimental hiring algorithm
+
+- Used AI to give job candidates scores ranging from one to five stars - much like shoppers rate products on Amazon, some of the people said
+- Company realized its new system was not rating candidates for software developer jobs and other technical posts in a gender-neutral way
+- Amazon’s system taught itself that male candidates were preferable
+
+>Gender bias was not the only issue. Problems with the data that underpinned the models’ judgments meant that unqualified candidates were often recommended for all manner of jobs, the people said.
+
+.footnote[Dastin, J. (2018) [Amazon scraps secret AI recruiting tool that showed bias against women](https://reut.rs/2Od9fPr), Reuters, 10 Oct.]
+
+---
+
+## Bias in algorithms used for sentencing
+
+--
+
+```{r out.width = "70%"}
+knitr::include_graphics("img/10/propublica-criminal-sentencing.png")
+```
+
+There’s software used across the country to predict future criminal activity. And it's biased...
+
+[Pro Publica, May 23, 2016](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+
+---
+
+class: middle
+
+>“Although these measures were crafted with the best of intentions, I am concerned that they inadvertently undermine our efforts to ensure individualized and equal justice,” he said, adding, “they may exacerbate unwarranted and unjust disparities that are already far too common in our criminal justice system and in our society.”
+
+> Then  U.S. Attorney General Eric Holder (2014)
+
+---
+
+## ProPublica analysis
+
+.vocab[Data:]
+
+Risk scores assigned to more than 7,000 people arrested in Broward County, Florida, in 2013 and 2014 + whether they were charged with new crimes over the next two years
+
+---
+
+## ProPublica analysis
+
+.vocab[Results:]
+
+- 20% of those predicted to commit violent crimes actually did
+
+- Algorithm had higher accuracy (61%) when full range of crimes taken into account (e.g. misdemeanors)
+
+```{r, out.width = "90%"}
+knitr::include_graphics("img/10/propublica-results.png")
+```
+
+- Algorithm was more likely to falsely flag African American defendants as higher risk, at almost twice the rate as Caucasian defendants
+
+---
+
+class: middle, center 
+
+Read more at 
+
+[propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing).
+
+---
+
+class: center, middle
+
+## Further study on data science ethics
+
+---
+
+## Further reading
+
+
+.pull-left[
+```{r, out.width = "60%"}
+knitr::include_graphics("img/10/ethics-data-science.jpg")
+```
+]
+
+.pull-right[
+[Ethics and Data Science](https://www.amazon.com/Ethics-Data-Science-Mike-Loukides-ebook/dp/B07GTC8ZN7)  
+
+by Mike Loukides, Hilary Mason, DJ Patil  
+
+(free Kindle download)
+]
+
+---
+
+## Further reading
+
+.pull-left[
+```{r, out.width = "60%"}
+knitr::include_graphics("img/10/how-charts-lie.jpg")
+```
+]
+
+.pull-right[
+[How Charts Lie: Getting Smarter About Visual Information](https://wwnorton.com/books/9781324001560)  
+
+by Alberto Cairo
+]
+
+
+
+---
+
+## Further reading
+
+.pull-left[
+```{r, out.width = "60%"}
+knitr::include_graphics("img/10/weapons-of-math-destruction.jpg")
+```
+
+]
+.pull-right[
+[Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy ](https://www.amazon.com/Ethics-Data-Science-Mike-Loukides-ebook/dp/B07GTC8ZN7)  
+
+by Cathy O'Neil
+]
+
+---
+
+## Further watching
+
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MfThopD7L1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Predictive Policing: Bias In, Bias Out  
+by Kristian Lum 
+]
+
+---
+
+## Parting thoughts
+
+- At some point during your data science journey you will learn tools that can be used unethically
+
+- You might also be tempted to use your knowledge in a way that is ethically questionable either because of business goals or for the pursuit of further knowledge (or because your boss told you to do so)
+
+.question[
+How do you train yourself to make the right decisions (or reduce the likelihood of accidentally making the wrong decisions) at those points?
+]
+
+---
+
+## Do good with data
+
+- Data Science for Social Good:
+
+  - [at the University of Chicago](http://www.dssgfellowship.org/)
+  - [at the Alan Turing Institute](https://www.turing.ac.uk/collaborate-turing/data-science-social-good)
+
+- [DataKind](https://www.datakind.org/): DataKind brings high-impact organizations together with leading data scientists to use data science in the service of humanity 
+- [Pledge to promote data values & practices](https://datapractices.org/manifesto/)
+

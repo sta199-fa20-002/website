@@ -16,7 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|--------|
 | Monday    | [Bootstrap Estimation](https://sta199-fa20-002.netlify.app/slides/09-bootstrap-infer.html)  |  [Bootstrap Estimation: Pt 1](https://warpwire.duke.edu/w/L3AEAA/) | [AE 09: Time spent on email](https://sta199-fa20-002.netlify.app/appex/appex09-email.html) |
 |   |  |  [Bootstrap Estimation: Pt 2](https://warpwire.duke.edu/w/v3AEAA/)|  |
-| Wednesday |  Data Ethics | Data Ethics   |AE 10  |
+| Wednesday |  [Data science ethics](https://sta199-fa20-002.netlify.app/slides/10-data-science-ethics.html) | [Data science ethics](https://warpwire.duke.edu/w/r3QEAA/)   |AE 10  |
 
 ## Readings
 
@@ -29,7 +29,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| Lab 05 |
+| Lab 05 | **due Wed, Sep 23 at 11:59p** |
 
 
 

@@ -381,7 +381,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-05/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Bootstrap Estimation Bootstrap Estimation: Pt 1 AE 09: Time spent on email     Bootstrap Estimation: Pt 2    Wednesday Data Ethics Data Ethics AE 10    Readings          Introduction to Modern Statistics: 5.2 Required    Assignments          Lab 05     </description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Bootstrap Estimation Bootstrap Estimation: Pt 1 AE 09: Time spent on email     Bootstrap Estimation: Pt 2    Wednesday Data science ethics Data science ethics AE 10    Readings          Introduction to Modern Statistics: 5.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -413,8 +413,8 @@ font-size: 18px;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
-&lt;td&gt;Data Ethics&lt;/td&gt;
-&lt;td&gt;Data Ethics&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/10-data-science-ethics.html&#34;&gt;Data science ethics&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/r3QEAA/&#34;&gt;Data science ethics&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;AE 10&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -445,7 +445,7 @@ font-size: 18px;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Lab 05&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Sep 23 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

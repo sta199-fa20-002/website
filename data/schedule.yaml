@@ -53,7 +53,8 @@ lessons:
     title: "Estimation via bootstrapping"
     slides: "09-bootstrap-infer.html"
   - date: "Wed, Sep 16"
-    title: "Data Ethics"
+    title: "Data science ethics"
+    slides: "Data science ethics"
   - date: "Thu, Sep 18"
     title: "Lab 05"
 
