@@ -29,7 +29,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| Lab 05 | **due Wed, Sep 23 at 11:59p** |
+| [Lab 05: Bootstrap estimation](https://sta199-fa20-002.netlify.app/labs/lab-05-post.html) | **due Wed, Sep 23 at 11:59p** |
 
 
 ## Announcements

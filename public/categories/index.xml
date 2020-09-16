@@ -439,7 +439,7 @@ font-size: 18px;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Lab 05&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/labs/lab-05-post.html&#34;&gt;Lab 05: Bootstrap estimation&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;due Wed, Sep 23 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

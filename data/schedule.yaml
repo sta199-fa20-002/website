@@ -54,9 +54,10 @@ lessons:
     slides: "09-bootstrap-infer.html"
   - date: "Wed, Sep 16"
     title: "Data science ethics"
-    slides: "Data science ethics"
+    slides: "10-data-science-ethics.html"
   - date: "Thu, Sep 18"
-    title: "Lab 05"
+    title: "Lab 05: Bootstrap estimation"
+    lab: "lab-05-post.html"
 
   - week: "Week 06"
     date: "Mon, Sep 21"
