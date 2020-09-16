@@ -1,0 +1,123 @@
+---
+title: "AE 09: Time spent on email"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+
+## Announcements
+
+- Lab 04 due today at 11:59p
+- HW 01 due today at 11:59p
+- Zoom waiting room for all class meetings going forward
+- **Upcoming event:**: [ICPSR Data Fair: Data in Real Life](https://www.icpsr.umich.edu/web/pages/membership/datafair/)     - Sep 21 - 25
+    - Free to attend but you need to register
+    - Can count towards a Stats Experience (more on these Monday!)
+
+## Lab or homework questions?
+
+## Note on infer code
+
+- Use a small number of reps while you're testing out code. 
+
+## Questions from video? 
+
+## Discussion guidelines 
+
+- Listen respectfully. Listen actively and with an ear to understanding others' views. 
+- Criticize ideas, not individuals.
+- Commit to learning, not debating. Comment in order to share information, not to persuade.
+- Avoid blame, speculation, and inflammatory language.
+- Avoid assumptions about any member of the class or generalizations about social groups.
+
+## Get started
+
+### Clone a repo + start a new project 
+
+Go to the `ae-10-[GITHUB USERNAME]` repo, clone it, and start a new project in RStudio. See the [Lab 01](https://sta199-fa20-002.netlify.app/labs/lab-01-hello-r.html#getting-started) for more detailed instructions about cloning a repo, tarting a new project. 
+
+### Configure git
+
+Run the following code to configure Git. Fill in your GitHub username and the email address associated with your GitHub account. 
+
+```{r eval=FALSE}
+library(usethis)
+use_git_config(user.name = "your github username", user.email ="your email")
+```
+
+## Data representation (10 min)
+
+### Misleading data visualizations^[Source: https://humansofdata.atlan.com/2019/02/dos-donts-data-visualization/]
+
+#### What baby boomers think
+
+```{r echo = F, fig.align = "center", out.width = "35%"}
+knitr::include_graphics("img/boomers.png")
+```
+
+- What is the graph trying to show? 
+- Why is this graph misleading? 
+- How can you improve this graph? 
+
+<br>
+
+#### Brexit 
+
+```{r echo = F, fig.align = "center", out.width = "35%"}
+knitr::include_graphics("img/brexit.png")
+```
+
+- What is the graph trying to show? 
+- Why is this graph misleading? 
+- How can you improve this graph? 
+
+
+### Spurious correlation^[Source: https://www.tylervigen.com/spurious-correlations]
+
+```{r echo = F, fig.align = "center", out.width = "80%"}
+knitr::include_graphics("img/spurious-correlation.png")
+```
+
+- What is the graph trying to show? 
+- Why is this graph misleading? 
+
+### More reading on data visualization
+
+- [From data to viz](https://www.data-to-viz.com/): Find appropriate graph for your data
+- [A Reader on Data Visualization - Ethics](https://mschermann.github.io/data_viz_reader/ethics.html)
+
+## Collecting + handling data^[Modified from [*Modern Data Science with R, 2nd Edition*](https://beanumber.github.io/mdsr2e/ch-ethics.html)] (8 min)
+
+### Web scraping
+
+A researcher is interested in the relationship of weather to sentiment (positivity or negativity of posts) on Twitter. They want to scrape data from https://www.wunderground.com and join that to Tweets in that geographic area at a particular time. One complication is that Weather Underground limits the number of data points that can be downloaded for free using their API (application program interface). The researcher sets up six free accounts to allow them to collect the data they want in a shorter time-frame. 
+
+- What ethical considerations might be violated by this approach to data scraping? 
+- What can the researcher do to collect the data in an ethical way?
+
+## Posting data from social media
+
+A data analyst received permission to post a data set that was scraped from a social
+media site. The full data set included name, screen name, email address, geographic location, IP (Internet protocol) address, demographic profiles, and preferences for relationships.
+The analyst removes name and email address from the data set in effort to deidentify it. 
+
+- Why might it be problematic to post this data set publicly?
+- How can you store the full dataset in a safe and ethical way? 
+- You want to make the data available so your analysis is transparent and reproducible. How can you modify the full data set to make the data available in an ethical way?
+  
+## Algorithmic bias: deep dive
+
+- [Video](https://warpwire.duke.edu/w/_3YEAA/)
+- [Slides](STA_199_Data_Science_Ethics_Deep_Dive.pdf)
+
+### Discussion questions (8 min)
+
+- Ezinne mentions a phenomenon called "Simpson's Paradox", where conclusions drawn from analyzing subgroups differ from conclusions drawn when the groups are combined. Where else have you seen Simpson's Paradox in this class? 
+
+- A company uses a machine learning algorithm to determine which job advertisement to display for users searching for technology jobs. Based on past results, the algorithm tends to display lower paying jobs for women than for men (after controlling for other characteristics than gender). What ethical considerations might be considered when reviewing this algorithm?^[Source: [*Modern Data Science with R, 2nd Edition*](https://beanumber.github.io/mdsr2e/ch-ethics.html)]
+
+- As you start working on data analyses for the STA 199 project, internships, research, etc., what are 1 - 2 things you can do to ensure you're doing the analysis in an ethical way? 
+
+
+
