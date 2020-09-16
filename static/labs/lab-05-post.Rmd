@@ -1,0 +1,117 @@
+---
+title: "Lab 05 - Bootstrap estimation"
+subtitle: "due Wed, Sep 23 at 11:59p"
+output: 
+  tufte::tufte_html:
+    highlight: pygments
+    css: "sta199-labs.css"
+    toc: true
+    toc_depth: 2
+link-citations: yes
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(tufte)
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  digits = 2
+  )
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Introduction and Data
+
+The goal of today's lab is to practice creating bootstrap confidence intervals,
+and visualizing bootstrap distributions. This lab will also let you practice 
+with `for` loops in R in creating these bootstrap distributions. Once again, 
+this is a team lab - keep the team workflow in mind when completing the
+assignment and keep in mind that all lab members must meaningfully contribute to
+all lab components. 
+
+The data for today's lab may be found by cloning your repository available 
+[**here**](LINK).
+
+Today's data comes from the City of Durham's annual Resident Satisfaction 
+Survey for 2018 (more information accessible 
+[**here**](https://www.dconc.gov/government/departments-a-e/county-manager/city-county-resident-survey)). In particular, the `durham_survey` dataset contains 
+data from 608 Durham residents on the survey questions below. Assume that the
+data are representative of Durham residents and may be generalized to the wider
+population of all city residents.
+
+Any variable starting with `quality` refers to the perceived quality of the
+listed variable, with 1 being "highly dissatisfied," 3 being "neutral", and
+5 being "highly satisfied." A value of 9 indicates that the subject responded
+with N/A.
+
+You may load in the data with the following code, where `____` should be
+replaced by a meaningful name of your choosing:
+
+```{r eval=FALSE}
+library(tidyverse)
+____ <- read_csv("data/durham_survey.csv")
+```
+
+# Exercises
+
+Write all R code according to the style guidelines discussed in class. Only one
+submission should be made per team. All team members must meaningfully commit 
+and push to receive full credit
+
+```{marginfigure}
+**Hint**: be careful with how missing values are coded in this survey. As well,
+don't forget to set a seed in order to ensure reproducibility!
+```
+
+1. Provide a point estimate of the mean satisfaction with the fire department 
+(`quality_fire`) among Durham residents in 2018.
+
+2. Construct a 95% two-sided bootstrap interval for the mean satisfaction with
+the fire department among durham residents in 2018. Use at least 1,000 bootstrap
+samples. Make sure your interval is *reproducible*.
+
+3. Visualize the bootstrap distribution and your confidence interval from 
+Exercise 2. Interpret the confidence interval you constructed.
+
+4. Provide a point estimate of the *proportion* of the respondents in the 
+survey who were satisfied (score of 4 or 5) with the quality of parks and
+recreation (`quality_parks_rec`) in Durham. 
+
+```{marginfigure}
+**Hint**: see if you can reuse parts of code used in previous exercises.
+```
+
+5. Construct a **99%** two-sided bootstrap interval for the proportion of 
+respondents in the survey who were satisfied with the quality of parks and 
+recreation in Durham. Make sure your interval is *reproducible*.
+
+6. Visualize the bootstrap distribution and your confidence interval from 
+Exercise 5. Interpret the confidence interval you constructed.
+
+```{marginfigure}
+**Hint**: If *either* of the two scores is missing, then that observation cannot 
+be used to calculate the correlation.
+```
+
+7. Provide a point estimate of the *correlation* between survey scores of
+perceived quality of bike paths (`quality_bike_path`) and the perceived quality 
+of pedestrian paths (`quality_ped_path`). 
+
+8. Construct a 95% two-sided bootstrap interval for the correlation between
+survey responses for perceived quality of bike paths and pedestrian paths.
+Make sure your interval is *reproducible*.
+
+9. Visualize the bootstrap distribution and your confidence interval from
+Exercise 8. Interpret the confidence interval you constructed.
+
+# Submission
+
+Knit to PDF to create a PDF document. Knit and commit all remaining changes, 
+and push your work to GitHub. Make sure all files are updated on your GitHub 
+repo.
+
+Please only upload your PDF document to Gradescope. Associate the "Overall"
+graded section with the first page of your PDF, and mark where each answer is 
+to the exercises. If any answer spans multiple pages, then mark all pages.
