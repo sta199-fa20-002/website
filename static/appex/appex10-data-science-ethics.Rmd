@@ -111,7 +111,7 @@ The analyst removes name and email address from the data set in effort to deiden
 - [Video](https://warpwire.duke.edu/w/_3YEAA/)
 - [Slides](STA_199_Data_Science_Ethics_Deep_Dive.pdf)
 
-### Discussion questions (8 min)
+### Discussion questions (10 min)
 
 - Ezinne mentions a phenomenon called "Simpson's Paradox", where conclusions drawn from analyzing subgroups differ from conclusions drawn when the groups are combined. Where else have you seen Simpson's Paradox in this class? 
 
