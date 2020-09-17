@@ -41,7 +41,7 @@ submission should be made per team. Make sure every team member's name is includ
 
 # The data
 
-The data for today's lab may be found by cloning your **ae-10-durham-**  repository available in the [GitHub course organization](https://www.github.com/sta199-fa20-002).
+The data for today's lab may be found by cloning your **lab-05-durham-**  repository available in the [GitHub course organization](https://www.github.com/sta199-fa20-002).
 
 Today's data comes from the City of Durham's annual Resident Satisfaction 
 Survey for 2018 (more information accessible 

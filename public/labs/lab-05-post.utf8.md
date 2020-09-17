@@ -10,17 +10,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 # Introduction and Data
 
@@ -58,7 +48,8 @@ with N/A.
 You may load in the data with the following code, where `____` should be
 replaced by a meaningful name of your choosing:
 
-```{r eval=FALSE}
+
+```r
 library(tidyverse)
 ____ <- read_csv("data/durham_survey.csv")
 ```
@@ -67,10 +58,7 @@ ____ <- read_csv("data/durham_survey.csv")
 
 Write all R code according to the style guidelines discussed in class. 
 
-```{marginfigure}
-**Hint**: be careful with how missing values are coded in this survey. As well,
-don't forget to set a seed in order to ensure reproducibility!
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint</strong>: be careful with how missing values are coded in this survey. As well, don’t forget to set a seed in order to ensure reproducibility!</span></span>
 
 1. Provide a point estimate of the mean satisfaction with the fire department 
 (`quality_fire`) among Durham residents in 2018.
@@ -86,9 +74,7 @@ Exercise 2. Interpret the confidence interval you constructed.
 survey who were satisfied (score of 4 or 5) with the quality of parks and
 recreation (`quality_parks_rec`) in Durham. 
 
-```{marginfigure}
-**Hint**: see if you can reuse parts of code used in previous exercises.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint</strong>: see if you can reuse parts of code used in previous exercises.</span></span>
 
 5. Construct a **99%**  bootstrap interval for the proportion of 
 respondents in the survey who were satisfied with the quality of parks and 
@@ -97,10 +83,7 @@ recreation in Durham. Make sure your interval is *reproducible*.
 6. Visualize the bootstrap distribution and your confidence interval from 
 Exercise 5. Interpret the confidence interval you constructed.
 
-```{marginfigure}
-**Hint**: If *either* of the two scores is missing, then that observation cannot 
-be used to calculate the correlation.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint</strong>: If <em>either</em> of the two scores is missing, then that observation cannot be used to calculate the correlation.</span></span>
 
 7. Provide a point estimate of the *correlation* between survey scores of
 perceived quality of bike paths (`quality_bike_path`) and the perceived quality 
