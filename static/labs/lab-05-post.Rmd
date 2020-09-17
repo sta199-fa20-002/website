@@ -34,7 +34,7 @@ all lab components.
 # Tips 
 
 - Use a small number of reps (about 100) as you write and test out your code. Once you have finalized all of your code, increase the number of reps to at least 1000 (10,000 if possible) to produce your final results. 
-- Write your code and narrative in a reproducible way, so you can easily change the number of reps. 
+- Write your code and narrative in a reproducible way, so you can easily change the number of reps. See [this example Rmd file](Reproducibility.Rmd) for tips on making your code more reproducible.
 - All team members must meaningfully commit 
 and push to receive full credit.
 - There is only one

@@ -1,0 +1,73 @@
+---
+title: "Sample Reproducible code"
+author: "Morris Greenberg"
+date: "9/16/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+We want to show you best practices for reproducible code. Reproducible code has a lot of advantages:
+
+1. Easier ability to perform robustness checks (e.g., changing certain parameter values, changing the dataset, etc.)
+2. Less uptake in revisiting the code at a later point or have someone else examine the code
+3. Less human error introduced
+
+## Tip 1: Load packages at the top
+
+Loading packages at the guarantees sure that all downstream analyses will be able to run
+
+```{r load_packages_data}
+library(tidyverse)
+library(infer)
+
+glimpse(diamonds)
+```
+
+## Tip 2: Set your seed!
+
+When dealing with randomness (as often the case in simulation in statistics), it is important to specify which pseudo-random draw you used in your analysis, so that you or someone else can reproduce the exact numbers you initially report. The `set.seed()` function in R allows you to ensure that all of your analysis relies on a specific pseudo-random draw:
+
+```{r set_seed}
+set.seed(42)
+```
+
+## Tip 3: Define global parameters
+
+Often, we rely on specific parameters values throughout our analysis, and at a later point, we may want to replace them. In order to minimize the need to change your code later, we can assign the parameter values to a name, and use the name (rather than the hard-coded value) downstream. Then, to update your code at a later point, you may 
+
+```{r global_params}
+num_reps <- 100
+```
+
+
+```{r example_analysis}
+boot_dist <- diamonds %>%
+  infer::specify(response = price) %>%
+  infer::generate(reps=num_reps, type = "bootstrap") %>%
+  infer::calculate(stat="mean")
+```
+
+
+## Tip 4: Dynamically use saved output in inline text calls instead of hard coding values
+
+As an example, if we wanted to print the number of rows in the bootstrap data we just created, we can use inline text in case we update our global variables at a later point: our data has `r nrow(boot_dist)` observations.
+
+## Bonus Tip (for R Scripts more than RMarkdown documents): Save output within script (rather than via RStudio GUI), and dynamically allow for file name changes
+
+If you have to save/export output as individual files (rather than imbedded in an RMarkdown script), you can manually do so with buttons (e.g., the "Export" button in the "Plots" tab in the bottom right quadrant of RStudio), or can include exporting in your code. Below, we use the `ggsave()` function in `ggplot2` to export a histogram of the simulated results from above, and `write_csv()` from `readr` (both of these packages are in `tidyverse`). Note that we use the `paste()` and `paste0()` functions to update the x-label and the name of the output file for the value of `num_reps`, respectively.
+
+```{r export}
+plot1 <- ggplot(boot_dist, aes(x=stat))+
+  geom_histogram(color="limegreen")+
+  labs(x=paste("Mean Value of", num_reps, "Bootstrapped Samples"), y="Count")+
+  theme_bw()
+
+write_csv(boot_dist, path=paste0("Bootstrap_Samples_", num_reps, ".csv"))
+
+ggsave(filename= paste0("Bootstrap_Samples_", num_reps,".pdf"), plot1)
+```
