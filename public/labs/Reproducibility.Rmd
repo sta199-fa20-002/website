@@ -19,7 +19,7 @@ We want to show you best practices for reproducible code. Reproducible code has 
 
 ## Tip 1: Load packages at the top
 
-Loading packages at the guarantees sure that all downstream analyses will be able to run
+Loading packages at the top guarantees that all downstream analyses will be able to run.
 
 ```{r load_packages_data}
 library(tidyverse)
@@ -38,7 +38,7 @@ set.seed(42)
 
 ## Tip 3: Define global parameters
 
-Often, we rely on specific parameters values throughout our analysis, and at a later point, we may want to replace them. In order to minimize the need to change your code later, we can assign the parameter values to a name, and use the name (rather than the hard-coded value) downstream. Then, to update your code at a later point, you may 
+Often, we rely on specific parameters values throughout our analysis, and at a later point, we may want to replace them. In order to minimize the need to change your code later, we can assign the parameter values to a name, and use the name (rather than the hard-coded value) downstream. Then, to update your code at a later point, you can just change the value. 
 
 ```{r global_params}
 num_reps <- 100
@@ -55,7 +55,7 @@ boot_dist <- diamonds %>%
 
 ## Tip 4: Dynamically use saved output in inline text calls instead of hard coding values
 
-As an example, if we wanted to print the number of rows in the bootstrap data we just created, we can use inline text in case we update our global variables at a later point: our data has `r nrow(boot_dist)` observations.
+As an example, if we wanted to print the number of rows in the bootstrap data we just created, we can use inline text in case we update our global variables at a later point: our data has `r nrow(boot_dist)` observations. This requires much less work to update than hard coding narrative values.
 
 ## Bonus Tip (for R Scripts more than RMarkdown documents): Save output within script (rather than via RStudio GUI), and dynamically allow for file name changes
 
