@@ -111,9 +111,11 @@ of pedestrian paths (`quality_ped_path`).
 survey responses for perceived quality of bike paths and pedestrian paths.
 
 
-9. Construct a **99%** bootstrap interval for the correlation between
-survey responses for perceived quality of bike paths and pedestrian paths. 
-  How does the 99% bootstrap interval compare to the 95% bootstrap interval calculated in the previous exercise? 
+9. Construct a **99%** bootstrap interval using the bootstrap distribution from Exercise 8. 
+  
+    How does the 99% bootstrap interval compare to the 95% bootstrap interval calculated in the previous exercise?
+  
+    In general, how does the bootstrap interval change when the confidence level increases?
 
 # Submission
 
