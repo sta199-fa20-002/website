@@ -25,8 +25,7 @@ knitr::opts_chunk$set(eval = FALSE)
 # Introduction and Data
 
 The goal of today's lab is to practice creating bootstrap confidence intervals,
-and visualizing bootstrap distributions. This lab will also let you practice 
-with `for` loops in R in creating these bootstrap distributions. Once again, 
+and visualizing bootstrap distributions. Once again, 
 this is a team lab - keep the team workflow in mind when completing the
 assignment and keep in mind that all lab members must meaningfully contribute to
 all lab components. 
