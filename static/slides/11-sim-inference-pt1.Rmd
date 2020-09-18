@@ -613,24 +613,23 @@ The p-value 0.15 is greater than the significance level, $\alpha = 0.05$, so we 
 
 The data .vocab[do not] provide sufficient evidence that the true complication rate for this consultant's clients is less than the US rate, $p = 0.1$. 
 
-<!--
----
+<!-- --- -->
 
-## What can go wrong?
+<!-- ## What can go wrong? -->
 
-Suppose we test a certain null hypothesis, which can be either true or false 
-(we never know for sure!). We make one of two decisions given our data: either 
-reject or fail to reject $H_0$. 
+<!-- Suppose we test a certain null hypothesis, which can be either true or false  -->
+<!-- (we never know for sure!). We make one of two decisions given our data: either  -->
+<!-- reject or fail to reject $H_0$.  -->
 
---
+<!-- -- -->
 
-We have the following four scenarios:
+<!-- We have the following four scenarios: -->
 
 
-| Decision             | $H_0$ is true | $H_0$ is false |
-|----------------------|---------------|----------------|
-| Fail to reject $H_0$ | Correct decision    | *Type II Error*  |
-| Reject $H_0$         | *Type I Error*  | Correct decision     |
+<!-- | Decision             | $H_0$ is true | $H_0$ is false | -->
+<!-- |----------------------|---------------|----------------| -->
+<!-- | Fail to reject $H_0$ | Correct decision    | *Type II Error*  | -->
+<!-- | Reject $H_0$         | *Type I Error*  | Correct decision     | -->
 
-It is important to weigh the consequences of making each type of error.
--->
+<!-- It is important to weigh the consequences of making each type of error. -->
+
