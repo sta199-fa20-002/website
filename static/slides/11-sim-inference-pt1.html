@@ -454,7 +454,7 @@ null_dist &lt;- organ_donor %&gt;%
   hypothesize(null = "point", 
               p = c("complication" = 0.10, "no complication" = 0.90) 
               ) %&gt;% 
-* generate(reps = 1000, type = "simulate") %&gt;%
+* generate(reps = 100, type = "simulate") %&gt;%
   calculate(stat = "prop")
 ```
 ]
@@ -507,16 +507,16 @@ null_dist &lt;- organ_donor %&gt;%
 ## # A tibble: 100 x 2
 ##    replicate  stat
 ##        &lt;dbl&gt; &lt;dbl&gt;
-##  1         1 0.161
-##  2         2 0.081
-##  3         3 0.048
+##  1         1 0.048
+##  2         2 0.097
+##  3         3 0.081
 ##  4         4 0.081
-##  5         5 0.081
-##  6         6 0.065
-##  7         7 0.065
-##  8         8 0.113
-##  9         9 0.032
-## 10        10 0.097
+##  5         5 0.161
+##  6         6 0.081
+##  7         7 0.081
+##  8         8 0.032
+##  9         9 0.113
+## 10        10 0.113
 ## # … with 90 more rows
 ```
 
@@ -558,7 +558,7 @@ null_dist %&gt;%
 ## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1    0.16
+## 1    0.15
 ```
 
 ---
@@ -579,12 +579,13 @@ or `\(\alpha\)`-level) defined *prior* to conducting the analysis.
 
 We often use 5% as the cutoff for whether the p-value is low enough that the data are unlikely to have come from the null model. 
 
-- If p-value &lt; `\(\alpha\)`, reject `\(H_0\)` in favor of `\(H_a\)`:     - The data provide convincing 
-evidence for the alternative hypothesis.
+- If p-value &lt; `\(\alpha\)`, reject `\(H_0\)` in favor of `\(H_a\)`:     
+  - The data provide convincing 
+evidence against the null hypothesis
 
 - If p-value  `\(\geq \alpha\)`, fail to reject `\(H_0\)` in favor of `\(H_a\)`
   - The data do not provide 
-convincing evidence for the alternative hypothesis.
+convincing evidence against the null hypothesis.
 
 ---
 
@@ -608,6 +609,16 @@ didn't have enough data to tell that there was one)
 
 ---
 
+## Organ donor example 
+
+
+The p-value 0.15 is greater than the significance level, `\(\alpha = 0.05\)`, so we .vocab[fail to reject the null hypothesis]. 
+
+The data .vocab[do not] provide sufficient evidence that the true complication rate for this consultant's clients is less than the US rate, `\(p = 0.1\)`. 
+
+&lt;!--
+---
+
 ## What can go wrong?
 
 Suppose we test a certain null hypothesis, which can be either true or false 
@@ -625,6 +636,7 @@ We have the following four scenarios:
 | Reject `\(H_0\)`         | *Type I Error*  | Correct decision     |
 
 It is important to weigh the consequences of making each type of error.
+--&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

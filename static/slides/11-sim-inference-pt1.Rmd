@@ -459,7 +459,7 @@ null_dist <- organ_donor %>%
   hypothesize(null = "point", 
               p = c("complication" = 0.10, "no complication" = 0.90) 
               ) %>% 
-  generate(reps = 1000, type = "simulate") %>%  #<<
+  generate(reps = 100, type = "simulate") %>%  #<<
   calculate(stat = "prop")
 ```
 ]
@@ -576,12 +576,13 @@ or $\alpha$-level) defined *prior* to conducting the analysis.
 
 We often use 5% as the cutoff for whether the p-value is low enough that the data are unlikely to have come from the null model. 
 
-- If p-value < $\alpha$, reject $H_0$ in favor of $H_a$:     - The data provide convincing 
-evidence for the alternative hypothesis.
+- If p-value < $\alpha$, reject $H_0$ in favor of $H_a$:     
+  - The data provide convincing 
+evidence against the null hypothesis
 
 - If p-value  $\geq \alpha$, fail to reject $H_0$ in favor of $H_a$
   - The data do not provide 
-convincing evidence for the alternative hypothesis.
+convincing evidence against the null hypothesis.
 
 ---
 
@@ -605,6 +606,16 @@ didn't have enough data to tell that there was one)
 
 ---
 
+## Organ donor example 
+
+
+The p-value 0.15 is greater than the significance level, $\alpha = 0.05$, so we .vocab[fail to reject the null hypothesis]. 
+
+The data .vocab[do not] provide sufficient evidence that the true complication rate for this consultant's clients is less than the US rate, $p = 0.1$. 
+
+<!--
+---
+
 ## What can go wrong?
 
 Suppose we test a certain null hypothesis, which can be either true or false 
@@ -622,4 +633,4 @@ We have the following four scenarios:
 | Reject $H_0$         | *Type I Error*  | Correct decision     |
 
 It is important to weigh the consequences of making each type of error.
-
+-->
