@@ -61,9 +61,10 @@ lessons:
 
   - week: "Week 06"
     date: "Mon, Sep 21"
-    title: "Hypothesis testing framework"
+    title: "Simulation-based testing: Part 1"
+    slides: "11-sim-inference-pt1.html"
   - date: "Wed, Sep 23"
-    title: "Simulation based testing"
+    title: "Simulation-based testing: Part 2"
   - date: "Thu, Sep 24"
     title: "Exam 01 assigned"
     exam: "exam-01.html"

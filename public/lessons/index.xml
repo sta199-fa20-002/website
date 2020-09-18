@@ -460,13 +460,74 @@ font-size: 18px;
     </item>
     
     <item>
-      <title>Week 06</title>
+      <title>Week 06: Sim-based testing</title>
       <link>/schedule/week-06/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-06/</guid>
-      <description>Check back for details!</description>
-      <content>&lt;p&gt;Check back for details!&lt;/p&gt;
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Simulation-based testing: Part 1 Simulation-based testing: Pt 1 AE 11   Wednesday Simulation-based testing: Part 2 Simulation-based testing: Part 2 AE 12    Readings          Introduction to Modern Statistics: 5.1 Randomization tests Required    Assignments          Exam 01 open Thu, Sep 24 at 9a, due Sun Sep 27 at 11:59p    Announcements </description>
+      <content>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/11-sim-inference-pt1.html&#34;&gt;Simulation-based testing: Part 1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/B34EAA/&#34;&gt;Simulation-based testing: Pt 1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;AE 11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;Simulation-based testing: Part 2&lt;/td&gt;
+&lt;td&gt;Simulation-based testing: Part 2&lt;/td&gt;
+&lt;td&gt;AE 12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://openintro-ims.netlify.app/intro-stat-inference.html#inf-rand&#34;&gt;Introduction to Modern Statistics: 5.1 Randomization tests&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Exam 01&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;open Thu, Sep 24 at 9a, due Sun Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
 </content>
     </item>
     
