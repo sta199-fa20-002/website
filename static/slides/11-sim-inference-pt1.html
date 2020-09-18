@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Simulation-based inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Simulation-based inference
+### Prof. Maria Tackett
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](09-bootstrap-infer.pdf)
+
+---
+
+## Packages and set seed
+
+
+```r
+library(tidyverse)
+library(infer)
+```
+
+
+```r
+set.seed(0917)
+```
+
+---
+
+class: center, middle
+
+## The hypothesis testing framework
+
+---
+
+## Parameter vs. statistic
+
+A .vocab[parameter] for is the "true" value of interest. We typically estimate the 
+parameter using a .vocab[sample statistic] as a point estimate.
+
+--
+
+Common population parameters of interest and their corresponding
+sample statistic:
+
+| Quantity           | Parameter  | Statistic   |
+|--------------------|------------|-------------|
+| Mean               | `\(\mu\)`      | `\(\bar{x}\)`   |
+| Variance           | `\(\sigma^2\)` | `\(s^2\)`       |
+| Standard deviation | `\(\sigma\)`   | `\(s\)`         |
+| Proportion         | `\(p\)`        | `\(\hat{p}\)`   |
+
+---
+
+## How can we answer research questions using statistics?
+
+.vocab[Statistical hypothesis testing] is the procedure that assesses
+evidence provided by the data in favor of or against some claim
+about the population (often about a population parameter or
+potential associations).
+
+
+---
+
+## Motivating example: organ donors
+
+People providing an organ for donation sometimes seek the help of a special 
+medical consultant. These consultants assist the patient in all aspects of the 
+surgery, with the goal of reducing the possibility of complications during the 
+medical procedure and recovery. Patients might choose a consultant based in part 
+on the historical complication rate of the consultant's clients.
+
+--
+
+One consultant tried to attract patients by noting that the **average complication 
+rate for liver donor surgeries in the US is about 10%**, but **her clients have only 
+had 3 complications in the 62 liver donor surgeries she has facilitated**. She 
+claims this is strong evidence that her work meaningfully contributes to 
+reducing complications (and therefore she should be hired!).
+
+---
+
+## Data
+
+
+
+
+```r
+organ_donor %&gt;% 
+  count(outcome)
+```
+
+```
+## # A tibble: 2 x 2
+##   outcome             n
+##   &lt;chr&gt;           &lt;int&gt;
+## 1 complication        3
+## 2 no complication    59
+```
+
+---
+
+## Organ donors: Parameter vs. statistic
+
+**Parameter**, `\(p~\)`: true rate of complication
+
+&lt;br&gt; 
+
+**Statistic**, `\(\hat{p}~\)`: rate of complication in the sample = `\(\frac{3}{62}\)` = 
+0.048
+
+---
+
+## Correlation vs. causation
+
+.question[
+Is it possible to assess the consultant's claim using the data?
+]
+
+--
+
+**No.** The claim is that there is a causal connection, but the data are 
+observational. For example, maybe patients who can afford a medical consultant 
+can afford better medical care, which can also lead to a lower complication 
+rate.
+
+While it is not possible to assess the causal claim, it is still possible to 
+test for an association using these data. 
+
+
+For this question we ask, **how likely
+is it that the low complication rate observed of `\(\hat{p}\)` = 0.048 be due solely
+to chance?**
+
+---
+
+## Two claims
+
+- .vocab[Null hypothesis:] "There is nothing going on"
+
+Complication rate for this consultant is no different than the US average of 10%
+
+--
+
+- .vocab[Alternative hypothesis:] "There is something going on"
+
+Complication rate for this consultant is **lower** than the US average of 10%
+
+--
+
+.question[
+In statistical hypothesis testing we always first assume that the null 
+hypothesis is true and then see whether we reject or fail to reject this claim. 
+]
+
+---
+
+## Hypothesis testing as a court trial
+
+- **Null hypothesis**, `\(H_0\)`: Defendant is innocent
+
+- **Alternative hypothesis**, `\(H_a\)`: Defendant is guilty
+
+--
+
+- **Present the evidence:** Collect data
+
+--
+
+- **Judge the evidence:** "Could these data plausibly have happened by chance if the null hypothesis were true?"
+    * Yes: Fail to reject `\(H_0\)`
+    * No: Reject `\(H_0\)`
+    
+---
+
+## The hypothesis testing framework
+
+--
+
+1️⃣ Start with two hypotheses about the population: the null hypothesis and the 
+alternative hypothesis.
+
+--
+
+2️⃣ Choose a (representative) sample, collect data, and analyze the data.
+
+--
+
+3️⃣ Figure out how likely it is to see data like what we observed, IF the null 
+hypothesis were in fact true (called a **p-value**)
+
+--
+
+4️⃣ If our data would have been extremely unlikely if the null hypothesis were true, 
+then we reject it in favor of the alternative hypothesis. 
+
+Otherwise, we cannot reject the null hypothesis
+
+---
+
+## 1️⃣ Defining the hypotheses
+
+Remember, the null and alternative hypotheses are defined for **parameters,**
+not statistics
+
+What will our null and alternative hypotheses be for this example?
+
+--
+
+- `\(H_0\)`: the true proportion of complications among her patients is **equal** to the 
+US population rate
+- `\(H_a\)`: the true proportion of complications among her patients is **lower** than
+the US population rate
+
+--
+
+Expressed in symbols:
+
+- `\(H_0: p = 0.10\)`
+- `\(H_a: p &lt; 0.10\)`
+---
+
+## 2️⃣ Collecting and summarizing data
+
+With these two hypotheses, we now take our sample and summarize the data.
+
+The choice of summary statistic calculated depends on the type of data. In our 
+example, we use the sample proportion
+
+`$$\hat{p} = 3/62 \approx 0.048$$`
+
+---
+
+## 3️⃣ Assessing the evidence observed
+
+Next, we calculate the probability of getting data like ours, *or more extreme*, 
+if `\(H_0\)` were in fact actually true.
+
+This is a conditional probability: "given that `\(H_0\)` is true, `\(p = 0.1\)`, what would the the probability of observing `\(\hat{p} = 3/62\)` or less?"
+
+&lt;br&gt; 
+
+This probability is known as the .vocab[p-value].
+
+---
+
+
+class: center, middle
+
+# Calculate the p-value using simulation
+
+---
+
+## Simulating the null distribution
+
+Let's return to the organ transplant scenario.
+
+Since `\(H_0: p = 0.10\)`, we need to simulate a distribution for `\(\hat{p}\)` under 
+the null hypothesis such that the probability of complication for each patient 
+is 0.10 for 62 patients. 
+
+This null distribution for `\(\hat{p}\)` represents the distribution of the observed 
+proportions we might expect, if the null hypothesis were true.
+
+.question[
+When sampling from the null distribution, what is the expected proportion of
+complications? 
+]
+
+---
+
+## Data
+
+
+```r
+glimpse(organ_donor)
+```
+
+```
+## Rows: 62
+## Columns: 1
+## $ outcome &lt;chr&gt; "complication", "complication", "complication", "no complicat…
+```
+
+```r
+organ_donor %&gt;%
+  count(outcome)
+```
+
+```
+## # A tibble: 2 x 2
+##   outcome             n
+##   &lt;chr&gt;           &lt;int&gt;
+## 1 complication        3
+## 2 no complication    59
+```
+
+---
+
+## Simulation #1
+
+
+```
+## sim1
+##    complication no complication 
+##               3              59
+```
+
+```
+## [1] 0.0483871
+```
+
+&lt;img src="11-sim-inference-pt1_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Simulation #2
+
+
+```
+## sim2
+##    complication no complication 
+##               9              53
+```
+
+```
+## [1] 0.1451613
+```
+
+&lt;img src="11-sim-inference-pt1_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Simulation #3
+
+
+
+```
+## sim3
+##    complication no complication 
+##               8              54
+```
+
+```
+## [1] 0.1290323
+```
+
+&lt;img src="11-sim-inference-pt1_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## This is getting boring...
+
+We need a way to automate this process!
+---
+
+## Using infer to generate the null distribution 
+
+.midi[
+
+```r
+null_dist &lt;- organ_donor %&gt;%
+  specify(response = outcome, success = "complication") %&gt;% 
+  hypothesize(null = "point", 
+              p = c("complication" = 0.10, "no complication" = 0.90) 
+              ) %&gt;% 
+  generate(reps = 100, type = "simulate") %&gt;% 
+  calculate(stat = "prop")
+```
+]
+
+
+---
+
+## Specify
+
+.midi[
+
+```r
+null_dist &lt;- organ_donor %&gt;%
+* specify(response = outcome, success = "complication") %&gt;%
+  hypothesize(null = "point", 
+              p = c("complication" = 0.10, "no complication" = 0.90) 
+              ) %&gt;% 
+  generate(reps = 100, type = "simulate") %&gt;% 
+  calculate(stat = "prop")
+```
+]
+
+- .vocab[`response`]: **`outcome`** in the **`organ_donor`** data frame
+
+- .vocab[`success`]: **`"complication"`**, the level of outcome we're interested in studying
+
+---
+
+## Hypothesize
+
+.midi[
+
+```r
+null_dist &lt;- organ_donor %&gt;%
+  specify(response = outcome, success = "complication") %&gt;% 
+* hypothesize(null = "point",
+*             p = c("complication" = 0.10, "no complication" = 0.90)
+*             ) %&gt;%
+  generate(reps = 100, type = "simulate") %&gt;% 
+  calculate(stat = "prop")
+```
+]
+
+- .vocab[`null`]: Since we're testing the point null hypothesis that `\(H_0: p = 0.10\)`, we
+choose **`"point"`**
+- Next, we provide the probability of "success" and "failure"
+  - **`"complication" = 0.10, "no complication" = 0.90`**
+  
+
+---
+
+## Generate
+
+.midi[
+
+```r
+null_dist &lt;- organ_donor %&gt;%
+  specify(response = outcome, success = "complication") %&gt;% 
+  hypothesize(null = "point", 
+              p = c("complication" = 0.10, "no complication" = 0.90) 
+              ) %&gt;% 
+* generate(reps = 1000, type = "simulate") %&gt;%
+  calculate(stat = "prop")
+```
+]
+
+- .vocab[`reps`]: We will generate 100 repetitions here
+- .vocab[`type`]: Choose **`"simulate"`** for testing a point null
+    - Choose `bootstrap` for estimation 
+    - Choose `permute` for testing independence 
+---
+
+## Calculate
+
+.midi[
+
+```r
+null_dist &lt;- organ_donor %&gt;%
+  specify(response = outcome, success = "complication") %&gt;% 
+  hypothesize(null = "point", 
+              p = c("complication" = 0.10, "no complication" = 0.90) 
+              ) %&gt;% 
+  generate(reps = 100, type = "simulate") %&gt;%  
+* calculate(stat = "prop")
+```
+]
+
+- Calculate a sample statistic. Here, the sample proportion.
+  - `stat = "prop"`
+
+---
+
+## Store simulated null distribution
+
+.midi[
+
+```r
+*null_dist &lt;- organ_donor %&gt;%
+  specify(response = outcome, success = "complication") %&gt;% 
+  hypothesize(null = "point", 
+              p = c("complication" = 0.10, "no complication" = 0.90) 
+              ) %&gt;% 
+  generate(reps = 100, type = "simulate") %&gt;%  
+  calculate(stat = "prop") 
+```
+]
+
+--
+
+
+```
+## # A tibble: 100 x 2
+##    replicate  stat
+##        &lt;dbl&gt; &lt;dbl&gt;
+##  1         1 0.161
+##  2         2 0.081
+##  3         3 0.048
+##  4         4 0.081
+##  5         5 0.081
+##  6         6 0.065
+##  7         7 0.065
+##  8         8 0.113
+##  9         9 0.032
+## 10        10 0.097
+## # … with 90 more rows
+```
+
+---
+
+## Visualizing the null distribution
+
+.question[
+What would you expect the center of the null distribution to be?
+]
+
+--
+
+&lt;img src="11-sim-inference-pt1_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Calculating the p-value, visually
+
+.question[
+What is the p-value (just eyeball it)?
+]
+
+&lt;img src="11-sim-inference-pt1_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Calculating the p-value, directly
+
+
+```r
+null_dist %&gt;%
+  filter(stat &lt;= (3/62)) %&gt;%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     &lt;dbl&gt;
+## 1    0.16
+```
+
+---
+
+## 4️⃣ Making a conclusion
+
+We reject the null hypothesis if the p-value is probability is small enough, i.e. it is very unlikely to observe our data or more extreme if `\(H_0\)` were 
+actually true.
+
+--
+
+What is "small enough"? We often consider a threshold (the .vocab[significance level]
+or `\(\alpha\)`-level) defined *prior* to conducting the analysis.
+
+---
+
+## Significance level
+
+We often use 5% as the cutoff for whether the p-value is low enough that the data are unlikely to have come from the null model. 
+
+- If p-value &lt; `\(\alpha\)`, reject `\(H_0\)` in favor of `\(H_a\)`:     - The data provide convincing 
+evidence for the alternative hypothesis.
+
+- If p-value  `\(\geq \alpha\)`, fail to reject `\(H_0\)` in favor of `\(H_a\)`
+  - The data do not provide 
+convincing evidence for the alternative hypothesis.
+
+---
+
+## What if `\(p\)`-value  `\(\geq \alpha\)`?
+
+If p-value `\(\geq \alpha\)` we fail to reject `\(H_0\)`.
+
+--
+
+Importantly, we never "accept" the null hypothesis. 
+
+--
+
+When we fail to reject the null hypothesis, we are stating that there is 
+**insufficient evidence** to conclude that it is false. This could be due to any 
+number of reasons: 
+
+- There truly is no effect
+- There truly is an effect (and we happened to get unlucky with our sample or 
+didn't have enough data to tell that there was one)
+
+---
+
+## What can go wrong?
+
+Suppose we test a certain null hypothesis, which can be either true or false 
+(we never know for sure!). We make one of two decisions given our data: either 
+reject or fail to reject `\(H_0\)`. 
+
+--
+
+We have the following four scenarios:
+
+
+| Decision             | `\(H_0\)` is true | `\(H_0\)` is false |
+|----------------------|---------------|----------------|
+| Fail to reject `\(H_0\)` | Correct decision    | *Type II Error*  |
+| Reject `\(H_0\)`         | *Type I Error*  | Correct decision     |
+
+It is important to weigh the consequences of making each type of error.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
