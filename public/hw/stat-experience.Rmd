@@ -11,7 +11,7 @@ output:
 
 The world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.
 
-There will be two statistics experiences during the semester.  The first experience should be completed by **Sunday, October 16** and the second experience by **Sunday, November 8**. The live lecture session on October 12 and November 4 will be time dedicated for you to work on the statistics experience. 
+There will be two statistics experiences during the semester.  The first experience should be completed by **Sunday, October 18** and the second experience by **Sunday, November 8**. The live lecture session on October 12 and November 4 will be time dedicated for you to work on the statistics experience. 
 
 Each experience has two parts:
 

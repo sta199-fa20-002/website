@@ -26,7 +26,7 @@ library(infer)
 
 ## Hypothesis testing review
 
-$$H_0: p = 0.1 \text{ vs }H_a: p \neq 0.1$$
+$$H_0: p = 0.1 \text{ vs }H_a: p < 0.1$$
 
 ```{r, echo = FALSE}
 organ_donor <- tibble(
