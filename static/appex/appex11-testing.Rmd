@@ -106,7 +106,7 @@ set.seed(092120)
 
 ### Exercise 3
 
-Use the null distribution from Exercise 2 to calculate the p-value. 
+Fill in the code and uncomment the lines below to calculate the p-value using the null distribution from Exercise 2.
 
 ```{r calc-mean}
 mean_ppg <- asheville %>% 
