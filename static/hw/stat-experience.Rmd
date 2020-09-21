@@ -81,4 +81,4 @@ In addition to the reflection, write a Tweet to summarize your experience (280 c
 
 Submit the reflection as a PDF under the  **Statistics Experience** assignment on Gradescope. When you open the assignment, you will also find a place to type your Tweet summarizing the experience. 
 
-The first experience must be turned in by **Sunday, October 16 at 11:59p** and the second by **Sunday, November 8 at 11:59** to be considered for credit.
+The first experience must be turned in by **Sunday, October 18 at 11:59p** and the second by **Sunday, November 8 at 11:59** to be considered for credit.
