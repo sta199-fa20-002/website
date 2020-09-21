@@ -465,7 +465,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-06/</guid>
-      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Simulation-based testing: Part 1 Simulation-based testing: Pt 1 AE 11   Wednesday Simulation-based testing: Part 2 Simulation-based testing: Part 2 AE 12    Readings          Introduction to Modern Statistics: 5.1 Randomization tests Required    Assignments          Exam 01 open Thu, Sep 24 at 9a, due Sun Sep 27 at 11:59p    Announcements </description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Simulation-based testing: Part 1 Simulation-based testing: Pt 1 AE 11: Hypothesis Testing   Wednesday Simulation-based testing: Part 2 Simulation-based testing: Part 2 AE 12    Readings          Introduction to Modern Statistics: 5.1 Randomization tests Required    Assignments          Exam 01 open Thu at 9a; due Sun, Sep 27 at 11:59p    Announcements From the StatSci Majors Union (both events count towards stats experiences) If you are interested in statistics, machine learning, or data science and wondering about your possible pathways after Duke, the StatSci Majors Union and the Department of Statistical Science have got you covered!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -487,7 +487,7 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/11-sim-inference-pt1.html&#34;&gt;Simulation-based testing: Part 1&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/B34EAA/&#34;&gt;Simulation-based testing: Pt 1&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 11&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex11-testing.html&#34;&gt;AE 11: Hypothesis Testing&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
@@ -523,11 +523,31 @@ font-size: 18px;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Exam 01&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;open Thu, Sep 24 at 9a, due Sun Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;open Thu at 9a; due Sun, Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
+&lt;h3 id=&#34;from-the-statsci-majors-union-both-events-count-towards-stats-experiences&#34;&gt;From the StatSci Majors Union (both events count towards stats experiences)&lt;/h3&gt;
+&lt;p&gt;If you are interested in statistics, machine learning, or data science and wondering about your possible pathways after Duke, the StatSci Majors Union and the Department of Statistical Science have got you covered!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alumni In Industry Panel&lt;/strong&gt;:   It’s recruitment season, yes, but don’t panic! Next &lt;strong&gt;Monday Sept. 21st at 9pm ET&lt;/strong&gt;, the SSMU will be hosting an &amp;ldquo;Alumni In Industry&amp;rdquo; virtual panel! Join in to hear from Duke Alumni talk about what it is like to work as statisticians in the world of tech and consulting! Panelists are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hillary Song (BS &amp;lsquo;19)is a consultant at Bain &amp;amp; Co.&lt;/li&gt;
+&lt;li&gt;Michael Lindon(MSS 15, PhD &amp;lsquo;18) is a statistician at Optimizely&lt;/li&gt;
+&lt;li&gt;James Wang(BS &amp;lsquo;19) is a data scientist at Coinbase.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Submit any questions you may have for the industry panel here in advance: &lt;a href=&#34;https://forms.gle/vTyLJcMn5s2TEdQz6&#34;&gt;https://forms.gle/vTyLJcMn5s2TEdQz6&lt;/a&gt;. You can find more info including the Zoom link &lt;a href=&#34;https://sakai.duke.edu&#34;&gt;on Sakai&lt;/a&gt;.  No registration is required but make sure to sign in to join the Zoom call.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PhD Programs Applications Workshop:&lt;/strong&gt;  Thinking of applying to a PhD program in statistics, machine learning or data science?  Find out how at this Department of Statistical Science workshop  next &lt;strong&gt;Wednesday, 23 Sep, 8-9pm EDT!&lt;/strong&gt; You&amp;rsquo;ll hear from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Peter Hoff: Professor and Director of Graduate Studies in Statistical Science, Duke University.   &lt;a href=&#34;https://pdhoff.github.io&#34;&gt;https://pdhoff.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Michael Valancius, PhD Student, UNC Department of Biostatistics.  Michael graduated with a bachelor’s degree in quantitative economics at University of Miami and spent some time in industry before returning to Duke for his MSS and moving on to UNC for his PhD.   &lt;a href=&#34;https://www.linkedin.com/in/michael-valancius/&#34;&gt;https://www.linkedin.com/in/michael-valancius/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Becky Tang, PhD Student, Duke Department of Statistical Science. Becky came to Duke after completing her undergraduate at Swarthmore and recently won an NSF grant to support her graduate study. &lt;a href=&#34;https://beckytang.rbind.io&#34;&gt;https://beckytang.rbind.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fan Bu, PhD Student, Duke Department of Statistical Science. Fan came to Duke after receiving her bachelor’s degree from Peking University, where she studied data science and big data technology.
+&lt;a href=&#34;https://fanbuduke17.github.io&#34;&gt;https://fanbuduke17.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Peter Hase, PhD Student, UNC Department of Computer Science. Peter earned his bachelor’s degree in statistical science at Duke before joining the PhD program in Computer Science at UNC, where he works on ML and NLP.  &lt;a href=&#34;https://peterbhase.github.io&#34;&gt;https://peterbhase.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more information on the PhD Applications Workshop see the flyer on Sakai &lt;a href=&#34;https://sakai.duke.edu&#34;&gt;on Sakai&lt;/a&gt; or contact &lt;a href=&#34;mailto:stat-dus@duke.edu&#34;&gt;stat-dus@duke.edu&lt;/a&gt;. Next up, a workshop on applying for Master&amp;rsquo;s degree programs!&lt;/p&gt;
+&lt;p&gt;(Join the Statistical Science Majors Union in Duke Groups so we can keep you posted on cool stats events! &lt;a href=&#34;https://dukegroups.com/SSMU/club_signup&#34;&gt;https://dukegroups.com/SSMU/club_signup&lt;/a&gt;)&lt;/p&gt;
 </content>
     </item>
     
