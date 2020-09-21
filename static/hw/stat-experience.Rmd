@@ -40,9 +40,9 @@ Attend an talk, panel, or conference related to statistics or data science. If y
 
 Talk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc. 
 
-### Category 3: Listen to a podcast 
+### Category 3: Listen to a podcast / watch video
 
-Listen to a podcast about statistics and data science. The podcast must be **<u>at least 30 minutes</u>** long to count towards the statistics experience. A few suggestions are below: 
+Listen to a podcast or watch a video about statistics and data science. The podcast or video must be **<u>at least 30 minutes</u>** to count towards the statistics experience. A few suggestions are below: 
 
 - [FiveThirtyEight Model Talk](https://fivethirtyeight.com/tag/model-talk/)
 - [Stats + Stories Podcast](https://statsandstories.net/)
