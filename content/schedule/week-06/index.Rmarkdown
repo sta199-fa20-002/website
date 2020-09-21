@@ -58,7 +58,7 @@ https://fanbuduke17.github.io
 For more information on the PhD Applications Workshop see the flyer on Sakai [on Sakai](https://sakai.duke.edu) or contact stat-dus@duke.edu. Next up, a workshop on applying for Master's degree programs!
  
 
-(Join the Statistical Science Majors Union in Duke Groups so we can keep you posted on cool stats events! https://dukegroups.com/SSMU/club_signup)
+*Join the Statistical Science Majors Union in Duke Groups so we can keep you posted on cool stats events! https://dukegroups.com/SSMU/club_signup*
  
  
 
