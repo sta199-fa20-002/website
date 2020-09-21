@@ -1,16 +1,13 @@
 ---
 title: "AE 11: Hypothesis Testing"
 subtitle: "Part 1"
-date: "`r Sys.Date()`"
+date: "2020-09-21"
 output: 
   html_document:
     theme: readable
 ---
 
-```{r echo = F, warning = FALSE, message = FALSE}
-library(tidyverse)
-library(infer)
-```
+
 
 
 ## Announcements
@@ -28,15 +25,12 @@ library(infer)
 
 $$H_0: p = 0.1 \text{ vs }H_a: p \neq 0.1$$
 
-```{r, echo = FALSE}
-organ_donor <- tibble(
-  outcome = c(rep("complication", 3), rep("no complication", 59))
-)
-```
+
 
 **Generate the null distribution**
 
-```{r}
+
+```r
 null_dist <- organ_donor %>%
   specify(response = outcome, success = "complication") %>% #<<
   hypothesize(null = "point", 
@@ -48,10 +42,18 @@ null_dist <- organ_donor %>%
 
 **Calculate p-value**
 
-```{r}
+
+```r
 null_dist %>%
   filter(stat <= (3/62)) %>%
   summarise(p_value = n()/nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     <dbl>
+## 1    0.18
 ```
 
 
@@ -63,15 +65,14 @@ this exercise, and configure git.
 We will be using the `asheville` dataset. You may load in the dataset with the
 following code (be sure to set `eval` to be `TRUE` in the following R chunk!):
 
-```{r load-packages, warning = FALSE, message = FALSE}
+
+```r
 library(tidyverse)
 library(infer)
 ```
 
 
-```{r load-data, message = FALSE, echo = FALSE}
-asheville <- read_csv("data/asheville.csv")
-```
+
 
 ### Exercise 1 (Zoom poll)
 
@@ -91,12 +92,14 @@ Let's use simulation-based methods to conduct the hypothesis test specified in E
 
 Fill in the code and uncomment the lines below to generate the null distribution. 
 
-```{r set-seed}
+
+```r
 set.seed(092120)
 ```
 
 
-```{r ex-2, eval = F}
+
+```r
 #null_dist <- asheville %>%
   #specify(response = ______) %>%
   #hypothesize(null = ______, mu = ______) %>%
@@ -108,13 +111,15 @@ set.seed(092120)
 
 Use the null distribution from Exercise 2 to calculate the p-value. 
 
-```{r calc-mean}
+
+```r
 mean_ppg <- asheville %>% 
   summarise(mean_ppg = mean(ppg)) %>%
   pull()
 ```
 
-```{r eval = F}
+
+```r
 #null_dist %>%
   #filter(______) %>%
   #summarise(p_value = ______)
