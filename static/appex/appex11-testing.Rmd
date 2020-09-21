@@ -13,7 +13,8 @@ output:
 - No lab this week
 - Exam 01: Thu 9a - Sun 11:59p
   - Weeks 01 - 04
-- Introducing [statistics experiences]()
+- Introducing [statistics experiences](https://sta199-fa20-002.netlify.app/hw/stat-experience.html) 
+- [StatSci Majors Union events](https://sta199-fa20-002.netlify.app/schedule/week-06/)
 ## Questions from video? 
 
 ## Quick review of hypothesis testing

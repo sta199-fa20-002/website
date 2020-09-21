@@ -15,11 +15,11 @@ There will be two statistics experiences during the semester.  The first experie
 
 Each experience has two parts:
 
-(1) Have a statistics experience
-(2) Reflect on your experience
+`r emo::ji("one")` Have a statistics experience
+
+`r emo::ji("two")` Reflect on your experience
 
 **You must complete both parts to receive credit.**
-
 
 
 ## Part 1: Have a statistics experience
@@ -36,7 +36,7 @@ Attend an talk, panel, or conference related to statistics or data science. If y
 - [Electronic Undergraduate Statistics Research Conference (eUSR)](https://www.icpsr.umich.edu/web/pages/membership/datafair/): November 6
 - More events announced as the semester progresses.
 
-### Category 2: Talk with a statistician!
+### Category 2: Talk with a statistician/ data scientist
 
 Talk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc. 
 
@@ -48,13 +48,13 @@ Listen to a podcast about statistics and data science. The podcast must be **<u>
 - [Stats + Stories Podcast](https://statsandstories.net/)
 - [Causal Inference Podcast](https://casualinfer.libsyn.com/)
 
-### Category 4: Data science competition 
+### Category 4: Participate in a data science competition
 
 Participate in a statistics or data science competition. You can participate individually or with a team. Information for an upcoming data challenge is linked below.
 
 - [This is Statistics Fall Data Challenge](https://thisisstatistics.org/falldatachallenge/): Oct 9 - Nov 11
 
-### Category 5: Read a book 
+### Category 5: Read a book on statistics/data science
 
 There are *a lot* of books about statistics, data science, and related topics. A few suggestions are below. If you decide to read a book that isn't on this list, ask your professor to make sure it counts toward the experience. Many of these books are available through Duke library.
 
