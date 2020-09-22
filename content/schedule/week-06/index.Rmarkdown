@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Simulation-based testing: Part 1](https://sta199-fa20-002.netlify.app/slides/11-sim-inference-pt1.html)  |  [Simulation-based testing: Pt 1](https://warpwire.duke.edu/w/B34EAA/) | [AE 11: Hypothesis Testing](https://sta199-fa20-002.netlify.app/appex/appex11-testing.html) |
-| Wednesday |  [Simulation-based testing: Part 2](https://sta199-fa20-002.netlify.app/slides/11-sim-inference-pt2.html)  | [Simulation-based testing: Part 2](https://warpwire.duke.edu/w/vYIEAA/)   | AE 12 |
+| Wednesday |  [Simulation-based testing: Part 2](https://sta199-fa20-002.netlify.app/slides/12-sim-inference-pt2.html)  | [Simulation-based testing: Part 2](https://warpwire.duke.edu/w/vYIEAA/)   | AE 12 |
 
 ## Readings
 
