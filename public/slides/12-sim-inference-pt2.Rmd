@@ -1,0 +1,483 @@
+---
+title: "Simulation-based testing"
+subtitle: "Part 2"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](12-sim-inference-pt2.pdf)
+
+---
+
+## Terminology
+
+- .vocab[Population]: a group of individuals or objects we are interested in studying
+
+--
+
+- .vocab[Parameter]: a numerical quantity derived from the population
+(almost always unknown)
+
+--
+
+- .vocab[Statistical inference] is the process of using sample data to make 
+  conclusions about the underlying population the sample came from.
+
+--
+
+- .vocab[Testing]: evaluating whether our observed sample provides evidence 
+for or against some claim about the population
+
+---
+
+## The hypothesis testing framework
+
+--
+
+`r emo::ji("one")` Start with two hypotheses about the population: the null hypothesis and the 
+alternative hypothesis.
+
+--
+
+`r emo::ji("two")` Choose a (representative) sample, collect data, and analyze the data.
+
+--
+
+`r emo::ji("three")` Figure out how likely it is to see data like what we observed, IF the null 
+hypothesis were in fact true (called a **p-value**)
+
+--
+
+`r emo::ji("four")` If our data would have been extremely unlikely if the null hypothesis were true, 
+then we reject it in favor of the alternative hypothesis. 
+
+Otherwise, we cannot reject the null hypothesis
+
+---
+
+## What can go wrong?
+
+Suppose we test a certain null hypothesis, which can be either true or false
+(we never know for sure!). We make one of two decisions given our data: either
+reject or fail to reject $H_0$.
+
+--
+
+We have the following four scenarios:
+
+
+| Decision             | $H_0$ is true | $H_0$ is false |
+|----------------------|---------------|----------------|
+| Fail to reject $H_0$ | Correct decision    | **Type II Error** |
+| Reject $H_0$         | **Type I Error**  | Correct decision     |
+
+--
+
+It is important to weigh the consequences of making each type of error.
+
+---
+
+## What can go wrong?
+
+
+| Decision             | $H_0$ is true | $H_0$ is false |
+|----------------------|---------------|----------------|
+| Fail to reject $H_0$ | Correct decision    | **Type II Error** |
+| Reject $H_0$         | **Type I Error**  | Correct decision     |
+
+--
+
+- $\alpha$ is the probability of making a Type I error.
+
+- $\beta$ is the probability of making a Type II error.
+
+- The .vocab[power] of a test is 1 - $\beta$: the probability that, if the null
+hypothesis is actually false, we correctly reject it.
+
+--
+
+Though we'd like to know if we're making a correct decision or making a Type I or Type II error, hypothesis testing does **NOT** give us the tools to determine this. 
+
+---
+
+## Equivalency of confidence and significance levels
+
+- Two sided alternative hypothesis test with $\alpha$ $\rightarrow$ $CL = 1 - \alpha$
+
+- One sided alternative hypothesis with $\alpha$ $\rightarrow$ $CL = 1 - (2 \times \alpha)$
+
+```{r echo = FALSE, message=FALSE, fig.width=10, fig.height=4}
+par(mfrow = c(1,2))
+normTail(U = 1.96, L = -1.96, df = 100, col = "#56B4E9", axes = FALSE)
+text(x = 0, y = 0.15, "0.95", col = "#56B4E9", cex = 2)
+text(x = -3, y = 0.05, "0.025", col = "#56B4E9", cex = 1.5)
+text(x = 3, y = 0.05, "0.025", col = "#56B4E9", cex = 1.5)
+#
+normTail(U = 1.65, L = -1.65, df = 100, col = "#56B4E9", axes = FALSE)
+normTail(U = 1.65, df = 100, col = "gray", add = TRUE, axes = FALSE)
+text(x = 0, y = 0.15, "0.90", col = "#56B4E9", cex = 2)
+text(x = -3, y = 0.05, "0.05", col = "#56B4E9", cex = 1.5)
+text(x = 3, y = 0.05, "0.05", col = "gray", cex = 1.5)
+```
+
+---
+
+## Back to Asheville!
+
+```{r echo = F, fig.align = "center", out.width = "40%"}
+knitr::include_graphics("img/09/asheville.jpg")
+```
+
+
+Your friend claims that the mean price per guest per night for Airbnbs in
+Asheville is $100. **What do you make of this statement?**
+
+
+Let's use hypothesis testing to assess this claim! 
+
+---
+
+## `r emo::ji("one")` Defining the hypotheses
+
+Remember, the null and alternative hypotheses are defined for **parameters,**
+not statistics
+
+.question[
+What will our null and alternative hypotheses be for this example?
+]
+
+--
+
+- $H_0$: the true mean price per guest is $100 per night
+- $H_a$: the true mean price per guest is NOT $100 per night
+
+--
+
+Expressed in symbols:
+
+- $H_0: \mu = 100$
+- $H_a: \mu \neq 100$
+
+---
+
+## `r emo::ji("two")` Collecting and summarizing data
+
+With these two hypotheses, we now take our sample and summarize the data.
+
+--
+
+The choice of summary statistic calculated depends on the type of data. In our 
+example, we use the sample mean: $\bar{x} = 76.6$:
+
+--
+
+```{r}
+asheville <- read_csv("data/asheville.csv")
+
+asheville %>% 
+  summarize(mean_price = mean(ppg))
+```
+
+---
+
+## `r emo::ji("three")` Assessing the evidence 
+
+Next, we calculate the probability of getting data like ours, *<u>or more extreme</u>*, 
+if $H_0$ were in fact actually true.
+
+This is a conditional probability: 
+> Given that $H_0$ is true (i.e., if $\mu$ were *actually* 100), what would 
+> be the probability of observing $\bar{x} = 76.6$ or more extreme?
+
+.question[
+This probability is known as the **p-value**.
+]
+
+---
+
+## Simulating the null distribution
+
+Let's return to the Asheville data. We know that our sample mean was 76.6, but
+we also know that if we were to take another random sample of size 50 from all
+Airbnb listings, we might get a different sample mean.
+
+--
+
+There is some variability in the .vocab[sampling distribution] of the mean, and
+we want to make sure we quantify this. 
+
+--
+
+.question[
+How might we quantify the sampling distribution of the mean using only the data
+that we have from our original sample?
+]
+
+---
+## Simulating the null distribution
+
+Let's return to the Asheville data. We know that our sample mean was 76.6, but
+we also know that if we were to take another random sample of size 50 from all
+Airbnb listings, we might get a different sample mean.
+
+There is some variability in the .vocab[sampling distribution] of the mean, and
+we want to make sure we quantify this. 
+
+.question[
+How might we quantify the sampling distribution of the mean using only the data
+that we have from our original sample?
+]
+
+---
+
+## Bootstrap distribution of the mean
+
+```{r, eval = F}
+set.seed(12345)
+library(infer)
+
+boot_means <- asheville %>% 
+  specify(response = ppg) %>% #<<
+  generate(reps = 5000, type =  "bootstrap") %>% #<<
+  calculate(stat = "mean") #<<
+```
+
+```{r eval = F}
+ggplot(data = boot_means, aes(stat)) +
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+  geom_vline(xintercept = mean(boot_means$stat), 
+             lwd = 2, color = "red")
+```
+
+---
+
+## Bootstrap distribution of the mean
+
+```{r, echo = F, fig.height = 2.5}
+set.seed(12345)
+library(infer)
+
+boot_means <- asheville %>% 
+  specify(response = ppg) %>% 
+  generate(reps = 5000, type = "bootstrap") %>% 
+  calculate(stat = "mean")
+
+ggplot(data = boot_means, aes(stat)) +
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+  geom_vline(xintercept = mean(boot_means$stat), lwd = 2, color = "red")
+```
+
+---
+
+## Shifting the distribution
+
+We've captured the variability in the sample mean among samples of size 50 from
+Asheville area Airbnbs, but remember that in the hypothesis testing paradigm,
+we must assess our observed evidence under the assumption that the null 
+hypothesis is true.
+
+.pull-left[
+```{r, eval = T}
+boot_means %>% 
+  summarize(mean(stat))
+```
+]
+
+.pull-right[
+Remember,
+
+$H_0: \mu = 100$
+
+$H_a: \mu \neq 100$
+]
+
+---
+
+class: middle, center
+
+.question[
+Where should the bootstrap distribution of means be centered if in fact $H_0$ 
+were actually true?
+]
+
+---
+
+## Shifting the distribution
+
+```{r}
+ash_boot_mean <- boot_means %>% 
+  summarize(mean = mean(stat)) %>% 
+  pull()
+
+boot_means <- boot_means %>% #<<
+  mutate(null_dist_stat = stat - (ash_boot_mean - 100)) #<<
+```
+
+If we shifted the bootstrap distribution by `offset`, then it will be centered
+at $\mu_0$: the null-hypothesized value for the mean.
+
+```{r, eval = F}
+ggplot(data = boot_means, aes(x = null_dist_stat)) + #<<
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+    geom_vline(xintercept = mean(boot_means$null_dist_stat), lwd = 2, color = "red")
+```
+
+---
+
+## Distribution of $\bar{x}$ under $H_0$
+
+```{r, echo = F, fig.height = 2.5}
+ggplot(data = boot_means, aes(x = null_dist_stat)) + #<<
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") + 
+  geom_vline(xintercept = mean(boot_means$null_dist_stat), lwd = 2, color = "red")
+```
+
+---
+
+## Simulating the null distribution with infer
+
+```{r}
+null_dist <- asheville %>%
+  specify(response = ppg) %>%
+  hypothesize(null = "point", mu = 100) %>%
+  generate(reps = 5000, type = "bootstrap") %>%  #<<
+  calculate(stat = "mean")
+```
+
+.pull-left[
+```{r}
+null_dist
+```
+]
+
+.pull-right[
+```{r}
+null_dist %>%
+  summarise(mean = mean(stat))
+```
+]
+
+---
+
+## `r emo::ji("three")` Assessing the evidence
+
+```{r, echo = F, fig.height = 2.5}
+ggplot(data = null_dist, aes(x = stat)) +
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+  geom_vline(xintercept = c(76.6, 100 + (100-76.6)), lwd = 2, color = "red")
+```
+
+---
+
+## `r emo::ji("three")` Assessing the evidence
+
+```{r}
+null_dist %>%
+  filter(stat <= 76.6 | stat >= (100 + (100 - 76.6))) %>%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+---
+
+## `r emo::ji("four")` Make conclusion 
+
+.vocab[
+What might we conclude at the $\alpha$ = 0.05 level?
+]
+
+
+```{r, echo = F}
+options(scipen=999)
+p_val <- null_dist %>%
+  filter(stat <= 76.6 | stat >= (100 + (100 - 76.6))) %>%
+  summarise(p_value = n()/nrow(null_dist)) %>%
+  pull() 
+```
+
+
+The p-value, `r p_val` is less than 0.05, so we .vocab[reject $H_0$]. The data provide sufficient evidence that the mean price per guest per night for Airbnbs in Asheville is not equal to $100. 
+
+---
+
+## Discussion questions
+
+- $H_a$ here was a .vocab[two-sided] hypothesis $(H_a: \mu \neq 100)$. How does this compare to the .vocab[one-sided] hypothesis from last time $(H_a: p < 0.1)$? 
+
+--
+
+- How might the p-value change depending on what type of alternative hypothesis
+is specified?
+
+--
+
+- Why did we need to "shift" the bootstrap distribution when we generated the null distribution in this example, but we didn't need shift the distribution last time when we  generated the null distribution for inference on the population proportion? 
+

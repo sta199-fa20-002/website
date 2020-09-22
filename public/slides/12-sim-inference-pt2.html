@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Simulation-based testing</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Simulation-based testing
+## Part 2
+### Prof. Maria Tackett
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](12-sim-inference-pt2.pdf)
+
+---
+
+## Terminology
+
+- .vocab[Population]: a group of individuals or objects we are interested in studying
+
+--
+
+- .vocab[Parameter]: a numerical quantity derived from the population
+(almost always unknown)
+
+--
+
+- .vocab[Statistical inference] is the process of using sample data to make 
+  conclusions about the underlying population the sample came from.
+
+--
+
+- .vocab[Testing]: evaluating whether our observed sample provides evidence 
+for or against some claim about the population
+
+---
+
+## The hypothesis testing framework
+
+--
+
+1️⃣ Start with two hypotheses about the population: the null hypothesis and the 
+alternative hypothesis.
+
+--
+
+2️⃣ Choose a (representative) sample, collect data, and analyze the data.
+
+--
+
+3️⃣ Figure out how likely it is to see data like what we observed, IF the null 
+hypothesis were in fact true (called a **p-value**)
+
+--
+
+4️⃣ If our data would have been extremely unlikely if the null hypothesis were true, 
+then we reject it in favor of the alternative hypothesis. 
+
+Otherwise, we cannot reject the null hypothesis
+
+---
+
+## What can go wrong?
+
+Suppose we test a certain null hypothesis, which can be either true or false
+(we never know for sure!). We make one of two decisions given our data: either
+reject or fail to reject `\(H_0\)`.
+
+--
+
+We have the following four scenarios:
+
+
+| Decision             | `\(H_0\)` is true | `\(H_0\)` is false |
+|----------------------|---------------|----------------|
+| Fail to reject `\(H_0\)` | Correct decision    | **Type II Error** |
+| Reject `\(H_0\)`         | **Type I Error**  | Correct decision     |
+
+--
+
+It is important to weigh the consequences of making each type of error.
+
+---
+
+## What can go wrong?
+
+
+| Decision             | `\(H_0\)` is true | `\(H_0\)` is false |
+|----------------------|---------------|----------------|
+| Fail to reject `\(H_0\)` | Correct decision    | **Type II Error** |
+| Reject `\(H_0\)`         | **Type I Error**  | Correct decision     |
+
+--
+
+- `\(\alpha\)` is the probability of making a Type I error.
+
+- `\(\beta\)` is the probability of making a Type II error.
+
+- The .vocab[power] of a test is 1 - `\(\beta\)`: the probability that, if the null
+hypothesis is actually false, we correctly reject it.
+
+--
+
+Though we'd like to know if we're making a correct decision or making a Type I or Type II error, hypothesis testing does **NOT** give us the tools to determine this. 
+
+---
+
+## Equivalency of confidence and significance levels
+
+- Two sided alternative hypothesis test with `\(\alpha\)` `\(\rightarrow\)` `\(CL = 1 - \alpha\)`
+
+- One sided alternative hypothesis with `\(\alpha\)` `\(\rightarrow\)` `\(CL = 1 - (2 \times \alpha)\)`
+
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Back to Asheville!
+
+&lt;img src="img/09/asheville.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+Your friend claims that the mean price per guest per night for Airbnbs in
+Asheville is $100. **What do you make of this statement?**
+
+
+Let's use hypothesis testing to assess this claim! 
+
+---
+
+## 1️⃣ Defining the hypotheses
+
+Remember, the null and alternative hypotheses are defined for **parameters,**
+not statistics
+
+.question[
+What will our null and alternative hypotheses be for this example?
+]
+
+--
+
+- `\(H_0\)`: the true mean price per guest is $100 per night
+- `\(H_a\)`: the true mean price per guest is NOT $100 per night
+
+--
+
+Expressed in symbols:
+
+- `\(H_0: \mu = 100\)`
+- `\(H_a: \mu \neq 100\)`
+
+---
+
+## 2️⃣ Collecting and summarizing data
+
+With these two hypotheses, we now take our sample and summarize the data.
+
+--
+
+The choice of summary statistic calculated depends on the type of data. In our 
+example, we use the sample mean: `\(\bar{x} = 76.6\)`:
+
+--
+
+
+```r
+asheville &lt;- read_csv("data/asheville.csv")
+
+asheville %&gt;% 
+  summarize(mean_price = mean(ppg))
+```
+
+```
+## # A tibble: 1 x 1
+##   mean_price
+##        &lt;dbl&gt;
+## 1       76.6
+```
+
+---
+
+## 3️⃣ Assessing the evidence 
+
+Next, we calculate the probability of getting data like ours, *&lt;u&gt;or more extreme&lt;/u&gt;*, 
+if `\(H_0\)` were in fact actually true.
+
+This is a conditional probability: 
+&gt; Given that `\(H_0\)` is true (i.e., if `\(\mu\)` were *actually* 100), what would 
+&gt; be the probability of observing `\(\bar{x} = 76.6\)` or more extreme?
+
+.question[
+This probability is known as the **p-value**.
+]
+
+---
+
+## Simulating the null distribution
+
+Let's return to the Asheville data. We know that our sample mean was 76.6, but
+we also know that if we were to take another random sample of size 50 from all
+Airbnb listings, we might get a different sample mean.
+
+--
+
+There is some variability in the .vocab[sampling distribution] of the mean, and
+we want to make sure we quantify this. 
+
+--
+
+.question[
+How might we quantify the sampling distribution of the mean using only the data
+that we have from our original sample?
+]
+
+---
+## Simulating the null distribution
+
+Let's return to the Asheville data. We know that our sample mean was 76.6, but
+we also know that if we were to take another random sample of size 50 from all
+Airbnb listings, we might get a different sample mean.
+
+There is some variability in the .vocab[sampling distribution] of the mean, and
+we want to make sure we quantify this. 
+
+.question[
+How might we quantify the sampling distribution of the mean using only the data
+that we have from our original sample?
+]
+
+---
+
+## Bootstrap distribution of the mean
+
+
+```r
+set.seed(12345)
+library(infer)
+
+boot_means &lt;- asheville %&gt;% 
+* specify(response = ppg) %&gt;%
+* generate(reps = 5000, type =  "bootstrap") %&gt;%
+* calculate(stat = "mean")
+```
+
+
+```r
+ggplot(data = boot_means, aes(stat)) +
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+  geom_vline(xintercept = mean(boot_means$stat), 
+             lwd = 2, color = "red")
+```
+
+---
+
+## Bootstrap distribution of the mean
+
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Shifting the distribution
+
+We've captured the variability in the sample mean among samples of size 50 from
+Asheville area Airbnbs, but remember that in the hypothesis testing paradigm,
+we must assess our observed evidence under the assumption that the null 
+hypothesis is true.
+
+.pull-left[
+
+```r
+boot_means %&gt;% 
+  summarize(mean(stat))
+```
+
+```
+## # A tibble: 1 x 1
+##   `mean(stat)`
+##          &lt;dbl&gt;
+## 1         76.6
+```
+]
+
+.pull-right[
+Remember,
+
+`\(H_0: \mu = 100\)`
+
+`\(H_a: \mu \neq 100\)`
+]
+
+---
+
+class: middle, center
+
+.question[
+Where should the bootstrap distribution of means be centered if in fact `\(H_0\)` 
+were actually true?
+]
+
+---
+
+## Shifting the distribution
+
+
+```r
+ash_boot_mean &lt;- boot_means %&gt;% 
+  summarize(mean = mean(stat)) %&gt;% 
+  pull()
+
+*boot_means &lt;- boot_means %&gt;%
+* mutate(null_dist_stat = stat - (ash_boot_mean - 100))
+```
+
+If we shifted the bootstrap distribution by `offset`, then it will be centered
+at `\(\mu_0\)`: the null-hypothesized value for the mean.
+
+
+```r
+*ggplot(data = boot_means, aes(x = null_dist_stat)) +
+  geom_histogram(binwidth = 2, color = "darkblue", fill = "skyblue") + 
+  labs(x = "Price per night", y = "Count") +
+    geom_vline(xintercept = mean(boot_means$null_dist_stat), lwd = 2, color = "red")
+```
+
+---
+
+## Distribution of `\(\bar{x}\)` under `\(H_0\)`
+
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Simulating the null distribution with infer
+
+
+```r
+null_dist &lt;- asheville %&gt;%
+  specify(response = ppg) %&gt;%
+  hypothesize(null = "point", mu = 100) %&gt;%
+* generate(reps = 5000, type = "bootstrap") %&gt;%
+  calculate(stat = "mean")
+```
+
+.pull-left[
+
+```r
+null_dist
+```
+
+```
+## # A tibble: 5,000 x 2
+##    replicate  stat
+##        &lt;int&gt; &lt;dbl&gt;
+##  1         1 104. 
+##  2         2 112. 
+##  3         3  92.7
+##  4         4 102. 
+##  5         5  93.8
+##  6         6 123. 
+##  7         7 104. 
+##  8         8 109. 
+##  9         9 106. 
+## 10        10 102. 
+## # … with 4,990 more rows
+```
+]
+
+.pull-right[
+
+```r
+null_dist %&gt;%
+  summarise(mean = mean(stat))
+```
+
+```
+## # A tibble: 1 x 1
+##    mean
+##   &lt;dbl&gt;
+## 1  100.
+```
+]
+
+---
+
+## 3️⃣ Assessing the evidence
+
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## 3️⃣ Assessing the evidence
+
+
+```r
+null_dist %&gt;%
+  filter(stat &lt;= 76.6 | stat &gt;= (100 + (100 - 76.6))) %&gt;%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     &lt;dbl&gt;
+## 1  0.0008
+```
+
+---
+
+## 4️⃣ Make conclusion 
+
+.vocab[
+What might we conclude at the `\(\alpha\)` = 0.05 level?
+]
+
+
+
+
+
+The p-value, 0.0008 is less than 0.05, so we .vocab[reject `\(H_0\)`]. The data provide sufficient evidence that the mean price per guest per night for Airbnbs in Asheville is not equal to $100. 
+
+---
+
+## Discussion questions
+
+- `\(H_a\)` here was a .vocab[two-sided] hypothesis `\((H_a: \mu \neq 100)\)`. How does this compare to the .vocab[one-sided] hypothesis from last time `\((H_a: p &lt; 0.1)\)`? 
+
+--
+
+- How might the p-value change depending on what type of alternative hypothesis
+is specified?
+
+--
+
+- Why did we need to "shift" the bootstrap distribution when we generated the null distribution in this example, but we didn't need shift the distribution last time when we  generated the null distribution for inference on the population proportion?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
