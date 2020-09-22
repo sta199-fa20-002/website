@@ -101,7 +101,7 @@ We have the following four scenarios:
 | Decision             | `\(H_0\)` is true | `\(H_0\)` is false |
 |----------------------|---------------|----------------|
 | Fail to reject `\(H_0\)` | Correct decision    | **Type II Error** |
-| Reject `\(H_0\)`         | **Type II Error**  | Correct decision     |
+| Reject `\(H_0\)`         | **Type I Error**  | Correct decision     |
 
 --
 
@@ -115,7 +115,7 @@ It is important to weigh the consequences of making each type of error.
 | Decision             | `\(H_0\)` is true | `\(H_0\)` is false |
 |----------------------|---------------|----------------|
 | Fail to reject `\(H_0\)` | Correct decision    | **Type II Error** |
-| Reject `\(H_0\)`         | **Type II Error**  | Correct decision     |
+| Reject `\(H_0\)`         | **Type I Error**  | Correct decision     |
 
 --
 
@@ -144,12 +144,12 @@ Though we'd like to know if we're making a correct decision or making a Type I o
 
 ## Back to Asheville!
 
-.center[
-![](img/09/asheville.jpg)
+&lt;img src="img/09/asheville.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
 
 Your friend claims that the mean price per guest per night for Airbnbs in
 Asheville is $100. **What do you make of this statement?**
-]
+
 
 Let's use hypothesis testing to assess this claim! 
 
@@ -282,7 +282,7 @@ ggplot(data = boot_means, aes(stat)) +
 
 ## Bootstrap distribution of the mean
 
-&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -354,7 +354,7 @@ at `\(\mu_0\)`: the null-hypothesized value for the mean.
 
 ## Distribution of `\(\bar{x}\)` under `\(H_0\)`
 
-&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -412,7 +412,7 @@ null_dist %&gt;%
 
 ## 3️⃣ Assessing the evidence
 
-&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="12-sim-inference-pt2_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -450,7 +450,7 @@ The p-value, 0.0008 is less than 0.05, so we .vocab[reject `\(H_0\)`]. The data 
 
 ## Discussion questions
 
-- `\(H_a\)` here was a .vocab[one-sided] hypothesis. How does this compare to the .vocab[two-sided] hypothesis from last time? 
+- `\(H_a\)` here was a .vocab[two-sided] hypothesis `\((H_a: \mu \neq 100)\)`. How does this compare to the .vocab[one-sided] hypothesis from last time `\((H_a: p &lt; 0.1)\)`? 
 
 --
 

@@ -133,7 +133,7 @@ We have the following four scenarios:
 | Decision             | $H_0$ is true | $H_0$ is false |
 |----------------------|---------------|----------------|
 | Fail to reject $H_0$ | Correct decision    | **Type II Error** |
-| Reject $H_0$         | **Type II Error**  | Correct decision     |
+| Reject $H_0$         | **Type I Error**  | Correct decision     |
 
 --
 
@@ -147,7 +147,7 @@ It is important to weigh the consequences of making each type of error.
 | Decision             | $H_0$ is true | $H_0$ is false |
 |----------------------|---------------|----------------|
 | Fail to reject $H_0$ | Correct decision    | **Type II Error** |
-| Reject $H_0$         | **Type II Error**  | Correct decision     |
+| Reject $H_0$         | **Type I Error**  | Correct decision     |
 
 --
 
@@ -188,12 +188,14 @@ text(x = 3, y = 0.05, "0.05", col = "gray", cex = 1.5)
 
 ## Back to Asheville!
 
-.center[
-![](img/09/asheville.jpg)
+```{r echo = F, fig.align = "center", out.width = "40%"}
+knitr::include_graphics("img/09/asheville.jpg")
+```
+
 
 Your friend claims that the mean price per guest per night for Airbnbs in
 Asheville is $100. **What do you make of this statement?**
-]
+
 
 Let's use hypothesis testing to assess this claim! 
 
@@ -468,7 +470,7 @@ The p-value, `r p_val` is less than 0.05, so we .vocab[reject $H_0$]. The data p
 
 ## Discussion questions
 
-- $H_a$ here was a .vocab[one-sided] hypothesis. How does this compare to the .vocab[two-sided] hypothesis from last time? 
+- $H_a$ here was a .vocab[two-sided] hypothesis $(H_a: \mu \neq 100)$. How does this compare to the .vocab[one-sided] hypothesis from last time $(H_a: p < 0.1)$? 
 
 --
 
