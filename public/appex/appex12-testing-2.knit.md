@@ -130,8 +130,7 @@ Clone the **ae-12** repo on [GitHub](https://www.github.com/sta199-fa20-002) and
 
 ### Exercise 1
 
-Suppose you are interested in whether at least half of the Airbnb listings in Asheville are more than $50 per guest per night. What would be your null and 
-alternative hypotheses?
+Suppose you are interested in whether at least half of the Airbnb listings in Asheville are more than $50 per guest per night. What would be your null and alternative hypotheses?
 
 ### Exercise 2
 
