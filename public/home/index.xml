@@ -465,7 +465,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-06/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Simulation-based testing: Part 1 Simulation-based testing: Pt 1 AE 11: Hypothesis Testing   Wednesday Simulation-based testing: Part 2 Simulation-based testing: Part 2 AE 12    Readings          Introduction to Modern Statistics: 5.1 Randomization tests Required    Assignments          Exam 01 open Thu at 9a; due Sun, Sep 27 at 11:59p    Announcements From the StatSci Majors Union (both events count towards stats experiences) If you are interested in statistics, machine learning, or data science and wondering about your possible pathways after Duke, the StatSci Majors Union and the Department of Statistical Science have got you covered!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Simulation-based testing: Part 1 Simulation-based testing: Pt 1 AE 11: Hypothesis Testing   Wednesday Simulation-based testing: Part 2 Simulation-based testing: Part 2 AE 12: Hypohtesis Testing, Part 2    Readings          Introduction to Modern Statistics: 5.1 Randomization tests Required   Infer examples Optional    Assignments          Exam 01 open Thu, Sep 24 at 9a; due Sun, Sep 27 at 11:59p    Announcements From the StatSci Majors Union (both events count towards stats experiences) If you are interested in statistics, machine learning, or data science and wondering about your possible pathways after Duke, the StatSci Majors Union and the Department of Statistical Science have got you covered!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -493,7 +493,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/12-sim-inference-pt2.html&#34;&gt;Simulation-based testing: Part 2&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/vYIEAA/&#34;&gt;Simulation-based testing: Part 2&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 12&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex12-testing-2.html&#34;&gt;AE 12: Hypohtesis Testing, Part 2&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -510,6 +510,10 @@ font-size: 18px;
 &lt;td&gt;&lt;a href=&#34;https://openintro-ims.netlify.app/intro-stat-inference.html#inf-rand&#34;&gt;Introduction to Modern Statistics: 5.1 Randomization tests&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://infer.netlify.app/articles/observed_stat_examples.html&#34;&gt;Infer examples&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
@@ -523,7 +527,7 @@ font-size: 18px;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Exam 01&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;open Thu at 9a; due Sun, Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;open Thu, Sep 24 at 9a; due Sun, Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
