@@ -1,7 +1,7 @@
 ---
 title: "AE 12: Hypothesis Testing"
 subtitle: "Part 2"
-date: "`r Sys.Date()`"
+date: "2020-09-23"
 output: 
   html_document:
     theme: readable
@@ -29,13 +29,22 @@ https://infer.netlify.app/articles/observed_stat_examples.html
 
 ### From last class
 
-```{r load-packages, warning = FALSE, message = FALSE}
+
+```r
 library(tidyverse)
 library(infer)
 ```
 
-```{r load-data}
+
+```r
 asheville <- read_csv("data/asheville.csv")
+```
+
+```
+## Parsed with column specification:
+## cols(
+##   ppg = col_double()
+## )
 ```
 
 Suppose you are interested in whether the mean price per guest per night is actually less than $80. Conduct a hypothesis test to assess this claim.
@@ -52,11 +61,13 @@ $H_a: \mu < 80$
 
 **Simulate null distribution**
 
-```{r set-seed}
+
+```r
 set.seed(092320)
 ```
 
-```{r sim-null}
+
+```r
 null_dist <- asheville %>%
   specify(response = ppg) %>%
   hypothesize(null = "point", mu = 80) %>%
@@ -64,7 +75,8 @@ null_dist <- asheville %>%
   calculate(stat = "mean")
 ```
 
-```{r calc-mean}
+
+```r
 mean_ppg <- asheville %>%
   summarise(mean_ppg = mean(ppg)) %>%
   pull()
@@ -72,25 +84,39 @@ mean_ppg <- asheville %>%
 
 **Visualize Null distribution using ggplot**
 
-```{r plot-null, warning = FALSE, message = FALSE}
+
+```r
 ggplot(data = null_dist, aes(x = stat)) +
   geom_histogram(alpha = 0.8) + 
   geom_vline(xintercept = mean_ppg, color = "red")
 ```
 
+<img src="appex12-testing-2_files/figure-html/plot-null-1.png" width="672" />
+
 **Visualize null distribution using infer**
 
-```{r plot-null-infer}
+
+```r
 visualize(null_dist) +
   shade_p_value(obs_stat = mean_ppg, direction = "less")
 ```
 
+<img src="appex12-testing-2_files/figure-html/plot-null-infer-1.png" width="672" />
+
 **Calculate p-value**
 
-```{r calc-pval}
+
+```r
 null_dist %>%
   filter(stat <= mean_ppg) %>%
   summarise(p_value = n() / nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     <dbl>
+## 1   0.316
 ```
 
 **Conclusion**
@@ -111,7 +137,8 @@ alternative hypotheses?
 
 Simulate the null distribution to test your hypotheses. You can use 100 reps for the in-class exercise.
 
-```{r ex-2}
+
+```r
 #simulate null dist
 ```
 
@@ -121,9 +148,9 @@ What was your p-value? What decision do you make with respect to your
 hypotheses, and what conclusion do you make in the context of the research
 problem?
 
-```{r ex-3}
-# calc p-value
 
+```r
+# calc p-value
 ```
 
 

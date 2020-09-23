@@ -95,7 +95,7 @@ null_dist %>%
 
 **Conclusion**
 
-The p-value 0.312 is greater than $\alpha = 0.05$, so we fail to reject the null hypothesis. The data do not provide sufficient evidence that the mean price per night is less tha $80. 
+The p-value 0.312 is greater than $\alpha = 0.05$, so we fail to reject the null hypothesis. The data do not provide sufficient evidence that the mean price per night is less than $80. 
 
 
 ## Clone a repo + start a new project
