@@ -29,7 +29,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| Exam 01 | **open Thu, Sep 24 at 9a; due Sun, Sep 27 at 11:59p** |
+| [Exam 01](https://sta199-fa20-002.netlify.app/exams/exam-01.html) | **open Thu, Sep 24 at 9a; due Sun, Sep 27 at 11:59p** |
 
 
 ## Announcements

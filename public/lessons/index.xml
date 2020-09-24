@@ -526,7 +526,7 @@ font-size: 18px;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;Exam 01&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/exams/exam-01.html&#34;&gt;Exam 01&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;open Thu, Sep 24 at 9a; due Sun, Sep 27 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
