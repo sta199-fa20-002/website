@@ -1,8 +1,67 @@
 ---
-title: "Exam 01 "
+title: "Exam 01: STA 199, Fall 2020"
+subtitle: "Sep 24 at 9a - Sep 27 at 11:59p"
 output: 
-    html_document: 
-     css: "sta199-hw.css"
+  html_document:
+    toc: true
+    css: "sta199-hw.css"
 ---
 
-Instructions will be provided when the exam is assigned.
+# Instructions
+
+You will find the Exam 01 repo with the prefix **exam-01-** on [GitHub](https://www.github.com/sta199-fa20-002).
+
+The exam questions are in the **README** of the Exam 01 repo. 
+
+The exam covers the material in Weeks 01 - 04: data visualization, data wrangling, data science ethics, and probability. 
+
+### Deadline
+
+This exam is due **Sunday, September 27 at 11:59p US Eastern time**.
+
+You must submit a .pdf document to Gradescope that corresponds to the .Rmd file
+in your GitHub repository in order to receive credit for this exam.
+
+**There is no grace period for this exam. You can resubmit the exam before the deadline, so start and submit the exam early in order to avoid any last-minute technical issues.** 
+
+If a .pdf is not uploaded to Gradescope by the submission deadline, your latest
+commit prior to the deadline will be used as your submission. *There will be a penalty for not submitting the PDF.* Commit often and
+at appropriate times. Part of your grade will be based on quality of commit history.
+
+### Rules
+
+- This is an individual assignment.
+- Everything in your repository is for your eyes only except for the instructor.
+- You may not collaborate or communicate anything about this exam to **anyone** 
+except the instructor. For example, you may not communicate with other students, 
+the TAs, or post/solicit help on the internet or via any other communication 
+means. 
+- You may use R, as well as any notes, books, or existing internet resources to
+answer exam questions.
+- As always, if you use code that is beyond what we've done in the class (e.g. code for very elaborate and customized data visualizations), you must cite it by including the link to the original source in your exam write up. A failure to cite is
+plagiarism.
+- There are no office hours, and Piazza will be inactive during the exam.
+- If you have questions, email Professor Tackett. Questions to the instructor should only be about understanding the data or the
+exam's instructions. You may not ask questions on any topics from past 
+assignments or material related to the exam. 
+- Professor Tackett will provide code debugging if needed, but this will result in
+**point deductions** if used.
+
+### Academic Integrity
+
+By taking this exam, you pledge to uphold the Duke Community Standard on this
+exam:
+
+- I will not lie, cheat, or steal in my academic endeavors;
+- I will conduct myself honorably in all my endeavors; and
+- I will act if the Standard is compromised.
+
+# Submission
+
+Please only upload your .pdf document to Gradescope. Before you submit the 
+uploaded document, mark where each answer is to the exercises. If any answer 
+spans multiple pages, then mark all pages. Make sure to associate the “Overall”
+section with the first page. **Failure to do so may result in point deductions.**
+
+Make sure that your uploaded .pdf document matches your .Rmd file and .pdf in
+your repository exactly. Points will be deducted for non-reproducibility.
