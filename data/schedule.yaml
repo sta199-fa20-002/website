@@ -77,6 +77,7 @@ lessons:
   - week: "Week 07"
     date: "Mon, Sep 28"
     title: "The Central Limit Theorem"
+    slides: "13-clt.html"
   - date: "Wed, Sep 30"
     title: " Inference with the CLT"
   - date: "Thu, Oct 01"

@@ -1,6 +1,6 @@
 ---
 title: "Week 06: Sim-based testing"
-weight: 4
+weight: 6
 ---
 
 <style>

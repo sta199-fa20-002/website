@@ -1,0 +1,576 @@
+---
+title: "The Central Limit Theorem"
+subtitle: "(CLT)"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](13-clt.pdf)
+
+---
+
+
+class: center, middle
+
+## Sample Statistics and Sampling Distributions
+
+---
+
+## Variability of sample statistics
+
+- We've seen that each sample from the population yields a slightly different 
+sample statistic (sample mean, sample proportion, etc.)
+
+- Previously we've quantified this value via simulation
+
+- Today we talk about some of the theory underlying .vocab[sampling distributions],
+particularly as they relate to sample means.
+
+---
+
+## For the fifth time...
+
+- Statistical inference is the act of generalizing from a sample in order to 
+make conclusions regarding a population. 
+
+- We are interested in population parameters, which we do not observe. Instead, 
+we must calculate statistics from our sample in order to learn about them.
+
+- As part of this process, we must quantify the degree of uncertainty in our 
+sample statistic. 
+
+---
+
+## Sampling distribution of the mean
+
+Suppose we’re interested in the mean resting heart rate of students at Duke, and 
+are able to do the following:
+
+--
+
+1. Take a random sample of size $n$ from this population, and calculate the 
+mean resting heart rate in this sample, $\bar{X}_1$
+
+--
+
+2. Put the sample back, take a second random sample of size $n$, and calculate 
+the mean resting heart rate from this new sample, $\bar{X}_2$
+
+--
+
+3. Put the sample back, take a third random sample of size $n$, and calculate
+the mean resting heart rate from this sample, too...
+
+--
+
+...and so on.
+
+---
+
+## Sampling distribution of the mean
+
+After repeating this many times, we have a dataset that has the
+sample averages from the population: $\bar{X}_1$, $\bar{X}_2$, $\cdots$,
+$\bar{X}_K$ (assuming we took $K$ total samples).
+
+--
+
+.question[
+Can we say anything about the distribution of these sample means (that is, the
+.vocab[sampling distribution] of the mean?) 
+]
+
+*(Keep in mind, we don't know what the underlying distribution of mean resting 
+heart rate looks like in Duke students!)*
+
+---
+
+class: center, middle
+
+## The Central Limit Theorem
+
+---
+
+class: middle
+
+A quick caveat...
+
+For now, let's assume we know the underlying standard deviation, $\sigma$, from our distribution 
+
+---
+
+## The Central Limit Theorem
+
+For a population with a well-defined mean $\mu$ and standard deviation $\sigma$,
+these three properties hold for the distribution of sample average $\bar{X}$,
+assuming certain conditions hold:
+
+--
+
+1. The mean of the sampling distribution of the mean is identical to the 
+population mean $\mu$.
+
+--
+
+2. The standard deviation of the distribution of the sample averages is
+$\sigma/\sqrt{n}$.
+  - This is called the .vocab[standard error] (SE) of the mean. 
+ 
+--
+
+3. For $n$ large enough, the shape of the
+sampling distribution of means is approximately .vocab[normally distributed].
+
+---
+
+## The normal (Gaussian) distribution?
+
+The normal distribution is unimodal and symmetric and is described by its
+.vocab[density function]:
+
+If a random variable $X$ follows the normal distribution, then
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{ -\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2} \right\}$$
+where $\mu$ is the mean and $\sigma^2$ is the variance. 
+
+.alert[
+We often write $N(\mu, \sigma^2)$ to describe this distribution.
+]
+---
+
+## The normal distribution (graphically)
+
+```{r echo = F, fig.height = 2.5}
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-3, 3), color = "black", size = 1.5) +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Wait, *any* distribution?
+
+The central limit theorem tells us that *<b>sample averages</b>* are normally distributed, if we have enough data and certain assumptions hold. 
+
+This is true *even if our original variables are not normally distributed*.
+
+Click [here](http://onlinestatbook.com/stat_sim/sampling_dist/index.html) to see an interactive demonstration of this idea.
+
+---
+
+## Conditions for CLT 
+
+We need to check two conditions for CLT to hold: independence, sample size/distribution. 
+
+--
+
+`r emo::ji("white_check_mark")` .vocab[Independence:] The sampled observations must be independent. This is 
+difficult to check, but the following are useful guidelines:
+
+- the sample must be randomly taken
+- if sampling without replacement, sample size must be less than 10% of the 
+    population size
+
+--
+
+If samples are independent, then by definition one sample's value does not "influence" another sample's value.
+
+---
+
+## Conditions for CLT 
+
+`r emo::ji("white_check_mark")` .vocab[Sample size / distribution:] 
+
+- if data are numerical, usually n > 30 is considered a large enough sample for the CLT to kick in
+- if we know for sure that the underlying data are normally distributed, then the distribution of sample averages will also be exactly normal, regardless of the sample size
+- if data are categorical, at least 10 successes and 10 failures.
+
+---
+
+class: middle, center
+
+## Let's run our own simulation
+
+---
+
+### Underlying population (not observed in real life!)
+
+.small[
+```{r}
+rs_pop <- tibble(x = rbeta(100000, 1, 5) * 100)
+```
+]
+
+```{r echo=FALSE, fig.height=2}
+ggplot(data = rs_pop, aes(x = x)) +
+  geom_histogram(binwidth = 2, fill = "skyblue", color = "darkblue") +
+  labs(title = "Population distribution", x = "") +
+  theme(axis.title.y = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.ticks.y = element_blank())
+```
+
+**The true population parameters**
+.small[
+```{r echo = F}
+rs_pop %>%
+  summarise(mu = mean(x), sigma = sd(x))
+```
+]
+
+---
+
+## Sampling from the population - 1
+
+```{r}
+set.seed(1)
+samp_1 <- rs_pop %>%
+  sample_n(size = 50) %>%
+  summarise(x_bar = mean(x))
+```
+
+```{r}
+samp_1
+```
+
+---
+
+## Sampling from the population - 2
+
+```{r}
+set.seed(2)
+samp_2 <- rs_pop %>%
+  sample_n(size = 50) %>% 
+  summarise(x_bar = mean(x))
+```
+
+```{r}
+samp_2
+```
+---
+
+## Sampling from the population - 3
+
+```{r}
+set.seed(3)
+samp_3 <- rs_pop %>%
+  sample_n(size = 50, replace = TRUE) %>% 
+  summarise(x_bar = mean(x))
+```
+
+```{r}
+samp_3
+```
+
+--
+
+keep repeating...
+
+---
+
+## Sampling distribution
+
+.small[
+```{r}
+set.seed(092620)
+sampling <- rs_pop %>%
+  rep_sample_n(size = 50, replace = TRUE, reps = 5000) %>%
+  group_by(replicate) %>%
+  summarise(xbar = mean(x))
+```
+]
+
+```{r echo=FALSE, fig.height=1.9}
+ggplot(data = sampling, aes(x = xbar)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "darkblue") +
+  labs(title = "Sampling distribution of sample means") +
+  theme(axis.title.y = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.ticks.y = element_blank())
+```
+
+```{r}
+sampling %>%
+  summarise(mean = mean(xbar), se = sd(xbar))
+```
+
+---
+
+.question[
+How do the shapes, centers, and spreads of these distributions compare?
+]
+
+```{r echo=FALSE, fig.height=2.5}
+p1 <- ggplot(data = rs_pop, aes(x = x)) +
+  geom_histogram(binwidth = 2, fill = "skyblue", color = "darkblue") +
+  labs(title = "Population distribution", x = "") +
+  xlim(-5, 100) +
+  theme(axis.title.y = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.ticks.y = element_blank())
+
+p2 <- ggplot(data = sampling, aes(x = xbar)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "darkblue") +
+  labs(title = "Sampling distribution of sample means", x = "Sample means") +
+  xlim(-5, 100) +
+  labs(x = " ", 
+       y = " ") +
+    theme(axis.title.y = element_blank(),
+        axis.text.y  = element_blank(),
+        axis.ticks.y = element_blank())
+
+p1 / p2
+```
+
+---
+
+## Recap
+
+- If certain assumptions are satisfied, regardless of the shape of the 
+population distribution, the sampling distribution of the mean follows an 
+approximately normal distribution.
+
+--
+
+- The center of the sampling distribution is at the center of the population 
+distribution.
+
+--
+
+- The sampling distribution is less variable than the population distribution 
+(and we can quantify by how much).
+
+--
+
+.question[
+What is the standard error, and how are the standard error and sample size 
+related? What does that say about how the spread of the sampling distribution
+changes as $n$ increases?
+]
+
+---
+
+class: center, middle
+
+## Finding probabilities in R
+
+---
+
+## Probabilities under N(0,1) curve
+
+```{r}
+# P(Z < -1.5)
+pnorm(-1.5)
+```
+
+```{r echo = F, fig.height = 2}
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(-3, -1.5), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-1.5, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+--
+
+```{r echo = F, fig.height = 2}
+from.z <- qnorm(pnorm(-1))
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+    geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-3, from.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+##  Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#C71585", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(pnorm(-1))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#C71585", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r echo = F, fig.height = 2}
+from.z <- qnorm(pnorm(-1))
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+    geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-3, from.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+```{r}
+pnorm(2) - pnorm(-1)
+```
+
+---
+
+##  Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r}
+pnorm(2) - pnorm(-1)
+```
+
+---
+
+## Finding cutoff values under N(0,1) curve
+
+```{r}
+# find Q1
+qnorm(0.25)
+```
+
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(.25)
+ 
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Looking ahead...
+
+We will use the Central Limit Theorem and the normal distribution to conduct statistical inference.
