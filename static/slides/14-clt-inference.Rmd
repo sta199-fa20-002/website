@@ -1,0 +1,583 @@
+---
+title: "Inference with the CLT"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+library(kableExtra)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](14-clt-inference.pdf)
+
+---
+## The Central Limit Theorem
+
+For a population with a well-defined mean $\mu$ and standard deviation $\sigma$,
+these three properties hold for the distribution of sample average $\bar{X}$,
+assuming certain conditions hold:
+
+`r emo::ji("white_check_mark")` The distribution of the sample statistic is nearly normal
+
+`r emo::ji("white_check_mark")` The distribution is centered at the (often unknown) population parameter
+
+`r emo::ji("white_check_mark")` The variability of the distribution is inversely proportional to the square 
+root of the sample size
+
+---
+
+## Why do we care?
+
+Knowing the distribution of the sample statistic $\bar{X}$ can help us
+
+--
+
+- estimate a population parameter as point **estimate $\boldsymbol{\pm}$ **margin of error**
+  - the .vocab[margin of error] is comprised of a measure of how confident we want to be and how variable the sample statistic is
+
+--
+
+- test for a population parameter by evaluating how likely it is to obtain to observed sample statistic when assuming that the null hypothesis is true
+  - this probability will depend on how variable the sampling distribution is
+
+---
+
+class: center, middle
+
+## Inference based on the CLT
+
+---
+
+## Inference based on the CLT
+
+If necessary conditions are met, we can also use inference methods based on the 
+CLT. Suppose we know the true population standard deviation. 
+
+-- 
+
+Then the CLT tells us that $\bar{X}$ approximately has the distribution $N\left(\mu, \sigma/\sqrt{n}\right)$. 
+
+That is,
+
+$$Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0, 1)$$
+
+---
+
+## Probabilities under N(0,1) curve
+
+```{r}
+# P(Z < -1.5)
+pnorm(-1.5)
+```
+
+```{r echo = F, fig.height = 2}
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(-3, -1.5), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-1.5, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+--
+
+```{r echo = F, fig.height = 2}
+from.z <- qnorm(pnorm(-1))
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+    geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-3, from.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+##  Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#C71585", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(pnorm(-1))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#C71585", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r echo = F, fig.height = 2}
+from.z <- qnorm(pnorm(-1))
+to.z <- qnorm(pnorm(2))
+
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+    geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(-3, from.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+```{r}
+pnorm(2) - pnorm(-1)
+```
+
+---
+
+##  Probability between two values
+
+.question[
+If $Z \sim N(0, 1)$, what is $P(-1 < Z < 2)$?
+]
+
+```{r}
+pnorm(2) - pnorm(-1)
+```
+
+---
+
+## Finding cutoff values under N(0,1) curve
+
+```{r}
+# find the median, Q2
+qnorm(0.5)
+```
+
+
+```{r echo = F, fig.height = 2}
+from.z <- -3
+to.z <- qnorm(.5)
+ 
+ggplot(NULL, aes(c(-3,3))) +
+  geom_area(stat = "function", fun = dnorm, fill = "#00998a", xlim = c(from.z, to.z), color = "black") +
+  geom_area(stat = "function", fun = dnorm, fill = "#FFFFFF", xlim = c(to.z, 3), color = "black") +
+  labs(x = "", 
+       y = "Density") +
+  theme_bw() +
+  scale_x_continuous(breaks = c(-3,-2,-1,0,1,2,3))
+```
+
+---
+
+## What if $\sigma$ isn't known?
+
+```{r fig.align="center",out.width="80%",echo=FALSE}
+knitr::include_graphics("img/14/guinness.jpg")
+```
+
+---
+
+## T distribution
+
+- In practice, we never know the true value of $\sigma$, and so we estimate it from our data with $s$.
+
+We can make the following test statistic for testing
+a single sample's population mean, which has a .vocab[t-distribution n-1 degrees of freedom]:
+
+.alert[
+$$ T = \frac{\bar{X} - \mu}{s/\sqrt{n}} \sim t_{n-1}$$
+]
+
+---
+
+## T distribution 
+
+
+The t-distribution is also unimodal and symmetric, and is centered at 0
+
+--
+
+Thicker tails than the normal distribution
+  - This is to make up for additional variability introduced by using $s$ instead of $\sigma$ in calculation of the 
+SE
+
+---
+
+## T vs Z distributions
+
+```{r echo=FALSE, fig.height = 2.5}
+x = seq(-5,5,len=1000)
+d = rbind(
+  data.frame(dist="t (df=1)",  x=x, d=dt(x,1)),
+  data.frame(dist="t (df=3)",  x=x, d=dt(x,3)),
+  data.frame(dist="t (df=5)",  x=x, d=dt(x,5)),
+  data.frame(dist="t (df=10)", x=x, d=dt(x,10)),
+  data.frame(dist="t (df=15)", x=x, d=dt(x,15)),
+  data.frame(dist="t (df=30)", x=x, d=dt(x,30)),
+  data.frame(dist="Z", x=x, d=dnorm(x))
+)
+
+ggplot(d, aes(x=x, y=d, color=dist)) + geom_line()
+```
+
+---
+
+## T distribution
+
+.vocab[Finding probabilities under the t curve:]
+
+```{r}
+pt(-1.96, df = 9)
+pt(1.96, df = 9, lower.tail = FALSE)
+```
+
+--
+
+.vocab[Finding cutoff values under the t curve:]
+
+```{r}
+qt(0.025, df = 9)
+qt(0.975, df = 9)
+```
+
+
+---
+
+## Resident (un)satisfaction in Durham
+
+`durham_survey` contains resident responses to a survey given by the City of
+Durham in 2018. These are a randomly selected, representative sample of
+Durham residents.
+
+Questions were rated 1 - 5, with 1 being "highly dissatisfied" and 5 being
+"highly satisfied."
+
+.question[
+Is there evidence that on average, Durham residents are generally satisfied (score greater than 3) with the quality of the public library system? 
+]
+
+---
+
+## Exploratory Data Analysis
+
+```{r fig.height=2.5, fig.width=5, message=FALSE}
+durham <- read_csv("data/durham_survey.csv") %>%
+  filter(quality_library != 9)
+```
+
+```{r}
+durham %>% 
+  summarise(x_bar = mean(quality_library), 
+            med = median(quality_library), 
+            sd = sd(quality_library), n = n())
+```
+
+---
+
+## Exploratory Data Analysis
+
+```{r warning = F}
+durham %>% 
+  filter(quality_library!= 9) %>% 
+  ggplot(data = ., aes(x = quality_library)) + 
+    geom_histogram(binwidth = 0.95) +
+    labs(x = "Quality of public library system", y = "Count",
+         title = "Most residents seem satisfied with the public library system")
+```
+
+---
+
+## Hypotheses
+
+.question[
+What are the hypotheses for evaluating if Durham residents, on average, are generally satisifed with the public library system?
+]
+
+--
+
+$$H_0: \mu = 3$$ 
+$$H_A: \mu > 3$$
+
+---
+
+## Conditions
+
+.question[
+What conditions must be satisfied to conduct this hypothesis test using methods 
+based on the CLT? Are these conditions satisfied?
+]
+
+--
+
+**Independence?**
+
+--
+
+**Sample size / distribution?**
+
+---
+
+## Calculating the test statistic
+
+Summary statistics from the sample:
+
+```{r fig.height=3, fig.width=5, echo=FALSE}
+durham_summary <- durham %>% 
+  filter(quality_library != 9) %>%
+  summarise(xbar = mean(quality_library), s = sd(quality_library), n = n())
+durham_summary
+```
+
+--
+
+And the CLT says:
+
+$$\bar{x} \sim N\left(mean = \mu, SE = \frac{\sigma}{\sqrt{n}}\right)$$
+
+--
+
+.question[
+How many standard errors away from the population mean is the observed sample 
+mean?
+]
+
+.question[
+How likely are we to observe a sample mean that is at least as extreme as the 
+observed sample mean, if in fact the null hypothesis is true?
+]
+
+---
+
+## Calculations
+--
+
+```{r}
+(se <- durham_summary$s / sqrt(durham_summary$n))
+```
+
+--
+
+```{r}
+(t <- (durham_summary$xbar - 3) / se)
+```
+
+--
+
+```{r}
+(df <- durham_summary$n - 1)
+```
+
+--
+
+```{r}
+pt(t, df, lower.tail = FALSE)
+```
+
+---
+
+## Conclusion
+
+- Since the p-value is very small, we reject $H_0$.
+
+--
+
+- The data provide sufficient evidence at the $\alpha = 0.05$ level that Durham residents, on average, are satisifed? with the quality of the public library system.
+
+--
+
+.question[
+Would you expect a 95% confidence interval to include 3?
+]
+
+---
+
+## Confidence interval for a mean
+
+.alert[
+$$point~estimate \pm critical~value \times SE$$
+]
+
+--
+
+
+```{r}
+t_star <- qt(0.975, df)
+```
+
+--
+
+```{r}
+pt_est <- durham_summary$xbar
+```
+
+--
+
+```{r}
+round(pt_est + c(-1,1) * t_star * se, 2)
+```
+
+--
+
+.question[
+Interpret this interval in context of the data.
+]
+
+---
+
+class: middle, center
+
+## Inference with the CLT using `infer`
+---
+
+## CLT-based Hypothesis testing
+
+$$H_0: \mu = 3 \text{ vs }H_a: \mu > 3$$
+
+
+```{r}
+durham %>%
+  t_test(response = quality_library, mu = 3, 
+         alternative = "greater", conf_int = FALSE)
+```
+
+---
+
+## CLT-based confidence intervals
+
+Calculate a 95% confidence interval for the mean score for the quality of the library system in Durham. 
+
+```{r eval = F }
+durham %>%
+  t_test(response = quality_library, alternative = "two-sided",
+         conf_int = TRUE, conf_level = 0.95) 
+```
+
+```{r echo = F}
+durham %>%
+  t_test(response = quality_library, alternative = "two-sided", conf_int = TRUE, 
+         conf_level = 0.95)  %>%
+  kable(format = "html", digits = 3) %>%
+  column_spec(c(5,6), background = "#72B0BD", include_thead = TRUE)
+```
+
+---
+
+
+## Built-in functionality in R
+
+- There are more built in functions for doing some of these tests in R.
+
+- However a learning goal is this course is not to go through an exhaustive list of all CLT based tests and how to implement them
+
+- Instead the goal is to understand how these methods are / are not like the simulation based methods we learned about earlier
+
+--
+
+.question[
+What is similar, and what is different, between CLT based test of means vs. simulation based test?
+]
+

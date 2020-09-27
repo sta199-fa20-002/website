@@ -60,7 +60,7 @@ particularly as they relate to sample means.
 
 ---
 
-## For the fifth time...
+## Statistical inference
 
 - Statistical inference is the act of generalizing from a sample in order to 
 make conclusions regarding a population. 
@@ -155,17 +155,17 @@ sampling distribution of means is approximately .vocab[normally distributed].
 
 ---
 
-## The normal (Gaussian) distribution?
+## The normal (Gaussian) distribution
 
 The normal distribution is unimodal and symmetric and is described by its
 .vocab[density function]:
 
 If a random variable `\(X\)` follows the normal distribution, then
 `$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{ -\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2} \right\}$$`
-where `\(\mu\)` is the mean and `\(\sigma^2\)` is the variance. 
+where `\(\mu\)` is the mean and `\(\sigma^2\)` is the variance `\((\sigma \text{ is the standard deviation})\)`
 
 .alert[
-We often write `\(N(\mu, \sigma^2)\)` to describe this distribution.
+We often write `\(N(\mu, \sigma)\)` to describe this distribution.
 ]
 ---
 
@@ -238,7 +238,7 @@ rs_pop &lt;- tibble(x = rbeta(100000, 1, 5) * 100)
 ## # A tibble: 1 x 2
 ##      mu sigma
 ##   &lt;dbl&gt; &lt;dbl&gt;
-## 1  16.7  14.2
+## 1  16.6  14.1
 ```
 ]
 
@@ -263,7 +263,7 @@ samp_1
 ## # A tibble: 1 x 1
 ##   x_bar
 ##   &lt;dbl&gt;
-## 1  17.2
+## 1  15.9
 ```
 
 ---
@@ -287,7 +287,7 @@ samp_2
 ## # A tibble: 1 x 1
 ##   x_bar
 ##   &lt;dbl&gt;
-## 1  15.3
+## 1  17.1
 ```
 ---
 
@@ -297,7 +297,7 @@ samp_2
 ```r
 set.seed(3)
 samp_3 &lt;- rs_pop %&gt;%
-  sample_n(size = 50, replace = TRUE) %&gt;% 
+  sample_n(size = 50) %&gt;% 
   summarise(x_bar = mean(x))
 ```
 
@@ -310,7 +310,7 @@ samp_3
 ## # A tibble: 1 x 1
 ##   x_bar
 ##   &lt;dbl&gt;
-## 1  15.1
+## 1  19.2
 ```
 
 --
@@ -344,7 +344,7 @@ sampling %&gt;%
 ## # A tibble: 1 x 2
 ##    mean    se
 ##   &lt;dbl&gt; &lt;dbl&gt;
-## 1  16.8  2.01
+## 1  16.6  1.99
 ```
 
 ---

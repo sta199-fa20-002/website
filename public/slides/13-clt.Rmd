@@ -94,7 +94,7 @@ particularly as they relate to sample means.
 
 ---
 
-## For the fifth time...
+## Statistical inference
 
 - Statistical inference is the act of generalizing from a sample in order to 
 make conclusions regarding a population. 
@@ -189,17 +189,17 @@ sampling distribution of means is approximately .vocab[normally distributed].
 
 ---
 
-## The normal (Gaussian) distribution?
+## The normal (Gaussian) distribution
 
 The normal distribution is unimodal and symmetric and is described by its
 .vocab[density function]:
 
 If a random variable $X$ follows the normal distribution, then
 $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{ -\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2} \right\}$$
-where $\mu$ is the mean and $\sigma^2$ is the variance. 
+where $\mu$ is the mean and $\sigma^2$ is the variance $(\sigma \text{ is the standard deviation})$
 
 .alert[
-We often write $N(\mu, \sigma^2)$ to describe this distribution.
+We often write $N(\mu, \sigma)$ to describe this distribution.
 ]
 ---
 
@@ -322,7 +322,7 @@ samp_2
 ```{r}
 set.seed(3)
 samp_3 <- rs_pop %>%
-  sample_n(size = 50, replace = TRUE) %>% 
+  sample_n(size = 50) %>% 
   summarise(x_bar = mean(x))
 ```
 

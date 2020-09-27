@@ -14,7 +14,7 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Central Limit Theorem (CLT)](https://sta199-fa20-002.netlify.app/slides/13-clt.html) |  Central Limit Theorem | AE 13 |
+| Monday    | [Central Limit Theorem (CLT)](https://sta199-fa20-002.netlify.app/slides/13-clt.html) |  [Central Limit Theorem](https://warpwire.duke.edu/w/2YoEAA/) | AE 13 |
 | Wednesday |  CLT-based inference | CLT-based inference | AE 14 |
 
 ## Readings
