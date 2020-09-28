@@ -124,7 +124,7 @@ The introduction section includes
 
 In this section, you will describe the data set you wish to explore. This includes a description of the observations in the data set, a general description of the variables in the data set, and a description of how the data was originally collected (not how you found the data but how the original curator of the data collected it). 
 
-### Section 2 - Glimpse of data
+### Section 3 - Glimpse of data
 
 Use the `glimpse` function print a summary of the data at the end of your proposal.
 

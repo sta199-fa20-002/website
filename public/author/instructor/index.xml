@@ -965,7 +965,7 @@ exactly upon knitting.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;section-2---data-description&#34;&gt;Section 2 - Data description&lt;/h3&gt;
 &lt;p&gt;In this section, you will describe the data set you wish to explore. This includes a description of the observations in the data set, a general description of the variables in the data set, and a description of how the data was originally collected (not how you found the data but how the original curator of the data collected it).&lt;/p&gt;
-&lt;h3 id=&#34;section-2---glimpse-of-data&#34;&gt;Section 2 - Glimpse of data&lt;/h3&gt;
+&lt;h3 id=&#34;section-3---glimpse-of-data&#34;&gt;Section 3 - Glimpse of data&lt;/h3&gt;
 &lt;p&gt;Use the &lt;code&gt;glimpse&lt;/code&gt; function print a summary of the data at the end of your proposal.&lt;/p&gt;
 &lt;p&gt;Place your data in the &lt;code&gt;/data&lt;/code&gt; folder of the repo. Later on you will include the codebook in the README of the data folder.&lt;/p&gt;
 &lt;h3 id=&#34;submission&#34;&gt;Submission&lt;/h3&gt;
