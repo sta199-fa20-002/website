@@ -29,6 +29,9 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| Lab 05 | **due Oct 7 at 11:59p |
+| Lab 05 | **due Oct 7 at 11:59p** |
+| [Project proposal](https://sta199-fa20-002.netlify.app/project/#project-proposal) | **due Oct 9 at 11:59p** |
+
+
 
 

@@ -5,51 +5,58 @@
     name = "Schedule"
  #    pre = "<i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>"
     url = "/schedule/"
-    weight = 1
+    weight = 10
 
 [[main]]
    # pre = "<i class=\"fa fa-info-circle\"></i>"
     name = "Syllabus"
     url = "/syllabus/"
-    weight = 2
+    weight = 20
+
+[[main]]
+   # pre = "<i class=\"fa fa-info-circle\"></i>"
+    name = "Project"
+    url = "/project/"
+    weight = 30
+
 
 [[main]]
     # pre = "<i class=\"fa fa-graduation-cap\" aria-hidden=\"true\"></i>"
     url = "https://sakai.duke.edu"
     name = " Sakai"
-    weight = 3
+    weight = 40
 
 [[main]]
     # pre = "<i class=\"fa fa-check-square\" aria-hidden=\"true\"></i>"
     url = "https://www.gradescope.com"
     name = "Gradescope"
-    weight = 4
+    weight = 50
     
     
 [[main]]
    # pre = "<i class=\"fa fa-question-circle\" aria-hidden=\"true\"></i>"
     name = "Help"
     url = "/help/"
-    weight = 5
+    weight = 60
     
 
 [[main]]
     url = "https://vm-manage.oit.duke.edu/containers"
    # pre = "<i class=\"fa fa-code\" aria-hidden\"true\"></i>"
     name = "<i class=\"fab fa-r-project\"></i>"
-    weight = 6
+    weight = 70
     
 [[main]]
     url = "https://www.github.com/sta199-fa20-002"
     # pre = "<i class='fab fa-github fa-lg'></i>"
     name  = "<i class='fab fa-github fa-lg'></i>"
-    weight = 7
+    weight = 80
     
 [[main]]
     url = "https://piazza.com/class/kdtl7z2npb07ds"
     # pre = "<i class='fab fa-github fa-lg'></i>"
     name  = "<i class=\"ai ai-piazza ai-lg\"></i>"
-    weight = 8
+    weight = 90
 
     
 

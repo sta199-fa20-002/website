@@ -616,7 +616,11 @@ font-size: 18px;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Lab 05&lt;/td&gt;
-&lt;td&gt;**due Oct 7 at 11:59p&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Oct 7 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#project-proposal&#34;&gt;Project proposal&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Oct 9 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -817,12 +821,304 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
   </item>
   
 <item>
-  <title>Project</title>
+  <title>Project: Showcase your inner data scientist!</title>
   <link>/project/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
   
 <guid>/project/</guid>
-  <description>&lt;p&gt;Check back for details!&lt;/p&gt;
+  <description>&lt;h2 id=&#34;timeline&#34;&gt;Timeline&lt;/h2&gt;
+&lt;p&gt;Proposal due &lt;strong&gt;Friday, October 9&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Draft report due &lt;strong&gt;Wednesday, October 28&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Peer feedback due &lt;strong&gt;Thursday, November 5&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Final report due &lt;strong&gt;Friday, November 13&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Presentation video, slides, repo due &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Presentation comments due &lt;strong&gt;Friday, November 20&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: &lt;em&gt;Pick a dataset and do something with it. That is your
+final project.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The final project for this class will consist of analysis on a dataset of your own choosing. The dataset may already exist, you may collect your own data by scraping the web.&lt;/p&gt;
+&lt;p&gt;Choose the data based on your group&amp;rsquo;s interests or work you all have done in other courses or research projects. The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like!) and apply them to a dataset to analyze it in a meaningful way.&lt;/p&gt;
+&lt;h3 id=&#34;logistics&#34;&gt;Logistics&lt;/h3&gt;
+&lt;p&gt;You will work on the project with your lab groups.&lt;/p&gt;
+&lt;p&gt;The four primary deliverables for the final project are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A written, reproducible report detailing your analysis&lt;/li&gt;
+&lt;li&gt;A GitHub repository corresponding to your report&lt;/li&gt;
+&lt;li&gt;Slides + a video presentation&lt;/li&gt;
+&lt;li&gt;Formal peer review on another team&amp;rsquo;s project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overall-grading&#34;&gt;Overall grading&lt;/h2&gt;
+&lt;p&gt;The grade breakdown is as follows:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Total&lt;/th&gt;
+&lt;th&gt;115 pts&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Written report&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;60 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Slides&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;15 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Repository&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;5 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Video presentation&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;15 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Overall neatness and presentation style&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;5 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Peer feedback&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;15 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i&gt;Note: No late projects are accepted.&lt;/i&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;data-sources&#34;&gt;Data sources&lt;/h2&gt;
+&lt;p&gt;In order for you to have the greatest chance of success with this project it is important that you choose a manageable dataset. This means that the data should be readily accessible and large enough that multiple relationships can be explored. Therefore, &lt;strong&gt;your dataset must have at least 50 observations and at least 10 variables (exceptions can be made but you must speak with me first).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the dataset, there should be&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;categorical variables&lt;/li&gt;
+&lt;li&gt;discrete numerical variables&lt;/li&gt;
+&lt;li&gt;continuous numerical variables&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are using a dataset that comes in a
+format that we haven&amp;rsquo;t encountered in class (for instance, a &lt;code&gt;.DAT&lt;/code&gt; file), make
+sure that you are able to load it into RStudio as this can be tricky depending
+on the source. If you are having trouble, ask for help before it is too late.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reusing datasets from class:&lt;/strong&gt; Do not reuse datasets used in examples / homework
+in the class.&lt;/p&gt;
+&lt;p&gt;Some resources that may be helpful:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rfun.library.duke.edu/blog/data-sources-for-regression-analysis/&#34;&gt;R Data Sources for Regression Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34;&gt;kaggle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://data.fivethirtyeight.com/&#34;&gt;FiveThirtyEight data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;TidyTuesday&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.who.int/gho/database/en/&#34;&gt;World Health Organization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://data.nber.org/data/&#34;&gt;The National Bureau of Economic Research&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://data.imf.org/?sk=388DFA60-1D26-4ADE-B505-A05A558D9A42&amp;amp;sId=1479329328660&#34;&gt;International Monetary Fund&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gss.norc.org/&#34;&gt;General Social Survey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://data.un.org/&#34;&gt;United Nations Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://unstats.un.org/home/&#34;&gt;United Nations Statistics Division&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://data.gov.uk/&#34;&gt;U.K. Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.data.gov/&#34;&gt;U.S. Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.census.gov/data.html&#34;&gt;U.S. Census Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ec.europa.eu/eurostat/&#34;&gt;European Statistics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.statcan.gc.ca/eng/start&#34;&gt;Statistics Canada&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.pewresearch.org/download-datasets/&#34;&gt;Pew Research&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://data.unicef.org/&#34;&gt;UNICEF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cdc.gov/datastatistics/index.html&#34;&gt;CDC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://datacatalog.worldbank.org/&#34;&gt;World Bank&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://electionstudies.org//&#34;&gt;Election Studies&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All analyses must be done in RStudio, and your final written report and
+analysis &lt;strong&gt;must be reproducible&lt;/strong&gt;. This means that you must create an R Markdown
+document attached to a GitHub repository that will create your written report
+exactly upon knitting.&lt;/p&gt;
+&lt;h2 id=&#34;project-proposal&#34;&gt;Project proposal&lt;/h2&gt;
+&lt;p&gt;There are two main purposes of the project proposal:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To help you think about the project early, so you can get a head start on finding data, reading relevant literature, thinking about the questions you wish to answer, etc.&lt;/li&gt;
+&lt;li&gt;To ensure that the data you wish to analyze, methods you plan to use, and the scope of your analysis are feasible and will help you be successful for this project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Include the following in the proposal:&lt;/p&gt;
+&lt;h3 id=&#34;section-1---introduction&#34;&gt;Section 1 - Introduction&lt;/h3&gt;
+&lt;p&gt;The introduction section includes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an introduction to the subject matter you&amp;rsquo;re investigating&lt;/li&gt;
+&lt;li&gt;the motivation for your research question (citing any relevant literature)&lt;/li&gt;
+&lt;li&gt;the general research question you wish to explore&lt;/li&gt;
+&lt;li&gt;your hypotheses regarding the research question of interest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;section-2---data-description&#34;&gt;Section 2 - Data description&lt;/h3&gt;
+&lt;p&gt;In this section, you will describe the data set you wish to explore. This includes a description of the observations in the data set, a general description of the variables in the data set, and a description of how the data was originally collected (not how you found the data but how the original curator of the data collected it).&lt;/p&gt;
+&lt;h3 id=&#34;section-2---glimpse-of-data&#34;&gt;Section 2 - Glimpse of data&lt;/h3&gt;
+&lt;p&gt;Use the &lt;code&gt;glimpse&lt;/code&gt; function print a summary of the data at the end of your proposal.&lt;/p&gt;
+&lt;p&gt;Place your data in the &lt;code&gt;/data&lt;/code&gt; folder of the repo. Later on you will include the codebook in the README of the data folder.&lt;/p&gt;
+&lt;h3 id=&#34;submission&#34;&gt;Submission&lt;/h3&gt;
+&lt;p&gt;Submit the PDF of your proposal in the &lt;strong&gt;Project Proposal&lt;/strong&gt; assignment on Gradescope. Be sure to select the names of all team members in the submission. The proposal is due on &lt;strong&gt;Friday, October 9.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;proposal-grading&#34;&gt;Proposal grading&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Total&lt;/th&gt;
+&lt;th&gt;10 pts&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;4 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Data description&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;4 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;glimpse of data&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;2 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;written-report&#34;&gt;Written report&lt;/h2&gt;
+&lt;p&gt;Your written report must be done using R Markdown. All team members must contribute to the GitHub repository, with regular meaningful commits.&lt;/p&gt;
+&lt;p&gt;Before you finalize your write up, make sure the printing of code chunks is off with the option &lt;code&gt;echo = FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Your final report must match your GitHub repository &lt;em&gt;exactly&lt;/em&gt;. The mandatory components of the report are below. You are free to add additional sections as necessary. The report, including visualizations, should be &lt;strong&gt;no more than 10 pages long.&lt;/strong&gt; There is no minimum page requirement; however, you must comprehensively address all of the aspects mentioned below.&lt;/p&gt;
+&lt;p&gt;Please be judicious in what you include in your final write-up.&lt;/p&gt;
+&lt;p&gt;The written report is worth 60 points, broken down as&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Total&lt;/th&gt;
+&lt;th&gt;60 pts&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Introduction/data&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;10 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Methodology&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;20 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;20 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Discussion&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;10 pts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;introduction-and-data&#34;&gt;Introduction and data&lt;/h3&gt;
+&lt;p&gt;The introduction should introduce your general research question and your data  (where it came from, how it was collected, what are the cases, what are the  variables, etc.).&lt;/p&gt;
+&lt;h3 id=&#34;methodology&#34;&gt;Methodology&lt;/h3&gt;
+&lt;p&gt;The methodology section should include the variables used to address your research question, as well as any useful visualizations or summary statistics. Additionally, you should introduce and justify the statistical method(s) that you believe will be useful in answering your research question.&lt;/p&gt;
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+&lt;p&gt;Showcase how you arrived at answers to
+your question using any techniques we have learned in this class (and some beyond, if you&amp;rsquo;re feeling adventurous). Provide the main results from your analysis. The goal is not to do an exhaustive
+data analysis (i.e., do not calculate every statistic and procedure you have learned for every variable), but rather let me know that you are proficient at asking meaningful questions and answering them with results of data analysis, that you are proficient in using R, and that you are proficient at interpreting
+and presenting the results. Focus on methods that help you begin to answer your research questions.&lt;/p&gt;
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+&lt;p&gt;This section is a conclusion and discussion. This will require a
+summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. A paragraph on what you would do differently if you were able to start over with the project or what you would do next if you were going to continue work on the project should also be included.&lt;/p&gt;
+&lt;h2 id=&#34;peer-feedback&#34;&gt;Peer feedback&lt;/h2&gt;
+&lt;p&gt;Critically reviewing others&amp;rsquo; work is a crucial part of the scientific process, and STA 199 is no exception. You will be assigned a team to review. As part of the review process, you must provide your partner team a copy of your current report by &lt;strong&gt;Wednesday, October 28&lt;/strong&gt;. After giving the report to your partner team, they will have until &lt;strong&gt;Friday, November 5&lt;/strong&gt; to provide a detailed critique about the written report and data analysis. This feedback is intended to help you create a high quality final project, as well as give you experience
+reading and constructively critiquing the work of others.&lt;/p&gt;
+&lt;p&gt;During the peer feedback process, you will be provided read-only access to your  partner team&amp;rsquo;s GitHub repo. Provide your feedback in the form of GitHub issues to your partner team&amp;rsquo;s GitHub repo.&lt;/p&gt;
+&lt;p&gt;Peer feedback will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team&amp;rsquo;s report: the  research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions. You must have at least some of these results available for your partner team to review.&lt;/p&gt;
+&lt;h2 id=&#34;presentation-slides&#34;&gt;Presentation Slides&lt;/h2&gt;
+&lt;p&gt;In addition to the write-up, your team must also create presentation
+slides that summarize and showcase your project. Introduce your research question and dataset, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality. For submission, convert these slides to a .pdf document to be submitted to Gradescope. The slides are due on &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;video-presentation&#34;&gt;Video presentation&lt;/h2&gt;
+&lt;p&gt;Sometime before &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;, you/your group will upload a video presentation of your project to Warpwire. Note that all members must present, and that a ten-minute time limit is &lt;strong&gt;strictly enforced&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;For the presentation, you can speak over your slide deck, similar to the lecture content videos. I recommend using Zoom to record your presentation; however, you can use whatever platform works best for your group. Below are a few resources to help you record video presentations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kb.siue.edu/61721&#34;&gt;Recording presentations in Zoom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac&#34;&gt;Apple Quicktime for screen recording&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=OfPbr1mRDuo&#34;&gt;Windows 10 built-in screen recording functionality&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://getkap.co/&#34;&gt;Kap for screen recording&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will post the presentation video in Warpwire, which is accessible from the the course Sakai site (bottom of the left-hand tool bar). To post your video on Warpwire:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click the Warpwire tab in the course Sakai site.&lt;/li&gt;
+&lt;li&gt;Click the “+” and select “Upload files”.&lt;/li&gt;
+&lt;li&gt;Locate the video on your computer and click to upload.&lt;/li&gt;
+&lt;li&gt;Once you’ve uploaded the video to Warpwire, click to share the video and make
+a copy of the video’s URL. You will need this when you post the video in the
+discussion forum.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;project-repository&#34;&gt;Project repository&lt;/h2&gt;
+&lt;p&gt;In addition to your Gradescope submissions, we will be checking your GitHub repository. This repository should be contributed to equally by all team members and should include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RMarkdown file (formatted to clearly present all of your code and results)
+that will output the proposal and write-up in one document&lt;/li&gt;
+&lt;li&gt;Meaningful README file on the GitHub repository that contains a &lt;em&gt;codebook&lt;/em&gt;
+for relevant variables&lt;/li&gt;
+&lt;li&gt;Dataset(s) (in csv or RData format, in a &lt;code&gt;/data&lt;/code&gt; folder)&lt;/li&gt;
+&lt;li&gt;Presentation (if using Keynote/PowerPoint/Google Slides, export to PDF and put in repo, in a &lt;code&gt;/presentation&lt;/code&gt; folder)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.&lt;/p&gt;
+&lt;p&gt;The repository must be finalized by &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;peer-teamwork-evaluation&#34;&gt;Peer teamwork evaluation&lt;/h2&gt;
+&lt;p&gt;You will be asked to fill out a survey where you rate the contribution and teamwork of each team member by assigning a contribution percentage for each team member. Filling out the survey is a prerequisite for getting credit on the team member evaluation. If you are suggesting that an individual did less than  half the expected contribution given your team size (e.g., for a team of four students, if a student contributed less than 12.5% of the total effort), please
+provide some explanation. If any individual gets an average peer score
+indicating that this was the case, their grade will be assessed accordingly.&lt;/p&gt;
+&lt;h2 id=&#34;additional-notes-and-tips&#34;&gt;Additional notes and tips&lt;/h2&gt;
+&lt;p&gt;The project is very open ended. For instance, in creating a compelling
+visualization(s) of your data in R, there is no limit on what tools or
+packages you may use. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations.&lt;/p&gt;
+&lt;p&gt;Before you finalize your write up, make sure the printing of code chunks is turned off with the option &lt;code&gt;echo = FALSE&lt;/code&gt;. In addition to code chunks, ensure all messages are turned off with the options &lt;code&gt;warning = FALSE&lt;/code&gt; and &lt;code&gt;echo = FALSE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, pay attention to details in your write-up and presentation. Neatness, coherency, and clarity will count.&lt;/p&gt;
+&lt;h3 id=&#34;tips&#34;&gt;Tips&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ask questions if any of the expectations are
+unclear.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Code&lt;/em&gt;: In your write up your code should be hidden (&lt;code&gt;echo = FALSE&lt;/code&gt;) so that your document is neat and easy to read. However your document should include all your code such that if I re-knit your Rmd file I should be able to obtain the results you presented.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Exception:&lt;/strong&gt; If you want to highlight something
+specific about a piece of code, you&amp;rsquo;re welcome to show that portion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Merge conflicts will
+happen, issues will arise, and that’s fine! Commit and push often, and ask questions when stuck.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team  members).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized. While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in  the assignment works.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;grading-summary&#34;&gt;Grading summary&lt;/h3&gt;
+&lt;p&gt;Grading of the project will take into account the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Content - What is the quality of research and/or policy question and relevancy
+of data to those questions?&lt;/li&gt;
+&lt;li&gt;Correctness - Are statistical procedures carried out and explained correctly?&lt;/li&gt;
+&lt;li&gt;Writing and Presentation - What is the quality of the statistical presentation,
+writing, and explanations?&lt;/li&gt;
+&lt;li&gt;Creativity and Critical Thought - Is the project carefully thought out? Are the
+limitations carefully considered? Does it appear that time and effort went into
+the planning and implementation of the project?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A general breakdown of scoring is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;90%-100%&lt;/em&gt;: Outstanding effort. Student understands how to apply all statistical
+concepts, can put the results into a cogent argument, can identify weaknesses in
+the argument, and can clearly communicate the results to others.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;80%-89%&lt;/em&gt;: Good effort. Student understands most of the concepts, puts together
+an adequate argument, identifies some weaknesses of their argument, and communicates
+most results clearly to others.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;70%-79%&lt;/em&gt;: Passing effort. Student has misunderstanding of concepts in several
+areas, has some trouble putting results together in a cogent argument, and communication
+of results is sometimes unclear.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;60%-69%&lt;/em&gt;: Struggling effort. Student is making some effort, but has misunderstanding
+of many concepts and is unable to put together a cogent argument. Communication
+of results is unclear.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Below 60%&lt;/em&gt;: Student is not making a sufficient effort.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;late-work-policy&#34;&gt;Late work policy&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;There is no late work accepted on this project.&lt;/strong&gt; Be sure to turn in your work early to avoid any technological mishaps.&lt;/p&gt;
 </description>
   </item>
   
