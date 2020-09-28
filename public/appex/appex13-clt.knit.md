@@ -1,6 +1,6 @@
 ---
 title: "AE 13: Bone density"
-date: "2020-09-27"
+date: "2020-09-28"
 output: 
   html_document:
     theme: readable
@@ -8,10 +8,24 @@ output:
 
 ## Announcements 
 
-- Introduce [project](https://sta199-fa20-002.netlify.app/project/)
-- Tea wit TA? 
+### Project 
+Introduce [project](https://sta199-fa20-002.netlify.app/project/)
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching time. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+- **Matty Pahren**, October 2 1p - 2p
+  - [Click here](https://forms.gle/CWs28UiEYYjSrhWR8) to sign up. Zoom details will be emailed before the event.
+
+- **Ezinne Nwankwo**, October 8, 2:30p - 3:30p
+  - [Click here](https://forms.gle/EPdQBFigj93JYTET7) to sign up. Zoom details will be emailed before the event.
 
 ## Questions from video? 
+
+## Recap of CLT & Normal distribution
 
 ## Getting started 
 
