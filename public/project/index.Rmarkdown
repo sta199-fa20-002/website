@@ -42,11 +42,11 @@ The grade breakdown is as follows:
 
 Total                                                   | 115 pts
 --------------------------------------------------------|--------
-**Written report**                                      | 60 pts
+**Project proposal**                                    | 10 pts
+**Written report**                                      | 50 pts
 **Slides**                                              | 15 pts
 **Repository**                                          | 5 pts
-**Video presentation**                                  | 15 pts
-**Overall neatness and presentation style**             | 5 pts
+**Video presentation**                                  | 20 pts
 **Peer feedback**                                       | 15 pts
 
 **<i>Note: No late projects are accepted.</i>**
@@ -140,7 +140,7 @@ Total                                                   | 10 pts
 --------------------------------------------------------|--------
 **Introduction**                                        | 4 pts
 **Data description**                                    | 4 pts
-**glimpse of data**                                     | 2 pts
+**Glimpse of data**                                     | 2 pts
 
 ## Written report
 
