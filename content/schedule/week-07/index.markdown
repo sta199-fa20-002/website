@@ -43,11 +43,14 @@ Tea with a TA counts as a statistics experience.
 
 **Upcoming TA with a TA events**
 
-- **Matty Pahren**, October 2 1p - 2p
-  - [Click here](https://forms.gle/CWs28UiEYYjSrhWR8) to sign up. Zoom details will be emailed before the event.
+**[Matty Pahren](https://www.linkedin.com/in/mattypahren)**, October 2 1p - 2p
+- [Click here](https://forms.gle/CWs28UiEYYjSrhWR8) to sign up. Zoom details will be emailed before the event.
 
-- **Ezinne Nwankwo**, October 8, 2:30p - 3:30p
-  - [Click here](https://forms.gle/EPdQBFigj93JYTET7) to sign up. Zoom details will be emailed before the event.
+*Matty Pahren is a current senior at Duke University. She plans on earning a B.S. in Statistical Science as well as minors in Psychology and Economics. She enjoys using data to contextualize real world problems and find solutions to them. Last summer, she served as a Business Analytics Intern at 2nd Order Solutions, a financial consulting firm in her hometown of Richmond, VA. There she worked on a debt collections project for a client, and she wrote code to help expedite future modeling projects. In her free time, she enjoys listening to music, watching sports, or going to trivia events with her friends.*
+
+
+**Ezinne Nwankwo**, October 8, 2:30p - 3:30p
+- [Click here](https://forms.gle/EPdQBFigj93JYTET7) to sign up. Zoom details will be emailed before the event.
   
 *Ezinne Nwankwo is a Ph.D. candidate in statistical sciences with a focus on machine learning and computational social sciences at Duke University. Her research focuses on using statistical and machine learning methods to better understand society (using social data) and to aid in decision making processes. She is a passionate advocate for students and researchers from underrepresented backgrounds as an organizer and mentor with Black in AI.*
 
