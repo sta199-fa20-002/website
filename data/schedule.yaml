@@ -80,6 +80,7 @@ lessons:
     slides: "13-clt.html"
   - date: "Wed, Sep 30"
     title: " Inference with the CLT"
+    slides: "14-clt-inference.html"
   - date: "Thu, Oct 01"
     title: "Lab 06"
  

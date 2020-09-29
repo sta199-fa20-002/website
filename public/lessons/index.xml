@@ -561,7 +561,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-07/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Central Limit Theorem (CLT) Central Limit Theorem AE 13: Bone density   Wednesday CLT-based inference CLT-based inference AE 14    Readings          Introduction to Modern Statistics: 5.3 Mathematical models Required   Infer examples Optional    Assignments          Lab 05 due Oct 7 at 11:59p   Project proposal due Oct 9 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Central Limit Theorem (CLT) Central Limit Theorem AE 13: Bone density   Wednesday Inference with the CLT Inference with the CLT AE 14    Readings          Introduction to Modern Statistics: 5.3 Mathematical models Required   Infer examples Optional    Assignments          Lab 05 due Oct 7 at 11:59p   Project proposal due Oct 9 at 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -587,8 +587,8 @@ font-size: 18px;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
-&lt;td&gt;CLT-based inference&lt;/td&gt;
-&lt;td&gt;CLT-based inference&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/14-clt-inference.html&#34;&gt;Inference with the CLT&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/9Y0EAA/&#34;&gt;Inference with the CLT&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;AE 14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

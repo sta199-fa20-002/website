@@ -6,7 +6,6 @@
     <meta name="author" content="Prof. Maria Tackett" />
     <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
     <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
-    <script src="libs/font-awesome/kePrint/kePrint.js"></script>
     <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
   </head>
   <body>
@@ -61,10 +60,11 @@ Knowing the distribution of the sample statistic `\(\bar{X}\)` can help us
 
 --
 
-- estimate a population parameter as point **estimate `\(\boldsymbol{\pm}\)` **margin of error**
+- estimate a population parameter as point **estimate** `\(\boldsymbol{\pm}\)` **margin of error**
   - the .vocab[margin of error] is comprised of a measure of how confident we want to be and how variable the sample statistic is
-
 --
+
+&lt;br&gt; 
 
 - test for a population parameter by evaluating how likely it is to obtain to observed sample statistic when assuming that the null hypothesis is true
   - this probability will depend on how variable the sampling distribution is
@@ -79,10 +79,9 @@ class: center, middle
 
 ## Inference based on the CLT
 
-If necessary conditions are met, we can also use inference methods based on the 
-CLT. Suppose we know the true population standard deviation. 
+If necessary conditions are met, we can also use inference methods based on the CLT. Suppose we know the true population standard deviation. 
 
--- 
+--
 
 Then the CLT tells us that `\(\bar{X}\)` approximately has the distribution `\(N\left(\mu, \sigma/\sqrt{n}\right)\)`. 
 
@@ -205,9 +204,9 @@ qnorm(0.5)
 - In practice, we never know the true value of `\(\sigma\)`, and so we estimate it from our data with `\(s\)`.
 
 We can make the following test statistic for testing
-a single sample's population mean, which has a .vocab[t-distribution n-1 degrees of freedom]:
+a single sample's population mean, which has a .vocab[t-distribution with n-1 degrees of freedom]:
 
-.alert[
+.question[
 $$ T = \frac{\bar{X} - \mu}{s/\sqrt{n}} \sim t_{n-1}$$
 ]
 
@@ -234,10 +233,12 @@ SE
 
 ## T distribution
 
+.pull-left[
 .vocab[Finding probabilities under the t curve:]
 
 
 ```r
+#P(t &lt; -1.96)
 pt(-1.96, df = 9)
 ```
 
@@ -245,39 +246,49 @@ pt(-1.96, df = 9)
 ## [1] 0.0408222
 ```
 
+
 ```r
-pt(1.96, df = 9, lower.tail = FALSE)
+#P(t &gt; -1.96)
+pt(-1.96, df = 9, 
+   lower.tail = FALSE)
 ```
 
 ```
-## [1] 0.0408222
+## [1] 0.9591778
 ```
+]
 
 --
+
+.pull-right[
 
 .vocab[Finding cutoff values under the t curve:]
 
 
 ```r
-qt(0.025, df = 9)
+# Find Q1
+qt(0.25, df = 9)
 ```
 
 ```
-## [1] -2.262157
+## [1] -0.7027221
 ```
+
 
 ```r
-qt(0.975, df = 9)
+# Q3
+qt(0.75, df = 9)
 ```
 
 ```
-## [1] 2.262157
+## [1] 0.7027221
 ```
+]
 
 
 ---
 
-## Resident (un)satisfaction in Durham
+## Resident satisfaction in Durham
 
 `durham_survey` contains resident responses to a survey given by the City of
 Durham in 2018. These are a randomly selected, representative sample of
@@ -286,8 +297,10 @@ Durham residents.
 Questions were rated 1 - 5, with 1 being "highly dissatisfied" and 5 being
 "highly satisfied."
 
+--
+
 .question[
-Is there evidence that on average, Durham residents are generally satisfied (score greater than 3) with the quality of the public library system? 
+Is there evidence that, on average, Durham residents are generally satisfied (score greater than 3) with the quality of the public library system? 
 ]
 
 ---
@@ -319,30 +332,20 @@ durham %&gt;%
 
 ## Exploratory Data Analysis
 
-
-```r
-durham %&gt;% 
-  filter(quality_library!= 9) %&gt;% 
-  ggplot(data = ., aes(x = quality_library)) + 
-    geom_histogram(binwidth = 0.95) +
-    labs(x = "Quality of public library system", y = "Count",
-         title = "Most residents seem satisfied with the public library system")
-```
-
-&lt;img src="14-clt-inference_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="14-clt-inference_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ## Hypotheses
 
 .question[
-What are the hypotheses for evaluating if Durham residents, on average, are generally satisifed with the public library system?
+What are the hypotheses for evaluating if Durham residents, on average, are generally satisfied with the public library system?
 ]
 
 --
 
 `$$H_0: \mu = 3$$` 
-`$$H_A: \mu &gt; 3$$`
+`$$H_a: \mu &gt; 3$$`
 
 ---
 
@@ -355,11 +358,19 @@ based on the CLT? Are these conditions satisfied?
 
 --
 
-**Independence?**
+**Independence?** 
+
+--
+
+✅ The residents were randomly selected for the survey, and 521 is less than 10% of the Durham population (~ 270,000).
 
 --
 
 **Sample size / distribution?**
+
+--
+
+✅ 521 &gt; 30, so the sample is large enough to apply the Central Limit Theorem. 
 
 ---
 
@@ -396,11 +407,12 @@ observed sample mean, if in fact the null hypothesis is true?
 ---
 
 ## Calculations
+
 --
 
 
 ```r
-(se &lt;- durham_summary$s / sqrt(durham_summary$n))
+(se &lt;- durham_summary$s / sqrt(durham_summary$n)) # SE
 ```
 
 ```
@@ -411,7 +423,7 @@ observed sample mean, if in fact the null hypothesis is true?
 
 
 ```r
-(t &lt;- (durham_summary$xbar - 3) / se)
+(t &lt;- (durham_summary$xbar - 3) / se) # Test statistic
 ```
 
 ```
@@ -422,7 +434,7 @@ observed sample mean, if in fact the null hypothesis is true?
 
 
 ```r
-(df &lt;- durham_summary$n - 1)
+(df &lt;- durham_summary$n - 1) # Degrees of freedom
 ```
 
 ```
@@ -433,7 +445,7 @@ observed sample mean, if in fact the null hypothesis is true?
 
 
 ```r
-pt(t, df, lower.tail = FALSE)
+pt(t, df, lower.tail = FALSE) # P-value, P(T &gt; t |H_0 true)
 ```
 
 ```
@@ -444,11 +456,11 @@ pt(t, df, lower.tail = FALSE)
 
 ## Conclusion
 
-- Since the p-value is very small, we reject `\(H_0\)`.
+The p-value is very small, so we reject `\(H_0\)`.
 
 --
 
-- The data provide sufficient evidence at the `\(\alpha = 0.05\)` level that Durham residents, on average, are satisifed? with the quality of the public library system.
+The data provide sufficient evidence at the `\(\alpha = 0.05\)` level that Durham residents, on average, are satisfied with the quality of the public library system.
 
 --
 
@@ -461,7 +473,25 @@ Would you expect a 95% confidence interval to include 3?
 ## Confidence interval for a mean
 
 .alert[
+**General form of the confidence interval** 
+
 `$$point~estimate \pm critical~value \times SE$$`
+]
+
+--
+
+.alert[
+**Confidence interval for the mean** 
+
+`$$\bar{x} \pm t^*_{n-1} \times \frac{s}{\sqrt{n}}$$`
+]
+
+---
+
+## Calculate 95% confidence interval 
+
+.alert[
+`$$\bar{x} \pm t^*_{n-1} \times \frac{s}{\sqrt{n}}$$`
 ]
 
 --
@@ -469,6 +499,7 @@ Would you expect a 95% confidence interval to include 3?
 
 
 ```r
+# Critical value 
 t_star &lt;- qt(0.975, df)
 ```
 
@@ -476,43 +507,63 @@ t_star &lt;- qt(0.975, df)
 
 
 ```r
-pt_est &lt;- durham_summary$xbar
+# Point estimate 
+point_est &lt;- durham_summary$xbar
 ```
 
 --
 
 
 ```r
-round(pt_est + c(-1,1) * t_star * se, 2)
+# Confidence interval
+round(point_est + c(-1,1) * t_star * se, 2)
 ```
 
 ```
 ## [1] 3.89 4.05
 ```
 
---
+---
+
+## Interpret 95% confidence interval 
+
+
+```r
+round(point_est + c(-1,1) * t_star * se, 2)
+```
+
+```
+## [1] 3.89 4.05
+```
 
 .question[
 Interpret this interval in context of the data.
 ]
+
+--
+
+**We are 95% confident that the true mean rating for Durham residents' satisfaction with the library system is between 3.89 and 4.05.**
 
 ---
 
 class: middle, center
 
 ## Inference with the CLT using `infer`
+
 ---
 
-## CLT-based Hypothesis testing
+## CLT-based hypothesis testing in `infer`
 
 `$$H_0: \mu = 3 \text{ vs }H_a: \mu &gt; 3$$`
-
+--
 
 
 ```r
 durham %&gt;%
-  t_test(response = quality_library, mu = 3, 
-         alternative = "greater", conf_int = FALSE)
+  t_test(response = quality_library, 
+         mu = 3, 
+         alternative = "greater", 
+         conf_int = FALSE)
 ```
 
 ```
@@ -524,50 +575,38 @@ durham %&gt;%
 
 ---
 
-## CLT-based confidence intervals
+## CLT-based confidence intervals in `infer`
 
-Calculate a 95% confidence interval for the mean score for the quality of the library system in Durham. 
+Calculate a 95% confidence interval for the mean satisfaction rating.
+--
 
 
 ```r
 durham %&gt;%
-  t_test(response = quality_library, alternative = "two-sided", conf_int = TRUE, 
-         conf_level = 0.95) 
+  t_test(response = quality_library, 
+         alternative = "two-sided",
+         conf_int = TRUE, conf_level = 0.95) 
 ```
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; t_df &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; p_value &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; alternative &lt;/th&gt;
-   &lt;th style="text-align:right;background-color: #72B0BD !important;"&gt; lower_ci &lt;/th&gt;
-   &lt;th style="text-align:right;background-color: #72B0BD !important;"&gt; upper_ci &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:right;"&gt; 100.631 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 520 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; two.sided &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #72B0BD !important;"&gt; 3.892 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #72B0BD !important;"&gt; 4.047 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+```
+## # A tibble: 1 x 6
+##   statistic  t_df p_value alternative lower_ci upper_ci
+##       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;
+## 1      101.   520       0 two.sided       3.89     4.05
+```
 
 ---
 
 
-## Built-in functionality in R
+## Other built-in functionality in R
 
 - There are more built in functions for doing some of these tests in R.
 
 - However a learning goal is this course is not to go through an exhaustive list of all CLT based tests and how to implement them
 
 - Instead the goal is to understand how these methods are / are not like the simulation based methods we learned about earlier
+
+--
 
 .question[
 What is similar, and what is different, between CLT based test of means vs. simulation based test?
