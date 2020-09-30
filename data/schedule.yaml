@@ -82,7 +82,8 @@ lessons:
     title: " Inference with the CLT"
     slides: "14-clt-inference.html"
   - date: "Thu, Oct 01"
-    title: "Lab 06"
+    title: "Lab 06: Hypothesis testing"
+    lab: "lab-06-parkinsons.html"
  
   - week: "Week 08"
     date: "Mon, Oct 05"

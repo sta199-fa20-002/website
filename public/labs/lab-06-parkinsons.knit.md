@@ -1,5 +1,5 @@
 ---
-title: "Lab 06: Hypothesis Testing: CLT- vs. Simulation-based methods"
+title: "Lab 06: Hypothesis Testing"
 subtitle: "due Wed, Oct 7 at 11:59p"
 output: 
   tufte::tufte_html:
@@ -10,17 +10,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 # Introduction and Data
 
@@ -48,7 +38,8 @@ The variables in the dataset are as follows:
 You may load in the data with the following code, where `____` should be
 replaced by a meaningful name of your choosing:
 
-```{r eval=FALSE}
+
+```r
 library(tidyverse)
 ____ <- read_csv("data/parkinsons.csv")
 ```
@@ -66,12 +57,12 @@ ____ <- read_csv("data/parkinsons.csv")
 </div>
 
 
-Is there enough evidence to suggest that HNR in the voice recordings of the healthy volunteers is significantly different from 25 at the $\alpha$ = 0.05significance level? **Conduct this hypothesis test using a simulation method**. 
+Is there enough evidence to suggest that HNR in the voice recordings of the healthy volunteers is significantly different from 25 at the $\alpha$ = 0.05 significance level? **Conduct this hypothesis test using a simulation method**. 
 
 1. Write out the null and alternative hypotheses for this question in both
 words and symbols. 
 
-2. Display a visualization of your simulated null distribution, and describe the values that would cause you to reject your null hypothesis. Does our observed sample mean lie in this rejection region?
+2. Display a visualization of your simulated null distribution, and describe the values that would cause you to reject your null hypothesis (called the *rejection region*). Does our observed sample mean lie in this rejection region?
 
 3. What is your p-value, decision, and conclusion in context of the
 research question?
@@ -83,9 +74,7 @@ Researchers suspect that patients with PD are less able to control their vocal m
 5. Write out the null and alternative hypotheses for this question in both
 words and symbols. 
 
-```{marginfigure}
-**Hint**: be careful with which reference distribution you use!
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint</strong>: Be careful about which distribution you use to anwer this question.</span></span>
 
 6. What is the distribution of the test statistic under the null 
 hypothesis, the test statistic itself, the p-value, decision, and conclusion in context of the research question?
@@ -96,15 +85,9 @@ hypothesis, the test statistic itself, the p-value, decision, and conclusion in 
 
 Suppose we are now interested in testing whether a correlation exists between voice jitter and voice shimmer among healthy volunteers. Test whether the correlation between these two values is non-zero at the $\alpha$  = **0.01** level. **Conduct this hypothesis test using a simulation method**.
 
-```{marginfigure}
-As an aside, correlation is given in symbols by $\rho$.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">As an aside, correlation is given in symbols by <span class="math inline">\(\rho\)</span>.</span></span>
 
 9. Write out the null and alternative hypotheses in words. 
-
-```{marginfigure}
-**Hint**: how might you "align" the simulated distribution to be what we would expect if the null hypothesis were true?
-```
 
 10. Display a visualization of your simulated null distribution, and describe the values that would cause you to reject your null hypothesis. Does the observed sample correlation lie in this rejection region?
 

@@ -10,17 +10,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 # Introduction and Data
 
@@ -48,7 +38,8 @@ The variables in the dataset are as follows:
 You may load in the data with the following code, where `____` should be
 replaced by a meaningful name of your choosing:
 
-```{r eval=FALSE}
+
+```r
 library(tidyverse)
 ____ <- read_csv("data/parkinsons.csv")
 ```
@@ -83,9 +74,7 @@ Researchers suspect that patients with PD are less able to control their vocal m
 5. Write out the null and alternative hypotheses for this question in both
 words and symbols. 
 
-```{marginfigure}
-**Hint**: Be careful about which distribution you use to anwer this question.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint</strong>: Be careful about which distribution you use to anwer this question.</span></span>
 
 6. What is the distribution of the test statistic under the null 
 hypothesis, the test statistic itself, the p-value, decision, and conclusion in context of the research question?
@@ -96,9 +85,7 @@ hypothesis, the test statistic itself, the p-value, decision, and conclusion in 
 
 Suppose we are now interested in testing whether a correlation exists between voice jitter and voice shimmer among healthy volunteers. Test whether the correlation between these two values is non-zero at the $\alpha$  = **0.01** level. **Conduct this hypothesis test using a simulation method**.
 
-```{marginfigure}
-As an aside, correlation is given in symbols by $\rho$.
-```
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">As an aside, correlation is given in symbols by <span class="math inline">\(\rho\)</span>.</span></span>
 
 9. Write out the null and alternative hypotheses in words. 
 
