@@ -41,7 +41,7 @@ Hang out with the TAs from STA 199! This is a casual conversation and a fun oppo
 
 Tea with a TA counts as a statistics experience.
 
-**Upcoming TA with a TA events**
+**Upcoming Tea with a TA events**
 
 **[Matty Pahren](https://www.linkedin.com/in/mattypahren)**, October 2 1p - 2p
 - [Click here](https://forms.gle/CWs28UiEYYjSrhWR8) to sign up. Zoom details will be emailed before the event.
