@@ -102,10 +102,6 @@ As an aside, correlation is given in symbols by $\rho$.
 
 9. Write out the null and alternative hypotheses in words. 
 
-```{marginfigure}
-See [Two numerical vars - correlation](https://infer.netlify.app/articles/observed_stat_examples.html#hypothesis-tests-1) on the infer website for help with code.
-```
-                                  
 10. Display a visualization of your simulated null distribution, and describe the values that would cause you to reject your null hypothesis. Does the observed sample correlation lie in this rejection region?
 
 11. What is your p-value, decision, and conclusion in context of the
