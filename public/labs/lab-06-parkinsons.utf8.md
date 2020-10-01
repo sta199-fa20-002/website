@@ -89,6 +89,8 @@ Suppose we are now interested in testing whether a correlation exists between vo
 
 9. Write out the null and alternative hypotheses in words. 
 
+<label for="tufte-mn-" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-" class="margin-toggle"><span class="marginnote"><span style="display: block;">See <a href="https://infer.netlify.app/articles/observed_stat_examples.html#hypothesis-tests-1">Two numerical vars - correlation</a> on the infer website for help with code.</span></span>
+                                  
 10. Display a visualization of your simulated null distribution, and describe the values that would cause you to reject your null hypothesis. Does the observed sample correlation lie in this rejection region?
 
 11. What is your p-value, decision, and conclusion in context of the
