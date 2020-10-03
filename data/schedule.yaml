@@ -88,6 +88,7 @@ lessons:
   - week: "Week 08"
     date: "Mon, Oct 05"
     title: "Two-sample inference 1"
+    slides: "15-two-samp-inference.html"
   - date: "Wed, Oct 07"
     title: "Two-sample inference 2"
   - title: "HW 02 assigned"
