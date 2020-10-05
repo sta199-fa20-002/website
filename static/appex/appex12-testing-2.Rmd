@@ -12,7 +12,7 @@ output:
 - Lab 05 due today at 11:59p
 - No lab this week
 - Exam 01: Thu 9a - Sun 11:59p
-  - Material from Weeks 01 - 04 (data viz, data wrangling, probablity)
+  - Material from Weeks 01 - 04 (data viz, data wrangling, probability)
   - Open book/ open note
   - You **cannot** discuss the exam with anyone
   - Piazza will be in active + no office hours during exam period
@@ -106,13 +106,48 @@ Clone the **ae-12** repo on [GitHub](https://www.github.com/sta199-fa20-002) and
 
 Suppose you are interested in whether at least half of the Airbnb listings in Asheville are more than $50 per guest per night. What would be your null and alternative hypotheses?
 
+#### Option 1 
+
+- Null: The median price per guest per night is 50
+- Alternative: The median price per guest per night is > 50
+
+#### Option 2
+
+- Null: The proportion of Airbnbs less than $50 ppg is 0.5
+- Alternative: The proportion of Airbnbs less than $50 ppg is less than  0.5
+
 ### Exercise 2
 
 Simulate the null distribution to test your hypotheses. You can use 100 reps for the in-class exercise.
 
-```{r ex-2}
-#simulate null dist
+#### Option 1 
+
+```{r}
+set.seed(1234)
+null_dist_opt1 <- asheville %>%
+  specify(response = ppg) %>%
+  hypothesize(null = "point", med = 50) %>%
+  generate(reps = 1000, type = "bootstrap") %>%
+  calculate(stat = "median")
 ```
+
+#### Option 2
+
+```{r}
+#create variable to track price
+asheville <- asheville %>%
+  mutate(less_50_ppg = if_else(ppg < 50, "Yes", "No"))
+```
+
+```{r}
+set.seed(1234)
+null_dist_opt2 <- asheville %>%
+  specify(response = less_50_ppg, success = "Yes") %>%
+  hypothesize(null = "point", p = 0.5) %>%
+  generate(reps = 1000, type = "simulate") %>%
+  calculate(stat = "prop")
+```
+
 
 ### Exercise 3
 
@@ -120,11 +155,45 @@ What was your p-value? What decision do you make with respect to your
 hypotheses, and what conclusion do you make in the context of the research
 problem?
 
-```{r ex-3}
-# calc p-value
+#### Option 1
 
+```{r}
+#calculate observed statistic
+obs_med <- asheville %>%
+  summarise(med_ppg = median(ppg)) %>%
+  pull()
+
+obs_med
 ```
 
+```{r}
+null_dist_opt1 %>%
+  filter(stat >= obs_med) %>%
+  summarise(p_val = n() / nrow(null_dist_opt1))
+```
+
+The p-value is 0.06 which is greater than $\alpha = 0.05$, so we fail to reject the null. There is not sufficient evidence to conclude that at least half of the hotels have a price per guest per night greater than 50.  
+
+
+#### Option 2
+
+```{r}
+#calculate observed statistic
+obs_prop <- asheville %>%
+  count(less_50_ppg) %>%
+  mutate(prop = n/sum(n)) %>%
+  filter(less_50_ppg == "Yes") %>%
+  pull()
+
+obs_prop
+```
+
+```{r}
+null_dist_opt2 %>%
+  filter(stat <=  obs_prop) %>%
+  summarise(p_val = n() / nrow(null_dist_opt2))
+```
+The p-value of 0.064 is greater than $\alpha = 0.05$, so we fail to reject the null. There is not sufficient evidence to conclude that at least half of the hotels have a price per guest per night greater than 50.  
 
 ### Exercise 4
 
@@ -132,3 +201,33 @@ Suppose you are interested in whether the proportion of listings with a price pe
 alternative hypotheses change in this case? Carry out the appropriate
 hypothesis test, and report your p-value, decision, and conclusion in context of the research problem. 
 
+Null: The proportion of Airbnbs greater than $50 ppg is 0.5
+Alternative: The proportion of Airbnbs greater than $50 ppg is not equal to 0.5
+
+```{r}
+set.seed(1234)
+null_dist_ex4 <- asheville %>%
+  specify(response = less_50_ppg, success = "No") %>%
+  hypothesize(null = "point", p = 0.5) %>%
+  generate(reps = 1000, type = "simulate") %>%
+  calculate(stat = "prop")
+```
+
+```{r}
+#calculate observed statistic
+obs_prop_ex4 <- asheville %>%
+  count(less_50_ppg) %>%
+  mutate(prop = n/sum(n)) %>%
+  filter(less_50_ppg == "No") %>%
+  pull()
+
+obs_prop_ex4
+```
+
+```{r}
+null_dist_ex4 %>%
+  filter(stat >= obs_prop_ex4 | stat <= 0.5 - (obs_prop_ex4 - 0.5)) %>%
+  summarise(p_val = n() / nrow(null_dist_ex4))
+```
+
+The p-value of 0.114 is greater than 0.05, so we fail to reject the null hypothesis. The data do not provide sufficient evidence to refute the claim that the proportion of Airbnbs with price per guest per night greater than $50 is different from 0.5. 

@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2020-09-23" />
+<meta name="date" content="2020-10-05" />
 
 <title>AE 12: Hypothesis Testing</title>
 
@@ -376,7 +376,7 @@ summary {
 
 <h1 class="title toc-ignore">AE 12: Hypothesis Testing</h1>
 <h3 class="subtitle">Part 2</h3>
-<h4 class="date">2020-09-23</h4>
+<h4 class="date">2020-10-05</h4>
 
 </div>
 
@@ -388,7 +388,7 @@ summary {
 <li>No lab this week</li>
 <li>Exam 01: Thu 9a - Sun 11:59p
 <ul>
-<li>Material from Weeks 01 - 04 (data viz, data wrangling, probablity)</li>
+<li>Material from Weeks 01 - 04 (data viz, data wrangling, probability)</li>
 <li>Open book/ open note</li>
 <li>You <strong>cannot</strong> discuss the exam with anyone</li>
 <li>Piazza will be in active + no office hours during exam period</li>
@@ -456,20 +456,115 @@ library(infer)</code></pre>
 <div id="exercise-1" class="section level3">
 <h3>Exercise 1</h3>
 <p>Suppose you are interested in whether at least half of the Airbnb listings in Asheville are more than $50 per guest per night. What would be your null and alternative hypotheses?</p>
+<div id="option-1" class="section level4">
+<h4>Option 1</h4>
+<ul>
+<li>Null: The median price per guest per night is 50</li>
+<li>Alternative: The median price per guest per night is &gt; 50</li>
+</ul>
+</div>
+<div id="option-2" class="section level4">
+<h4>Option 2</h4>
+<ul>
+<li>Null: The proportion of Airbnbs less than $50 ppg is 0.5</li>
+<li>Alternative: The proportion of Airbnbs less than $50 ppg is less than 0.5</li>
+</ul>
+</div>
 </div>
 <div id="exercise-2" class="section level3">
 <h3>Exercise 2</h3>
 <p>Simulate the null distribution to test your hypotheses. You can use 100 reps for the in-class exercise.</p>
-<pre class="r"><code>#simulate null dist</code></pre>
+<div id="option-1-1" class="section level4">
+<h4>Option 1</h4>
+<pre class="r"><code>set.seed(1234)
+null_dist_opt1 &lt;- asheville %&gt;%
+  specify(response = ppg) %&gt;%
+  hypothesize(null = &quot;point&quot;, med = 50) %&gt;%
+  generate(reps = 1000, type = &quot;bootstrap&quot;) %&gt;%
+  calculate(stat = &quot;median&quot;)</code></pre>
+</div>
+<div id="option-2-1" class="section level4">
+<h4>Option 2</h4>
+<pre class="r"><code>#create variable to track price
+asheville &lt;- asheville %&gt;%
+  mutate(less_50_ppg = if_else(ppg &lt; 50, &quot;Yes&quot;, &quot;No&quot;))</code></pre>
+<pre class="r"><code>set.seed(1234)
+null_dist_opt2 &lt;- asheville %&gt;%
+  specify(response = less_50_ppg, success = &quot;Yes&quot;) %&gt;%
+  hypothesize(null = &quot;point&quot;, p = 0.5) %&gt;%
+  generate(reps = 1000, type = &quot;simulate&quot;) %&gt;%
+  calculate(stat = &quot;prop&quot;)</code></pre>
+</div>
 </div>
 <div id="exercise-3" class="section level3">
 <h3>Exercise 3</h3>
 <p>What was your p-value? What decision do you make with respect to your hypotheses, and what conclusion do you make in the context of the research problem?</p>
-<pre class="r"><code># calc p-value</code></pre>
+<div id="option-1-2" class="section level4">
+<h4>Option 1</h4>
+<pre class="r"><code>#calculate observed statistic
+obs_med &lt;- asheville %&gt;%
+  summarise(med_ppg = median(ppg)) %&gt;%
+  pull()
+
+obs_med</code></pre>
+<pre><code>## [1] 62.5</code></pre>
+<pre class="r"><code>null_dist_opt1 %&gt;%
+  filter(stat &gt;= obs_med) %&gt;%
+  summarise(p_val = n() / nrow(null_dist_opt1))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   p_val
+##   &lt;dbl&gt;
+## 1  0.06</code></pre>
+<p>The p-value is 0.06 which is greater than <span class="math inline">\(\alpha = 0.05\)</span>, so we fail to reject the null. There is not sufficient evidence to conclude that at least half of the hotels have a price per guest per night greater than 50.</p>
+</div>
+<div id="option-2-2" class="section level4">
+<h4>Option 2</h4>
+<pre class="r"><code>#calculate observed statistic
+obs_prop &lt;- asheville %&gt;%
+  count(less_50_ppg) %&gt;%
+  mutate(prop = n/sum(n)) %&gt;%
+  filter(less_50_ppg == &quot;Yes&quot;) %&gt;%
+  pull()
+
+obs_prop</code></pre>
+<pre><code>## [1] 0.38</code></pre>
+<pre class="r"><code>null_dist_opt2 %&gt;%
+  filter(stat &lt;=  obs_prop) %&gt;%
+  summarise(p_val = n() / nrow(null_dist_opt2))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   p_val
+##   &lt;dbl&gt;
+## 1  0.06</code></pre>
+<p>The p-value of 0.064 is greater than <span class="math inline">\(\alpha = 0.05\)</span>, so we fail to reject the null. There is not sufficient evidence to conclude that at least half of the hotels have a price per guest per night greater than 50.</p>
+</div>
 </div>
 <div id="exercise-4" class="section level3">
 <h3>Exercise 4</h3>
 <p>Suppose you are interested in whether the proportion of listings with a price per guest per night greater than $50 is 0.5. How would your null and alternative hypotheses change in this case? Carry out the appropriate hypothesis test, and report your p-value, decision, and conclusion in context of the research problem.</p>
+<p>Null: The proportion of Airbnbs greater than $50 ppg is 0.5 Alternative: The proportion of Airbnbs greater than $50 ppg is not equal to 0.5</p>
+<pre class="r"><code>set.seed(1234)
+null_dist_ex4 &lt;- asheville %&gt;%
+  specify(response = less_50_ppg, success = &quot;No&quot;) %&gt;%
+  hypothesize(null = &quot;point&quot;, p = 0.5) %&gt;%
+  generate(reps = 1000, type = &quot;simulate&quot;) %&gt;%
+  calculate(stat = &quot;prop&quot;)</code></pre>
+<pre class="r"><code>#calculate observed statistic
+obs_prop_ex4 &lt;- asheville %&gt;%
+  count(less_50_ppg) %&gt;%
+  mutate(prop = n/sum(n)) %&gt;%
+  filter(less_50_ppg == &quot;No&quot;) %&gt;%
+  pull()
+
+obs_prop_ex4</code></pre>
+<pre><code>## [1] 0.62</code></pre>
+<pre class="r"><code>null_dist_ex4 %&gt;%
+  filter(stat &gt;= obs_prop_ex4 | stat &lt;= 0.5 - (obs_prop_ex4 - 0.5)) %&gt;%
+  summarise(p_val = n() / nrow(null_dist_ex4))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   p_val
+##   &lt;dbl&gt;
+## 1 0.115</code></pre>
+<p>The p-value of 0.114 is greater than 0.05, so we fail to reject the null hypothesis. The data do not provide sufficient evidence to refute the claim that the proportion of Airbnbs with price per guest per night greater than $50 is different from 0.5.</p>
 </div>
 </div>
 
