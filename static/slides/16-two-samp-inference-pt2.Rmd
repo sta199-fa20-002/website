@@ -72,7 +72,7 @@ library(kableExtra)
 
 class: middle center
 
-## [Click for PDF of slides](16-two-or-more-samp.pdf)
+## [Click for PDF of slides](16-two-samp-inference-pt2.pdf)
 ---
 
 ## Is yawning contagious?
