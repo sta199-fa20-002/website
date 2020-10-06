@@ -655,7 +655,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-08/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Two-sample inference Two-sample inference AE 15: Parkinson&amp;rsquo;s disease   Wednesday Two-sample inference: Part 2 Two-sample inference: Part 2 AE 16    Comparing three or more groups Comparing three or more groups     Readings          Introduction to Modern Statistics: 5.</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Two-sample inference Two-sample inference AE 15: Parkinson&amp;rsquo;s disease   Wednesday Two-sample inference: Part 2 Two-sample inference: Part 2 AE 16    Comparing three or more groups Comparing three or more groups      Calculations for Chi-square test     Readings          Introduction to Modern Statistics: 5.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -689,6 +689,12 @@ font-size: 18px;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html&#34;&gt;Comparing three or more groups&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/HZcEAA/&#34;&gt;Comparing three or more groups&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/X5cEAA/&#34;&gt;Calculations for Chi-square test&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
