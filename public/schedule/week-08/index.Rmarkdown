@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Two-sample inference](https://sta199-fa20-002.netlify.app/slides/15-two-samp-inference.html) | [Two-sample inference](https://warpwire.duke.edu/w/b5QEAA/) | [AE 15: Parkinson's disease](https://sta199-fa20-002.netlify.app/appex/appex15-pd.html)|
-| Wednesday |  [Two-sample inference: Part 2](https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html)|  [Two-sample inference: Part 2](https://warpwire.duke.edu/w/KZcEAA/) | AE 16 |
+| Wednesday |  [Two-sample inference: Part 2](https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html)|  [Two-sample inference: Part 2](https://warpwire.duke.edu/w/KZcEAA/) | [AE 16: Is yawning contagious?](https://sta199-fa20-002.netlify.app/appex/appex16-yawns.html) |
 |  |  [Comparing three or more groups](https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html) |  [Comparing three or more groups](https://warpwire.duke.edu/w/HZcEAA/) ||
 |  | | [Calculations for Chi-square test](https://warpwire.duke.edu/w/X5cEAA/) ||
 
@@ -33,9 +33,6 @@ font-size: 18px;
 |------------------------|---|
 | Team Feedback #1 (see email from Teammates) | **due Oct 7 at 11:59p** |
 | [Project proposal](https://sta199-fa20-002.netlify.app/project/#project-proposal) | **due Oct 9 at 11:59p** |
-| [HW 02](https://sta199-fa20-002.netlify.app/hw/hw-02.html) | **due Oct 14 at 11:59p** |
-| Lab 07 | **due Oct 14 at 11:59p** |
-
 
 ## Announcements
 
