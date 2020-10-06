@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Two-sample inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Two-sample inference
+## Part 2
+### Prof. Maria Tackett
+
+---
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](16-two-or-more-samp.pdf)
+---
+
+## Is yawning contagious?
+
+.question[
+Do you think yawning is contagious?
+]
+
+.pull-left[
+![](img/16/yawn1.png)
+]
+.pull-right[
+![](img/16/yawn2.png)
+]
+
+---
+
+## Is yawning contagious?
+
+An experiment conducted by the MythBusters tested if a person can be subconsciously influenced into yawning if another person near them yawns.
+
+https://www.discovery.com/tv-shows/mythbusters/videos/is-yawning-contagious-2
+
+---
+
+## Study description
+
+In this study 50 people were randomly assigned to two groups: 34 to a group where a person near them yawned (treatment) and 16 to a control group where they didn't see someone yawn (control).
+
+
+```r
+yawn %&gt;% #in the openintro package
+  count(group, result)
+```
+
+```
+## # A tibble: 4 x 3
+##   group result       n
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt;
+## 1 ctrl  not yawn    12
+## 2 ctrl  yawn         4
+## 3 trmt  not yawn    24
+## 4 trmt  yawn        10
+```
+
+---
+
+## Proportion of yawners
+
+.small[
+
+```r
+yawn %&gt;%
+  count(group, result) %&gt;%
+  group_by(group) %&gt;%
+  mutate(p_hat = n / sum(n))
+```
+
+```
+## # A tibble: 4 x 4
+## # Groups:   group [2]
+##   group result       n p_hat
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+## 1 ctrl  not yawn    12 0.75 
+## 2 ctrl  yawn         4 0.25 
+## 3 trmt  not yawn    24 0.706
+## 4 trmt  yawn        10 0.294
+```
+]
+
+- Proportion of yawners in the treatment group: `\(\frac{10}{34} = 0.2941\)`
+- Proportion of yawners in the control group: `\(\frac{4}{16} = 0.25\)`
+- Difference: `\(0.2941 - 0.25 = 0.0441\)`
+- Our results match the ones calculated on the MythBusters episode.
+
+---
+
+## Independence?
+
+.question[
+Based on the proportions we calculated, do you think yawning is really contagious, i.e. are seeing someone yawn and yawning dependent?
+]
+
+
+```
+## # A tibble: 4 x 4
+## # Groups:   group [2]
+##   group result       n p_hat
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+## 1 ctrl  not yawn    12 0.75 
+## 2 ctrl  yawn         4 0.25 
+## 3 trmt  not yawn    24 0.706
+## 4 trmt  yawn        10 0.294
+```
+
+---
+
+## Dependence, or another possible explanation?
+
+- The observed differences might suggest that yawning is contagious, i.e. seeing someone yawn 
+and yawning are dependent.
+
+- But the differences are small enough that we might wonder if they might simple be **due to chance**.
+
+- Perhaps if we were to repeat the experiment, we would see slightly different results.
+
+- So we will do just that - well, somewhat - and see what happens.
+
+- Instead of actually conducting the experiment many times, we will **simulate** our results.
+
+---
+
+## Two competing claims
+
+- "There is nothing going on." 
+Yawning and seeing someone yawn are **independent**, yawning is not contagious, observed difference in proportions is simply due to chance. `\(\rightarrow\)` Null hypothesis
+
+- "There is something going on."
+Yawning and seeing someone yawn are **dependent**, yawning is contagious (i.e., seeing someone yawn makes you more likely to yawn), and observed difference in proportions is not due to chance. `\(\rightarrow\)` Alternative hypothesis
+
+.alert[
+`$$H_0: p_t = p_c \text{ vs. }H_a: p_t &gt; p_c$$`
+]
+
+---
+
+## Let's generate the null distribution...
+
+
+```r
+set.seed(102020)
+null_dist &lt;- yawn %&gt;%
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;%
+  generate(reps  = 1000, type = "permute") %&gt;%
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+set.seed(102020) 
+null_dist &lt;- yawn %&gt;%
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+*null_dist &lt;- yawn %&gt;%
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+null_dist &lt;- yawn %&gt;% 
+* specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+* hypothesize(null = "independence") %&gt;%
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+* generate(reps  = 1000, type = "permute") %&gt;%
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+* calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Permuting yawn data 
+
+Remember, under `\(H_0\)`, there is no association between yawning and seeing someone else yawn (i.e. control vs. treatment group.)
+
+If there truly is no association, then shuffling whether someone was in the control or treatment group wouldn't matter -- we would expect similar proportions of 
+people who yawn in each experimental group.
+
+We will do this shuffling again and again, calculate the difference in proportion for each simulation, and use this as an approximation to the null distribution.
+
+---
+
+## Permuting yawn data
+
+This distribution approximates all the possible differences in proportion we  could have seen if `\(H_0\)` were in fact true. We then use this distribution to obtain the probability that we see our observed data (or more extreme) -- the 
+.vocab[p-value].
+
+Here we sample without replacement; we merely permute the treatment labels of each of our outcomes.
+
+---
+
+## Visualizing the null distribution
+
+.question[
+What would you expect the center of the 
+null distribution to be?
+]
+
+--
+
+
+```r
+ggplot(data = null_dist, mapping = aes(x = stat)) +
+  geom_histogram(binwidth = 0.05) +
+  labs(title = "Null distribution")
+```
+
+&lt;img src="16-two-or-more-samp_files/figure-html/unnamed-chunk-11-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Calculating the p-value
+
+
+```r
+null_dist %&gt;%
+  filter(stat &gt;= 0.0441) %&gt;%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     &lt;dbl&gt;
+## 1   0.505
+```
+
+---
+
+## Conclusion
+
+.question[
+What is the conclusion of the hypothesis test?
+]
+
+
+---
+
+class: middle, center
+
+## Comparing three or more groups
+
+---
+
+## An old example...
+
+&lt;img src="img/07/coffee.png" width="700" style="display: block; margin: auto;" /&gt;
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+We have more than two samples! Non-coffee drinkers, occasional drinkers, and
+regular drinkers.
+
+.vocab[
+Is there an *association* between coffee drinking *status* and whether somebody
+died? Are the two **independent**?
+]
+
+---
+
+## A new hypothesis test...
+
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+- `\(H_0\)`: Coffee-drinking category and mortality are independent; there is no
+association between the two variables
+- `\(H_1\)`: Coffee-drinking category and mortality are NOT independent; there is
+an association between the two variables
+
+---
+
+## Review
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+If two events `\(A\)` and `\(B\)` are .vocab[independent], then 
+`\(P(A) \times P(B) = P(A \cap B)\)`. 
+
+If `\(H_0\)` were true, then we would expect:
+- P(Non-Drinker) `\(\times\)` P(Died) = P(Non-drinker AND Died)
+- P(Occasional Drinker) `\(\times\)` P(Died) = P(Occasional drinker AND Died)
+- P(Regular Drinker) `\(\times\)` P(Died) = P(Regular drinker AND Died)
+- P(Non-Drinker) `\(\times\)` P(Lived) = P(Non-drinker AND Lived)
+- P(Occasional Drinker) `\(\times\)` P(Lived) = P(Occasional drinker AND Lived)
+- P(Regular Drinker) `\(\times\)` P(Lived) = P(Regular drinker AND Lived)
+
+---
+
+## Observed vs. expected counts
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+If two events `\(A\)` and `\(B\)` are .vocab[independent], then 
+`\(P(A) \times P(B) = P(A \cap B)\)`. 
+
+Let's investigate non-coffee drinking and dying:
+
+- P(Non-Drinker) = 6477/69164 `\(\approx\)` 0.09365
+- P(Died) = 9080/69164 `\(\approx\)` 0.13128
+
+If these were independent, we would *expect* P(Non-Drinker AND Died) to be
+6477/69164 `\(\times\)` 9080/69164 `\(\approx\)` 0.01229. So, we expect approximately 
+850 study participants to be non-drinkers who died.
+
+The *observed* number is 1039, for a difference of 189 participants between
+the observed and expected counts.
+
+.question[
+Is this strong evidence against independence?
+]
+
+---
+
+## Observed vs. expected counts
+
+Well, that was just one cell! There are five more cells in which there may be
+differences between observed and expected counts.
+
+.question[
+How can we sum up these differences in a principled way, and use it to conduct statistical inference?
+]
+
+---
+
+## The chi-square test
+
+The chi-squared test has a very nice motivation in terms of comparing observed
+vs. the expected counts that we would expect if `\(H_0\)` were true. If these
+total differences are "large enough," then we reject the null hypothesis.
+
+- To combine differences across table cells, we need to square them before adding 
+them up (so that
+negative differences aren't canceled out by positive differences)
+
+- We will also scale these differences by the expected count (a 
+difference of 189 participants isn't large when thinking about 100,000 total 
+observations, but is huge when thinking about 300 total observations!)
+
+---
+
+## The chi-square test statistic
+
+The chi-square `\(\chi^2\)` test statistic is
+
+`\begin{align*}
+\sum_{i \in {cells}}^{r \times c} \frac{(O_i - E_i)^2}{E_i},
+\end{align*}`
+
+where `\(r \times c\)` is the number of cells in the table (rows times columns), 
+`\(i\)` indexes across all cells, `\(O_i\)` is the expected count in cell `\(i\)`, and
+`\(E_i\)` is the expected count in cell `\(i\)`.
+
+This statistic is the total squared difference between the observed and expected
+cell counts, scaling by the expected cell count for each cell.
+
+Under `\(H_0\)`, the distribution of this sum is approximated by a `\(\chi^2\)` 
+distribution with `\((r - 1) \times (c - 1)\)` degrees of freedom.
+
+---
+
+## Chi-squared distributions
+
+&lt;img src="img/16/chisquared.png" width="400" style="display: block; margin: auto;" /&gt;
+
+Remember, we only reject if the difference is "large enough." So, we only 
+examine the *right-tail*. That is, the probability of seeing our `\(\chi^2\)` 
+statistic *or larger* when calculating p-values.
+
+---
+
+## Implementation in R
+
+Luckily, you don't have to calculate all the expected counts by hand, create
+the test statistic, and manually compare to a chi-square distribution.
+
+
+
+
+```r
+coffee_data %&gt;%
+  slice(1:10)
+```
+
+```
+## # A tibble: 10 x 2
+##    coffee                health_status
+##    &lt;chr&gt;                 &lt;chr&gt;        
+##  1 Does not drink coffee Died         
+##  2 Does not drink coffee Died         
+##  3 Does not drink coffee Died         
+##  4 Does not drink coffee Died         
+##  5 Does not drink coffee Died         
+##  6 Does not drink coffee Died         
+##  7 Does not drink coffee Died         
+##  8 Does not drink coffee Died         
+##  9 Does not drink coffee Died         
+## 10 Does not drink coffee Died
+```
+---
+
+## Chi-square test using infer
+
+Luckily, you don't have to calculate all the expected counts by hand, create
+the test statistic, and manually compare to a chi-square distribution.
+
+
+```r
+coffee_data %&gt;%
+  chisq_test(formula = health_status ~ coffee)
+```
+
+```
+## # A tibble: 1 x 3
+##   statistic chisq_df  p_value
+##       &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;
+## 1      55.2        2 1.05e-12
+```
+
+.question[
+Formally assess the hypothesis that coffee drinking and dying are independent.
+What might we conclude given these data? 
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

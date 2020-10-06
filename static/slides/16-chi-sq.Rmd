@@ -1,0 +1,232 @@
+---
+title: "Comparing three or more groups"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+library(kableExtra)
+```
+
+class: middle center
+
+## [Click for PDF of slides](16-chi-sq.pdf)
+---
+
+## An old example...
+
+```{r gunter, echo=FALSE, out.width = 700, fig.align="center"}
+knitr::include_graphics("img/07/coffee.png")
+```
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+We have more than two samples! Non-coffee drinkers, occasional drinkers, and
+regular drinkers.
+
+.vocab[
+Is there an *association* between coffee drinking *status* and whether somebody
+died? Are the two **independent**?
+]
+
+---
+
+## A new hypothesis test...
+
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+- $H_0$: Coffee-drinking category and mortality are independent; there is no
+association between the two variables
+- $H_a$: Coffee-drinking category and mortality are NOT independent; there is
+an association between the two variables
+
+---
+
+## Review
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+If $H_0$ were true, then we would expect:
+- .midi[P(Non-Drinker) x P(Died) = P(Non-drinker AND Died)]
+- .midi[P(Occasional Drinker) x P(Died) = P(Occasional drinker AND Died)]
+- .midi[P(Regular Drinker) x P(Died) = P(Regular drinker AND Died)]
+- .midi[P(Non-Drinker) x P(Lived) = P(Non-drinker AND Lived)]
+- .midi[P(Occasional Drinker) x P(Lived) = P(Occasional drinker AND Lived)]
+- .midi[P(Regular Drinker) x P(Lived) = P(Regular drinker AND Lived)]
+
+---
+
+## Observed vs. expected counts
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+Let's investigate non-coffee drinking and dying:
+
+- P(Non-Drinker) = 6477/69164 $\approx$ 0.09365
+- P(Died) = 9080/69164 $\approx$ 0.131
+
+If these were independent, we would *expect* P(Non-Drinker AND Died) to be
+6477/69164 $\times$ 9080/69164 $\approx$ 0.012. So, we expect approximately 
+850 study participants to be non-drinkers who died.
+
+The *observed* number is 1039, for a difference of 189 participants between
+the observed and expected counts.
+
+.question[
+Is this strong evidence against independence?
+]
+
+---
+
+## Observed vs. expected counts
+
+Well, that was just one cell! There are five more cells in which there may be differences between observed and expected counts.
+
+.question[
+How can we sum up these differences in a principled way, and use it to conduct statistical inference?
+]
+
+---
+
+## The chi-square test
+
+The chi-squared test has a very nice motivation in terms of comparing observed
+vs. the expected counts that we would expect if $H_0$ were true. If these total differences are "large enough," then we reject the null hypothesis.
+
+- To combine differences across table cells, we need to square them before adding 
+them up (so that
+negative differences aren't canceled out by positive differences)
+
+- We will also scale these differences by the expected count (a difference of 189 participants isn't large when thinking about 100,000 total observations, but is huge when thinking about 300 total observations!)
+
+---
+
+## The chi-square test statistic
+
+The chi-square $\chi^2$ test statistic is
+
+\begin{align*}
+\sum_{i \in {cells}}^{r \times c} \frac{(O_i - E_i)^2}{E_i},
+\end{align*}
+
+where $r \times c$ is the number of cells in the table (rows times columns), $i$ indexes across all cells, $O_i$ is the expected count in cell $i$, and $E_i$ is the expected count in cell $i$.
+
+This statistic is the total squared difference between the observed and expected cell counts, scaling by the expected cell count for each cell.
+
+Under $H_0$, the distribution of this sum is approximated by a $\chi^2$ distribution with $(r - 1) \times (c - 1)$ degrees of freedom.
+
+---
+
+## Chi-squared distributions
+
+```{r, echo=FALSE, out.width = "50%", fig.align="center"}
+knitr::include_graphics("img/16/chisquared.png")
+```
+
+Remember, we only reject if the difference is "large enough." So, we only examine the *right-tail*. That is, the probability of seeing our $\chi^2$ statistic *or larger* when calculating p-values.
+
+---
+
+## Implementation in R
+
+Luckily, you don't have to calculate all the expected counts by hand, create the test statistic, and manually compare to a chi-square distribution.
+
+```{r echo = F}
+coffee <- c(rep("Does not drink coffee", 6477), 
+            rep("Drinks coffee occasionally", 34152), 
+            rep("Drinks coffee regularly", 28535))
+died <- c(rep("Died", 1039), rep("Did not die", 5438), 
+          rep("Died", 4440), rep("Did not die", 29712),
+          rep("Died", 3601), rep("Did not die", 24934))
+coffee_data <- tibble(coffee = coffee, 
+                      health_status = died)
+```
+
+```{r}
+coffee_data %>%
+  slice(1:10)
+```
+---
+
+## Chi-square test using infer
+
+Luckily, you don't have to calculate all the expected counts by hand, create the test statistic, and manually compare to a chi-square distribution.
+
+```{r}
+coffee_data %>%
+  chisq_test(formula = health_status ~ coffee)
+```
+
+.question[
+Formally assess the hypothesis that coffee drinking and dying are independent.
+
+What might we conclude given these data? 
+]
+

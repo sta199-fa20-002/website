@@ -655,7 +655,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-08/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Two-sample inference Two-sample inference AE 15: Parkinson&amp;rsquo;s disease   Wednesday Two-sample inference: Part 2 Two-sample inference: Part 2 AE 16    Readings          Introduction to Modern Statistics: 5.1 Randomization Tests Required   Infer examples Optional    Assignments          Team Feedback #1 (see email from Teammates) due Oct 7 at 11:59p   Project proposal due Oct 9 at 11:59p   HW 02 due Oct 14 at 11:59p   Lab 07 due Oct 14 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Two-sample inference Two-sample inference AE 15: Parkinson&amp;rsquo;s disease   Wednesday Two-sample inference: Part 2 Two-sample inference: Part 2 AE 16    Comparing more than two groups Comparing more than two groups     Readings          Introduction to Modern Statistics: 5.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -681,9 +681,15 @@ font-size: 18px;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
-&lt;td&gt;Two-sample inference: Part 2&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html&#34;&gt;Two-sample inference: Part 2&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Two-sample inference: Part 2&lt;/td&gt;
 &lt;td&gt;AE 16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html&#34;&gt;Comparing more than two groups&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Comparing more than two groups&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

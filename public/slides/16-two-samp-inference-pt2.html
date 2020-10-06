@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Two-sample inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Two-sample inference
+## Part 2
+### Prof. Maria Tackett
+
+---
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](16-two-or-more-samp.pdf)
+---
+
+## Is yawning contagious?
+
+.question[
+Do you think yawning is contagious?
+]
+
+.pull-left[
+![](img/16/yawn1.png)
+]
+.pull-right[
+![](img/16/yawn2.png)
+]
+
+---
+
+## Is yawning contagious?
+
+An experiment conducted by the MythBusters tested if a person can be subconsciously influenced into yawning if another person near them yawns.
+
+https://www.discovery.com/tv-shows/mythbusters/videos/is-yawning-contagious-2
+
+---
+
+## Study description
+
+In this study 50 people were randomly assigned to two groups: 34 to a group where a person near them yawned (treatment) and 16 to a control group where they didn't see someone yawn (control).
+
+
+```r
+yawn %&gt;% #in the openintro package
+  count(group, result)
+```
+
+```
+## # A tibble: 4 x 3
+##   group result       n
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt;
+## 1 ctrl  not yawn    12
+## 2 ctrl  yawn         4
+## 3 trmt  not yawn    24
+## 4 trmt  yawn        10
+```
+
+---
+
+## Proportion of yawners
+
+.small[
+
+```r
+yawn %&gt;%
+  count(group, result) %&gt;%
+  group_by(group) %&gt;%
+  mutate(p_hat = n / sum(n))
+```
+
+```
+## # A tibble: 4 x 4
+## # Groups:   group [2]
+##   group result       n p_hat
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+## 1 ctrl  not yawn    12 0.75 
+## 2 ctrl  yawn         4 0.25 
+## 3 trmt  not yawn    24 0.706
+## 4 trmt  yawn        10 0.294
+```
+]
+
+- Proportion of yawners in the treatment group: `\(\frac{10}{34} = 0.2941\)`
+- Proportion of yawners in the control group: `\(\frac{4}{16} = 0.25\)`
+- Difference: `\(0.2941 - 0.25 = 0.0441\)`
+- Our results match the ones calculated on the MythBusters episode.
+
+---
+
+## Independence?
+
+.question[
+Based on the proportions we calculated, do you think yawning is really contagious, i.e. are seeing someone yawn and yawning dependent?
+]
+
+
+```
+## # A tibble: 4 x 4
+## # Groups:   group [2]
+##   group result       n p_hat
+##   &lt;fct&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;
+## 1 ctrl  not yawn    12 0.75 
+## 2 ctrl  yawn         4 0.25 
+## 3 trmt  not yawn    24 0.706
+## 4 trmt  yawn        10 0.294
+```
+
+---
+
+## Dependence, or another possible explanation?
+
+- The observed differences might suggest that yawning is contagious, i.e. seeing someone yawn 
+and yawning are dependent.
+
+- But the differences are small enough that we might wonder if they might simple be **due to chance**.
+
+- Perhaps if we were to repeat the experiment, we would see slightly different results.
+
+- So we will do just that - well, somewhat - and see what happens.
+
+- Instead of actually conducting the experiment many times, we will **simulate** our results.
+
+---
+
+## Two competing claims
+
+- "There is nothing going on." 
+Yawning and seeing someone yawn are .vocab[independent], yawning is not contagious, observed difference in proportions is simply due to chance. `\(\rightarrow\)` .vocab[Null hypothesis]
+
+- "There is something going on."
+Yawning and seeing someone yawn are .vocab[dependent], yawning is contagious (i.e., seeing someone yawn makes you more likely to yawn), and observed difference in proportions is not due to chance. `\(\rightarrow\)` .vocab[Alternative hypothesis]
+
+.alert[
+`\begin{align*}
+H_0: p_t = p_c \\
+H_a: p_t &gt; p_c
+\end{align*}`
+]
+
+---
+
+## Let's simulate the null distribution...
+
+
+```r
+set.seed(102020)
+null_dist &lt;- yawn %&gt;%
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;%
+  generate(reps  = 1000, type = "permute") %&gt;%
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+
+---
+
+## Let's take a look at the code
+
+
+```r
+*set.seed(102020)
+*null_dist &lt;- yawn %&gt;%
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+set.seed(102020)  
+null_dist &lt;- yawn %&gt;% 
+* specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+set.seed(102020)  
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+* hypothesize(null = "independence") %&gt;%
+  generate(reps  = 1000, type = "permute") %&gt;% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+set.seed(102020)  
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+* generate(reps  = 1000, type = "permute") %&gt;%
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+
+```r
+set.seed(102020)  
+null_dist &lt;- yawn %&gt;% 
+  specify(result ~ group, success = "yawn") %&gt;%
+  hypothesize(null = "independence") %&gt;% 
+  generate(reps  = 1000, type = "permute") %&gt;% 
+* calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Permuting yawn data 
+
+Remember, under `\(H_0\)`, there is no association between yawning and seeing someone else yawn (i.e. control vs. treatment group.)
+
+If there truly is no association, then shuffling whether someone was in the control or treatment group wouldn't matter -- we would expect similar proportions of 
+people who yawn in each experimental group.
+
+We will do this shuffling again and again, calculate the difference in proportion for each simulation, and use this as an approximation to the null distribution.
+
+---
+
+## Permuting yawn data
+
+This distribution approximates all the possible differences in proportion we  could have seen if `\(H_0\)` were in fact true. We then use this distribution to obtain the probability that we see our observed data (or more extreme) -- the 
+.vocab[p-value].
+
+Here we sample without replacement; we merely permute the treatment labels of each of our outcomes.
+
+---
+
+## Visualizing the null distribution
+
+.question[
+What would you expect the center of the 
+null distribution to be?
+]
+
+--
+
+&lt;img src="16-two-samp-inference-pt2_files/figure-html/unnamed-chunk-10-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Calculating the p-value
+
+
+```r
+null_dist %&gt;%
+  filter(stat &gt;= 0.0441) %&gt;%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+```
+## # A tibble: 1 x 1
+##   p_value
+##     &lt;dbl&gt;
+## 1   0.505
+```
+
+---
+
+## Conclusion
+
+.question[
+What is the conclusion of the hypothesis test?
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

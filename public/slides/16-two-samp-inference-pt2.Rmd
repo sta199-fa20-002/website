@@ -1,0 +1,307 @@
+---
+title: "Two-sample inference"
+subtitle: "Part 2"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+library(kableExtra)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](16-two-or-more-samp.pdf)
+---
+
+## Is yawning contagious?
+
+.question[
+Do you think yawning is contagious?
+]
+
+.pull-left[
+![](img/16/yawn1.png)
+]
+.pull-right[
+![](img/16/yawn2.png)
+]
+
+---
+
+## Is yawning contagious?
+
+An experiment conducted by the MythBusters tested if a person can be subconsciously influenced into yawning if another person near them yawns.
+
+https://www.discovery.com/tv-shows/mythbusters/videos/is-yawning-contagious-2
+
+---
+
+## Study description
+
+In this study 50 people were randomly assigned to two groups: 34 to a group where a person near them yawned (treatment) and 16 to a control group where they didn't see someone yawn (control).
+
+```{r}
+yawn %>% #in the openintro package
+  count(group, result)
+```
+
+---
+
+## Proportion of yawners
+
+.small[
+```{r}
+yawn %>%
+  count(group, result) %>%
+  group_by(group) %>%
+  mutate(p_hat = n / sum(n))
+```
+]
+
+- Proportion of yawners in the treatment group: $\frac{10}{34} = 0.2941$
+- Proportion of yawners in the control group: $\frac{4}{16} = 0.25$
+- Difference: $0.2941 - 0.25 = 0.0441$
+- Our results match the ones calculated on the MythBusters episode.
+
+---
+
+## Independence?
+
+.question[
+Based on the proportions we calculated, do you think yawning is really contagious, i.e. are seeing someone yawn and yawning dependent?
+]
+
+```{r echo=FALSE}
+yawn %>%
+  count(group, result) %>%
+  group_by(group) %>%
+  mutate(p_hat = n / sum(n))
+```
+
+---
+
+## Dependence, or another possible explanation?
+
+- The observed differences might suggest that yawning is contagious, i.e. seeing someone yawn 
+and yawning are dependent.
+
+- But the differences are small enough that we might wonder if they might simple be **due to chance**.
+
+- Perhaps if we were to repeat the experiment, we would see slightly different results.
+
+- So we will do just that - well, somewhat - and see what happens.
+
+- Instead of actually conducting the experiment many times, we will **simulate** our results.
+
+---
+
+## Two competing claims
+
+- "There is nothing going on." 
+Yawning and seeing someone yawn are .vocab[independent], yawning is not contagious, observed difference in proportions is simply due to chance. $\rightarrow$ .vocab[Null hypothesis]
+
+- "There is something going on."
+Yawning and seeing someone yawn are .vocab[dependent], yawning is contagious (i.e., seeing someone yawn makes you more likely to yawn), and observed difference in proportions is not due to chance. $\rightarrow$ .vocab[Alternative hypothesis]
+
+.alert[
+\begin{align*}
+H_0: p_t = p_c \\
+H_a: p_t > p_c
+\end{align*}
+]
+
+---
+
+## Let's simulate the null distribution...
+
+```{r}
+set.seed(102020)
+null_dist <- yawn %>%
+  specify(result ~ group, success = "yawn") %>%
+  hypothesize(null = "independence") %>%
+  generate(reps  = 1000, type = "permute") %>%
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+
+---
+
+## Let's take a look at the code
+
+```{r eval = F}
+set.seed(102020)  #<<
+null_dist <- yawn %>%  #<<
+  specify(result ~ group, success = "yawn") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps  = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+```{r eval = F}
+set.seed(102020)  
+null_dist <- yawn %>% 
+  specify(result ~ group, success = "yawn") %>% #<<
+  hypothesize(null = "independence") %>% 
+  generate(reps  = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+```{r eval = F}
+set.seed(102020)  
+null_dist <- yawn %>% 
+  specify(result ~ group, success = "yawn") %>%
+  hypothesize(null = "independence") %>%  #<<
+  generate(reps  = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+```{r eval = F}
+set.seed(102020)  
+null_dist <- yawn %>% 
+  specify(result ~ group, success = "yawn") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps  = 1000, type = "permute") %>% #<<
+  calculate(stat = "diff in props", order = c("trmt", "ctrl"))
+```
+
+---
+
+## Let's take a look at the code
+
+```{r eval = F}
+set.seed(102020)  
+null_dist <- yawn %>% 
+  specify(result ~ group, success = "yawn") %>%
+  hypothesize(null = "independence") %>% 
+  generate(reps  = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("trmt", "ctrl")) #<<
+```
+
+---
+
+## Permuting yawn data 
+
+Remember, under $H_0$, there is no association between yawning and seeing someone else yawn (i.e. control vs. treatment group.)
+
+If there truly is no association, then shuffling whether someone was in the control or treatment group wouldn't matter -- we would expect similar proportions of 
+people who yawn in each experimental group.
+
+We will do this shuffling again and again, calculate the difference in proportion for each simulation, and use this as an approximation to the null distribution.
+
+---
+
+## Permuting yawn data
+
+This distribution approximates all the possible differences in proportion we  could have seen if $H_0$ were in fact true. We then use this distribution to obtain the probability that we see our observed data (or more extreme) -- the 
+.vocab[p-value].
+
+Here we sample without replacement; we merely permute the treatment labels of each of our outcomes.
+
+---
+
+## Visualizing the null distribution
+
+.question[
+What would you expect the center of the 
+null distribution to be?
+]
+
+--
+
+```{r out.width="65%", echo = F}
+ggplot(data = null_dist, mapping = aes(x = stat)) +
+  geom_histogram(binwidth = 0.05) +
+  labs(title = "Null distribution")
+```
+
+---
+
+## Calculating the p-value
+
+```{r}
+null_dist %>%
+  filter(stat >= 0.0441) %>%
+  summarise(p_value = n()/nrow(null_dist))
+```
+
+---
+
+## Conclusion
+
+.question[
+What is the conclusion of the hypothesis test?
+]
