@@ -57,9 +57,9 @@ died? Are the two **independent**?
 | Occasional drinker | 4440  | 29712        |
 | Regular drinker    | 3601  | 24934        |
 
-- `\(H_0\)`: Coffee-drinking category and mortality are independent; there is no
+- `\(H_0\)`: Coffee-drinking category and health outcome are independent; there is no
 association between the two variables
-- `\(H_a\)`: Coffee-drinking category and mortality are NOT independent; there is
+- `\(H_a\)`: Coffee-drinking category and health outcome are NOT independent; there is
 an association between the two variables
 
 ---
@@ -74,10 +74,20 @@ an association between the two variables
 
 If `\(H_0\)` were true, then we would expect:
 - .midi[P(Non-Drinker) x P(Died) = P(Non-drinker AND Died)]
+--
+
 - .midi[P(Occasional Drinker) x P(Died) = P(Occasional drinker AND Died)]
+--
+
 - .midi[P(Regular Drinker) x P(Died) = P(Regular drinker AND Died)]
+--
+
 - .midi[P(Non-Drinker) x P(Lived) = P(Non-drinker AND Lived)]
+--
+
 - .midi[P(Occasional Drinker) x P(Lived) = P(Occasional drinker AND Lived)]
+--
+
 - .midi[P(Regular Drinker) x P(Lived) = P(Regular drinker AND Lived)]
 
 ---
@@ -99,11 +109,24 @@ If these were independent, we would *expect* P(Non-Drinker AND Died) to be
 6477/69164 `\(\times\)` 9080/69164 `\(\approx\)` 0.012. So, we expect approximately 
 850 study participants to be non-drinkers who died.
 
-The *observed* number is 1039, for a difference of 189 participants between
+---
+
+## Observed vs. expected counts
+
+| Coffee             | Died  | Did not die  |
+| ------------------ |------:| ------------:|
+| Non-drinker        | 1039  | 5438         |
+| Occasional drinker | 4440  | 29712        |
+| Regular drinker    | 3601  | 24934        |
+
+
+The **observed** number is 1039, for a difference of 189 participants between
 the observed and expected counts.
 
+--
+
 .question[
-Is this strong evidence against independence?
+Is this strong evidence against the claim of independence?
 ]
 
 ---
@@ -111,6 +134,8 @@ Is this strong evidence against independence?
 ## Observed vs. expected counts
 
 Well, that was just one cell! There are five more cells in which there may be differences between observed and expected counts.
+
+--
 
 .question[
 How can we sum up these differences in a principled way, and use it to conduct statistical inference?
@@ -120,18 +145,24 @@ How can we sum up these differences in a principled way, and use it to conduct s
 
 ## The chi-square test
 
-The chi-squared test has a very nice motivation in terms of comparing observed
-vs. the expected counts that we would expect if `\(H_0\)` were true. If these total differences are "large enough," then we reject the null hypothesis.
+The .vocab[chi-squared test] has a very nice motivation in terms of comparing observed vs. the expected counts that we would expect if `\(H_0\)` were true. 
+
+If these total differences are **"large enough,"** then we **reject** the null hypothesis.
+
+--
 
 - To combine differences across table cells, we need to square them before adding 
 them up (so that
 negative differences aren't canceled out by positive differences)
+
+--
 
 - We will also scale these differences by the expected count (a difference of 189 participants isn't large when thinking about 100,000 total observations, but is huge when thinking about 300 total observations!)
 
 ---
 
 ## The chi-square test statistic
+
 
 The chi-square `\(\chi^2\)` test statistic is
 
@@ -141,7 +172,11 @@ The chi-square `\(\chi^2\)` test statistic is
 
 where `\(r \times c\)` is the number of cells in the table (rows times columns), `\(i\)` indexes across all cells, `\(O_i\)` is the expected count in cell `\(i\)`, and `\(E_i\)` is the expected count in cell `\(i\)`.
 
+--
+
 This statistic is the total squared difference between the observed and expected cell counts, scaling by the expected cell count for each cell.
+
+--
 
 Under `\(H_0\)`, the distribution of this sum is approximated by a `\(\chi^2\)` distribution with `\((r - 1) \times (c - 1)\)` degrees of freedom.
 
@@ -151,7 +186,9 @@ Under `\(H_0\)`, the distribution of this sum is approximated by a `\(\chi^2\)` 
 
 &lt;img src="img/16/chisquared.png" width="50%" style="display: block; margin: auto;" /&gt;
 
-Remember, we only reject if the difference is "large enough." So, we only examine the *right-tail*. That is, the probability of seeing our `\(\chi^2\)` statistic *or larger* when calculating p-values.
+--
+
+Remember, we only reject if the difference is "large enough." So, we only examine the .vocab[right-tail]. That is, the probability of seeing our `\(\chi^2\)` statistic **or larger** when calculating p-values.
 
 ---
 
@@ -169,29 +206,28 @@ coffee_data %&gt;%
 
 ```
 ## # A tibble: 10 x 2
-##    coffee                health_status
-##    &lt;chr&gt;                 &lt;chr&gt;        
-##  1 Does not drink coffee Died         
-##  2 Does not drink coffee Died         
-##  3 Does not drink coffee Died         
-##  4 Does not drink coffee Died         
-##  5 Does not drink coffee Died         
-##  6 Does not drink coffee Died         
-##  7 Does not drink coffee Died         
-##  8 Does not drink coffee Died         
-##  9 Does not drink coffee Died         
+##    coffee                health_outcome
+##    &lt;chr&gt;                 &lt;chr&gt;         
+##  1 Does not drink coffee Died          
+##  2 Does not drink coffee Died          
+##  3 Does not drink coffee Died          
+##  4 Does not drink coffee Died          
+##  5 Does not drink coffee Died          
+##  6 Does not drink coffee Died          
+##  7 Does not drink coffee Died          
+##  8 Does not drink coffee Died          
+##  9 Does not drink coffee Died          
 ## 10 Does not drink coffee Died
 ```
+
 ---
 
 ## Chi-square test using infer
 
-Luckily, you don't have to calculate all the expected counts by hand, create the test statistic, and manually compare to a chi-square distribution.
-
 
 ```r
 coffee_data %&gt;%
-  chisq_test(formula = health_status ~ coffee)
+  chisq_test(formula = health_outcome ~ coffee)
 ```
 
 ```
@@ -201,8 +237,10 @@ coffee_data %&gt;%
 ## 1      55.2        2 1.05e-12
 ```
 
+--
+
 .question[
-Formally assess the hypothesis that coffee drinking and dying are independent.
+Formally assess the hypothesis that coffee drinking and health outcome are independent.
 
 What might we conclude given these data? 
 ]

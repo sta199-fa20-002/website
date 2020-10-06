@@ -16,7 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|--------|
 | Monday    | [Two-sample inference](https://sta199-fa20-002.netlify.app/slides/15-two-samp-inference.html) | [Two-sample inference](https://warpwire.duke.edu/w/b5QEAA/) | [AE 15: Parkinson's disease](https://sta199-fa20-002.netlify.app/appex/appex15-pd.html)|
 | Wednesday |  [Two-sample inference: Part 2](https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html)|  Two-sample inference: Part 2 | AE 16 |
-|  |  [Comparing more than two groups](https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html) |  Comparing more than two groups ||
+|  |  [Comparing three or more groups](https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html) |  [Comparing three or more groups](https://warpwire.duke.edu/w/HZcEAA/) ||
 
 ## Readings
 

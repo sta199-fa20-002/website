@@ -92,7 +92,7 @@ lessons:
   - date: "Wed, Oct 07"
     title: "Two-sample inference 2"
     slides: "16-two-samp-inference-pt2.html"
-  - title: "Comparing more than two groups"
+  - title: "Comparing three or more groups"
     slides: "16-chi-sq.html"
   - title: "HW 02 assigned"
     hw: "hw-02.html"
