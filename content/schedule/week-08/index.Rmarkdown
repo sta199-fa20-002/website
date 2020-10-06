@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Two-sample inference](https://sta199-fa20-002.netlify.app/slides/15-two-samp-inference.html) | [Two-sample inference](https://warpwire.duke.edu/w/b5QEAA/) | [AE 15: Parkinson's disease](https://sta199-fa20-002.netlify.app/appex/appex15-pd.html)|
-| Wednesday |  [Two-sample inference: Part 2](https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html)|  Two-sample inference: Part 2 | AE 16 |
+| Wednesday |  [Two-sample inference: Part 2](https://sta199-fa20-002.netlify.app/slides/16-two-samp-inference-pt2.html)|  [Two-sample inference: Part 2](https://warpwire.duke.edu/w/KZcEAA/) | AE 16 |
 |  |  [Comparing three or more groups](https://sta199-fa20-002.netlify.app/slides/16-chi-sq.html) |  [Comparing three or more groups](https://warpwire.duke.edu/w/HZcEAA/) ||
 
 ## Readings
