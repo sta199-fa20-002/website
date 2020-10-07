@@ -118,11 +118,11 @@ Evaluate this question using a simulation based approach. State the null and alt
 yawn <- read_csv("https://sta199-fa20-002.netlify.app/appex/data/yawn.csv")
 ```
 
-## Exercise 3
+### Exercise 3
 
 Repeat Exercise 2 using a CLT-based approach.
 
-## Exercise 4
+### Exercise 4
 
 Suppose we want to evaluate whether the proportion of yawners in the treatment group is equal to the proportion of yawners in the control group, i.e. if yawning and seeing someone yawn are independent.  
 
