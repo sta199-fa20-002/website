@@ -81,6 +81,8 @@ If you finish early, repeat steps 1 - 5 to run the simulation again!
 
 ### Simulation set up
 
+**Have one group member share their screen so you can do the simulation as a group.**
+
 1. Go to https://www.random.org/playing-cards/. 
 2. Under "Step 1" select to Draw **16** cards from **1** shuffled deck. 
 3. Under "Step 2", uncheck **Aces** and check **Black Joker** and **Red Joker**.

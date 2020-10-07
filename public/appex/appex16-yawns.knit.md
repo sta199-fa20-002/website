@@ -4,6 +4,8 @@ date: "2020-10-06"
 output: 
   html_document:
     theme: readable
+    toc: true
+    toc_depth: 2
 ---
 
 ## Announcements 
@@ -78,6 +80,8 @@ If you finish early, repeat steps 1 - 5 to run the simulation again!
 ## Simulation using online playing cards 
 
 ### Simulation set up
+
+**Have one group member share their screen so you can do the simulation as a group.**
 
 1. Go to https://www.random.org/playing-cards/. 
 2. Under "Step 1" select to Draw **16** cards from **1** shuffled deck. 
