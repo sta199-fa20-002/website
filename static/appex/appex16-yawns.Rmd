@@ -45,6 +45,8 @@ H_a: p_t > p_c$$
 
 We will simulate the null distribution using playing cards and permutation! 
 
+## Simulation with playing cards 
+
 ### Simulation set up
 
 1. A regular deck of cards is comprised of 52 cards: 
@@ -72,6 +74,46 @@ We will simulate the null distribution using playing cards and permutation!
 5. [Click here](https://forms.gle/RPvcghskHcY4wsjNA) to report the difference you find.
 
 If you finish early, repeat steps 1 - 5 to run the simulation again! 
+
+## Simulation using online playing cards 
+
+### Simulation set up
+
+1. Go to https://www.random.org/playing-cards/. 
+2. Under "Step 1" select to Draw **16** cards from **1** shuffled deck. 
+3. Under "Step 2", uncheck **Aces** and check **Black Joker** and **Red Joker**.
+
+Your selections should look like this: 
+
+```{r echo = F, fig.align = "center"}
+knitr::include_graphics("img/card-sim-selections.png")
+```
+
+
+### Running the Simulation
+
+1. User "Step 4", click **Draw cards.**
+
+2. You will see page with 16 randomly drawn cards. Your page will be similar to the one here: 
+
+```{r echo = F, fig.align = "center"}
+knitr::include_graphics("img/card-sim-draw.png")
+```
+
+3.  These 16 cards represent the people in the control group. Count the number of face cards. This represents the number of people who yawned in the control group. 
+
+  *In my example, there are 3 face cards in the control group.*
+
+3. The remaining 34 cards that were drawn are the treatment group. Calculate the number who yawned in the treatment group as **14 - face cards in control group**. This represents the number of people who yawned in the treatment group.
+  
+  *In my example, there are 11 (14 - 3) face cards in the treatment group.*
+
+4. Calculate the difference in proportions of yawners, $\hat{p}_{treatment} - \hat{p}_{control}$. 
+
+5. [Click here](https://forms.gle/RPvcghskHcY4wsjNA) to report the difference you find.
+
+Repeat steps 1 - 5 to run the simulation again! Run the simulation at least 3 times.
+
 
 ## Let's look at the results 
 

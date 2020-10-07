@@ -1,6 +1,6 @@
 ---
 title: "AE 16: Is yawning contagious?"
-date: "`r Sys.Date()`"
+date: "2020-10-06"
 output: 
   html_document:
     theme: readable
@@ -25,7 +25,7 @@ Tea with a TA counts as a statistics experience.
 
 ## Schedule udpate 
 
-`r emo::ji("maple_leaf")` Happy STA 199 Fall break! `r emo::ji("maple_leaf")`
+🍁 Happy STA 199 Fall break! 🍁
 
 - Tomorrow's lab: Mid-semester feedback + Project proposal work day
 - HW 02 will be assigned on **Monday, October 12**
@@ -85,9 +85,7 @@ If you finish early, repeat steps 1 - 5 to run the simulation again!
 
 Your selections should look like this: 
 
-```{r echo = F, fig.align = "center"}
-knitr::include_graphics("img/card-sim-selections.png")
-```
+<img src="img/card-sim-selections.png" width="1112" style="display: block; margin: auto;" />
 
 
 ### Running the Simulation
@@ -96,9 +94,7 @@ knitr::include_graphics("img/card-sim-selections.png")
 
 2. You will see page with 16 randomly drawn cards. Your page will be similar to the one here: 
 
-```{r echo = F, fig.align = "center"}
-knitr::include_graphics("img/card-sim-draw.png")
-```
+<img src="img/card-sim-draw.png" width="1112" style="display: block; margin: auto;" />
 
 3.  These 16 cards represent the people in the control group. Count the number of face cards. This represents the number of people who yawned in the control group. 
 
@@ -120,12 +116,14 @@ Repeat steps 1 - 5 to run the simulation again! Run the simulation at least 3 ti
 - Clone the **ae-16** repo and start a new project in RStudio. 
 - Configure git by running the code below in the console. Be sure to fill in your GitHub username and email associated with your Github account. 
 
-```{r eval=FALSE}
+
+```r
 library(usethis)
 use_git_config(user.name= "your github username", user.email="your email")
 ```
 
-```{r load-packages, warning = F, message = F}
+
+```r
 library(tidyverse)
 library(infer)
 ```
@@ -135,11 +133,13 @@ library(infer)
 
 **Remove `eval = F` from the code chunk header to see your simulation results!**
 
-```{r sim-results, eval = F}
+
+```r
 sim_data <- read_csv("https://sta199-fa20-002.netlify.app/appex/data/yawn-sim.csv")
 ```
 
-```{r sim-dist, eval = F}
+
+```r
 ggplot(data = sim_data, mapping = aes(x = diff_in_prop)) +
   geom_histogram(binwidth = 0.05) + 
   labs(title = "Your Results: Difference in Proportion of Yawners")
@@ -155,7 +155,8 @@ Let's use the data from the *Mythbusters* episode. Based on their experiment, is
 
 Evaluate this question using a simulation based approach. State the null and alternative hypotheses, the p-value, and conclusion in the context of the research problem.  
 
-```{r mythbusters-data, eval = F}
+
+```r
 # yawn data from Mythbusters
 yawn <- read_csv("https://sta199-fa20-002.netlify.app/appex/data/yawn.csv")
 ```
