@@ -96,6 +96,7 @@ lessons:
     slides: "16-chi-sq.html"
   - date: "Thu, Oct 08"
     title: "Lab: Mid-semester feedback + project proposal"
+    lab: "oct8-lab.html"
   - date: "Fri, Oct 09"
     title: "Project proposal due"
     project: "#project-proposal"
