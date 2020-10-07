@@ -96,7 +96,7 @@ knitr::include_graphics("img/card-sim-selections.png")
 
 ### Running the Simulation
 
-1. User "Step 4", click **Draw cards.**
+1. Under "Step 4", click **Draw cards.**
 
 2. You will see page with 16 randomly drawn cards. Your page will be similar to the one here: 
 
