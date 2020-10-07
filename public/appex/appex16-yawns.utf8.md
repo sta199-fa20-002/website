@@ -1,6 +1,6 @@
 ---
 title: "AE 16: Is yawning contagious?"
-date: "2020-10-06"
+date: "2020-10-07"
 output: 
   html_document:
     theme: readable
@@ -24,6 +24,7 @@ Tea with a TA counts as a statistics experience.
 - Team feedback #1 is due **today at 11:59p**. You should have received an email from Teammates with the link to fill out the feedback. If you did not receive the email (and it's not in your spam folder), please email Professor Tackett. *Team feedback counts as part of the participation grade.*
 - Lab 06 due on **today at 11:59p**.
 - Project proposal due on **Fri, Oct 9 at 11:59p**
+- [Uconn Sports Analytics Symposium](https://statds.org/events/ucsas2020/index.html), Sat, Oct 10. $5 registration fee.
 
 ## Schedule udpate 
 
@@ -94,7 +95,7 @@ Your selections should look like this:
 
 ### Running the Simulation
 
-1. User "Step 4", click **Draw cards.**
+1. Under "Step 4", click **Draw cards.**
 
 2. You will see page with 16 randomly drawn cards. Your page will be similar to the one here: 
 
@@ -167,13 +168,9 @@ yawn <- read_csv("https://sta199-fa20-002.netlify.app/appex/data/yawn.csv")
 
 ### Exercise 3
 
-Repeat Exercise 2 using a CLT-based approach.
-
-### Exercise 4
-
 Suppose we want to evaluate whether the proportion of yawners in the treatment group is equal to the proportion of yawners in the control group, i.e. if yawning and seeing someone yawn are independent.  
 
-Use a confidence interval (either simulated or CLT-based) to conduct evaluate this claim. 
+Use a confidence interval to evaluate this claim. Construct the confidence interval using a simulation-based method.
 
 <hr>
 
