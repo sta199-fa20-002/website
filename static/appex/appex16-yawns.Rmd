@@ -173,7 +173,7 @@ Repeat Exercise 2 using a CLT-based approach.
 
 Suppose we want to evaluate whether the proportion of yawners in the treatment group is equal to the proportion of yawners in the control group, i.e. if yawning and seeing someone yawn are independent.  
 
-Use a confidence interval (either simulated or CLT-based) to conduct evaluate this claim. 
+Use a confidence interval (either simulated or CLT-based) to evaluate this claim. 
 
 <hr>
 
