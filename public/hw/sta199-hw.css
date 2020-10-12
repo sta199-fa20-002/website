@@ -7,7 +7,7 @@
 /* Tufte CSS styles */
 
 html {
-	font-size: 15px;
+	font-size: 16px;
 }
 
 body {
@@ -143,8 +143,8 @@ ol>li {
 	width: 90%;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	padding-right: 0px;
-	padding-left: 110px;
+	padding-right: 10px;
+	padding-left: 130px;
 }
 
 ol>li:before {
@@ -156,7 +156,7 @@ ol>li:before {
 	color: #7A4183;
 	left: -0.5px;
 	font-weight: bold;
-	margin-right: 10px;
+	margin-right: 20px;
 }
 
 ol ul {
