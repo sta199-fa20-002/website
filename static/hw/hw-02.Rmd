@@ -52,8 +52,7 @@ approach, you must also provide the value of your test statistic and the
 distribution of that test statistic assuming the null hypothesis is true.
 
 ```{marginfigure}
-**Hint**: Be careful with missing values of the variables you're studying using inference! You may want to filter them out
-beforehand.
+**Hint**: Be careful with missing values of the variables you're analyzing in each question!
 ```
 
 1. Construct and interpret a 95% confidence interval for the mean sore throat 
@@ -66,11 +65,6 @@ surgeries that require intubation. Is there evidence that the mean BMI among
 such patients differs from the mean BMI among all German adults of 26 kg/m$^2$?
 Assess this hypothesis using a simulation-based approach. 
 Provide a visualization of your simulated null distribution and observed data.
-
-```{marginfigure}
-**Hint**: `dataset$var_name` selects the `var_name` variable from the `dataset`
-dataset as a vector. Try combining this with the `table()` function.
-```
 
 3. It may be possible that ASA classification may be associated with throat 
 pain after surgery. Create a new binary variable that corresponds to whether
