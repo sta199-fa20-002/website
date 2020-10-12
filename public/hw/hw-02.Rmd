@@ -39,8 +39,7 @@ relevant variables of interest are:
 classification (1 = normal healthy patient, 2 = mild systemic disease, 3 = 
 severe systemic disease)
 - `treat`: Treatment given (0 = Sugar placebo; 1 = Licorice solution)
-- `pacu30min_throatPain`: Sore throat pain score 30 minutes after arrival in 
-PACU
+- `pacu30min_throatPain`: Sore throat pain score 30 minutes after arrival in the post-anesthesia care unit (PACU)
 
 # Exercises
 

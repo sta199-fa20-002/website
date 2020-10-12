@@ -387,7 +387,7 @@ ggplot(data = paris_paintings, aes(x = Width_in, y = Height_in)) +
   geom_point(aes(x = 87, y = 120), col = "blue", shape = 1, size = 4) + 
   geom_segment(aes(x = 87, y = 120, xend = 87, yend = 71.551), col = "blue") + 
     geom_point(aes(x = 87, y = 71.551), col = "blue", shape = 1, size = 4) + 
-  annotate("text", x  = 100, y = 133, label = "87 -  71.55 = 15.45", color = "blue", size = 2)
+  annotate("text", x  = 100, y = 133, label = "120 -  71.55 = 15.45", color = "blue", size = 2)
 
 ```
 
