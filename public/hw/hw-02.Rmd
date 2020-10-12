@@ -1,8 +1,124 @@
 ---
-title: "HW 02"
+title: "HW 02: Statistical inference"
+subtitle: "due Mon, Oct 19 at 11:59p"
 output: 
-    html_document: 
-     css: "sta199-hw.css"
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+    highlight: pygments
+    css: "sta199-hw.css"
+link-citations: yes
 ---
 
-Instructions will be provided when the homework is assigned.
+# Clone assignment repo + start new project
+
+- Go to [course organization](https://www.github.com/sta199-fa20-002) on GitHub.
+
+- In addition to your private individual repositories, you should now see a repo with the prefix **hw-02-**. Go to that repository.
+  
+- Clone the repo and start a new project in RStudio. See [Lab 01](https://sta199-fa20-002.netlify.app/labs/lab-01-hello-r.html) for more details about how to clone a repo and start a new project.
+
+# Data
+
+Postoperative sore throat is an annoying complication of intubation after 
+surgery, particularly with wider gauge double-lumen tubes. Reutzler et al. 
+(2013) performed an experimental study in Germany among patients having elective
+surgery who required intubation with a double-lumen tube. Prior to anesthesia, 
+patients were randomly assigned to gargle either a licorice-based solution or sugar water (as placebo). 
+
+Sore throat was evaluated 30 minutes, 90 minutes, and 4 hours 
+after conclusion of the surgery, evaluated using a numeric scale from 0 to 10,
+where 0 = no pain and 10 = worst pain. For the purposes of this assignment, we
+will treat these pain scales as numeric.
+
+The data are available in your assignment repository as a .csv file. Some 
+relevant variables of interest are:
+
+- `preOp_gender`: Gender (0 = Male; 1 = Female)
+- `preOp_calcBMI`: Body mass index in kg/m$^2$
+- `preOp_asa`: American Society of Anesthesiologists physical status 
+classification (1 = normal healthy patient, 2 = mild systemic disease, 3 = 
+severe systemic disease)
+- `treat`: Treatment given (0 = Sugar placebo; 1 = Licorice solution)
+- `pacu30min_throatPain`: Sore throat pain score 30 minutes after arrival in 
+PACU
+
+# Exercises
+
+**Overall hint:** When performing a hypothesis test, you must provide the 
+significance level of your test, the null and alternative hypotheses, the 
+p-value, your decision, and an interpretation of the p-value in context of the 
+original research question. If you are using a **non**-simulation-based 
+approach, you must also provide the value of your test statistic and the 
+distribution of that test statistic assuming the null hypothesis is true.
+
+```{marginfigure}
+**Hint**: Be careful with missing values of the variables you're studying using inference! You may want to filter them out
+beforehand.
+```
+
+1. Construct and interpret a 95% confidence interval for the mean sore throat 
+pain score 30 minutes after arrival in the PACU among *all patients* using both
+a simulation-based approach and a CLT-based approach. Compare these two 
+intervals.
+
+2. Suppose that these patients are representative of German patients undergoing 
+surgeries that require intubation. Is there evidence that the mean BMI among
+such patients differs from the mean BMI among all German adults of 26 kg/m$^2$?
+Assess this hypothesis using a simulation-based approach. 
+Provide a visualization of your simulated null distribution and observed data.
+
+```{marginfigure}
+**Hint**: `dataset$var_name` selects the `var_name` variable from the `dataset`
+dataset as a vector. Try combining this with the `table()` function.
+```
+
+3. It may be possible that ASA classification may be associated with throat 
+pain after surgery. Create a new binary variable that corresponds to whether
+a patient experienced *any* throat pain at all, 30 minutes after surgery (i.e.,
+if they had a non-zero pain score at that time). Then assess whether
+there is a relationship between ASA classification and having any throat pain
+after surgery among all patients undergoing surgeries that require intubation.
+
+Now, let's examine any potential effects of licorice solution on reducing
+throat pain after surgery.
+
+4. Assess whether there was a lower mean throat pain 
+score 30 minutes after surgery among patients who received licorice compared
+to patients who received sugar solution placebo. Use a CLT-based approach.
+5. Comprehensively assess whether a lower proportion of patients who received
+licorice solution reported having any pain 30 minutes after surgery compared
+to sugar solution. Use a simulation-based approach.
+6. Based on your analyses, do you think that licorice gargle prior to surgery is
+effective in reducing post-intubation sore throat? Explain your answer, 
+referencing any data, formal statistical tests, or study design as necessary.
+
+In Exercises 7 - 12, determine whether the statements are TRUE or FALSE. If the 
+statement is FALSE, **explain why** it is FALSE.
+
+The mean BMI among patients receiving licorice solution was 25.6 kg/m$^2$ and
+the mean BMI among patients receiving sugar solution placebo was 25.6 kg/m$^2$.
+In assessing whether there is a difference in mean BMI between the two treatment
+groups using a CLT-based approach, the researchers obtained a p-value of 0.925.
+
+7. If there is truly no difference in mean BMI between these two groups, then 
+the probability of seeing a difference in BMI as large as our observed
+difference or even larger is approximately 0.925.
+8. Assuming $\alpha = 0.05$, then our p-value of 0.925 would be strong evidence
+that there is no difference in the mean BMI between the two treatment groups.
+9. The probability that we have made a Type 2 error is less than 10%.
+10. If we were to repeatedly construct 95% confidence intervals for the 
+difference in mean BMI in the same way from the original population, then we 
+know that 95% of those intervals would truly contain the true population 
+difference in means.
+11. With our given p-value, we know for sure that constructing a 95% confidence 
+interval for the mean difference in BMIs would definitely contain 0.
+12. If we instead found a p-value of 0.021, then at the $\alpha = 0.05$ level,
+we would have enough evidence to conclude that there is a difference in mean
+BMI between the two treatment groups. 
+
+
+# Acknowledgements
+
+Today's dataset was made available by the Lerner Research Institute and Dr. Amy 
+S. Nowacki of the Cleveland Clinic. This dataset is representative of a study by 
+Ruetzler et al. (2013).
