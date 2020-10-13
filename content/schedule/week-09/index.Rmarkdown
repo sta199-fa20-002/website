@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | Statistics experience |  | No AE 17|
-| Wednesday |  [Introducing linear models](https://sta199-fa20-002.netlify.app/slides/18-introduce-linear-model.html) | [Introducing linear models](https://warpwire.duke.edu/w/h6EEAA/) | AE 18 |
+| Wednesday |  [Introducing linear models](https://sta199-fa20-002.netlify.app/slides/18-introduce-linear-model.html) | [Introducing linear models](https://warpwire.duke.edu/w/h6EEAA/) | [AE 18: Car prices](https://sta199-fa20-002.netlify.app/appex/appex18-intro-regression.html) |
 |  |   | [Interpreting models](https://warpwire.duke.edu/w/YaEEAA/) |  |
 |  |   | [Categorical predictors](https://warpwire.duke.edu/w/VaEEAA/) |  |
 |  |   | [Prediction + tidy output](https://warpwire.duke.edu/w/R6EEAA/) |  |

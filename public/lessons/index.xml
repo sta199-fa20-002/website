@@ -756,7 +756,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-09/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Statistics experience  No AE 17   Wednesday Introducing linear models Introducing linear models AE 18     Interpreting models      Categorical predictors      Prediction + tidy output     Readings          Introduction to Modern Statistics: 3 Introduction to linear models Required    Assignments          Statistics experience due Oct 18 at 11:59p   HW 02 due Oct 19 at 11:59p   Lab 07 due Oct 21 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Statistics experience  No AE 17   Wednesday Introducing linear models Introducing linear models AE 18: Car prices     Interpreting models      Categorical predictors      Prediction + tidy output     Readings          Introduction to Modern Statistics: 3 Introduction to linear models Required    Assignments          Statistics experience due Oct 18 at 11:59p   HW 02 due Oct 19 at 11:59p   Lab 07 due Oct 21 at 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -784,7 +784,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/18-introduce-linear-model.html&#34;&gt;Introducing linear models&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/h6EEAA/&#34;&gt;Introducing linear models&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 18&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex18-intro-regression.html&#34;&gt;AE 18: Car prices&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;

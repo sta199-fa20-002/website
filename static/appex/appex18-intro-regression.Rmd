@@ -1,0 +1,94 @@
+---
+title: "AE 18: Car prices"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+## Announcements 
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+- [**Salvador Arellano**](https://www.linkedin.com/in/salvador-chavero-arellano/), Wed Oct 21, 12p - 1p
+  - [Click here](https://forms.gle/CVNc83EsqeuWLj5XA) to sign up
+  
+- **Morris Greenberg**, Fri Oct 23, 1p - 2p
+  - [Click here](https://forms.gle/PgVeB34UhpbvEbqn7) to sign up
+  
+### Other announcements
+
+**This is Statistics Fall Data Challenge**
+
+[Click here](https://thisisstatistics.org/falldatachallenge/) for details on the Get out the Vote! Fall Data Challenge by the American Statistical Association (ASA). Submissions are due **November 11**.
+
+## Questions from the video?
+
+```{r load-packages, include = FALSE}
+library(tidyverse)
+library(broom)
+```
+
+The dataset `car_prices.csv` contains attributes of cars offered for sale on 
+cars.com in 2017^[The data is from the `Stat2Data` R package.]. 
+
+- `type`: Model (Accord, Maxima, Mazda6)
+- `age`: Age of the used car (in years)
+- `price`: Price (in thousands of dollars)
+- `mileage`: Previous miles driven (in thousands of miles)
+
+```{r load-data, message = FALSE}
+car_prices <- read_csv("data/car_prices.csv")
+```
+
+## Price and Mileage
+
+Consider a regression model with the response `price` and a single predictor `mileage`. 
+
+### Exercise 1
+
+Create a scatterplot of price and mileage.
+
+### Exercise 2 
+
+Use appropriate functions in `R` to find the fitted model and display the results in tidy format. Write out the equation of the fitted model, then include a visualization of the linear model on the scatterplot from Exercise 1. 
+
+### Exercise 3
+
+Interpret the slope and intercept in the context of the problem.
+
+### Exercise 4
+
+What is the predicted selling price of a car with 50,000 miles?
+
+### Exercise 5
+
+Suppose my friend has a Honda Accord with 225,000 miles. Is it appropriate to use this model to make a prediction for the selling price? Why or why not?
+
+## Price and Type
+
+Consider a regression model with the response `price` and the categorical predictor `type` (Accord, Maxima, Mazda6).
+
+
+### Exercise 6
+
+Use appropriate functions in `R` to find the fitted model and display the results in tidy format. Write out the equation of the fitted model.
+
+### Exercise 7
+
+Interpret the intercept and slope(s) in the context of the problem.
+
+### Exercise 8
+
+How many terms are in the model for `type`? Is this equal to the number of car types in the data set? If not, briefly explain why the number of terms for `type` in the model differs from the number car types in the data set.
+
+### Exercise 9
+
+How does the average price of Maximas compare to the average price of Accords? 
+
+### Exercise 10
+
+What are possible limitations of your two regression models?
