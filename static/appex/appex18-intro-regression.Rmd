@@ -25,6 +25,12 @@ Tea with a TA counts as a statistics experience.
 
 [Click here](https://thisisstatistics.org/falldatachallenge/) for details on the Get out the Vote! Fall Data Challenge by the American Statistical Association (ASA). Submissions are due **November 11**.
 
+## Questions about HW 02 (due Mon Oct 19)?
+
+- [95% confidence](http://www.rossmanchance.com/applets/ConfSim.html)
+
+- Data types
+
 ## Questions from the video?
 
 ```{r load-packages, include = FALSE}
