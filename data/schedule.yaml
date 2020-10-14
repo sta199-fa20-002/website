@@ -30,7 +30,7 @@ lessons:
     slides: "05-tidy-data-wrangle.html"
   - date: "Wed, Sep 02"
     title: "Joining data from multiple sources"
-    slides: "06-join-data-merge.html"
+    slides: "06-data-join-merge.html"
   - date: "Thu, Sep 03"
     title: "Lab 03: Nobel laureates"
     lab: "lab-03-nobel-laureates.html"
