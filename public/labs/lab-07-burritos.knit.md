@@ -8,17 +8,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 
 # What makes a good burrito?

@@ -81,7 +81,7 @@ document:
 - $\le$: `$\le$`
 - $\neq$: `$\neq$`
 - $H_0$: `$H_0$`
-- $H_1$: `$H_1$`
+- $H_a$: `$H_a$`
 
 
 # Exercises
