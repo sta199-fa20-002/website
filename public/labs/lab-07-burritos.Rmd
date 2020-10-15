@@ -95,13 +95,13 @@ perceived temperature of the burrito. Comprehensively evaluate the hypothesis
 that the mean temperature of burritos with sour cream is lower than burritos 
 without sour cream using a simulation-based approach.
 3. Construct and interpret a 95% two-sided confidence interval for the 
-difference you investigated in Exercise 1 using your bootstrap distribution.
+difference you investigated in Exercise 1 using a simulation-based approach. 
 4. Now suppose you are worried that sour cream adversely affects the perceived
 *uniformity* of the burrito. Comprehensively evaluate the hypothesis that
-the mean uniformity of burritos with sour cream is higher than burritos without 
+the mean uniformity of burritos with sour cream is less than burritos without 
 sour cream using a CLT-based approach.
 5. Construct and interpret a a 95% two-sided confidence interval for the 
-difference you investigated in Exercise 4.
+difference you investigated in Exercise 4 using a CLT-based approach.
 6. Suppose you perform 10 independent hypothesis tests at the $\alpha = 0.05$
 level, and further suppose that in reality, the null hypothesis is TRUE for all
 10 tests. What is the probability that you make at least one type 1 error?
