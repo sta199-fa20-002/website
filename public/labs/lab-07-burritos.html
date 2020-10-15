@@ -436,6 +436,10 @@ text-decoration: italic;
 <div id="what-makes-a-good-burrito" class="section level1">
 <h1>What makes a good burrito?</h1>
 <p>The goal of today’s lab is to practice two-sample statistical inference using both simulation- and CLT-based approaches.</p>
+<p>Use the lecture notes, readings, and application exercises to help you complete the lab. You can also use <a href="sim-inference-chart.png">this chart on simulation-based inference</a> to help you determine the appropriate sampling scheme when conducting simulation-based inference.</p>
+</div>
+<div id="the-data" class="section level1">
+<h1>The Data</h1>
 <p>Today’s dataset has been adapted from Scott Cole’s <em>Burritos of San Diego</em> project, located <a href="https://srcole.github.io/100burritos/"><strong>here</strong></a>. The goal of the project was to identify the best and worst burritos in San Diego, characterize variance in burrito quality, and generate predictive models for what makes a burrito great.</p>
 <p>As part of this project, 71 participants reviewed burritos from 79 different taco shops. Reviewers captured objective measures of the burrito (such as whether it contains certain ingredients) and reviewed it on a number of metrics (such as quality of the tortilla, the temperature, quality of meat, etc.). For the purposes of this lab, you may consider each of these observations to be an independent, representative sample of all burritos.</p>
 <p>The subjective ratings in the dataset are as follows. Each variable is ranked on a 0 to 5 point scale, with 0 being the worst and 5 being the best.</p>
@@ -469,10 +473,10 @@ text-decoration: italic;
 <li><span class="math inline">\(H_0\)</span>: <code>$H_0$</code></li>
 <li><span class="math inline">\(H_1\)</span>: <code>$H_1$</code></li>
 </ul>
-<p><strong>At the start of each exercise that requires simulation, set a random seed</strong> <strong>equal to the exercise number in the R chunk.</strong></p>
 </div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
+<p><strong>At the start of each exercise that requires simulation, set a random seed</strong> <strong>equal to the exercise number in the R chunk.</strong></p>
 <ol style="list-style-type: decimal">
 <li>Sour cream on burritos: yay or nay? Explain.</li>
 <li>Suppose you are worried that the presence of sour cream adversely affects the perceived temperature of the burrito. Comprehensively evaluate the hypothesis that the mean temperature of burritos with sour cream is lower than burritos without sour cream using a simulation-based approach.</li>

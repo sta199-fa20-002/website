@@ -20,10 +20,15 @@ options(
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+
 # What makes a good burrito?
 
 The goal of today's lab is to practice two-sample statistical inference using
 both simulation- and CLT-based approaches.
+
+Use the lecture notes, readings, and application exercises to help you complete the lab. You can also use [this chart on simulation-based inference](sim-inference-chart.png) to help you determine the appropriate sampling scheme when conducting simulation-based inference.
+
+# The Data
 
 Today's dataset has been adapted from Scott Cole's *Burritos of San Diego* 
 project, located [**here**](https://srcole.github.io/100burritos/). The goal 
@@ -78,10 +83,11 @@ document:
 - $H_0$: `$H_0$`
 - $H_1$: `$H_1$`
 
-**At the start of each exercise that requires simulation, set a random seed**
-**equal to the exercise number in the R chunk.**
 
 # Exercises
+
+**At the start of each exercise that requires simulation, set a random seed**
+**equal to the exercise number in the R chunk.**
 
 1. Sour cream on burritos: yay or nay? Explain.
 2. Suppose you are worried that the presence of sour cream adversely affects the 

@@ -34,7 +34,7 @@ font-size: 18px;
 |------------------------|---|
 | [Statistics experience](https://sta199-fa20-002.netlify.app/hw/stat-experience.html) | **due Oct 18  at 11:59p** |
 | [HW 02](https://sta199-fa20-002.netlify.app/hw/hw-02.html)| **due Oct 19 at 11:59p** |
-| Lab 07 | **due Oct 21 at 11:59p** |
+| [Lab 07](https://sta199-fa20-002.netlify.app/labs/lab-07-burritos.html) | **due Oct 21 at 11:59p** |
 
 ## Announcements
 
