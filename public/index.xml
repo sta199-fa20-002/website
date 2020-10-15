@@ -1192,6 +1192,11 @@ exactly upon knitting.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&#34;peer-feedback&#34;&gt;Peer feedback&lt;/h2&gt;
+&lt;p&gt;Critically reviewing others&amp;rsquo; work is a crucial part of the scientific process, and STA 199 is no exception. You will be assigned a team to review. As part of the review process, you must provide your partner team a copy of your current report by &lt;strong&gt;Wednesday, October 28&lt;/strong&gt;. After giving the report to your partner team, they will have until &lt;strong&gt;Friday, November 5&lt;/strong&gt; to provide a detailed critique about the written report and data analysis. This feedback is intended to help you create a high quality final project, as well as give you experience
+reading and constructively critiquing the work of others.&lt;/p&gt;
+&lt;p&gt;During the peer feedback process, you will be provided read-only access to your  partner team&amp;rsquo;s GitHub repo. Provide your feedback in the form of GitHub issues to your partner team&amp;rsquo;s GitHub repo.&lt;/p&gt;
+&lt;p&gt;Peer feedback will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team&amp;rsquo;s report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions. As you work on the draft, the focus should be on the analysis and less on crafting the final report. &lt;strong&gt;Your draft must include a reasonable attempt at each analysis component - exploratory data analysis, inference or modeling, and drawing initial conclusions.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;written-report&#34;&gt;Written report&lt;/h2&gt;
 &lt;p&gt;Your written report must be done using R Markdown. All team members must contribute to the GitHub repository, with regular meaningful commits.&lt;/p&gt;
 &lt;p&gt;Before you finalize your write up, make sure the printing of code chunks is off with the option &lt;code&gt;echo = FALSE&lt;/code&gt;.&lt;/p&gt;
@@ -1236,11 +1241,6 @@ and presenting the results. Focus on methods that help you begin to answer your 
 &lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
 &lt;p&gt;This section is a conclusion and discussion. This will require a
 summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. A paragraph on what you would do differently if you were able to start over with the project or what you would do next if you were going to continue work on the project should also be included.&lt;/p&gt;
-&lt;h2 id=&#34;peer-feedback&#34;&gt;Peer feedback&lt;/h2&gt;
-&lt;p&gt;Critically reviewing others&amp;rsquo; work is a crucial part of the scientific process, and STA 199 is no exception. You will be assigned a team to review. As part of the review process, you must provide your partner team a copy of your current report by &lt;strong&gt;Wednesday, October 28&lt;/strong&gt;. After giving the report to your partner team, they will have until &lt;strong&gt;Friday, November 5&lt;/strong&gt; to provide a detailed critique about the written report and data analysis. This feedback is intended to help you create a high quality final project, as well as give you experience
-reading and constructively critiquing the work of others.&lt;/p&gt;
-&lt;p&gt;During the peer feedback process, you will be provided read-only access to your  partner team&amp;rsquo;s GitHub repo. Provide your feedback in the form of GitHub issues to your partner team&amp;rsquo;s GitHub repo.&lt;/p&gt;
-&lt;p&gt;Peer feedback will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team&amp;rsquo;s report: the  research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions. You must have at least some of these results available for your partner team to review.&lt;/p&gt;
 &lt;h2 id=&#34;presentation-slides&#34;&gt;Presentation Slides&lt;/h2&gt;
 &lt;p&gt;In addition to the write-up, your team must also create presentation
 slides that summarize and showcase your project. Introduce your research question and dataset, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality. For submission, convert these slides to a .pdf document to be submitted to Gradescope. The slides are due on &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;.&lt;/p&gt;
