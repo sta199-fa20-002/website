@@ -881,7 +881,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-10/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Multiple linear regression Multiple linear regression AE 19   Wednesday Model diagnostics + assessment Model diagnostics + assessment AE 20    Readings          Introduction to Modern Statistics: 4.1 Regression with multiple predictors Required    Assignments          Exam 02 Thu, Oct 22, 9a - Sun, Oct 25, 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Multiple linear regression Multiple linear regression AE 19     Assessing model fit    Wednesday Model diagnostics + assessment Model diagnostics + assessment AE 20    Readings          Introduction to Modern Statistics: 4.1 Regression with multiple predictors Required    Assignments          Exam 02 Thu, Oct 22, 9a - Sun, Oct 25, 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -902,8 +902,14 @@ font-size: 18px;
 &lt;tr&gt;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html&#34;&gt;Multiple linear regression&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Multiple linear regression&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/fakEAA/&#34;&gt;Multiple linear regression&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;AE 19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/f6kEAA/&#34;&gt;Assessing model fit&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;

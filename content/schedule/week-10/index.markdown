@@ -14,7 +14,8 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Multiple linear regression](https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html) | Multiple linear regression | AE 19 |
+| Monday    | [Multiple linear regression](https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html) | [Multiple linear regression](https://warpwire.duke.edu/w/fakEAA/) | AE 19 |
+|     |  | [Assessing model fit](https://warpwire.duke.edu/w/f6kEAA/) ||
 | Wednesday |  Model diagnostics + assessment | Model diagnostics + assessment | AE 20|
 
 ## Readings
