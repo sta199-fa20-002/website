@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Multiple linear regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Multiple linear regression
+### Prof. Maria Tackett
+
+---
+
+
+
+&lt;!-- layout: true --&gt;
+
+&lt;!-- &lt;div class="my-footer"&gt; --&gt;
+&lt;!-- &lt;span&gt; --&gt;
+&lt;!-- &lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt; --&gt;
+&lt;!-- &lt;/span&gt; --&gt;
+&lt;!-- &lt;/div&gt;  --&gt;
+
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](19-multiple-regression.pdf)
+
+---
+
+class: center, middle
+
+## Review
+
+---
+
+
+## Vocabulary
+
+- .vocab[Response variable]: Variable whose behavior or variation you are trying 
+to understand. 
+
+- .vocab[Explanatory variables]: Other variables that you want to use to explain
+the variation in the response. 
+
+- .vocab[Predicted value]:&lt;/font&gt; Output of the **model function**
+    - The model function gives the typical value of the response variable
+    *conditioning* on the explanatory variables.
+
+- .vocab[Residuals]: Shows how far each case is from its predicted value
+   - **Residual = Observed value - Predicted value**
+
+---
+
+## The linear model with a single predictor
+
+- We're interested in the `\(\beta_0\)` (population parameter for the intercept)
+and the `\(\beta_1\)` (population parameter for the slope) in the 
+following model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x $$
+
+--
+
+- Unfortunately, we can't get these values
+
+- So we use sample statistics to estimate them:
+
+$$ \hat{y} = b_0 + b_1~x $$
+
+---
+
+## Least squares regression
+
+The regression line minimizes the sum of squared residuals.
+
+- .vocab[Residuals]: `\(e_i = y_i - \hat{y}_i\)`,
+
+- The regression line minimizes `\(\sum_{i = 1}^n e_i^2\)`.
+
+- Equivalently, minimizing `\(\sum_{i = 1}^n [y_i - (b_0 + b_1~x_i)]^2\)`
+
+---
+
+## Data and Packages
+
+
+```r
+library(tidyverse)
+library(broom)
+```
+
+
+```r
+paris_paintings &lt;- read_csv("data/paris_paintings.csv", 
+               na = c("n/a", "", "NA"))
+```
+
+- [Paris Paintings Codebook](https://sta199-fa20-003.netlify.app/slides/lec-slides/paris_codebook.html)
+- Source: Printed catalogues from 28 auction sales held in Paris 1764 - 1780
+- 3,393 paintings, prices, descriptive details, characteristics of the auction 
+and buyer (over 60 variables)
+
+---
+
+## Single numerical predictor 
+
+
+```r
+m_ht_wd &lt;- lm(Height_in ~ Width_in, data = paris_paintings)
+tidy(m_ht_wd)
+```
+
+```
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    3.62    0.254        14.3 8.82e-45
+## 2 Width_in       0.781   0.00950      82.1 0.
+```
+
+`$$\widehat{Height_{in}} = 3.62 + 0.78~Width_{in}$$`
+
+---
+
+## Single categorical predictor (2 levels)
+
+
+```r
+m_ht_lands &lt;- lm(Height_in ~ factor(landsALL), data = paris_paintings)
+tidy(m_ht_lands)
+```
+
+```
+## # A tibble: 2 x 5
+##   term              estimate std.error statistic  p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)          22.7      0.328      69.1 0.      
+## 2 factor(landsALL)1    -5.65     0.532     -10.6 7.97e-26
+```
+
+`$$\widehat{Height_{in}} = 22.68 - 5.65~landsALL$$`
+
+---
+
+## Single categorical predictor (&gt; 2 levels)
+
+
+```r
+m_ht_sch &lt;- lm(Height_in ~ school_pntg, data = paris_paintings)
+tidy(m_ht_sch)
+```
+
+```
+## # A tibble: 7 x 5
+##   term            estimate std.error statistic p.value
+##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)        14.        10.0     1.40  0.162  
+## 2 school_pntgD/FL     2.33      10.0     0.232 0.816  
+## 3 school_pntgF       10.2       10.0     1.02  0.309  
+## 4 school_pntgG        1.65      11.9     0.139 0.889  
+## 5 school_pntgI       10.3       10.0     1.02  0.306  
+## 6 school_pntgS       30.4       11.4     2.68  0.00744
+## 7 school_pntgX        2.87      10.3     0.279 0.780
+```
+
+.tiny[
+`$$\widehat{Height_{in}} = 14 + 2.33~sch_{D/FL} + 10.2~sch_F + \\ 1.65~sch_G + 
+10.3~sch_I + 30.4~sch_S + 2.87~sch_X$$`
+]
+
+
+
+---
+
+
+class: center, middle
+
+## The linear model with multiple predictors
+
+---
+
+
+## The linear model with multiple predictors
+
+- Population model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x_1 + \beta_2~x_2 + \cdots + \beta_k~x_k $$
+
+--
+
+- Sample model that we use to estimate the population model:
+  
+$$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
+
+---
+
+## Data
+
+
+
+The data set contains prices for Porsche and Jaguar cars for sale
+on cars.com.
+
+.vocab[`car`]: car make (Jaguar or Porsche)
+
+.vocab[`price`]: price in USD
+
+.vocab[`age`]: age of the car in years
+
+.vocab[`mileage`]: previous miles driven
+
+---
+
+## Price, age, and make
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+## Price vs. age and make
+
+.question[
+Does the relationship between age and price depend on the make of the car?
+]
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Modeling with main effects 
+
+
+```r
+m_main &lt;- lm(price ~ age + car, data = sports_car_prices)
+
+m_main %&gt;%
+  tidy() %&gt;%
+  select(term, estimate)
+```
+
+```
+## # A tibble: 3 x 2
+##   term        estimate
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 (Intercept)   44310.
+## 2 age           -2487.
+## 3 carPorsche    21648.
+```
+
+--
+
+.midi[
+$$ \widehat{price} = 44310 - 2487~age + 21648~carPorsche $$
+]
+---
+
+.alert[
+$$ \widehat{price} = 44310 - 2487~age + 21648~carPorsche $$
+]
+
+
+- Plug in 0 for `carPorsche` to get the linear model for Jaguars.
+
+--
+
+`$$\begin{align}\widehat{price} &amp;= 44310 - 2487~age + 21648 \times 0\\
+&amp;= 44310 - 2487~age\\\end{align}$$`
+
+--
+
+- Plug in 1 for `carPorsche` to get the linear model for Porsches.
+
+--
+
+`$$\begin{align}\widehat{price} &amp;= 44310 - 2487~age + 21648 \times 1\\
+&amp;= 65958 - 2487~age\\\end{align}$$`
+
+---
+
+.alert[
+**Jaguar**
+
+`$$\begin{align}\widehat{price} &amp;= 44310 - 2487~age + 21648 \times 0\\
+&amp;= 44310 - 2487~age\\\end{align}$$`
+
+**Porsche**
+
+`$$\begin{align}\widehat{price} &amp;= 44310 - 2487~age + 21648 \times 1\\
+&amp;= 65958 - 2487~age\\\end{align}$$`
+]
+
+- Rate of change in price as the age of the car increases does not depend on 
+make of car (.vocab[same slopes])
+- Porsches are consistently more expensive than Jaguars (.vocab[different intercepts])
+
+
+
+---
+
+## Interpretation of main effects
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Main effects
+
+
+```
+## # A tibble: 3 x 2
+##   term        estimate
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 (Intercept)   44310.
+## 2 age           -2487.
+## 3 carPorsche    21648.
+```
+
+
+
+.midi[
+- **All else held constant**, for each additional year of a car's age, the price of the car is predicted to decrease, on average, by $2,487.
+
+- **All else held constant**, Porsches are predicted, on average, to have a 
+price that is $21,647 greater than Jaguars.
+
+- Jaguars that are new (age = 0) are predicted, on average, to have a price of $44,309.
+]
+
+---
+
+.question[
+Why is our linear regression model different from what we got from `geom_smooth(method = "lm")`?
+]
+
+.pull-left[
+
+]
+.pull-right[
+
+]
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## What went wrong? 
+
+- .vocab[`car`] is the only variable in our model that affects the intercept.
+
+- The model we specified assumes Jaguars and Porsches have the .vocab[`same slope`]
+and .vocab[`different intercepts`].
+
+- What is the most appropriate model for these data?
+
+  - same slope and intercept for Jaguars and Porsches?
+  - same slope and different intercept for Jaguars and Porsches?
+  - different slope and different intercept for Jaguars and Porsches?
+  
+---
+
+## Interacting explanatory variables
+
+- Including an interaction effect in the model allows for different slopes, i.e. 
+nonparallel lines.
+
+- This means that the relationship between an explanatory variable and the 
+response depends on another explanatory variable.
+
+- We can accomplish this by adding an .vocab[interaction variable]. This is the 
+product of two explanatory variables.
+
+---
+
+## Price vs. age and car interacting
+
+.midi[
+
+```r
+ggplot(data = sports_car_prices,
+       mapping = aes(y = price, x = age, color = car)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Age (years)", y = "Price (USD)", color = "Car Make")
+```
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Modeling with interaction effects
+
+
+```r
+m_int &lt;- lm(price ~ age + car + age * car, data = sports_car_prices) 
+m_int %&gt;%
+  tidy() %&gt;%
+  select(term, estimate)
+```
+
+```
+## # A tibble: 4 x 2
+##   term           estimate
+##   &lt;chr&gt;             &lt;dbl&gt;
+## 1 (Intercept)      56988.
+## 2 age              -5040.
+## 3 carPorsche        6387.
+## 4 age:carPorsche    2969.
+```
+
+`$$\widehat{price} = 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche$$`
+
+---
+
+## Interpretation of interaction effects
+
+.alert[
+`$$\widehat{price} = 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche$$`
+]
+
+--
+
+- Plug in 0 for `carPorsche` to get the linear model for Jaguars.
+
+`$$\begin{align}\widehat{price} &amp;= 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche \\
+&amp;= 56988 - 5040~age + 6387 \times 0 + 2969~age \times 0\\
+&amp;\color{#00b3b3}{= 56988 - 5040~age}\end{align}$$`
+
+--
+
+- Plug in 1 for `carPorsche` to get the linear model for Porsches.
+
+`$$\begin{align}\widehat{price} &amp;= 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche \\
+&amp;= 56988 - 5040~age + 6387 \times 1 + 2969~age \times 1\\
+&amp;\color{#00b3b3}{= 63375 - 2071~age}\end{align}$$`
+
+---
+
+## Interpretation of interaction effects
+
+.alert[
+**Jaguar**
+
+`$$\widehat{price} = 56988 - 5040~age$$`
+
+**Porsche**
+
+`$$\widehat{price} = 63375 - 2071~age$$`
+]
+
+- Rate of change in price as the age of the car increases depends on the make 
+of the car (.vocab[different slopes]).
+
+- Porsches are consistently more expensive than Jaguars (.vocab[different intercepts]).
+
+---
+
+
+&lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Continuous by continuous interactions
+
+- Interpretation becomes trickier
+
+- Slopes conditional on values of explanatory variables
+
+--
+
+## Third order interactions
+
+- Can you? Yes
+
+- Should you? Probably not if you want to interpret these interactions in 
+context of the data.
+
+---
+
+class: center, middle
+
+## Assessing quality of model fit
+
+---
+
+## Assessing the quality of the fit
+
+- The strength of the fit of a linear model is commonly evaluated using `\(R^2\)`.
+
+- It tells us what percentage of the variability in the response variable is explained by the model. The remainder of the variability is unexplained.
+
+- `\(R^2\)` is sometimes called the coefficient of determination.
+
+.question[
+What does "explained variability in the response variable" mean?
+]
+
+---
+
+## Obtaining `\(R^2\)` in R
+
+`price` vs. `age` and `make`
+
+
+```r
+glance(m_main)
+```
+
+```
+## # A tibble: 1 x 12
+##   r.squared adj.r.squared  sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.607         0.593 11848.      44.0 2.73e-12     2  -646. 1301. 1309.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
+```
+
+```r
+glance(m_main)$r.squared 
+```
+
+```
+## [1] 0.6071375
+```
+
+--
+
+About 60.7% of the variability in price of used cars can be explained by age and make.
+
+---
+
+## `\(R^2\)`
+
+
+```r
+glance(m_main) %&gt;% #model with main effects
+  pull(r.squared)  
+```
+
+```
+## [1] 0.6071375
+```
+
+```r
+glance(m_int) %&gt;% #model with main effects + interactions
+  pull(r.squared) 
+```
+
+```
+## [1] 0.6677881
+```
+
+--
+
+- The model with interactions has a higher `\(R^2\)`.
+
+--
+
+- Using `\(R^2\)` for model selection in models with multiple explanatory variables is **&lt;u&gt;not&lt;/u&gt;** a good idea as `\(R^2\)` increases when **any** variable is added to the model.
+
+---
+
+## `\(R^2\)` - first principles
+
+- We can write explained variation using the following ratio of sums of squares:
+
+$$ R^2 = 1 - \left( \frac{ \text{variability in residuals}}{ \text{variability in response} } \right) $$
+.question[
+Why does this expression make sense?
+]
+
+- But remember, adding **any** explanatory variable will always increase `\(R^2\)`
+
+---
+
+## Adjusted `\(R^2\)`
+
+.alert[
+$$ R^2_{adj} = 1 - \left( \frac{ \text{variability in residuals}}{ \text{variability in response} } \times \frac{n - 1}{n - k - 1} \right)$$
+where `\(n\)` is the number of observations and `\(k\)` is the number of predictors in the model.
+]
+
+--
+
+- Adjusted `\(R^2\)` doesn't increase if the new variable does not provide any new 
+information or is completely unrelated.
+
+--
+
+- This makes adjusted `\(R^2\)` a preferable metric for model selection in multiple
+regression models.
+
+---
+
+## Comparing models 
+
+.pull-left[
+
+
+```r
+glance(m_main)$r.squared  
+```
+
+```
+## [1] 0.6071375
+```
+
+```r
+glance(m_int)$r.squared
+```
+
+```
+## [1] 0.6677881
+```
+]
+
+.pull-right[
+
+```r
+glance(m_main)$adj.r.squared  
+```
+
+```
+## [1] 0.5933529
+```
+
+```r
+glance(m_int)$adj.r.squared
+```
+
+```
+## [1] 0.649991
+```
+]
+
+---
+
+## In pursuit of Occam's Razor
+
+- Occam's Razor states that among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected.
+
+- Model selection follows this principle.
+
+- We only want to add another variable to the model if the addition of that variable brings something valuable in terms of predictive power to the model.
+
+- In other words, we prefer the simplest best model, i.e. .vocab[parsimonious] model.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

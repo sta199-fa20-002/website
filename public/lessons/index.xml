@@ -876,13 +876,95 @@ font-size: 18px;
     </item>
     
     <item>
-      <title>Week 10</title>
+      <title>Week 10: Multiple linear regression</title>
       <link>/schedule/week-10/</link>
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-10/</guid>
-      <description>Check back for details!</description>
-      <content>&lt;p&gt;Check back for details!&lt;/p&gt;
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Multiple linear regression Multiple linear regression AE 19   Wednesday Model diagnostics + assessment Model diagnostics + assessment AE 20    Readings          Introduction to Modern Statistics: 4.1 Regression with multiple predictors Required    Assignments          Exam 02 Thu, Oct 22, 9a - Sun, Oct 25, 11:59p    Announcements Tea with a TA!</description>
+      <content>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html&#34;&gt;Multiple linear regression&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Multiple linear regression&lt;/td&gt;
+&lt;td&gt;AE 19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;Model diagnostics + assessment&lt;/td&gt;
+&lt;td&gt;Model diagnostics + assessment&lt;/td&gt;
+&lt;td&gt;AE 20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://openintro-ims.netlify.app/multi-logistic-models.html#regression-multiple-predictors&#34;&gt;Introduction to Modern Statistics: 4.1 Regression with multiple predictors&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Required&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/exams/exam-02.html&#34;&gt;Exam 02&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Thu, Oct 22, 9a - Sun, Oct 25, 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
+&lt;h3 id=&#34;tea-with-a-ta&#34;&gt;Tea with a TA!&lt;/h3&gt;
+&lt;p&gt;Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching time. The only rule is these can&amp;rsquo;t turn into office hours!&lt;/p&gt;
+&lt;p&gt;Tea with a TA counts as a statistics experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Upcoming Tea with a TA events&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/salvador-chavero-arellano/&#34;&gt;&lt;strong&gt;Salvador Arellano&lt;/strong&gt;&lt;/a&gt;, Wed Oct 21, 12p - 1p&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forms.gle/CVNc83EsqeuWLj5XA&#34;&gt;Click here&lt;/a&gt; to sign up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Morris Greenberg&lt;/strong&gt;, Fri Oct 23, 1p - 2p&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forms.gle/PgVeB34UhpbvEbqn7&#34;&gt;Click here&lt;/a&gt; to sign up&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Morris Greenberg graduated from Tufts University in 2016 majoring in Mathematics and Quantitative Economics with a Computer Science minor. While at Tufts, he started his love of data science working with baseball data as the leader of the Baseball Analysis at Tufts (BAT) club, and eventually interning and consulting for the Washington Nationals in his final year. Thereafter, he worked at Analysis Group, an economic consulting firm, for 3 years as an analyst/senior analyst, specializing in healthcare projects. He is now a master&amp;rsquo;s student in the Statistical Science department at Duke, and does research with Li Ma and the medical school with microbiome data, trying to model how the human gut changes over time. In his spare time, he enjoys hiking, playing guitar, playing scrabble and crossword puzzles, doing yoga, and cooking Indian food.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;this-is-statistics-fall-data-challenge&#34;&gt;This is Statistics Fall Data Challenge&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://thisisstatistics.org/falldatachallenge/&#34;&gt;Click here&lt;/a&gt; for details on the Get out the Vote! Fall Data Challenge by the American Statistical Association (ASA). Submissions are due &lt;strong&gt;November 11&lt;/strong&gt;.&lt;/p&gt;
 </content>
     </item>
     
