@@ -49,15 +49,23 @@ class: center, middle
 
 ## Vocabulary
 
+--
+
 - .vocab[Response variable]: Variable whose behavior or variation you are trying 
 to understand. 
 
+--
+
 - .vocab[Explanatory variables]: Other variables that you want to use to explain
-the variation in the response. 
+the variation in the response.
+
+--
 
 - .vocab[Predicted value]:&lt;/font&gt; Output of the **model function**
     - The model function gives the typical value of the response variable
     *conditioning* on the explanatory variables.
+
+--
 
 - .vocab[Residuals]: Shows how far each case is from its predicted value
    - **Residual = Observed value - Predicted value**
@@ -332,14 +340,19 @@ make of car (.vocab[same slopes])
 
 
 
-.midi[
+--
+
 - **All else held constant**, for each additional year of a car's age, the price of the car is predicted to decrease, on average, by $2,487.
+
+--
 
 - **All else held constant**, Porsches are predicted, on average, to have a 
 price that is $21,647 greater than Jaguars.
 
+--
+
 - Jaguars that are new (age = 0) are predicted, on average, to have a price of $44,309.
-]
+
 
 ---
 
@@ -361,10 +374,16 @@ Why is our linear regression model different from what we got from `geom_smooth(
 
 ## What went wrong? 
 
+--
+
 - .vocab[`car`] is the only variable in our model that affects the intercept.
+
+--
 
 - The model we specified assumes Jaguars and Porsches have the .vocab[`same slope`]
 and .vocab[`different intercepts`].
+
+--
 
 - What is the most appropriate model for these data?
 
@@ -474,6 +493,7 @@ of the car (.vocab[different slopes]).
 
 &lt;img src="19-multiple-regression_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
 
+`$$\widehat{price} = 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche$$`
 
 ---
 
@@ -506,7 +526,7 @@ class: center, middle
 
 - It tells us what percentage of the variability in the response variable is explained by the model. The remainder of the variability is unexplained.
 
-- `\(R^2\)` is sometimes called the coefficient of determination.
+- `\(R^2\)` is sometimes called the **coefficient of determination**.
 
 .question[
 What does "explained variability in the response variable" mean?
@@ -549,8 +569,7 @@ About 60.7% of the variability in price of used cars can be explained by age and
 
 
 ```r
-glance(m_main) %&gt;% #model with main effects
-  pull(r.squared)  
+glance(m_main)$r.squared #model with main effects
 ```
 
 ```
@@ -558,8 +577,7 @@ glance(m_main) %&gt;% #model with main effects
 ```
 
 ```r
-glance(m_int) %&gt;% #model with main effects + interactions
-  pull(r.squared) 
+glance(m_int)$r.squared #model with main effects + interactions
 ```
 
 ```
