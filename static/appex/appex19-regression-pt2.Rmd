@@ -1,0 +1,93 @@
+---
+title: "AE 19: Paris paintings"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+## Announcements 
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+- [**Salvador Arellano**](https://www.linkedin.com/in/salvador-chavero-arellano/), Wed Oct 21, 12p - 1p
+  - [Click here](https://forms.gle/CVNc83EsqeuWLj5XA) to sign up
+  
+- **Morris Greenberg**, Fri Oct 23, 1p - 2p
+  - [Click here](https://forms.gle/PgVeB34UhpbvEbqn7) to sign up
+  
+## Questions from the video? 
+
+```{r load-packages, include = FALSE}
+library(tidyverse)
+library(broom)
+```
+
+We will be looking at the Paris Paintings data set in today's application exercise. We'll primarily focus on the variables: 
+
+- `Height_in`: Height (in inches)
+- `Width_in`: Width (in inches)
+- `landsAll`: If any type of landscape is mentioned (either lands_sc, lands_figs, or lands_ment)
+
+[Click here](https://sta199-fa20-002.netlify.app/slides/paris_codebook.html) for the complete codebook.
+
+```{r load-data, message = FALSE}
+paintings <- read_csv("data/paris_paintings.csv")
+```
+
+### Exercise 1
+
+Create a scatterplot to visualize the relationship between Height and Width. Color the points based on the whether the painting has any landscape elements. *Note: Be sure to make `landsAll` a factor, so R treats it as categorical variable.*
+
+### Exercise 2
+
+Based on your scatterplot, does the relationship between Height and Width differ between paintings with landscape elements and those without? Briefly explain.  
+
+### Exercise 3
+
+Fit a main effects model using width and whether the painting has landscape elements to predict the height. 
+
+### Exercise 4
+
+Using your model from the previous exercise, 
+
+- Interpret the intercept. 
+- Interpret the coefficient (slope) of `Width_in`. 
+- Interpret the coefficient (slope) of `landsAll`.
+
+### Exercise 5
+
+Write the equation of the model for 
+
+- paintings with no landscape elements. 
+- paintings with landscape elements. 
+
+How do the slopes compare between the two models? How do the intercepts compare? 
+
+### Exericse 6
+
+Now let's consider an interaction term. Fit a linear model using width, whether the painting has landscape elements, and the interaction between the two variables to predict the height. 
+
+### Exercise 7
+
+Write the equation of the model for 
+
+- paintings with no landscape elements. 
+- paintings with landscape elements. 
+
+How do the slopes compare between the two models? How do the intercepts compare? 
+
+### Exercise 8
+
+Now let's see how well each model fits the data. Use the `glance` function to calculate $R^2$ and Adj. $R^2$ for the model fit in Ex. 3 and the one fit in Ex. 6. 
+
+### Exercise 9
+
+Based on your answer to the previous exercise, which model is a better fit for the data? Briefly explain.
+
+### Exercise 10
+
+Interpret $R^2$ for the model chosen in the previous exercise.
