@@ -47,6 +47,26 @@ Tea with a TA counts as a statistics experience.
   - [Click here](https://forms.gle/PgVeB34UhpbvEbqn7) to sign up
   - *Morris Greenberg graduated from Tufts University in 2016 majoring in Mathematics and Quantitative Economics with a Computer Science minor. While at Tufts, he started his love of data science working with baseball data as the leader of the Baseball Analysis at Tufts (BAT) club, and eventually interning and consulting for the Washington Nationals in his final year. Thereafter, he worked at Analysis Group, an economic consulting firm, for 3 years as an analyst/senior analyst, specializing in healthcare projects. He is now a master's student in the Statistical Science department at Duke, and does research with Li Ma and the medical school with microbiome data, trying to model how the human gut changes over time. In his spare time, he enjoys hiking, playing guitar, playing scrabble and crossword puzzles, doing yoga, and cooking Indian food.*
 
+### Big Data for Public Policy Panel
+
+**When:** October 26 at 8-9 PM
+
+**What:** How has the development of “Big Data” affected public policy research? What is it like to work as a statistician/policy researcher for the ACLU or Southern Poverty Law Center?
+
+Join the Duke Statistical Science Majors Union and our four panelists in an important discussion of how they use statistics in their policy research, what types of models they use, and the impact that statistics has had on their research.
+
+**Who:**
+
+- Brandon Garrett (Faculty Director of Wilson Center for Science and Justice, L. Neil Williams, Jr. Professor of Law at Duke)
+
+- Frank Baumgartner (Richard J. Richardson Distinguished Professor of Political Science at UNC Chapel Hill)
+
+- Cristina Becker (Attorney at National ACLU Capital Punishment Project, former Criminal Justice Debt Fellow at ACLU-NC)
+
+- Delvin Davis (Senior Criminal Justice Policy Analyst at Southern Poverty Law Center, former Senior Research Analyst at Center for Responsible Lending)
+
+**The Zoom link and a link to submit questions is in Sakai.**
+
 ### This is Statistics Fall Data Challenge
 
 [Click here](https://thisisstatistics.org/falldatachallenge/) for details on the Get out the Vote! Fall Data Challenge by the American Statistical Association (ASA). Submissions are due **November 11**.

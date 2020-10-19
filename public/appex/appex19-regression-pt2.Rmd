@@ -19,6 +19,10 @@ Tea with a TA counts as a statistics experience.
 - **Morris Greenberg**, Fri Oct 23, 1p - 2p
   - [Click here](https://forms.gle/PgVeB34UhpbvEbqn7) to sign up
   
+## Big data and public policy event on Oct 26
+
+## Mid-semester feedback + team work 
+
 ## Questions from the video? 
 
 ```{r load-packages, include = FALSE}
