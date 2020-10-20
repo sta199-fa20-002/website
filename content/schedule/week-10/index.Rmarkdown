@@ -16,7 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|--------|
 | Monday    | [Multiple linear regression](https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html) | [Multiple linear regression](https://warpwire.duke.edu/w/fakEAA/) | [AE 19: Paris Paintings](https://sta199-fa20-002.netlify.app/appex/appex19-regression-pt2.html) |
 |     |  | [Assessing model fit](https://warpwire.duke.edu/w/f6kEAA/) ||
-| Wednesday |  [MLR: Inference + conditions](https://sta199-fa20-002.netlify.app/slides/20-inference-predictions.html) | Model diagnostics + assessment | AE 20|
+| Wednesday |  [MLR: Inference + conditions](https://sta199-fa20-002.netlify.app/slides/20-inference-conditions.html) | Model diagnostics + assessment | AE 20|
 
 ## Readings
 
