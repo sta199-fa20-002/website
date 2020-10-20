@@ -282,9 +282,9 @@ We can set this up as a hypothesis test, with the hypotheses below.
 --
 
 .alert[
-$H_0: \beta_1 = 0$. There is no relationship. The slope is 0.
+$H_0: \beta_1 = 0$. The slope is 0. There is no relationship between mileage and age. 
 
-$H_a: \beta_1 \ne 0$. There is a relationship between mileage and age. The slope is not 0.
+$H_a: \beta_1 \ne 0$. The slope is not 0. There is a relationship between mileage and age.
 ]
 
 --
@@ -306,7 +306,7 @@ $$T = \frac{b_1 - 0}{SE_{b_1}} \sim t_{n-2}$$
 
 --
 
-The p-value is in the output is the p-value associated with the two-sided hypothesis test $H_a: \beta_k \neq 0$. 
+The p-value is in the output is the p-value associated with the two-sided hypothesis test $H_a: \beta_1 \neq 0$. 
 
 
 ---
@@ -317,7 +317,7 @@ The p-value is in the output is the p-value associated with the two-sided hypoth
 tidy(m_age_miles)
 ```
 
-.vocab[The p-value is very small, so we reject] $\color{#00b3b3}{H_0}$.vocab[The data provide sufficient evidence that the coefficient of age is not equal to 0 and there is a linear relationship between the mileage and age of a car.]  
+.vocab[The p-value is very small, so we reject] $\color{#1689AE}{H_0}$. .vocab[The data provide sufficient evidence that the coefficient of age is not equal to 0, and there is a linear relationship between the mileage and age of a car.]  
 ---
 
 ## Final Thoughts
