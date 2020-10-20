@@ -16,7 +16,7 @@ font-size: 18px;
 |-----------|--------------------------|--------|--------|
 | Monday    | [Multiple linear regression](https://sta199-fa20-002.netlify.app/slides/19-multiple-regression.html) | [Multiple linear regression](https://warpwire.duke.edu/w/fakEAA/) | [AE 19: Paris Paintings](https://sta199-fa20-002.netlify.app/appex/appex19-regression-pt2.html) |
 |     |  | [Assessing model fit](https://warpwire.duke.edu/w/f6kEAA/) ||
-| Wednesday |  Model diagnostics + assessment | Model diagnostics + assessment | AE 20|
+| Wednesday |  [MLR: Inference + conditions](https://sta199-fa20-002.netlify.app/slides/20-inference-predictions.html) | Model diagnostics + assessment | AE 20|
 
 ## Readings
 
@@ -65,7 +65,7 @@ Join the Duke Statistical Science Majors Union and our four panelists in an impo
 
 - Delvin Davis (Senior Criminal Justice Policy Analyst at Southern Poverty Law Center, former Senior Research Analyst at Center for Responsible Lending)
 
-**The Zoom link and a link to submit questions is in Sakai.**
+**The Zoom link and a link to submit questions are in Sakai.**
 
 ### This is Statistics Fall Data Challenge
 

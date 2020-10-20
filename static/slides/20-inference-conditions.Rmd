@@ -1,0 +1,431 @@
+---
+title: "Multiple linear regression"
+subtitle: "Inference + conditions"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+library(kableExtra)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](20-inference-conditions.pdf)
+
+---
+
+class: center, middle
+
+## Review
+
+---
+
+
+## Vocabulary
+
+- .vocab[Response variable]: Variable whose behavior or variation you are trying 
+to understand. 
+
+- .vocab[Explanatory variables]: Other variables that you want to use to explain
+the variation in the response. 
+
+- .vocab[Predicted value]: Output of the **model function**
+
+- .vocab[Residuals]: Shows how far each case is from its predicted value
+   - **Residual = Observed value - Predicted value**
+
+---
+
+
+## The linear model with multiple predictors
+
+- Population model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x_1 + \beta_2~x_2 + \cdots + \beta_k~x_k $$
+
+--
+
+- Sample model that we use to estimate the population model:
+  
+$$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
+
+---
+
+
+## Data and Packages
+
+```{r eval = FALSE}
+library(tidyverse)
+library(broom)
+```
+
+```{r message=FALSE, echo = F }
+sports_car_prices <- read_csv("data/sportscars.csv")
+```
+
+Recall the file `sportscars.csv` contains prices for Porsche and Jaguar cars for sale on cars.com.
+
+`car`: car make (Jaguar or Porsche)
+
+`price`: price in USD
+
+`age`: age of the car in years
+
+`mileage`: previous miles driven
+
+---
+
+## Multiple Linear Regression
+
+```{r}
+m_int <- lm(price ~ age + car + age * car, 
+            data = sports_car_prices) 
+m_int %>%
+  tidy() %>%
+  select(term, estimate)
+```
+
+$$\widehat{price} = 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche$$
+---
+
+class: center, middle, inverse
+
+## CLT-based Inference in Regression
+
+---
+
+## The linear model with multiple predictors
+
+Population model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x_1 + \beta_2~x_2 + \cdots + \beta_k~x_k $$
+
+Sample model that we use to estimate the population model:
+  
+$$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
+
+
+Similar to other sample statistics (mean, proportion, etc) there is variability
+in our estimates of the slope and intercept. 
+
+--
+
+.question[
+- Do we have convincing evidence that the true linear model has a non-zero slope?
+- What is a confidence interval for the population regression coefficient?
+]
+
+---
+
+## Mileage vs. age
+
+We will consider a simple linear regression model predicting mileage using age. 
+
+.midi[
+```{r}
+m_age_miles <- lm(mileage ~ age, data = sports_car_prices)
+```
+]
+
+```{r, echo = FALSE, fig.height = 2}
+ggplot(sports_car_prices, 
+       aes(x = age, y = mileage)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE) + 
+    labs(x = "Age (years)", y = "Mileage")
+
+```
+
+
+---
+
+class: center, middle
+
+# A confidence interval for $\beta_1$
+
+---
+
+## Confidence interval
+
+.alert[
+$$point~estimate \pm critical~value \times SE$$
+]
+
+--
+
+.alert[
+$$b_1 \pm t^*_{n-2} \times SE_{b_1}$$
+where $t^*_{n-2}$ is calculated using a $t$ distribution with $n-2$ degrees of freedom.
+]
+
+---
+
+## Tidy confidence interval
+
+```{r}
+tidy(m_age_miles, conf.int = TRUE, conf.level = 0.95)
+```
+
+---
+
+## Calculating the 95% CI manually
+
+A 95% confidence interval for $\beta_1$ can be calculated as
+
+--
+
+```{r}
+(df <- nrow(sports_car_prices) - 2)
+```
+
+--
+
+```{r}
+(tstar <- qt(0.975,df))
+```
+
+--
+
+```{r}
+(ci <- 3837 + c(-1,1) * tstar *403)
+```
+
+---
+
+## Interpretation 
+
+```{r}
+tidy(m_age_miles, conf.int = TRUE, conf.level = 0.95) %>% 
+  filter(term == "age") %>%
+  select(conf.low, conf.high)
+```
+
+.vocab[We are 95% confident that for every additional year of a car's age, the 
+mileage is expected to increase, on average, between about 3030 and 4643 miles.]
+
+---
+
+class: center, middle
+
+# A hypothesis test for $\beta_1$
+
+---
+
+## Hypothesis testing for $\beta_1$
+
+Is there convincing evidence, based on our sample data, that age is 
+associated with mileage?
+
+We can set this up as a hypothesis test, with the hypotheses below.
+
+--
+
+.alert[
+$H_0: \beta_1 = 0$. There is no relationship. The slope is 0.
+
+$H_a: \beta_1 \ne 0$. There is a relationship between mileage and age. The slope is not 0.
+]
+
+--
+
+We only reject $H_0$ in favor of $H_a$ if the data provide strong evidence
+that the true slope parameter is different from zero. 
+
+---
+
+## Hypothesis testing for $\beta_1$
+
+```{r}
+tidy(m_age_miles)
+```
+
+--
+
+$$T = \frac{b_1 - 0}{SE_{b_1}} \sim t_{n-2}$$
+
+--
+
+The p-value is in the output is the p-value associated with the two-sided hypothesis test $H_a: \beta_k \neq 0$. 
+
+
+---
+
+## Hypothesis testing for $\beta_1$
+
+```{r}
+tidy(m_age_miles)
+```
+
+.vocab[The p-value is very small, so we reject] $\color{#00b3b3}{H_0}$.vocab[The data provide sufficient evidence that the coefficient of age is not equal to 0 and there is a linear relationship between the mileage and age of a car.]  
+---
+
+## Final Thoughts
+
+We used a CLT-based approach to construct confidence intervals and perform 
+hypothesis tests. 
+
+Note that you can also use simulation-based methods to do inference using `infer`. [Click here](https://infer.netlify.app/articles/observed_stat_examples.html#two-numerical-vars---slr) for examples.
+
+---
+class: center, middle
+
+## Conditions for Inference in Regression
+
+---
+
+## Conditions
+
+- **Linearity**: The relationship between response and predictor(s) is linear
+
+- **Independence**: The residuals are independent
+
+- **Normality**: The residuals are nearly normally distributed
+
+- **Equal Variance**: The residuals have constant variance
+
+
+---
+
+## Conditions
+
+- .vocab[L]**inearity**: The relationship between response and predictor(s) is linear
+
+- .vocab[I]**ndependence**: The residuals are independent
+
+- .vocab[N]**ormality**: The residuals are nearly normally distributed
+
+- .vocab[E]**qual Variance**: The residuals have constant variance
+
+--
+
+<br> 
+
+*For multiple regression, the predictors shouldn't be too correlated with each 
+other.*
+
+
+---
+
+## `augment` data with model results
+
+- `.fitted`: Predicted value of the response variable
+- `.resid`: Residuals
+
+.midi[
+```{r}
+m_age_miles_aug <- augment(m_age_miles)
+m_age_miles_aug %>%
+  slice(1:3)
+```
+]
+
+--
+
+We will use the fitted values and residuals to check the conditions by 
+constructing .vocab[diagnostic plots].
+
+---
+
+## Residuals vs fitted plot
+
+Use to check .vocab[**L**inearity] and .vocab[**E**qual variance.]
+
+.midi[
+```{r, fig.height = 1.5}
+ggplot(m_age_miles_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point() + geom_hline(yintercept = 0, lwd = 2, col = "red", lty = 2) +
+  labs(x = "Predicted Mileage", y = "Residuals") 
+```
+]
+
+---
+
+## Residuals in order of collection
+
+Use to check .vocab[**I**ndependence]
+
+.midi[
+```{r, fig.height = 1.5}
+ggplot(data = m_age_miles_aug, 
+       aes(x = 1:nrow(sports_car_prices), 
+           y = .resid)) + 
+  geom_point() + geom_hline(yintercept = 0, lwd = 2, col = "red", lty = 2) +
+  labs(x = "Index", y = "Residual")
+```
+]
+
+---
+
+## Histogram of residuals
+
+Use to check .vocab[**N**ormality]
+
+.midi[
+```{r fig.height= 1.75}
+ggplot(m_age_miles_aug, mapping = aes(x = .resid)) +
+  geom_histogram(bins = 15) + labs(x = "Residuals")
+```
+]
+
+

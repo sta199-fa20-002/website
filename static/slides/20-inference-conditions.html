@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Multiple linear regression</title>
+    <meta charset="utf-8" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Multiple linear regression
+## Inference + conditions
+
+---
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](20-inference-conditions.pdf)
+
+---
+
+class: center, middle
+
+## Review
+
+---
+
+
+## Vocabulary
+
+- .vocab[Response variable]: Variable whose behavior or variation you are trying 
+to understand. 
+
+- .vocab[Explanatory variables]: Other variables that you want to use to explain
+the variation in the response. 
+
+- .vocab[Predicted value]: Output of the **model function**
+
+- .vocab[Residuals]: Shows how far each case is from its predicted value
+   - **Residual = Observed value - Predicted value**
+
+---
+
+
+## The linear model with multiple predictors
+
+- Population model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x_1 + \beta_2~x_2 + \cdots + \beta_k~x_k $$
+
+--
+
+- Sample model that we use to estimate the population model:
+  
+$$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
+
+---
+
+
+## Data and Packages
+
+
+```r
+library(tidyverse)
+library(broom)
+```
+
+
+
+Recall the file `sportscars.csv` contains prices for Porsche and Jaguar cars for sale on cars.com.
+
+`car`: car make (Jaguar or Porsche)
+
+`price`: price in USD
+
+`age`: age of the car in years
+
+`mileage`: previous miles driven
+
+---
+
+## Multiple Linear Regression
+
+
+```r
+m_int &lt;- lm(price ~ age + car + age * car, 
+            data = sports_car_prices) 
+m_int %&gt;%
+  tidy() %&gt;%
+  select(term, estimate)
+```
+
+```
+## # A tibble: 4 x 2
+##   term           estimate
+##   &lt;chr&gt;             &lt;dbl&gt;
+## 1 (Intercept)      56988.
+## 2 age              -5040.
+## 3 carPorsche        6387.
+## 4 age:carPorsche    2969.
+```
+
+`$$\widehat{price} = 56988 - 5040~age + 6387~carPorsche + 2969~age \times carPorsche$$`
+---
+
+class: center, middle, inverse
+
+## CLT-based Inference in Regression
+
+---
+
+## The linear model with multiple predictors
+
+Population model:
+
+$$ \hat{y} = \beta_0 + \beta_1~x_1 + \beta_2~x_2 + \cdots + \beta_k~x_k $$
+
+Sample model that we use to estimate the population model:
+  
+$$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
+
+
+Similar to other sample statistics (mean, proportion, etc) there is variability
+in our estimates of the slope and intercept. 
+
+--
+
+.question[
+- Do we have convincing evidence that the true linear model has a non-zero slope?
+- What is a confidence interval for the population regression coefficient?
+]
+
+---
+
+## Mileage vs. age
+
+We will consider a simple linear regression model predicting mileage using age. 
+
+.midi[
+
+```r
+m_age_miles &lt;- lm(mileage ~ age, data = sports_car_prices)
+```
+]
+
+&lt;img src="20-inference-conditions_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: center, middle
+
+# A confidence interval for `\(\beta_1\)`
+
+---
+
+## Confidence interval
+
+.alert[
+`$$point~estimate \pm critical~value \times SE$$`
+]
+
+--
+
+.alert[
+`$$b_1 \pm t^*_{n-2} \times SE_{b_1}$$`
+where `\(t^*_{n-2}\)` is calculated using a `\(t\)` distribution with `\(n-2\)` degrees of freedom.
+]
+
+---
+
+## Tidy confidence interval
+
+
+```r
+tidy(m_age_miles, conf.int = TRUE, conf.level = 0.95)
+```
+
+```
+## # A tibble: 2 x 7
+##   term        estimate std.error statistic  p.value conf.low conf.high
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)   13967.     2876.      4.86 9.40e- 6    8211.    19723.
+## 2 age            3837.      403.      9.52 1.86e-13    3030.     4643.
+```
+
+---
+
+## Calculating the 95% CI manually
+
+A 95% confidence interval for `\(\beta_1\)` can be calculated as
+
+--
+
+
+```r
+(df &lt;- nrow(sports_car_prices) - 2)
+```
+
+```
+## [1] 58
+```
+
+--
+
+
+```r
+(tstar &lt;- qt(0.975,df))
+```
+
+```
+## [1] 2.001717
+```
+
+--
+
+
+```r
+(ci &lt;- 3837 + c(-1,1) * tstar *403)
+```
+
+```
+## [1] 3030.308 4643.692
+```
+
+---
+
+## Interpretation 
+
+
+```r
+tidy(m_age_miles, conf.int = TRUE, conf.level = 0.95) %&gt;% 
+  filter(term == "age") %&gt;%
+  select(conf.low, conf.high)
+```
+
+```
+## # A tibble: 1 x 2
+##   conf.low conf.high
+##      &lt;dbl&gt;     &lt;dbl&gt;
+## 1    3030.     4643.
+```
+
+.vocab[We are 95% confident that for every additional year of a car's age, the 
+mileage is expected to increase, on average, between about 3030 and 4643 miles.]
+
+---
+
+class: center, middle
+
+# A hypothesis test for `\(\beta_1\)`
+
+---
+
+## Hypothesis testing for `\(\beta_1\)`
+
+Is there convincing evidence, based on our sample data, that age is 
+associated with mileage?
+
+We can set this up as a hypothesis test, with the hypotheses below.
+
+--
+
+.alert[
+`\(H_0: \beta_1 = 0\)`. There is no relationship. The slope is 0.
+
+`\(H_a: \beta_1 \ne 0\)`. There is a relationship between mileage and age. The slope is not 0.
+]
+
+--
+
+We only reject `\(H_0\)` in favor of `\(H_a\)` if the data provide strong evidence
+that the true slope parameter is different from zero. 
+
+---
+
+## Hypothesis testing for `\(\beta_1\)`
+
+
+```r
+tidy(m_age_miles)
+```
+
+```
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   13967.     2876.      4.86 9.40e- 6
+## 2 age            3837.      403.      9.52 1.86e-13
+```
+
+--
+
+`$$T = \frac{b_1 - 0}{SE_{b_1}} \sim t_{n-2}$$`
+
+--
+
+The p-value is in the output is the p-value associated with the two-sided hypothesis test `\(H_a: \beta_k \neq 0\)`. 
+
+
+---
+
+## Hypothesis testing for `\(\beta_1\)`
+
+
+```r
+tidy(m_age_miles)
+```
+
+```
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   13967.     2876.      4.86 9.40e- 6
+## 2 age            3837.      403.      9.52 1.86e-13
+```
+
+.vocab[The p-value is very small, so we reject] `\(\color{#00b3b3}{H_0}\)`.vocab[The data provide sufficient evidence that the coefficient of age is not equal to 0 and there is a linear relationship between the mileage and age of a car.]  
+---
+
+## Final Thoughts
+
+We used a CLT-based approach to construct confidence intervals and perform 
+hypothesis tests. 
+
+Note that you can also use simulation-based methods to do inference using `infer`. [Click here](https://infer.netlify.app/articles/observed_stat_examples.html#two-numerical-vars---slr) for examples.
+
+---
+class: center, middle
+
+## Conditions for Inference in Regression
+
+---
+
+## Conditions
+
+- **Linearity**: The relationship between response and predictor(s) is linear
+
+- **Independence**: The residuals are independent
+
+- **Normality**: The residuals are nearly normally distributed
+
+- **Equal Variance**: The residuals have constant variance
+
+
+---
+
+## Conditions
+
+- .vocab[L]**inearity**: The relationship between response and predictor(s) is linear
+
+- .vocab[I]**ndependence**: The residuals are independent
+
+- .vocab[N]**ormality**: The residuals are nearly normally distributed
+
+- .vocab[E]**qual Variance**: The residuals have constant variance
+
+--
+
+&lt;br&gt; 
+
+*For multiple regression, the predictors shouldn't be too correlated with each 
+other.*
+
+
+---
+
+## `augment` data with model results
+
+- `.fitted`: Predicted value of the response variable
+- `.resid`: Residuals
+
+.midi[
+
+```r
+m_age_miles_aug &lt;- augment(m_age_miles)
+m_age_miles_aug %&gt;%
+  slice(1:3)
+```
+
+```
+## # A tibble: 3 x 8
+##   mileage   age .fitted .resid .std.resid   .hat .sigma  .cooksd
+##     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+## 1   21500     3  25477. -3977.     -0.290 0.0223 13981. 0.000959
+## 2   43000     3  25477. 17523.      1.28  0.0223 13793. 0.0186  
+## 3   19900     2  21640. -1740.     -0.127 0.0275 13989. 0.000229
+```
+]
+
+--
+
+We will use the fitted values and residuals to check the conditions by 
+constructing .vocab[diagnostic plots].
+
+---
+
+## Residuals vs fitted plot
+
+Use to check .vocab[**L**inearity] and .vocab[**E**qual variance.]
+
+.midi[
+
+```r
+ggplot(m_age_miles_aug, mapping = aes(x = .fitted, y = .resid)) +
+  geom_point() + geom_hline(yintercept = 0, lwd = 2, col = "red", lty = 2) +
+  labs(x = "Predicted Mileage", y = "Residuals") 
+```
+
+&lt;img src="20-inference-conditions_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Residuals in order of collection
+
+Use to check .vocab[**I**ndependence]
+
+.midi[
+
+```r
+ggplot(data = m_age_miles_aug, 
+       aes(x = 1:nrow(sports_car_prices), 
+           y = .resid)) + 
+  geom_point() + geom_hline(yintercept = 0, lwd = 2, col = "red", lty = 2) +
+  labs(x = "Index", y = "Residual")
+```
+
+&lt;img src="20-inference-conditions_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Histogram of residuals
+
+Use to check .vocab[**N**ormality]
+
+.midi[
+
+```r
+ggplot(m_age_miles_aug, mapping = aes(x = .resid)) +
+  geom_histogram(bins = 15) + labs(x = "Residuals")
+```
+
+&lt;img src="20-inference-conditions_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
