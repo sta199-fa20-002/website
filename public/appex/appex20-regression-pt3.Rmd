@@ -22,6 +22,16 @@ Tea with a TA counts as a statistics experience.
   
 ## Big data and public policy event on Oct 26
 
+### Project - Draft due Oct 28
+
+- Write the draft in the `written-report.Rmd` file in the project repo. 
+
+- Draft should include 
+   - the research context and motivation
+   - exploratory data analysis
+   - any inference, modeling, or conclusions.
+
+
 ## Exam 02 
 
 - Released Thursday, Oct 22 at 9a
@@ -63,7 +73,8 @@ Which model has the higher $R^2$? Which model has the higher $Adj. R^2$? Which m
 
 
 ### Exercise 4
-Let's stick with the model from Exercise 1. Display the output for the model from Exercise 1 with the 90% confidence interval for the model coefficients.
+
+Let's use the model from Exercise 1. Display the output for the model from Exercise 1 with the 90% confidence interval for the model coefficients.
 
 Interpret the coefficient of `hightemp` in the context of the data. 
 
@@ -86,6 +97,3 @@ Is the confidence interval consistent with the conclusion from the hypothesis te
 ### Exercise 9
 
 Let's check the model conditions. Create the diagnostic plots use them to determine if the four model conditions are met.
-
-
-
