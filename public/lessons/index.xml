@@ -881,7 +881,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-10/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Multiple linear regression Multiple linear regression AE 19: Paris Paintings     Assessing model fit    Wednesday MLR: Inference + conditions MLR: Inference + conditions AE 20    Readings          Introduction to Modern Statistics: 4.</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Multiple linear regression Multiple linear regression AE 19: Paris Paintings     Assessing model fit    Wednesday MLR: Inference + conditions MLR: Inference + conditions AE 20: Number of trail users    Readings          Introduction to Modern Statistics: 4.</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -915,7 +915,7 @@ font-size: 18px;
 &lt;td&gt;Wednesday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/20-inference-conditions.html&#34;&gt;MLR: Inference + conditions&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/pawEAA/&#34;&gt;MLR: Inference + conditions&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 20&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex20-regression-pt3.html&#34;&gt;AE 20: Number of trail users&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

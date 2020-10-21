@@ -1,0 +1,91 @@
+---
+title: "AE 20: Number of trail users"
+subtitle: "MLR: Inference + conditions"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+## Announcements 
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+- [**Salvador Arellano**](https://www.linkedin.com/in/salvador-chavero-arellano/), TODAY, 12p - 1p
+  - [Click here](https://forms.gle/CVNc83EsqeuWLj5XA) to sign up
+  
+- **Morris Greenberg**, Fri Oct 23, 1p - 2p
+  - [Click here](https://forms.gle/PgVeB34UhpbvEbqn7) to sign up
+  
+## Big data and public policy event on Oct 26
+
+## Exam 02 
+
+- Released Thursday, Oct 22 at 9a
+- Due Sunday, Oct 25 at 11:59p
+- Covers statistical inference weeks 05 - 08
+- No office hours + Piazza will be inactive during the exam
+- If you have questions, email Prof. Tackett (maria.tackett@duke.edu)
+
+## Exercises 
+
+```{r load-packages, include = FALSE}
+library(tidyverse)
+library(broom)
+
+```
+
+The Pioneer Valley Planning Commission collected data in Florence, MA for 90 days from April 5 to November 15, 2005 using a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.
+
+- `hightemp`: daily high temperature (in degrees Fahrenheit)
+- `volume`: estimated number of trail users that day (number of breaks recorded)
+- `fall`: 1: season is Fall, 0: season is not Fall
+
+```{r}
+library(mosaicData)
+data(RailTrail)
+```
+
+### Exercise 1
+
+Fit a linear model using the daily high temperature to predict the estimated number of trail users. Calculate the $R^2$ and $Adj. R^2$ for the model. 
+
+### Exercise 2
+
+Fit a linear model using the daily high temperature and whether it is the fall season to predict the estimated number of trail users. Calculate the $R^2$ and $Adj. R^2$ for the model. 
+
+### Exercise 3
+
+Which model has the higher $R^2$? Which model has the higher $Adj. R^2$? Which model is a better fit for the data? 
+
+
+### Exercise 4
+Let's stick with the model from Exercise 1. Display the output for the model from Exercise 1 with the 90% confidence interval for the model coefficients.
+
+Interpret the coefficient of `hightemp` in the context of the data. 
+
+### Exercise 5
+
+Interpret the 90% confidence interval for `hightemp` in the context of the data. 
+
+### Exercise 6
+
+Does the intercept have a reasonable interpretation? If so, interpret the intercept in the context of the data. Otherwise, explain why not. 
+
+### Exercise 7
+
+Conduct a hypothesis test to assess if there is a linear relationship the high temperature and number of trail users. State the null and alternative hypotheses, the test statistic, p-value, and conclusion in the context of the data.
+
+### Exercise 8
+
+Is the confidence interval consistent with the conclusion from the hypothesis test in the previous exercise? Briefly explain why or why not. 
+
+### Exercise 9
+
+Let's check the model conditions. Create the diagnostic plots use them to determine if the four model conditions are met.
+
+
+
