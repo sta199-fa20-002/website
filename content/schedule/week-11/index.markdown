@@ -14,7 +14,7 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Classification](https://sta199-fa20-002.netlify.app/slides/21-classification.html) | Classification | AE 21 |
+| Monday    | [Classification](https://sta199-fa20-002.netlify.app/slides/21-classification.html) | [Classification](https://warpwire.duke.edu/w/67IEAA/) | AE 21 |
 | Wednesday | Text analysis |Text analysis | AE 22|
 
 
@@ -41,8 +41,10 @@ Tea with a TA counts as a statistics experience.
 
 **Upcoming Tea with a TA events**
 
-- **Caroline Levenson**, Mon, Nov 2, 1p - 2p
+- [**Caroline Levenson**](https://www.linkedin.com/in/carolinelevenson/), Mon, Nov 2, 1p - 2p
   - [Click here](https://forms.gle/FucAXE6bLeJVyqRY9) to sign up
+  
+  *Caroline Levenson is a junior studying Statistics and Computer Science. She did not know she wanted to study statistics until taking this class. Since then, she has completed an independent study with Professor Tackett where she created an R Shiny app for data visualization. The project was with the Duke Law School where she continues to work as a research assistant. In addition, she has worked in industry primarily as a software engineer.*
   
 ### Big Data for Public Policy Panel
 
