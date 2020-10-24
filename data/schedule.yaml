@@ -135,6 +135,7 @@ lessons:
   - week: "Week 11"
     date: "Mon, Oct 26"
     title: "Classification"
+    slides: "21-classification.html"
   - date: "Wed, Oct 28"
     title: "Text analysis"
   - title: "Draft report due"
