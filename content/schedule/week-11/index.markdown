@@ -48,7 +48,7 @@ Tea with a TA counts as a statistics experience.
   
 ### Submit your questions about statistics and the US election
 
-What questions do you have about statistics and the US election? [Click here](https://forms.gle/6239XcARuuWe4MBw5) to submit your questions **by Friday, Oct 30.** We will discuss some of the questions during the Nov 1 live lecture. 
+What questions do you have about statistics and the US election? [Click here](https://forms.gle/6239XcARuuWe4MBw5) to submit your questions **by Friday, Oct 30.** We will discuss some of the questions during the Nov 2 live lecture. 
 
 And...if you're eligible, VOTE!
 
