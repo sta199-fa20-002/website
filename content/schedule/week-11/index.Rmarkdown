@@ -46,6 +46,13 @@ Tea with a TA counts as a statistics experience.
   
   *Caroline Levenson is a junior studying Statistics and Computer Science. She did not know she wanted to study statistics until taking this class. Since then, she has completed an independent study with Professor Tackett where she created an R Shiny app for data visualization. The project was with the Duke Law School where she continues to work as a research assistant. In addition, she has worked in industry primarily as a software engineer.*
   
+### Submit your questions about statistics and the US election
+
+What questions do you have about statistics and the US election? [Click here](https://forms.gle/6239XcARuuWe4MBw5) to submit your questions **by Friday, Oct 30.** We will discuss some of the questions during the Nov 1 live lecture. 
+
+And...if you're eligible, VOTE!
+
+
 ### Big Data for Public Policy Panel
 
 **When:** October 26 at 8-9 PM
