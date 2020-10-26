@@ -1,0 +1,99 @@
+---
+title: "AE 21: Spam filters"
+subtitle: "Logistic regression"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+
+```{r echo = F}
+knitr::opts_chunk$set(warning = F, message = F)
+```
+
+```{r echo  = F}
+library(tidyverse)
+```
+
+## Announcements 
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+[**Caroline Levenson**](https://www.linkedin.com/in/carolinelevenson/), Mon, Nov 2, 1p - 2p
+
+  - [Click here](https://forms.gle/FucAXE6bLeJVyqRY9) to sign up
+ 
+### Other events 
+
+- Big data and public policy event TODAY 8-9 PM (Zoom info in Sakai)
+- [Datathon](https://dukeml.org/datathon/) Oct 31  - Nov 1
+
+### Stats in Spring 2021
+
+- [STA 210: Regression Analysis](https://stat.duke.edu/courses/regression-analysis-0)
+- [STA 240: Probability for Statistical Inference, Modeling, and Data Analysis](https://stat.duke.edu/courses/probability-statistical-inference-modeling-and-data-analysis).
+  - Pre-req: Mathematics 22, 112L, 122, 122L, 202D, 212, 222
+
+
+### Project - Draft due Oct 28 at 11:59p
+
+- Write the draft in the `written-report.Rmd` file in the project repo. 
+
+- Draft should include 
+   - the research context and motivation
+   - exploratory data analysis
+   - any inference, modeling, or conclusions.
+
+## Exercises 
+
+Let's filter spam emails! We'll examine a data set of 3921 emails and use logistic regression to determine which ones are potentially spam. 
+
+We'll use the following variables in the analysis: 
+
+- `spam` - 1: email is spam, 0: email is not spam
+- `winner` - yes: "winner" appeared in the email, no: "winner" did not appear in email
+- `num_char` - Number of characters in the email  (in thousands)
+
+```{r}
+email <- read_csv("data/email.csv") %>%
+    mutate(spam = factor(spam))
+```
+
+
+### Exercise 1
+
+Visualize the relationship between (1) `spam` and `winner`, and (2) `spam` and `num_char`. Use these plots to describe the relationship between the response variable and each of the explanatory variables. 
+
+### Exercise 2
+
+Fit a logistic regression model with `spam` as the response and `winner` and `num_char` as explanatory variables. Use the tidy function to display the model output. *Hint: You need to use the glm function and `family = "binomial"` for the model.*
+
+### Exercise 3
+
+Write the model equation. You can use "log-odds-spam" as the response variable.
+
+### Exercise 4
+
+Interpret $\hat{\beta}_{num\_char}$ in terms of the log odds an email is spam. 
+
+### Exercise 5
+
+Interpret $\hat{\beta}_{winner}$ in terms of the log odds an email is spam. 
+
+### Exericse 6
+
+Calculate the predicted log odds that an email that has 400 words and contains the word "winner" is spam. 
+
+
+### Exercise 7
+
+Calculate the predicted probability that an email that has 400 words and contains the word "winner" is spam. 
+
+
+### Exercise 8
+
+Suppose your model is used to identify which emails should be classified as spam and moved to the junk folder. Should the email from the previous question be classified as spam? Briefly explain your decision. 
