@@ -1,0 +1,513 @@
+---
+title: "Text analysis"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+
+layout: true
+
+<div class="my-footer">
+<span>
+<a href="http://datasciencebox.org" target="_blank">datasciencebox.org</a>
+</span>
+</div> 
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(knitr)
+library(DT)
+library(emo)
+library(openintro)
+library(infer)
+library(patchwork)
+library(kableExtra)
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](22-text-analysis.pdf)
+
+---
+
+
+## Packages
+
+In addition to `tidyverse` we will be using a few other packages today
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidytext)
+library(genius) # https://github.com/JosiahParry/genius
+library(wordcloud)
+library(reshape2)
+```
+
+---
+
+
+
+## Tidy Data
+
+.question[
+What makes a data frame tidy?
+]
+
+--
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+---
+
+
+## Tidytext
+
+- Using tidy data principles can make many text mining tasks easier, more 
+effective, and consistent with tools already in wide use.
+
+- Learn more at https://www.tidytextmining.com/.
+
+---
+
+## What is tidy text?
+
+```{r, message=FALSE, warning=FALSE}
+text <- c("On your mark ready set let's go", 
+          "dance floor pro",
+          "I know you know I go psycho", 
+          "When my new joint hit", 
+          "just can't sit",
+          "Got to get jiggy wit it", 
+          "ooh, that's it")
+
+text
+```
+
+---
+
+## What is tidy text?
+
+```{r, message=FALSE, warning=FALSE}
+text_df <- tibble(line = 1:7, text = text)
+
+text_df
+```
+
+---
+
+## What is tidy text?
+
+```{r, message=FALSE, warning=FALSE}
+text_df %>%
+  unnest_tokens(word, text)
+```
+
+---
+
+## Let's get some data
+
+We'll use the `genius` package to get song lyric data from [Genius](https://genius.com/).
+
+- `genius_album()` allows you to download the lyrics for an entire album in a 
+tidy format. 
+
+- Input: Two arguments: artist and album. Supply the quoted name of artist 
+and the album (if it gives you issues check that you have the album name and 
+artists as specified on [Genius](https://genius.com/)).
+
+- Output: A tidy data frame with three columns corresponding to the track name, 
+the track number, and lyrics
+
+---
+
+## Let's get some data
+
+```{r, message = F, warning = F, cache=TRUE}
+tswift <- genius_album(
+  artist = "Taylor Swift", 
+  album = "Lover"
+  )
+```
+
+---
+
+## What songs are in the album?
+
+```{r, message = F, warning = F}
+tswift %>%
+  distinct(track_title)
+```
+
+---
+
+## How long are the songs? 
+
+Length is measured by number of lines
+
+```{r, message = F, warning = F}
+tswift %>%
+  count(track_title, sort = TRUE)
+```
+
+---
+
+## Tidy up your lyrics!
+
+```{r, message = F, warning = F}
+tswift_lyrics <- tswift %>%
+  unnest_tokens(word, lyric)
+
+tswift_lyrics
+```
+
+---
+
+## What are the most common words?
+
+```{r, message = F, warning = F}
+tswift_lyrics %>%
+  count(word) %>%
+  arrange(desc(n))
+```
+
+---
+
+## Stop words
+
+- In computing, stop words are words which are filtered out before or after 
+processing of natural language data (text).
+
+- They usually refer to the most common words in a language, but there is not a 
+single list of stop words used by all natural language processing tools.
+
+
+---
+
+## What are the most common words?
+
+```{r, message = F, warning = F}
+tswift_lyrics %>%
+  anti_join(stop_words) %>%
+  count(word) %>%
+  arrange(desc(n))
+```
+
+
+
+---
+
+
+## What are the most common words?
+
+```{r, echo=FALSE, message=FALSE, fig.height = 5.75, fig.width = 11}
+tswift_lyrics %>%
+  anti_join(get_stopwords(source = "smart")) %>%
+  count(word) %>%
+  arrange(desc(n)) %>%
+  top_n(20) %>%
+  ggplot(aes(fct_reorder(word, n), n)) +
+    geom_col() +
+    coord_flip() + 
+    theme_minimal() +
+    labs(title = "Frequency of 'Lover' lyrics",
+         y = "",
+         x = "")
+```
+
+
+---
+
+## ...the code
+
+```{r, eval  = F}
+tswift_lyrics %>%
+  anti_join(get_stopwords(source = "smart")) %>%
+  count(word) %>%
+  arrange(desc(n)) %>%
+  top_n(20) %>%
+  ggplot(aes(fct_reorder(word, n), n)) +
+    geom_col() +
+    coord_flip() + 
+    theme_minimal() +
+    labs(title = "Frequency of 'Lover' lyrics",
+         y = "",
+         x = "")
+```
+
+---
+
+class: middle, center
+
+## Sentiment analysis
+
+---
+
+## Sentiment analysis
+
+- One way to analyze the sentiment of a text is to consider the text as a 
+combination of its individual words 
+
+- The sentiment content of the whole text as the sum of the sentiment content of
+the individual words
+
+- The sentiment attached to each word is given by a *lexicon*, which may be 
+downloaded from external sources
+
+---
+
+## Sentiment lexicons
+
+.pull-left[
+```{r}
+get_sentiments("afinn")
+```
+]
+
+--
+
+.pull-right[
+```{r}
+get_sentiments("bing") 
+```
+]
+
+---
+
+## Sentiment lexicons
+
+.pull-left[
+```{r}
+get_sentiments("nrc")
+```
+]
+
+--
+
+.pull-right[
+```{r}
+get_sentiments("loughran") 
+```
+]
+
+---
+
+## Notes about sentiment lexicons
+
+- Not every word is in a lexicon!
+
+```{r}
+get_sentiments("bing") %>% 
+  filter(word == "data")
+```
+
+--
+
+- Lexicons do not account for qualifiers before a word (e.g., "not happy") because they were constructed for one-word tokens only
+
+--
+
+- Summing up each word's sentiment may result in a neutral sentiment, even if there are strong positive and negative sentiments in the body
+
+---
+
+## Sentiments in lyrics
+
+```{r, message = F, warning = F}
+tswift_lyrics %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(sentiment, word, sort = TRUE) 
+```
+
+---
+
+## Let's visualize T.Swift's top 10 sentiments
+
+```{r}
+tswift_top10 <- tswift_lyrics %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(sentiment, word) %>%
+  arrange(desc(n)) %>%
+  group_by(sentiment) %>%
+  top_n(10) %>%
+  ungroup()
+```
+
+---
+
+## Visualizing the top 10
+
+.midi[
+```{r, echo=FALSE, message=FALSE, fig.height = 5.75, fig.width = 11}
+ggplot(tswift_top10, aes(fct_reorder(word, n), n, fill = sentiment)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ sentiment, scales = "free") +
+  theme_minimal() +
+  labs(title = "Sentiments in Taylor Swift Lyrics",
+         x = "", y = "")
+```
+]
+
+---
+
+## Let's remove the redundant legend
+
+```{r, message=FALSE, fig.height = 4, eval = F}
+ggplot(tswift_top10, aes(fct_reorder(word, n), n, fill = sentiment)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ sentiment, scales = "free") +
+  theme_minimal() +
+  labs(title = "Sentiments in Taylor Swift Lyrics", x = "", y = "") + 
+  guides(fill = FALSE) #<<
+```
+
+---
+
+## Let's remove the redundant legend
+
+```{r, echo = F, message=FALSE, fig.height = 2.5}
+ggplot(tswift_top10, aes(fct_reorder(word, n), n, fill = sentiment)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ sentiment, scales = "free") +
+  theme_minimal() +
+  labs(title = "Sentiments in Taylor Swift Lyrics", x = "", y = "") + 
+  guides(fill = FALSE) 
+```
+
+
+---
+
+## Scoring sentiments
+
+.midi[
+```{r}
+tswift_lyrics %>%
+  anti_join(stop_words) %>%
+  left_join(get_sentiments("afinn"))
+```
+]
+
+---
+
+## Assigning a sentiment score
+
+.midi[
+```{r}
+tswift_lyrics %>%
+  anti_join(stop_words) %>%
+  left_join(get_sentiments("afinn")) %>%
+  filter(!is.na(value)) %>%
+  group_by(track_title) %>%
+  summarise(total_sentiment = sum(value)) %>%
+  arrange(total_sentiment)
+```
+]
+---
+
+## Visualizing sentiment scores
+
+```{r echo  = F, fig.height = 2.5}
+tswift_lyrics %>%
+  anti_join(stop_words) %>%
+  left_join(get_sentiments("afinn")) %>%
+  filter(!is.na(value)) %>%
+  group_by(track_title) %>%
+  summarise(total_sentiment = sum(value)) %>%
+  ungroup() %>%
+  arrange(total_sentiment) %>%
+  mutate(
+    total_sentiment_sign = if_else(total_sentiment < 0, "negative", "positive")
+  ) %>%
+  ggplot(aes(x = reorder(track_title, total_sentiment), y = total_sentiment, fill = total_sentiment_sign)) +
+  geom_col() +
+  guides(fill = FALSE) +
+  coord_flip() +
+  labs(x = "", y = "", 
+    title = "Total sentiment score of 'Lover' tracks",
+    subtitle = "Scored with AFINN sentiment lexicon")
+```
+
+---
+
+## ...the code
+
+
+.small[
+```{r eval = F}
+tswift_lyrics %>%
+  anti_join(stop_words) %>%
+  left_join(get_sentiments("afinn")) %>%
+  filter(!is.na(value)) %>%
+  group_by(track_title) %>%
+  summarise(total_sentiment = sum(value)) %>%
+  ungroup() %>%
+  arrange(total_sentiment) %>%
+  mutate(
+    total_sentiment_sign = if_else(total_sentiment < 0, "negative", "positive")
+  ) %>%
+  ggplot(aes(x = reorder(track_title, total_sentiment), y = total_sentiment, 
+             fill = total_sentiment_sign)) +
+  geom_col() +
+  guides(fill = FALSE) +
+  coord_flip() +
+  labs(x = "", y = "", 
+    title = "Total sentiment score of 'Lover' tracks",
+    subtitle = "Scored with AFINN sentiment lexicon")
+```
+]
+
+---
+
+## Additional resources
+
+[Text Mining with R](https://www.tidytextmining.com/)
+- Chapter 1: The tidy text format
+- Chapter 2: Sentiment analysis with tidy data

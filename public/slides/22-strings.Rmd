@@ -1,0 +1,487 @@
+---
+title: "Strings"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center") 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+class: middle center
+
+## [Click for PDF of slides](22-strings.pdf)
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+---
+
+```{r echo = FALSE}
+states <- c("alabama", "alaska", "arizona", "arkansas", "california", 
+            "colorado", "connecticut", "delaware", "florida", "georgia", 
+            "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", 
+            "kentucky", "louisiana", "maine", "maryland", "massachusetts", 
+            "michigan", "minnesota", "mississippi", "missouri", "montana", 
+            "nebraska", "nevada", "new hampshire", "new jersey", 
+            "new mexico", "new york", "north carolina", "north dakota", "ohio", 
+            "oklahoma", "oregon", "pennsylvania", "rhode island",
+            "south carolina", "south dakota", "tennessee", "texas", "utah", 
+            "vermont", "virginia", "washington", "west virginia", "wisconsin",
+            "wyoming")
+```
+
+
+class: middle, center
+
+## `stringr`
+
+---
+
+## `stringr`
+
+In addition to the `tidyverse`, we will use the package `stringr`.
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+library(stringr)
+```
+
+`stringr` provides tools to work with character strings.
+
+- Functions in `stringr` have consistent and memorable names
+
+- All begin with `str_` (`str_count`, `str_detect`, `str_trim`, etc)
+
+- All take a vector of strings as their first argument
+
+
+---
+
+
+## Preliminaries
+
+Character strings in R are defined by double quotation marks. 
+
+They can include letters, numbers, punctuation, whitespace, etc.
+
+```{r}
+string1 <- "STA 199 is my favorite class."
+string1
+```
+
+You can combine character strings in a vector.
+
+```{r}
+string2 <- c("STA 199", "Data Science", "Duke")
+string2
+```
+
+---
+
+## Include a quotation in a string?
+
+Why doesn't the code below work?
+
+.midi[
+```{r eval = FALSE}
+string3 <- "I said "Hello" to my class"
+```
+]
+
+--
+
+To include a double quote in a string, *escape it* using a backslash `\`.
+
+--
+
+.midi[
+```{r}
+string4 <- "I said \"Hello\" to my class."
+```
+]
+
+--
+
+What if you want to include an actual backslash?
+
+--
+
+.midi[
+```{r}
+string5 <- "\\"
+```
+]
+
+This may seem tedious but it will come up later!
+
+---
+
+## `writeLines`
+
+`writeLines` shows the contents of the string not
+including escapes.
+
+.pull-left[
+```{r}
+string4
+writeLines(string4)
+```
+]
+.pull-right[
+```{r}
+string5
+writeLines(string5)
+```
+]
+
+
+---
+
+## U.S. States
+
+To demonstrate functions from `stringr` we will use a vector of all 50 states.
+
+.midi[
+```{r}
+states
+```
+]
+
+---
+
+## `str_length`
+
+Given a string, return the number of characters.
+
+.midi[
+```{r}
+string1 <- "STA 199 is my favorite class."
+str_length(string1)
+```
+]
+
+Given a vector of strings, return the number of characters in each string.
+
+.midi[
+```{r}
+str_length(states)
+```
+]
+
+--
+
+.pull-left[
+- Alabama: 7
+- Alaska: 6
+- Arizona: 7
+- Arkansas: 8
+]
+.pull-right[
+- California: 10
+- Colorado: 8
+- Connecticut: 11
+- ...
+]
+ 
+
+---
+
+## `str_c`
+
+Combine two or more strings.
+
+```{r}
+str_c("STA 199", "is", "my", "favorite", "class")
+```
+
+
+--
+
+Use `sep` to specify how the strings are separated.
+
+```{r}
+str_c("STA 199", "is", "my", "favorite", "class", sep = " ")
+```
+
+
+---
+
+## `str_to_lower` and `str_to_upper`
+
+Convert the case of a string from lower to upper or upper to lower.
+
+.midi[
+```{r}
+str_to_upper(states)
+```
+]
+
+
+---
+
+## `str_sub`
+
+Extract parts of a string from `start` to `end`, inclusive.
+
+.midi[
+```{r}
+str_sub(states, 1, 4)
+```
+]
+
+--
+
+.midi[
+```{r}
+str_sub(states, -4, -1)
+```
+]
+
+---
+
+## `str_sub` and `str_to_upper`
+
+
+Can combine `str_sub` and `str_to_upper` to capitalize each state.
+
+.midi[
+```{r}
+str_sub(states, 1, 1) <- str_to_upper(str_sub(states, 1, 1))
+states
+```
+]
+
+---
+
+## `str_sort`
+
+Sort a string. Here we sort in decreasing alphabetical order.
+
+.midi[
+```{r}
+str_sort(states, decreasing = TRUE)
+```
+]
+
+---
+
+## Regular Expressions
+
+A .vocab[regular expression] is a sequence of characters that allows you to 
+describe string patterns. We use them to search for patterns. 
+
+- extract a phone number from text data
+- determine if an email address is valid
+- determine if a password has the required number of letters, characters, and symbols
+- count the number of times "statistics" occurs in a corpus of text
+- ...
+
+---
+
+## Regular Expressions
+
+To demonstrate will will use a vector of all of the states bordering North 
+Carolina.
+
+```{r}
+nc_states <- c("North Carolina", "South Carolina", 
+               "Virginia", "Tennessee", "Georgia")
+nc_states
+```
+
+---
+
+## Basic Match
+
+We can match exactly. 
+
+
+```{r}
+str_view_all(nc_states, "in")
+```
+
+
+---
+
+## Basic Match
+
+Match any character using `.`
+
+
+```{r}
+str_view_all(nc_states, "i.")
+```
+
+
+---
+
+## Escaping
+
+How to match a period `.`? 
+
+--
+
+*Escape it* using `\.` This is the regular expression.
+
+--
+
+But we represent regular expressions using strings and `\` is also an escape 
+symbol in strings.
+
+--
+
+*Escape again*! 
+
+To create the regular expression `\.`, use the string `"\\."`
+
+--
+
+```{r}
+str_view(c("a.c", "abc", "def"), "a\\.c")
+```
+
+---
+
+## Anchors
+
+Match the start of a string using `^`
+
+```{r}
+str_view(nc_states, "^G")
+```
+
+---
+
+## Anchors
+
+Match the end of a string using `$`
+
+
+```{r}
+str_view(nc_states, "a$")
+```
+
+---
+
+## `str_detect`
+
+Determine if a character vector matches a pattern.
+
+```{r}
+nc_states
+str_detect(nc_states, "a")
+```
+
+
+---
+
+## `str_subset`
+
+Select elements that match a pattern.
+
+```{r}
+str_subset(nc_states, "e$")
+```
+
+
+---
+
+## `str_count`
+
+How many matches are there in a string?
+
+
+```{r}
+nc_states
+str_count(nc_states, "a")
+```
+
+
+---
+
+## `str_replace`
+
+Replace first match with new strings.
+
+
+```{r}
+str_replace(nc_states, "a", "-")
+```
+
+
+---
+
+## `str_replace_all`
+
+Replace all matches with new strings.
+
+```{r}
+str_replace_all(nc_states, "a", "-")
+```
+
+
+
+---
+
+## Many Matches
+
+The regular expressions below match more than one character.
+
+- Match any digit using `\d` or `[[:digit:]]`
+- Match any whitespace using `\s` or `[[:space:]]`
+- Match f, g, or h using `[fgh]` 
+- Match anything but f, g, or h using `[^fgh]`
+- Match lower-case letters using `[a-z]` or `[[:lower:]]`
+- Match upper-case letters using `[A-Z]` or `[[:upper:]]`
+- Match alphabetic characters using `[A-z]` or `[[:alpha:]]`
+
+Remember these are regular expressions! To match digits you'll need to *escape*
+the string, so use `"\\d"`, not `"\d"`
+
+---
+
+## Additional resources
+
+- `stringr` website: https://stringr.tidyverse.org/
+- `stringr` [cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf)
+- Regular Expressions [Cheat Sheet](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+- [Chapter 14: Strings](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) in R for Data Science

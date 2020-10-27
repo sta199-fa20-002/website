@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Strings</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="libs/font-awesome/htmlwidgets/htmlwidgets.js"></script>
+    <link href="libs/font-awesome/str_view/str_view.css" rel="stylesheet" />
+    <script src="libs/font-awesome/str_view-binding/str_view.js"></script>
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Strings
+### Prof. Maria Tackett
+
+---
+
+
+
+
+class: middle center
+
+## [Click for PDF of slides](22-strings.pdf)
+
+
+
+---
+
+
+
+
+class: middle, center
+
+## `stringr`
+
+---
+
+## `stringr`
+
+In addition to the `tidyverse`, we will use the package `stringr`.
+
+
+```r
+library(tidyverse)
+library(stringr)
+```
+
+`stringr` provides tools to work with character strings.
+
+- Functions in `stringr` have consistent and memorable names
+
+- All begin with `str_` (`str_count`, `str_detect`, `str_trim`, etc)
+
+- All take a vector of strings as their first argument
+
+
+---
+
+
+## Preliminaries
+
+Character strings in R are defined by double quotation marks. 
+
+They can include letters, numbers, punctuation, whitespace, etc.
+
+
+```r
+string1 &lt;- "STA 199 is my favorite class."
+string1
+```
+
+```
+## [1] "STA 199 is my favorite class."
+```
+
+You can combine character strings in a vector.
+
+
+```r
+string2 &lt;- c("STA 199", "Data Science", "Duke")
+string2
+```
+
+```
+## [1] "STA 199"      "Data Science" "Duke"
+```
+
+---
+
+## Include a quotation in a string?
+
+Why doesn't the code below work?
+
+.midi[
+
+```r
+string3 &lt;- "I said "Hello" to my class"
+```
+]
+
+--
+
+To include a double quote in a string, *escape it* using a backslash `\`.
+
+--
+
+.midi[
+
+```r
+string4 &lt;- "I said \"Hello\" to my class."
+```
+]
+
+--
+
+What if you want to include an actual backslash?
+
+--
+
+.midi[
+
+```r
+string5 &lt;- "\\"
+```
+]
+
+This may seem tedious but it will come up later!
+
+---
+
+## `writeLines`
+
+`writeLines` shows the contents of the string not
+including escapes.
+
+.pull-left[
+
+```r
+string4
+```
+
+```
+## [1] "I said \"Hello\" to my class."
+```
+
+```r
+writeLines(string4)
+```
+
+```
+## I said "Hello" to my class.
+```
+]
+.pull-right[
+
+```r
+string5
+```
+
+```
+## [1] "\\"
+```
+
+```r
+writeLines(string5)
+```
+
+```
+## \
+```
+]
+
+
+---
+
+## U.S. States
+
+To demonstrate functions from `stringr` we will use a vector of all 50 states.
+
+.midi[
+
+```r
+states
+```
+
+```
+##  [1] "alabama"        "alaska"         "arizona"        "arkansas"      
+##  [5] "california"     "colorado"       "connecticut"    "delaware"      
+##  [9] "florida"        "georgia"        "hawaii"         "idaho"         
+## [13] "illinois"       "indiana"        "iowa"           "kansas"        
+## [17] "kentucky"       "louisiana"      "maine"          "maryland"      
+## [21] "massachusetts"  "michigan"       "minnesota"      "mississippi"   
+## [25] "missouri"       "montana"        "nebraska"       "nevada"        
+## [29] "new hampshire"  "new jersey"     "new mexico"     "new york"      
+## [33] "north carolina" "north dakota"   "ohio"           "oklahoma"      
+## [37] "oregon"         "pennsylvania"   "rhode island"   "south carolina"
+## [41] "south dakota"   "tennessee"      "texas"          "utah"          
+## [45] "vermont"        "virginia"       "washington"     "west virginia" 
+## [49] "wisconsin"      "wyoming"
+```
+]
+
+---
+
+## `str_length`
+
+Given a string, return the number of characters.
+
+.midi[
+
+```r
+string1 &lt;- "STA 199 is my favorite class."
+str_length(string1)
+```
+
+```
+## [1] 29
+```
+]
+
+Given a vector of strings, return the number of characters in each string.
+
+.midi[
+
+```r
+str_length(states)
+```
+
+```
+##  [1]  7  6  7  8 10  8 11  8  7  7  6  5  8  7  4  6  8  9  5  8 13  8  9 11  8
+## [26]  7  8  6 13 10 10  8 14 12  4  8  6 12 12 14 12  9  5  4  7  8 10 13  9  7
+```
+]
+
+--
+
+.pull-left[
+- Alabama: 7
+- Alaska: 6
+- Arizona: 7
+- Arkansas: 8
+]
+.pull-right[
+- California: 10
+- Colorado: 8
+- Connecticut: 11
+- ...
+]
+ 
+
+---
+
+## `str_c`
+
+Combine two or more strings.
+
+
+```r
+str_c("STA 199", "is", "my", "favorite", "class")
+```
+
+```
+## [1] "STA 199ismyfavoriteclass"
+```
+
+
+--
+
+Use `sep` to specify how the strings are separated.
+
+
+```r
+str_c("STA 199", "is", "my", "favorite", "class", sep = " ")
+```
+
+```
+## [1] "STA 199 is my favorite class"
+```
+
+
+---
+
+## `str_to_lower` and `str_to_upper`
+
+Convert the case of a string from lower to upper or upper to lower.
+
+.midi[
+
+```r
+str_to_upper(states)
+```
+
+```
+##  [1] "ALABAMA"        "ALASKA"         "ARIZONA"        "ARKANSAS"      
+##  [5] "CALIFORNIA"     "COLORADO"       "CONNECTICUT"    "DELAWARE"      
+##  [9] "FLORIDA"        "GEORGIA"        "HAWAII"         "IDAHO"         
+## [13] "ILLINOIS"       "INDIANA"        "IOWA"           "KANSAS"        
+## [17] "KENTUCKY"       "LOUISIANA"      "MAINE"          "MARYLAND"      
+## [21] "MASSACHUSETTS"  "MICHIGAN"       "MINNESOTA"      "MISSISSIPPI"   
+## [25] "MISSOURI"       "MONTANA"        "NEBRASKA"       "NEVADA"        
+## [29] "NEW HAMPSHIRE"  "NEW JERSEY"     "NEW MEXICO"     "NEW YORK"      
+## [33] "NORTH CAROLINA" "NORTH DAKOTA"   "OHIO"           "OKLAHOMA"      
+## [37] "OREGON"         "PENNSYLVANIA"   "RHODE ISLAND"   "SOUTH CAROLINA"
+## [41] "SOUTH DAKOTA"   "TENNESSEE"      "TEXAS"          "UTAH"          
+## [45] "VERMONT"        "VIRGINIA"       "WASHINGTON"     "WEST VIRGINIA" 
+## [49] "WISCONSIN"      "WYOMING"
+```
+]
+
+
+---
+
+## `str_sub`
+
+Extract parts of a string from `start` to `end`, inclusive.
+
+.midi[
+
+```r
+str_sub(states, 1, 4)
+```
+
+```
+##  [1] "alab" "alas" "ariz" "arka" "cali" "colo" "conn" "dela" "flor" "geor"
+## [11] "hawa" "idah" "illi" "indi" "iowa" "kans" "kent" "loui" "main" "mary"
+## [21] "mass" "mich" "minn" "miss" "miss" "mont" "nebr" "neva" "new " "new "
+## [31] "new " "new " "nort" "nort" "ohio" "okla" "oreg" "penn" "rhod" "sout"
+## [41] "sout" "tenn" "texa" "utah" "verm" "virg" "wash" "west" "wisc" "wyom"
+```
+]
+
+--
+
+.midi[
+
+```r
+str_sub(states, -4, -1)
+```
+
+```
+##  [1] "bama" "aska" "zona" "nsas" "rnia" "rado" "icut" "ware" "rida" "rgia"
+## [11] "waii" "daho" "nois" "iana" "iowa" "nsas" "ucky" "iana" "aine" "land"
+## [21] "etts" "igan" "sota" "ippi" "ouri" "tana" "aska" "vada" "hire" "rsey"
+## [31] "xico" "york" "lina" "kota" "ohio" "homa" "egon" "ania" "land" "lina"
+## [41] "kota" "ssee" "exas" "utah" "mont" "inia" "gton" "inia" "nsin" "ming"
+```
+]
+
+---
+
+## `str_sub` and `str_to_upper`
+
+
+Can combine `str_sub` and `str_to_upper` to capitalize each state.
+
+.midi[
+
+```r
+str_sub(states, 1, 1) &lt;- str_to_upper(str_sub(states, 1, 1))
+states
+```
+
+```
+##  [1] "Alabama"        "Alaska"         "Arizona"        "Arkansas"      
+##  [5] "California"     "Colorado"       "Connecticut"    "Delaware"      
+##  [9] "Florida"        "Georgia"        "Hawaii"         "Idaho"         
+## [13] "Illinois"       "Indiana"        "Iowa"           "Kansas"        
+## [17] "Kentucky"       "Louisiana"      "Maine"          "Maryland"      
+## [21] "Massachusetts"  "Michigan"       "Minnesota"      "Mississippi"   
+## [25] "Missouri"       "Montana"        "Nebraska"       "Nevada"        
+## [29] "New hampshire"  "New jersey"     "New mexico"     "New york"      
+## [33] "North carolina" "North dakota"   "Ohio"           "Oklahoma"      
+## [37] "Oregon"         "Pennsylvania"   "Rhode island"   "South carolina"
+## [41] "South dakota"   "Tennessee"      "Texas"          "Utah"          
+## [45] "Vermont"        "Virginia"       "Washington"     "West virginia" 
+## [49] "Wisconsin"      "Wyoming"
+```
+]
+
+---
+
+## `str_sort`
+
+Sort a string. Here we sort in decreasing alphabetical order.
+
+.midi[
+
+```r
+str_sort(states, decreasing = TRUE)
+```
+
+```
+##  [1] "Wyoming"        "Wisconsin"      "West virginia"  "Washington"    
+##  [5] "Virginia"       "Vermont"        "Utah"           "Texas"         
+##  [9] "Tennessee"      "South dakota"   "South carolina" "Rhode island"  
+## [13] "Pennsylvania"   "Oregon"         "Oklahoma"       "Ohio"          
+## [17] "North dakota"   "North carolina" "New york"       "New mexico"    
+## [21] "New jersey"     "New hampshire"  "Nevada"         "Nebraska"      
+## [25] "Montana"        "Missouri"       "Mississippi"    "Minnesota"     
+## [29] "Michigan"       "Massachusetts"  "Maryland"       "Maine"         
+## [33] "Louisiana"      "Kentucky"       "Kansas"         "Iowa"          
+## [37] "Indiana"        "Illinois"       "Idaho"          "Hawaii"        
+## [41] "Georgia"        "Florida"        "Delaware"       "Connecticut"   
+## [45] "Colorado"       "California"     "Arkansas"       "Arizona"       
+## [49] "Alaska"         "Alabama"
+```
+]
+
+---
+
+## Regular Expressions
+
+A .vocab[regular expression] is a sequence of characters that allows you to 
+describe string patterns. We use them to search for patterns. 
+
+- extract a phone number from text data
+- determine if an email address is valid
+- determine if a password has the required number of letters, characters, and symbols
+- count the number of times "statistics" occurs in a corpus of text
+- ...
+
+---
+
+## Regular Expressions
+
+To demonstrate will will use a vector of all of the states bordering North 
+Carolina.
+
+
+```r
+nc_states &lt;- c("North Carolina", "South Carolina", 
+               "Virginia", "Tennessee", "Georgia")
+nc_states
+```
+
+```
+## [1] "North Carolina" "South Carolina" "Virginia"       "Tennessee"     
+## [5] "Georgia"
+```
+
+---
+
+## Basic Match
+
+We can match exactly. 
+
+
+
+```r
+str_view_all(nc_states, "in")
+```
+
+<div id="htmlwidget-01d4c145aa84455e3982" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-01d4c145aa84455e3982">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>Virg<span class='match'>in<\/span>ia<\/li>\n  <li>Tennessee<\/li>\n  <li>Georgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+## Basic Match
+
+Match any character using `.`
+
+
+
+```r
+str_view_all(nc_states, "i.")
+```
+
+<div id="htmlwidget-e089fcf6eb886025892a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e089fcf6eb886025892a">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>V<span class='match'>ir<\/span>g<span class='match'>in<\/span><span class='match'>ia<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georg<span class='match'>ia<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+## Escaping
+
+How to match a period `.`? 
+
+--
+
+*Escape it* using `\.` This is the regular expression.
+
+--
+
+But we represent regular expressions using strings and `\` is also an escape 
+symbol in strings.
+
+--
+
+*Escape again*! 
+
+To create the regular expression `\.`, use the string `"\\."`
+
+--
+
+
+```r
+str_view(c("a.c", "abc", "def"), "a\\.c")
+```
+
+<div id="htmlwidget-950f8460674d422b16a0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-950f8460674d422b16a0">{"x":{"html":"<ul>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>abc<\/li>\n  <li>def<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Anchors
+
+Match the start of a string using `^`
+
+
+```r
+str_view(nc_states, "^G")
+```
+
+<div id="htmlwidget-0f99cc4fb2a65302c5f7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0f99cc4fb2a65302c5f7">{"x":{"html":"<ul>\n  <li>North Carolina<\/li>\n  <li>South Carolina<\/li>\n  <li>Virginia<\/li>\n  <li>Tennessee<\/li>\n  <li><span class='match'>G<\/span>eorgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## Anchors
+
+Match the end of a string using `$`
+
+
+
+```r
+str_view(nc_states, "a$")
+```
+
+<div id="htmlwidget-347f80c8b1ab824ea7ba" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-347f80c8b1ab824ea7ba">{"x":{"html":"<ul>\n  <li>North Carolin<span class='match'>a<\/span><\/li>\n  <li>South Carolin<span class='match'>a<\/span><\/li>\n  <li>Virgini<span class='match'>a<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georgi<span class='match'>a<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## `str_detect`
+
+Determine if a character vector matches a pattern.
+
+
+```r
+nc_states
+```
+
+```
+## [1] "North Carolina" "South Carolina" "Virginia"       "Tennessee"     
+## [5] "Georgia"
+```
+
+```r
+str_detect(nc_states, "a")
+```
+
+```
+## [1]  TRUE  TRUE  TRUE FALSE  TRUE
+```
+
+
+---
+
+## `str_subset`
+
+Select elements that match a pattern.
+
+
+```r
+str_subset(nc_states, "e$")
+```
+
+```
+## [1] "Tennessee"
+```
+
+
+---
+
+## `str_count`
+
+How many matches are there in a string?
+
+
+
+```r
+nc_states
+```
+
+```
+## [1] "North Carolina" "South Carolina" "Virginia"       "Tennessee"     
+## [5] "Georgia"
+```
+
+```r
+str_count(nc_states, "a")
+```
+
+```
+## [1] 2 2 1 0 1
+```
+
+
+---
+
+## `str_replace`
+
+Replace first match with new strings.
+
+
+
+```r
+str_replace(nc_states, "a", "-")
+```
+
+```
+## [1] "North C-rolina" "South C-rolina" "Virgini-"       "Tennessee"     
+## [5] "Georgi-"
+```
+
+
+---
+
+## `str_replace_all`
+
+Replace all matches with new strings.
+
+
+```r
+str_replace_all(nc_states, "a", "-")
+```
+
+```
+## [1] "North C-rolin-" "South C-rolin-" "Virgini-"       "Tennessee"     
+## [5] "Georgi-"
+```
+
+
+
+---
+
+## Many Matches
+
+The regular expressions below match more than one character.
+
+- Match any digit using `\d` or `[[:digit:]]`
+- Match any whitespace using `\s` or `[[:space:]]`
+- Match f, g, or h using `[fgh]` 
+- Match anything but f, g, or h using `[^fgh]`
+- Match lower-case letters using `[a-z]` or `[[:lower:]]`
+- Match upper-case letters using `[A-Z]` or `[[:upper:]]`
+- Match alphabetic characters using `[A-z]` or `[[:alpha:]]`
+
+Remember these are regular expressions! To match digits you'll need to *escape*
+the string, so use `"\\d"`, not `"\d"`
+
+---
+
+## Additional resources
+
+- `stringr` website: https://stringr.tidyverse.org/
+- `stringr` [cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf)
+- Regular Expressions [Cheat Sheet](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf)
+- [Chapter 14: Strings](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) in R for Data Science
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
