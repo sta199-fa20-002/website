@@ -455,8 +455,8 @@ We can match exactly.
 str_view_all(nc_states, "in")
 ```
 
-<div id="htmlwidget-01d4c145aa84455e3982" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-01d4c145aa84455e3982">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>Virg<span class='match'>in<\/span>ia<\/li>\n  <li>Tennessee<\/li>\n  <li>Georgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e313d0a5c26bda0a51f1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e313d0a5c26bda0a51f1">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>Virg<span class='match'>in<\/span>ia<\/li>\n  <li>Tennessee<\/li>\n  <li>Georgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 
 ---
@@ -471,40 +471,8 @@ Match any character using `.`
 str_view_all(nc_states, "i.")
 ```
 
-<div id="htmlwidget-e089fcf6eb886025892a" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e089fcf6eb886025892a">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>V<span class='match'>ir<\/span>g<span class='match'>in<\/span><span class='match'>ia<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georg<span class='match'>ia<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-
-
----
-
-## Escaping
-
-How to match a period `.`? 
-
---
-
-*Escape it* using `\.` This is the regular expression.
-
---
-
-But we represent regular expressions using strings and `\` is also an escape 
-symbol in strings.
-
---
-
-*Escape again*! 
-
-To create the regular expression `\.`, use the string `"\\."`
-
---
-
-
-```r
-str_view(c("a.c", "abc", "def"), "a\\.c")
-```
-
-<div id="htmlwidget-950f8460674d422b16a0" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-950f8460674d422b16a0">{"x":{"html":"<ul>\n  <li><span class='match'>a.c<\/span><\/li>\n  <li>abc<\/li>\n  <li>def<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-55edff1d49f114b90c01" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-55edff1d49f114b90c01">{"x":{"html":"<ul>\n  <li>North Carol<span class='match'>in<\/span>a<\/li>\n  <li>South Carol<span class='match'>in<\/span>a<\/li>\n  <li>V<span class='match'>ir<\/span>g<span class='match'>in<\/span><span class='match'>ia<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georg<span class='match'>ia<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -514,11 +482,11 @@ Match the start of a string using `^`
 
 
 ```r
-str_view(nc_states, "^G")
+str_view_all(nc_states, "^G")
 ```
 
-<div id="htmlwidget-0f99cc4fb2a65302c5f7" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0f99cc4fb2a65302c5f7">{"x":{"html":"<ul>\n  <li>North Carolina<\/li>\n  <li>South Carolina<\/li>\n  <li>Virginia<\/li>\n  <li>Tennessee<\/li>\n  <li><span class='match'>G<\/span>eorgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-71a7086a3e551139430f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-71a7086a3e551139430f">{"x":{"html":"<ul>\n  <li>North Carolina<\/li>\n  <li>South Carolina<\/li>\n  <li>Virginia<\/li>\n  <li>Tennessee<\/li>\n  <li><span class='match'>G<\/span>eorgia<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -529,11 +497,11 @@ Match the end of a string using `$`
 
 
 ```r
-str_view(nc_states, "a$")
+str_view_all(nc_states, "a$")
 ```
 
-<div id="htmlwidget-347f80c8b1ab824ea7ba" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-347f80c8b1ab824ea7ba">{"x":{"html":"<ul>\n  <li>North Carolin<span class='match'>a<\/span><\/li>\n  <li>South Carolin<span class='match'>a<\/span><\/li>\n  <li>Virgini<span class='match'>a<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georgi<span class='match'>a<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8b72e137f043766338db" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b72e137f043766338db">{"x":{"html":"<ul>\n  <li>North Carolin<span class='match'>a<\/span><\/li>\n  <li>South Carolin<span class='match'>a<\/span><\/li>\n  <li>Virgini<span class='match'>a<\/span><\/li>\n  <li>Tennessee<\/li>\n  <li>Georgi<span class='match'>a<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 
 ---
 

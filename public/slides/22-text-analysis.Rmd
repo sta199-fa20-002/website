@@ -83,8 +83,6 @@ In addition to `tidyverse` we will be using a few other packages today
 library(tidyverse)
 library(tidytext)
 library(genius) # https://github.com/JosiahParry/genius
-library(wordcloud)
-library(reshape2)
 ```
 
 ---
@@ -173,6 +171,8 @@ tswift <- genius_album(
   artist = "Taylor Swift", 
   album = "Lover"
   )
+
+tswift
 ```
 
 ---

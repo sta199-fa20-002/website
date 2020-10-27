@@ -351,34 +351,6 @@ Match any character using `.`
 str_view_all(nc_states, "i.")
 ```
 
-
----
-
-## Escaping
-
-How to match a period `.`? 
-
---
-
-*Escape it* using `\.` This is the regular expression.
-
---
-
-But we represent regular expressions using strings and `\` is also an escape 
-symbol in strings.
-
---
-
-*Escape again*! 
-
-To create the regular expression `\.`, use the string `"\\."`
-
---
-
-```{r}
-str_view(c("a.c", "abc", "def"), "a\\.c")
-```
-
 ---
 
 ## Anchors
@@ -386,7 +358,7 @@ str_view(c("a.c", "abc", "def"), "a\\.c")
 Match the start of a string using `^`
 
 ```{r}
-str_view(nc_states, "^G")
+str_view_all(nc_states, "^G")
 ```
 
 ---
@@ -397,7 +369,7 @@ Match the end of a string using `$`
 
 
 ```{r}
-str_view(nc_states, "a$")
+str_view_all(nc_states, "a$")
 ```
 
 ---

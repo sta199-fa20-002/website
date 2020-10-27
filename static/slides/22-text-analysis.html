@@ -49,8 +49,6 @@ In addition to `tidyverse` we will be using a few other packages today
 library(tidyverse)
 library(tidytext)
 library(genius) # https://github.com/JosiahParry/genius
-library(wordcloud)
-library(reshape2)
 ```
 
 ---
@@ -180,6 +178,25 @@ tswift &lt;- genius_album(
   artist = "Taylor Swift", 
   album = "Lover"
   )
+
+tswift
+```
+
+```
+## # A tibble: 913 x 4
+##    track_n  line lyric                                    track_title           
+##      &lt;int&gt; &lt;int&gt; &lt;chr&gt;                                    &lt;chr&gt;                 
+##  1       1     1 How many days did I spend thinking       I Forgot That You Exi…
+##  2       1     2 'Bout how you did me wrong, wrong, wron… I Forgot That You Exi…
+##  3       1     3 Lived in the shade you were throwing     I Forgot That You Exi…
+##  4       1     4 'Til all of my sunshine was gone, gone,… I Forgot That You Exi…
+##  5       1     5 And I couldn't get away from ya          I Forgot That You Exi…
+##  6       1     6 In my feelings more than Drake, so yeah  I Forgot That You Exi…
+##  7       1     7 Your name on my lips, tongue-tied        I Forgot That You Exi…
+##  8       1     8 Free rent, living in my mind             I Forgot That You Exi…
+##  9       1     9 But then something happened one magical… I Forgot That You Exi…
+## 10       1    10 I forgot that you existed                I Forgot That You Exi…
+## # … with 903 more rows
 ```
 
 ---

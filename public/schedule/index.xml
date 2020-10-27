@@ -1000,7 +1000,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-11/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Classification Classification AE 21: Spam filters   Wednesday Strings Strings AE 22    Text analysis Text analysis     Assignments          Draft report due Wed, Oct 28 at 11:59p   Peer review due Thu, Nov 5 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Classification Classification AE 21: Spam filters   Wednesday Text analysis Text analysis AE 22   Wednesday Strings (Optional) Strings (Optional) AE 22    Assignments          Draft report due Wed, Oct 28 at 11:59p   Peer review due Thu, Nov 5 at 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -1026,15 +1026,15 @@ font-size: 18px;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/22-strings.html&#34;&gt;Strings&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Strings&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/22-text-analysis.html&#34;&gt;Text analysis&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/S7YEAA/&#34;&gt;Text analysis&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;AE 22&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/22-text-analysis.html&#34;&gt;Text analysis&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Text analysis&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/22-strings.html&#34;&gt;Strings&lt;/a&gt; &lt;em&gt;(Optional)&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Strings &lt;em&gt;(Optional)&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;AE 22&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
