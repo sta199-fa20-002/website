@@ -1,5 +1,5 @@
 ---
-title: "AE 21: Text analysis"
+title: "AE 22: Text analysis"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -118,6 +118,9 @@ Based on this analysis, what are some general conclusions you draw about the cla
 ### More with text analysis!
 
 - Text Mining with R: https://www.tidytextmining.com/
-- gutenbergr: https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html
-
+- gutenbergr R package: https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html
+- genius R package: https://github.com/JosiahParry/genius
+  - *Note: Limitations in the Docker containers*
+- dundlermifflin R package: https://github.com/tbradley1013/dundermifflin
+- friends R package: https://emilhvitfeldt.github.io/friends/
 
