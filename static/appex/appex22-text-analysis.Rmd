@@ -1,0 +1,123 @@
+---
+title: "AE 21: Text analysis"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+---
+
+```{r echo = F}
+knitr::opts_chunk$set(warning = F, message = F)
+```
+
+```{r echo  = F}
+library(tidyverse)
+```
+
+## Announcements 
+
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+[**Caroline Levenson**](https://www.linkedin.com/in/carolinelevenson/), Mon, Nov 2, 1p - 2p
+
+  - [Click here](https://forms.gle/FucAXE6bLeJVyqRY9) to sign up
+ 
+### Submit your questions about statistics and the US election
+
+What questions do you have about statistics and the US election? [Click here](https://forms.gle/6239XcARuuWe4MBw5) to submit your questions **by Friday, Oct 30.** We will discuss some of the questions during the Nov 2 live lecture. 
+
+And...if you're eligible, VOTE!
+
+### Other events 
+
+- [Datathon](https://dukeml.org/datathon/) Oct 31  - Nov 1
+
+### Stats in Spring 2021
+
+- [STA 210: Regression Analysis](https://stat.duke.edu/courses/regression-analysis-0)
+- [STA 240: Probability for Statistical Inference, Modeling, and Data Analysis](https://stat.duke.edu/courses/probability-statistical-inference-modeling-and-data-analysis).
+  - Pre-req: Mathematics 22, 112L, 122, 122L, 202D, 212, 222
+
+
+### Project - Draft due Oct 28 at 11:59p
+
+- Write the draft in the `written-report.Rmd` file in the project repo. 
+
+- Draft should include 
+   - the research context and motivation
+   - exploratory data analysis
+   - any inference, modeling, or conclusions.
+
+## Exercises 
+
+For today's AE, we are analyzing the tweets from the statistics experience!
+
+```{r}
+# load packages
+library(tidyverse)
+library(tidytext)
+library(stringr)
+#library(wordcloud) #word cloud
+```
+
+```{r, eval = F}
+tweets <- read_csv("data/stats-tweets.csv") %>%
+  mutate(tweet_num = 1:nrow())
+```
+
+
+### Exercise 1
+
+Are these Tweets or Tweet threads? Let's see how long the statistics experience tweets are! 
+
+### Exercise 2
+
+Let's use the `unnest_tokens` to make a tidy data frame of words from the tweets. 
+
+
+### Exercise 3
+
+What are the most common words used in the tweets? Are the most common words interesting? If not, what can we do to make this more interesting? 
+
+### Exercise 4
+
+Make a graph to visualize the top 10 words from your tweets. 
+
+### Exercise 5
+
+Now let's see the general sentiment of the tweets. Use the bing lexicon to identify the top 10 most common words and their sentiments. 
+
+### Exercise 6
+
+Let's visualize the top 10 most common words for each sentiment. Make a plot to display the top 10 most commonly used positive words and negative words. 
+
+### Exercise 7
+
+We can also visualize the most common words using a word cloud. 
+
+```{r}
+#library(wordcloud)
+#set.seed(10282020)
+# _____ %>%
+#  anti_join(stop_words) %>%
+ # count(word) %>%
+#  with(wordcloud(word, n, max.words = 100))
+```
+
+### Exercise 8
+
+Based on this analysis, what are some general conclusions you draw about the class's first statistics experiences? 
+
+
+<hr>
+
+### More with text analysis!
+
+- Text Mining with R: https://www.tidytextmining.com/
+- gutenbergr: https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html
+
+

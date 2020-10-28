@@ -15,8 +15,8 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Classification](https://sta199-fa20-002.netlify.app/slides/21-classification.html) | [Classification](https://warpwire.duke.edu/w/67IEAA/) | [AE 21: Spam filters](https://sta199-fa20-002.netlify.app/appex/appex21-logistic.html) |
-| Wednesday | [Text analysis](https://sta199-fa20-002.netlify.app/slides/22-text-analysis.html) |[Text analysis](https://warpwire.duke.edu/w/S7YEAA/) | AE 22 |
-| Wednesday | [Strings](https://sta199-fa20-002.netlify.app/slides/22-strings.html) *(Optional)* |[Strings](https://warpwire.duke.edu/w/XbYEAA/) *(Optional)* | AE 22|
+| Wednesday | [Text analysis](https://sta199-fa20-002.netlify.app/slides/22-text-analysis.html) |[Text analysis](https://warpwire.duke.edu/w/S7YEAA/) | [AE 22: Text Analysis](https://sta199-fa20-002.netlify.app/appex/appex22-text-analysis.html) |
+|  | [Strings](https://sta199-fa20-002.netlify.app/slides/22-strings.html) *(Optional)* |[Strings](https://warpwire.duke.edu/w/XbYEAA/) *(Optional)* | |
 
 
 <!-- ## Readings -->
