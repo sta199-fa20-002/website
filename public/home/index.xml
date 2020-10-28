@@ -1000,7 +1000,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-11/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Classification Classification AE 21: Spam filters   Wednesday Text analysis Text analysis AE 22: Text Analysis    Strings (Optional) Strings (Optional)     Assignments          Draft report due Wed, Oct 28 at 11:59p   Peer review due Thu, Nov 5 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Classification Classification AE 21: Spam filters   Wednesday Text analysis Text analysis AE 22: Text Analysis    Strings (Optional) Strings (Optional)     Assignments          Draft report due Wed, Oct 28 at 11:59p   HW 03 due Wed, Nov 4 at 11:59p   Peer review due Thu, Nov 5 at 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -1054,6 +1054,10 @@ font-size: 18px;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#peer-feedback&#34;&gt;Draft report&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;due Wed, Oct 28 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/hw/hw-03.html&#34;&gt;HW 03&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Nov 4 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#peer-feedback&#34;&gt;Peer review&lt;/a&gt;&lt;/td&gt;
