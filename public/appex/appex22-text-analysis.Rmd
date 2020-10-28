@@ -16,6 +16,12 @@ library(tidyverse)
 
 ## Announcements 
 
+### Assignments 
+
+- [HW 03](https://sta199-fa20-002.netlify.app/hw/hw-03.html) due Nov 4 at 11:59p
+- Tomorrow's lab: Project peer review
+  - Push a draft of your report to the Github repo by today at 11:59p
+  
 ### Tea with a TA 
 
 Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
