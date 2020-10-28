@@ -8,17 +8,7 @@ output:
 link-citations: yes
 ---
 
-```{r include=FALSE}
-library(tidyverse)
-library(tufte)
-library(knitr)
-options(
-  htmltools.dir.version = FALSE, # for blogdown
-  show.signif.stars = FALSE,     # for regression output
-  digits = 2
-  )
-knitr::opts_chunk$set(eval = FALSE)
-```
+
 
 Critically reviewing others' work is a crucial part of the scientific process,
 and STA 199 is no exception. Each group has been given read access to another group's repo to review and provide feedback on their project draft. This review is intended to

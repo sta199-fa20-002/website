@@ -332,6 +332,10 @@ font-style: bold;
 font-weight: 600;
 font-family: "Source Sans Pro";
 }
+a {
+color: #00b3b3;
+text-decoration: underline;
+}
 
 
 @media screen and (max-width: 760px) {
@@ -446,34 +450,38 @@ text-decoration: italic;
 <p>Carefully read the project draft, considering the questions below as you read it.</p>
 <p>Once everyone in the group has read the draft, submit your responses to the peer review questions using “Issues” in the GitHub repo.</p>
 <p>Post a new issue for each section of the peer review. In the issue, copy the peer review questions, and then type your responses. <strong>Every team member should post at least one issue.</strong></p>
+<p>To post an issue, go to the project repo on GitHub and click “Issues”. For each comment or critique on the written report and data analysis, click “New Issue”. Provide an informative issue title and then a description outlining your concerns, comments, and any suggested changes. Click “Submit new issue”. Do this for every major comment or critique (do not submit a single issue with all of your feedback).</p>
 </div>
 <div id="peer-review-questions" class="section level1">
 <h1>Peer review questions</h1>
-<p>For each question answer “Yes”, “No” or “Somewhat”. If you answer “No” or “Somewhat” provide an explanation addressing any problems.</p>
+<p>For each question - Copy the question in the GitHub issue and answer “Yes”, “No” or “Somewhat”. - If you answer “No” or “Somewhat” provide an explanation addressing any problems, i.e. why you didn’t respond “Yes”.</p>
+<p><a href="peer-review.md">Click here</a> for an .md file of the questions to make them easier to copy and paste in the GitHub Issue.</p>
 <div id="issue-1-introduction-data" class="section level2">
 <h2>Issue 1: Introduction + Data</h2>
 <ul>
-<li><p>Is the research question and goal of the report clearly stated?</p></li>
-<li><p>Does the introduction provide appropriate background context and motivation for a general reader?</p></li>
-<li><p>Is the source of the data stated with an appropriate citation?</p></li>
-<li><p>Is it clear when and how the data was collected?</p></li>
-<li><p>Is data manipulation described clearly (missing data, creation of new variables, etc)?</p></li>
-<li><p>Are the cases and relevant variables described?</p></li>
+<li>Is the research question and goal of the report clearly stated?</li>
+<li>Does the introduction provide appropriate background context and motivation for a general reader?</li>
+<li>Is the source of the data stated with an appropriate citation?</li>
+<li>Is it clear when and how the data was originally collected?</li>
+<li>Are the observations and relevant variables described?</li>
+<li>Include any additional comments or suggestions on the introduction and data description.</li>
 </ul>
 </div>
-<div id="issue-2-introduction-data" class="section level2">
-<h2>Issue 2: Introduction + Data</h2>
+<div id="issue-2-exploratory-data-analysis" class="section level2">
+<h2>Issue 2: Exploratory data analysis</h2>
 <ul>
-<li><p>Do the visualizations correspond to the stated research question?</p></li>
-<li><p>Are visualizations effective and do they follow the visualization principles we have discussed in STA 199 (including elements like titles, labels, appropriate for the type of data, etc)?</p></li>
-<li><p>Is the choice of statistical method justified?</p></li>
+<li>Is the data cleaning and data wrangling clearly described? This includes dealing with missing data, creating new variables, etc.</li>
+<li>Do the visualizations correspond to the to the stated research question?</li>
+<li>Are visualizations effective and do they follow the visualization principles we have discussed in STA 199? This includes using plots that are appropriate for the data, having proper axis labels, titles, etc.</li>
+<li>Is the choice of statistical method justified?</li>
+<li>Include any additional comments or suggestions for the exploratory data analysis.</li>
 </ul>
 </div>
-<div id="issue-3-results-discussion" class="section level2">
-<h2>Issue 3: Results + Discussion</h2>
+<div id="issue-3-methodology-results" class="section level2">
+<h2>Issue 3: Methodology + Results</h2>
 <ul>
-<li>Are the chosen techniques for answering the research question appropriate for the research context and type of data?</li>
-<li>Is the research question answered effectively?</li>
+<li>Are the chosen methods (e.g. hypothesis testing, confidence intervals, models, etc.) for answering the research question appropriate for the research context and type of data?</li>
+<li>Is the research question answered accurately and effectively?</li>
 <li>Is the answer to the research question summarized and supported by statistical arguments?</li>
 <li>Are limitations of the analysis clearly outlined?</li>
 </ul>
@@ -481,24 +489,19 @@ text-decoration: italic;
 <div id="issue-4-writing-reproducibility" class="section level2">
 <h2>Issue 4: Writing + Reproducibility</h2>
 <ul>
-<li><p>Is the writing clear (including elements like spelling, grammar, etc)? Are you able to follow what is being done?</p></li>
-<li><p>Is the coding clear? Are you able to follow precisely what is being done?</p></li>
-<li><p>Are you able to reproduce all aspects of the report, including output, visualizations, etc? Have the reprodubility principles we have discussed in STA 199 been followed?</p></li>
-<li><p>Is the report well-formatted and readable (including layout but also only reporting relevant output, with no extraneous code, visuals, etc)?</p></li>
-<li><p>Have they appropriate outlined the next steps with gaps clearly defined?</p></li>
-<li><p>Any suggestions for them moving forward?</p></li>
-<li><p>What is one question you have for the group after reading their analysis?</p></li>
-<li><p>What is one thing the group has done well?</p></li>
+<li>Is the writing clear (including elements like spelling, grammar, etc)? Are you able to follow what is being done?</li>
+<li>Is the coding written clearly and generally using tidyverse syntax? Are you able to follow precisely what is being done? <em>Use the .Rmd file to assess this question if the code is suppressed in the PDF.</em></li>
+<li>Knit the .Rmd file. Are you able to reproduce all aspects of the report, including output, visualizations, etc? This includes (1) being able to knit the document and (2) obtaining the same PDF as the original PDF.</li>
+<li>Is the report well-formatted and readable (including layout but also only reporting relevant output, with no extraneous code, visuals, etc)?</li>
+<li>Have they appropriate outlined the next steps with gaps clearly defined?</li>
+<li>What is one thing the group has done well? what is one suggestion you have for the group going forward?</li>
 </ul>
-<p>After you have finished your close reading of the report and consideration of the questions above it is time to provide feedback.</p>
-<p>Go to the project repo on GitHub and click “Issues”. For each comment or critique on the written report and data analysis, click “New Issue”. Provide an informative issue title and then a description outlining your concerns, comments, and any suggested changes. Click “Submit new issue”. Do this for every major comment or critique (do not submit a single issue with all of your feedback).</p>
 </div>
 </div>
 <div id="submission" class="section level1">
 <h1>Submission</h1>
 <p>The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team’s report: the research context and motivation, exploratory data analysis, reproducibility, and any inference, modeling, or conclusions.</p>
 <p>You will be graded based on the submitted issues on GitHub.</p>
-<p><span style="color: red;"><strong>All team members must meaningfully contribute to the peer review via submitting issues</strong></span></p>
 </div>
 
 

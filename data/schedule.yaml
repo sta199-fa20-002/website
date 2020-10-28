@@ -147,6 +147,7 @@ lessons:
     hw: "hw-03.html"
   - date: "Thu, Oct 29"
     title: "Project peer feedback"
+    lab: "peer-review.html"
 
   - week: "Week 12"
     date: "Mon, Nov 02"
@@ -157,7 +158,7 @@ lessons:
   - date: "Thu, Nov 05"
     title: "Lab 08"
   - title: "Peer feedback due"
-    project: "#peer-feedback"
+    lab: "peer-review.html"
   - date: "Sun, Nov 08"
     title: "Stats experience 02 due"
     hw: "stat-experience.html"

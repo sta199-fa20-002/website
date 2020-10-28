@@ -76,6 +76,11 @@ strong {
 	font-family: "Source Sans Pro";
 }
 
+a {
+  color: #00b3b3;
+  text-decoration: underline;
+}
+
 /* Code formatting */
 
 /* @media screen and (max-width: 760px) {
