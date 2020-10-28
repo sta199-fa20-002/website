@@ -1,0 +1,120 @@
+---
+title: "Project Peer Review"
+subtitle: "Initial feedback due Oct 29 at 11:59p; Final feedback due Nov 5 at 11:59p"
+output: 
+  tufte::tufte_html:
+    highlight: pygments
+    css: "sta199-labs.css"
+link-citations: yes
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(tufte)
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  digits = 2
+  )
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+Critically reviewing others' work is a crucial part of the scientific process,
+and STA 199 is no exception. Each group has been given read access to another group's repo to review and provide feedback on their project draft. This review is intended to
+help you create a high quality final project, as well as give you experience  reading and constructively critiquing the work of others. 
+
+To ensure the group has enough time to start incorporating feedback ,you should work on the peer review during lab and submit comments by **Thursday, Oct 29 at 11:59p**. If you do not finish during lab, you can submit additional comments until **Thu, Nov 5.** Note that you are expected to submit the majority of the comments on Oct 29
+
+# Getting started 
+
+[Click here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EV-0jLAxH11ApRlC6qWEzLcBUyCJromydIWF5EECuC_1vg?e=J9Nqbg) to see which project you're reviewing. 
+
+Then, search your GitHub repositories for `project` and you should see the repo for the project you're reviewing. 
+
+Open the repo and follow the usual steps to clone into RStudio. You have read access to this repository but will not be able to push any changes.
+
+
+# Reviewing the draft
+
+Carefully read the project draft, considering the questions below as you read it. 
+
+Once everyone in the group has read the draft, submit your responses to the peer review questions using "Issues" in the GitHub repo. 
+
+Post a new issue for each section of the peer review. In the issue, copy the peer review questions, and then type your responses.  **Every team member should post at least one issue.**
+
+To post an issue, go to the project repo on GitHub and click "Issues". For each comment or
+critique on the written report and data analysis, click "New Issue". Provide 
+an informative issue title and then a description outlining your concerns, 
+comments, and any suggested changes. Click "Submit new issue". Do this
+for every major comment or critique (do not submit a single issue with all 
+of your feedback). 
+
+# Peer review questions
+
+For each question answer "Yes", "No" or "Somewhat". If you answer "No" or "Somewhat" provide an explanation addressing any problems. 
+
+## Issue 1: Introduction + Data
+
+- Is the research question and goal of the report clearly stated? 
+
+- Does the introduction provide appropriate background context and motivation 
+for a general reader?
+
+- Is the source of the data stated with an appropriate citation? 
+
+- Is it clear when and how the data was collected?
+
+- Is data manipulation described clearly (missing data, creation of 
+new variables, etc)?
+
+- Are the cases and relevant variables described?
+
+## Issue 2: Introduction + Data
+
+- Do the visualizations correspond to the stated research question? 
+
+- Are visualizations effective and do they follow the visualization principles
+we have discussed in STA 199 (including elements like titles, labels, 
+appropriate for the type of data, etc)?
+
+- Is the choice of statistical method justified?
+
+## Issue 3: Results + Discussion
+
+- Are the chosen techniques for answering the research question appropriate for
+the research context and type of data?
+- Is the research question answered effectively?
+- Is the answer to the research question summarized and supported by statistical
+arguments?
+- Are limitations of the analysis clearly outlined?
+
+## Issue 4: Writing + Reproducibility
+
+- Is the writing clear (including elements like spelling, grammar, etc)? Are you
+able to follow what is being done?
+- Is the coding clear? Are you able to follow precisely what is being done?
+- Are you able to reproduce all aspects of the report, including output, 
+visualizations, etc? Have the reprodubility principles we have discussed in 
+STA 199 been followed?
+- Is the report well-formatted and readable (including layout but also only 
+reporting relevant output, with no extraneous code, visuals, etc)?
+- Have they appropriate outlined the next steps with gaps clearly defined?
+- Any suggestions for them moving forward?
+
+- What is one question you have for the group after reading their analysis?
+- What is one thing the group has done well?
+
+After you have finished your close reading of the report and consideration of the questions above it is time to provide feedback.
+
+
+# Submission
+
+The peer review will be graded on the extent to which it comprehensively and
+constructively addresses the components of the partner team's report: the 
+research context and motivation, exploratory data analysis, reproducibility,
+and any inference, modeling, or conclusions. 
+
+You will be graded based on the submitted issues on GitHub.
+
+<span style="color: red;">**All team members must meaningfully contribute to the peer review via submitting issues**</span>
