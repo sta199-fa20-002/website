@@ -30,7 +30,7 @@ font-size: 18px;
 |                        |   |
 |------------------------|---|
 | [Draft report](https://sta199-fa20-002.netlify.app/project/#peer-feedback)| **due Wed, Oct 28 at 11:59p** |
-|[HW 03](https://sta199-fa20-002.netlify.app/hw/hw-03.html) | **due Wed, Nov 4 at 11:59p**|
+|[HW 03](https://sta199-fa20-002.netlify.app/hw/hw-03.html) | **due Sun, Nov 8 at 11:59p**|
 | [Peer review](https://sta199-fa20-002.netlify.app/labs/peer-review.html)| **due Thu, Nov 5 at 11:59p** |
 
 ## Announcements

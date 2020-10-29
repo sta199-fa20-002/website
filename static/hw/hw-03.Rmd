@@ -1,6 +1,6 @@
 ---
 title: "HW 03: Multiple linear regression"
-subtitle: "due Wed, Nov 4 at 11:59p"
+subtitle: "due Sun, Nov 8 at 11:59p"
 output: 
   tufte::tufte_html:
     tufte_variant: "envisioned"
