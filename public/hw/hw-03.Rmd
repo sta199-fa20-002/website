@@ -53,7 +53,7 @@ model.
 
 3. Now let's interpret the terms in the model. 
     - Interpret the `age` and `sex` in the context of the problem. 
-    - Does the intercept have a meaningful interpretation? If so, interpret the intercept in the context of the problem. Otherwise, briefly explain why not.
+    - Does the intercept have a useful interpretation? If so, interpret the intercept in the context of the problem. Otherwise, briefly explain why not.
 
 4. Construct a 90% confidence interval for $\beta_{\text{age}}$ and interpret the interval in the context of the problem.
 
