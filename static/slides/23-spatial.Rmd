@@ -1,0 +1,669 @@
+---
+title: "Spatial data & visualization"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center", 
+                      cache = TRUE) 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(patchwork)
+library(sf)
+library(mapview)
+xaringanExtra::use_panelset()
+```
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](23-spatial.pdf)
+
+---
+
+class: center, middle
+
+# Introduction
+
+---
+
+## Spatial data is important
+
+- exploratory data analysis
+- detecting spatial patterns and trends
+- understanding spatial data relationships
+- analysis of spatial data should reflect spatial structure
+
+---
+
+## 1854 London Cholera Outbreak
+
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("img/23/cholera.png")
+```
+
+---
+
+## Napoleon's 1812 Russia Campaign
+
+```{r, echo=FALSE, out.width="65%"}
+knitr::include_graphics("img/23/napoleon.png")
+```
+
+
+
+
+--
+
+**Many others!**
+
+- [Migrations](http://maps.tnc.org/migrations-in-motion/#4/43.26/-112.02)
+- [World Population Density](https://luminocity3d.org/WorldPopDen/#3/12.00/10.00)
+- [Global Power](https://www.gocompare.com/gas-and-electricity/what-powers-the-world/)
+
+---
+
+## Spatial data is different
+
+Our typical tidy data frame:
+
+.midi[
+```{r echo=FALSE}
+nycflights13::flights
+```
+]
+
+---
+
+## Spatial data is different
+
+Our (new) simple feature object:
+
+.midi[
+```{r echo=FALSE}
+nc <- st_read("data/nc_votes.shp", quiet = TRUE)
+nc %>% 
+  select(name, regstrd, voted)
+```
+]
+
+--
+
+<br/>
+
+**What differences do you observe?**
+
+---
+
+## Raster versus vector spatial data
+
+.vocab[Vector] spatial data describes the world using shapes (points, lines, 
+polygons, etc).
+
+.vocab[Raster] spatial data describes the world using cells of constant size.  
+
+```{r, echo=FALSE, out.width="35%"}
+knitr::include_graphics("img/23/vector_raster_comparison.png")
+```
+
+The choice to use vector or raster data depends on the problem context. We will focus on **vector** data.
+
+.tiny[*Source:* https://commons.wikimedia.org/wiki/File:Raster_vector_tikz.png]
+
+---
+
+## Simple features
+
+```{r echo = FALSE}
+library(tidyverse)
+library(sf)
+```
+
+A .vocab[simple feature] is a standard way to describe how real-world 
+spatial objects (country, building, tree, road, etc) can be represented by a 
+computer. 
+
+--
+
+The package `sf` implements simple features and other spatial functionality 
+using **tidy** principles.
+
+---
+
+## Simple features 
+
+Simple features have a geometry type. Common choices are below.
+
+```{r echo=FALSE}
+pt <- st_point(c(30, 10))
+ls <- st_linestring(matrix(c(30, 10, 10, 30, 40, 40), byrow = TRUE, ncol =
+                            2))
+poly <- st_polygon(list(matrix(
+  c(30, 10, 40, 40, 20, 40, 10, 20, 30, 10),
+  ncol = 2,
+  byrow = TRUE
+)))
+poly_hole <- st_polygon(list(matrix(
+  c(35, 10, 45, 45, 15, 40, 10, 20, 35, 10),
+  ncol = 2,
+  byrow = TRUE
+),
+matrix(
+  c(20, 30, 35, 35, 30, 20, 20, 30),
+  ncol = 2,
+  byrow = TRUE
+)))
+
+pts <- st_multipoint(matrix(
+  c(10, 40, 40, 30, 20, 20, 30, 10),
+  ncol = 2,
+  byrow = TRUE
+))
+lss <- st_multilinestring(list(matrix(
+  c(10, 10, 20, 20, 10, 40), ncol = 2, byrow = TRUE
+),
+matrix(
+  c(40, 40, 30, 30, 40, 20, 30, 10),
+  ncol = 2,
+  byrow = TRUE
+)))
+polys <- st_multipolygon(list(list(matrix(
+  c(30, 20, 45, 40, 10, 40, 30, 20),
+  ncol = 2,
+  byrow = TRUE
+)),
+list(matrix(
+  c(15, 5, 40, 10, 10, 20, 5, 10, 15, 5),
+  ncol = 2,
+  byrow = TRUE
+))))
+polys_hole <- st_multipolygon(list(list(matrix(
+  c(40, 40, 20, 45, 45, 30, 40, 40),
+  ncol = 2,
+  byrow = TRUE
+)),
+list(
+  matrix(
+    c(20, 35, 10, 30, 10, 10, 30, 5, 45, 20, 20, 35),
+    ncol = 2,
+    byrow = TRUE
+  ),
+  matrix(
+    c(30, 20, 20, 15, 20, 25, 30, 20),
+    ncol = 2,
+    byrow = TRUE
+  )
+)))
+```
+
+```{r echo=FALSE, fig.height = 5, fig.align="center"}
+par(mar = c(1, 1, 2, 1), mfrow = c(4, 4))
+
+plot(pt,
+     axes = FALSE,
+     main = "Point",
+     pch = 16)
+box()
+plot(ls, axes = FALSE, main = "Linestring")
+box()
+plot(poly,
+     axes = FALSE,
+     col = "lightgrey",
+     main = "Polygon")
+box()
+plot(poly_hole,
+     axes = FALSE,
+     col = "lightgrey",
+     main = "Polygon w/ Hole(s)")
+box()
+
+plot(pts,
+     axes = FALSE,
+     main = "Multipoint",
+     pch = 16)
+box()
+plot(lss, axes = FALSE, main = "Multilinestring")
+box()
+plot(polys,
+     axes = FALSE,
+     col = "lightgrey",
+     main = "Multipolygon")
+box()
+plot(polys_hole,
+     axes = FALSE,
+     col = "lightgrey",
+     main = "Multipolygon w/ Hole(s)")
+box()
+```
+
+---
+
+## A simple feature object
+
+- Simple features are stored in a data frame, with the geographic information 
+in a column called `geometry`.
+- Simple features can contain both spatial and non-spatial data.
+- Functions for spatial data in `sf` begin `st_`.
+
+---
+
+## A simple feature object
+
+.midi[
+```{r echo=FALSE}
+nc <- st_read("data/nc_votes.shp", quiet = TRUE)
+nc
+```
+]
+
+---
+
+class: center, middle
+
+# Visualizing spatial data
+
+---
+
+
+## `nc_votes`
+
+This data was pulled from the [North Carolina Early Voting Statistics](https://electproject.github.io/Early-Vote-2020G/NC.html) website and
+is current as of 10-28-2020.
+
+The dataset contains the following variables:
+
+- `name`: county name
+- `regstrd`: number of registered voters
+- `voted`: number of individuals who have voted
+- `mailed`: number of mail ballots returned
+- `rejectd`: number of mail ballots rejected
+- `ml_rqst`: number of mail ballots requested
+
+---
+
+## Getting `sf` objects
+
+To read simple features from a file or database use the function `st_read()`.
+
+.small[
+```{r}
+library(sf)
+nc <- st_read("data/nc_votes.shp", quiet = TRUE) #<<
+nc
+```
+]
+
+---
+
+## Plotting with `ggplot()`
+
+```{r fig.height=2}
+ggplot(nc) +
+  geom_sf() +
+  labs(title = "North Carolina counties")
+```
+
+---
+
+## A look at some aesthetics
+
+```{r fig.height=2}
+ggplot(nc) +
+  geom_sf(color = "green") + #<<
+  labs(title = "North Carolina counties with theme and aesthetics") 
+```
+
+
+---
+
+## A look at some aesthetics
+
+```{r fig.height=2}
+ggplot(nc) +
+  geom_sf(color = "green", size = 1.5) + #<<
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+---
+
+## A look at some aesthetics
+
+```{r fig.height = 2}
+ggplot(nc) +
+  geom_sf(color = "green", size = 1.5, fill = "purple") + #<<
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+
+---
+
+## A look at some aesthetics
+
+```{r  fig.height=2}
+ggplot(nc) +
+  geom_sf(color = "green", size = 1.5, fill = "purple", alpha = 0.50) + #<<
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+---
+
+## A look back at some of our data
+
+.small[
+```{r echo=FALSE}
+nc
+```
+]
+
+
+Let's incorporate these variables into our plot using `ggplot`.
+
+---
+
+## Choropleth map
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "choropleth-1", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```
+]
+
+
+.panel[.panel-name[Code]
+
+```{r choropleth-1, fig.show = "hide"}
+ggplot(nc) +
+  geom_sf(aes(fill = voted)) + #<<
+  labs(title = "Higher population counties have more votes cast",
+       fill = "Total votes cast") 
+```
+]
+]
+
+--
+
+It is sometimes helpful to pick diverging colors,
+[colorbrewer2](http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
+can help.
+
+---
+
+## Choropleth map
+
+One way to set fill colors is with `scale_fill_gradient()`.
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "choropleth-2", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```
+]
+
+
+.panel[.panel-name[Code]
+```{r choropleth-2, fig.show = "hide"}
+ggplot(nc) +
+  geom_sf(aes(fill = voted)) +
+  scale_fill_gradient(low = "#fee8c8", high = "#7f0000") + #<<
+  labs(title = "Higher population counties have more votes cast",
+       fill = "Total votes cast") 
+```
+]
+]
+
+---
+
+
+## "...it's just a population map!"
+
+```{r, fig.align = "center", fig.height = 3, echo = F}
+ggplot(nc) +
+  geom_sf(aes(fill = voted)) +
+  scale_fill_gradient(low = "#fee8c8", high = "#7f0000") + #<<
+  labs(title = "Higher population counties have more votes cast",
+       fill = "Total votes cast") 
+```
+
+
+---
+
+## Let's make it more informative 
+
+.panelset[
+.panel[.panel-name[Plot]
+```{r ref.label = "choropleth-3", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```
+]
+
+.panel[.panel-name[Code]
+
+```{r choropleth-3, fig.show = "hide"}
+ggplot(nc) +
+  geom_sf(aes(fill = voted/regstrd)) +#<<
+  scale_fill_gradient(low = "#fff7f3", high = "#49006a") +
+  labs(fill = "Votes cast per registered voter", 
+       title = "Early vote turnout varies by county")
+```
+]
+]
+
+
+---
+
+class: center, middle
+
+# Map layers
+
+---
+
+## Game Lands data
+
+The North Carolina Department of Environment and Natural Resources, 
+Wildlife Resources Commission and the NC Center for Geographic Information and 
+Analysis has a [shapefile data set](https://hub.arcgis.com/datasets/faaad7fcca8d4f67abdbb1bd4697f055_0) available on all public Game Lands in NC.
+
+```{r}
+nc_game <- st_read("data/gamelands.shp", quiet = TRUE)
+```
+
+---
+
+## A closer look
+
+.midi[
+```{r}
+nc_game
+```
+]
+
+---
+
+## Visualize `nc_game`
+
+```{r fig.height = 2, cache=TRUE}
+ggplot(nc_game) +
+  geom_sf() +
+  labs(title = "North Carolina gamelands")
+```
+
+---
+
+## Visualize `nc_game`
+
+```{r fig.height = 2, cache=TRUE}
+ggplot(nc_game) +
+  geom_sf(fill = "#ff6700") +
+  labs(title = "North Carolina gamelands")
+```
+
+
+---
+
+## Add layers
+
+.midi[
+```{r fig.height = 2, cache=TRUE}
+ggplot(nc) +
+  geom_sf() +
+  geom_sf(data = nc_game, fill = "#ff6700", alpha = .5) +
+  labs(title = "North Carolina gamelands and counties")
+```
+]
+
+---
+
+## Add layers and aesthetics
+
+.midi[
+```{r fig.height = 2, cache=TRUE}
+ggplot(nc) +
+  geom_sf() +
+  geom_sf(data = nc_game, aes(alpha = SUM_ACRES), fill = "#ff6700") +
+  labs(title = "North Carolina gamelands and counties", fill = "Acres")
+```
+]
+
+---
+
+class: center, middle
+
+# Spatial challenges
+
+---
+
+## Challenge #1
+
+Different types of data exist (raster and vector).
+
+---
+
+## Challenge #2
+
+The coordinate reference system (CRS) matters.
+
+    ```{r eval=FALSE}
+    Simple feature collection with 100 features and 1 field
+    geometry type:  MULTIPOLYGON
+    dimension:      XY
+    bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+    epsg (SRID):    4326 #<<
+    proj4string:    +proj=longlat +datum=WGS84 +no_defs #<<
+    # A tibble: 100 x 2
+      NAME                                                geometry
+      <chr>                                     <MULTIPOLYGON [°]>
+    1 Ashe        (((-81.47276 36.23436, -81.54084 36.27251,  -...
+    ```
+
+
+---
+
+##  Challenge #3
+
+Manipulating spatial data objects is similar, but not identical to manipulating
+data frames. 
+
+Note the core data-wrangling functions from `dplyr` do work.
+
+
+---
+
+
+---
+
+class: center, middle
+
+# `dplyr` + `sf`
+
+---
+
+## `select`
+
+```{r}
+nc %>% 
+  select(name, regstrd, voted)
+```
+
+---
+
+## `filter`
+
+```{r}
+nc %>% 
+  filter(regstrd > 100000)
+```
+
+---
+
+## `summarize`
+
+```{r}
+nc %>% 
+  summarize(mean_registered  = mean(regstrd),
+            mean_voted = median(voted))
+```
+
+
+---
+
+## Geometries are "sticky"
+
+The geometry is kept until it is deliberated dropped using `st_drop_geometry`.
+
+--
+
+```{r}
+nc %>% 
+  select(name, regstrd) %>% 
+  filter(regstrd > 100000) %>% 
+  st_drop_geometry() #<<
+```
+
+---
+
+## References
+
+- [North Carolina Early Voting Statistics](https://electproject.github.io/Early-Vote-2020G/NC.html)
+- [Simple Features for R vignette](https://r-spatial.github.io/sf/)
+- [mapview vignette](https://r-spatial.github.io/mapview/index.html)
+- [Coordinate Reference Systems in R](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf)
+- [Geocomputation with R](https://geocompr.robinlovelace.net/spatial-class.html)

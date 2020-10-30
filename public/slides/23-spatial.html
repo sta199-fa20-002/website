@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Spatial data &amp; visualization</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/font-awesome/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Spatial data &amp; visualization
+### Prof. Maria Tackett
+
+---
+
+
+
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](23-spatial.pdf)
+
+---
+
+class: center, middle
+
+# Introduction
+
+---
+
+## Spatial data is important
+
+- exploratory data analysis
+- detecting spatial patterns and trends
+- understanding spatial data relationships
+- analysis of spatial data should reflect spatial structure
+
+---
+
+## 1854 London Cholera Outbreak
+
+&lt;img src="img/23/cholera.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Napoleon's 1812 Russia Campaign
+
+&lt;img src="img/23/napoleon.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+--
+
+**Many others!**
+
+- [Migrations](http://maps.tnc.org/migrations-in-motion/#4/43.26/-112.02)
+- [World Population Density](https://luminocity3d.org/WorldPopDen/#3/12.00/10.00)
+- [Global Power](https://www.gocompare.com/gas-and-electricity/what-powers-the-world/)
+
+---
+
+## Spatial data is different
+
+Our typical tidy data frame:
+
+.midi[
+
+```
+## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+##  1  2013     1     1      517            515         2      830            819
+##  2  2013     1     1      533            529         4      850            830
+##  3  2013     1     1      542            540         2      923            850
+##  4  2013     1     1      544            545        -1     1004           1022
+##  5  2013     1     1      554            600        -6      812            837
+##  6  2013     1     1      554            558        -4      740            728
+##  7  2013     1     1      555            600        -5      913            854
+##  8  2013     1     1      557            600        -3      709            723
+##  9  2013     1     1      557            600        -3      838            846
+## 10  2013     1     1      558            600        -2      753            745
+## # … with 336,766 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
+## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
+```
+]
+
+---
+
+## Spatial data is different
+
+Our (new) simple feature object:
+
+.midi[
+
+```
+## Simple feature collection with 100 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+## First 10 features:
+##           name regstrd voted                       geometry
+## 1         ASHE   19414  8428 MULTIPOLYGON (((-81.47276 3...
+## 2    ALLEGHANY    7556  4101 MULTIPOLYGON (((-81.23989 3...
+## 3        SURRY   46666 23660 MULTIPOLYGON (((-80.45634 3...
+## 4    CURRITUCK   21803  7536 MULTIPOLYGON (((-76.00897 3...
+## 5  NORTHAMPTON   13891  6196 MULTIPOLYGON (((-77.21767 3...
+## 6     HERTFORD   14945  6955 MULTIPOLYGON (((-76.74506 3...
+## 7       CAMDEN    8128  3472 MULTIPOLYGON (((-76.00897 3...
+## 8        GATES    8294  3105 MULTIPOLYGON (((-76.56251 3...
+## 9       WARREN   13441  6878 MULTIPOLYGON (((-78.30876 3...
+## 10      STOKES   31649 14444 MULTIPOLYGON (((-80.02567 3...
+```
+]
+
+--
+
+&lt;br/&gt;
+
+**What differences do you observe?**
+
+---
+
+## Raster versus vector spatial data
+
+.vocab[Vector] spatial data describes the world using shapes (points, lines, 
+polygons, etc).
+
+.vocab[Raster] spatial data describes the world using cells of constant size.  
+
+&lt;img src="img/23/vector_raster_comparison.png" width="35%" style="display: block; margin: auto;" /&gt;
+
+The choice to use vector or raster data depends on the problem context. We will focus on **vector** data.
+
+.tiny[*Source:* https://commons.wikimedia.org/wiki/File:Raster_vector_tikz.png]
+
+---
+
+## Simple features
+
+
+
+A .vocab[simple feature] is a standard way to describe how real-world 
+spatial objects (country, building, tree, road, etc) can be represented by a 
+computer. 
+
+--
+
+The package `sf` implements simple features and other spatial functionality 
+using **tidy** principles.
+
+---
+
+## Simple features 
+
+Simple features have a geometry type. Common choices are below.
+
+
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## A simple feature object
+
+- Simple features are stored in a data frame, with the geographic information 
+in a column called `geometry`.
+- Simple features can contain both spatial and non-spatial data.
+- Functions for spatial data in `sf` begin `st_`.
+
+---
+
+## A simple feature object
+
+.midi[
+
+```
+## Simple feature collection with 100 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+## First 10 features:
+##           name regstrd voted mailed rejectd ml_rqst
+## 1         ASHE   19414  8428     NA      NA    2666
+## 2    ALLEGHANY    7556  4101     NA      NA     971
+## 3        SURRY   46666 23660   4366       7    7088
+## 4    CURRITUCK   21803  7536     NA      NA    2472
+## 5  NORTHAMPTON   13891  6196    828       2    1441
+## 6     HERTFORD   14945  6955     NA      NA    1524
+## 7       CAMDEN    8128  3472    416       1     739
+## 8        GATES    8294  3105     NA      NA     847
+## 9       WARREN   13441  6878     NA      NA    1913
+## 10      STOKES   31649 14444   2162       2    3648
+##                          geometry
+## 1  MULTIPOLYGON (((-81.47276 3...
+## 2  MULTIPOLYGON (((-81.23989 3...
+## 3  MULTIPOLYGON (((-80.45634 3...
+## 4  MULTIPOLYGON (((-76.00897 3...
+## 5  MULTIPOLYGON (((-77.21767 3...
+## 6  MULTIPOLYGON (((-76.74506 3...
+## 7  MULTIPOLYGON (((-76.00897 3...
+## 8  MULTIPOLYGON (((-76.56251 3...
+## 9  MULTIPOLYGON (((-78.30876 3...
+## 10 MULTIPOLYGON (((-80.02567 3...
+```
+]
+
+---
+
+class: center, middle
+
+# Visualizing spatial data
+
+---
+
+
+## `nc_votes`
+
+This data was pulled from the [North Carolina Early Voting Statistics](https://electproject.github.io/Early-Vote-2020G/NC.html) website and
+is current as of 10-28-2020.
+
+The dataset contains the following variables:
+
+- `name`: county name
+- `regstrd`: number of registered voters
+- `voted`: number of individuals who have voted
+- `mailed`: number of mail ballots returned
+- `rejectd`: number of mail ballots rejected
+- `ml_rqst`: number of mail ballots requested
+
+---
+
+## Getting `sf` objects
+
+To read simple features from a file or database use the function `st_read()`.
+
+.small[
+
+```r
+library(sf)
+*nc &lt;- st_read("data/nc_votes.shp", quiet = TRUE)
+nc
+```
+
+```
+## Simple feature collection with 100 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+## First 10 features:
+##           name regstrd voted mailed rejectd ml_rqst
+## 1         ASHE   19414  8428     NA      NA    2666
+## 2    ALLEGHANY    7556  4101     NA      NA     971
+## 3        SURRY   46666 23660   4366       7    7088
+## 4    CURRITUCK   21803  7536     NA      NA    2472
+## 5  NORTHAMPTON   13891  6196    828       2    1441
+## 6     HERTFORD   14945  6955     NA      NA    1524
+## 7       CAMDEN    8128  3472    416       1     739
+## 8        GATES    8294  3105     NA      NA     847
+## 9       WARREN   13441  6878     NA      NA    1913
+## 10      STOKES   31649 14444   2162       2    3648
+##                          geometry
+## 1  MULTIPOLYGON (((-81.47276 3...
+## 2  MULTIPOLYGON (((-81.23989 3...
+## 3  MULTIPOLYGON (((-80.45634 3...
+## 4  MULTIPOLYGON (((-76.00897 3...
+## 5  MULTIPOLYGON (((-77.21767 3...
+## 6  MULTIPOLYGON (((-76.74506 3...
+## 7  MULTIPOLYGON (((-76.00897 3...
+## 8  MULTIPOLYGON (((-76.56251 3...
+## 9  MULTIPOLYGON (((-78.30876 3...
+## 10 MULTIPOLYGON (((-80.02567 3...
+```
+]
+
+---
+
+## Plotting with `ggplot()`
+
+
+```r
+ggplot(nc) +
+  geom_sf() +
+  labs(title = "North Carolina counties")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## A look at some aesthetics
+
+
+```r
+ggplot(nc) +
+* geom_sf(color = "green") +
+  labs(title = "North Carolina counties with theme and aesthetics") 
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## A look at some aesthetics
+
+
+```r
+ggplot(nc) +
+* geom_sf(color = "green", size = 1.5) +
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## A look at some aesthetics
+
+
+```r
+ggplot(nc) +
+* geom_sf(color = "green", size = 1.5, fill = "purple") +
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## A look at some aesthetics
+
+
+```r
+ggplot(nc) +
+* geom_sf(color = "green", size = 1.5, fill = "purple", alpha = 0.50) +
+  labs(title = "North Carolina counties with theme and aesthetics")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## A look back at some of our data
+
+.small[
+
+```
+## Simple feature collection with 100 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+## First 10 features:
+##           name regstrd voted mailed rejectd ml_rqst
+## 1         ASHE   19414  8428     NA      NA    2666
+## 2    ALLEGHANY    7556  4101     NA      NA     971
+## 3        SURRY   46666 23660   4366       7    7088
+## 4    CURRITUCK   21803  7536     NA      NA    2472
+## 5  NORTHAMPTON   13891  6196    828       2    1441
+## 6     HERTFORD   14945  6955     NA      NA    1524
+## 7       CAMDEN    8128  3472    416       1     739
+## 8        GATES    8294  3105     NA      NA     847
+## 9       WARREN   13441  6878     NA      NA    1913
+## 10      STOKES   31649 14444   2162       2    3648
+##                          geometry
+## 1  MULTIPOLYGON (((-81.47276 3...
+## 2  MULTIPOLYGON (((-81.23989 3...
+## 3  MULTIPOLYGON (((-80.45634 3...
+## 4  MULTIPOLYGON (((-76.00897 3...
+## 5  MULTIPOLYGON (((-77.21767 3...
+## 6  MULTIPOLYGON (((-76.74506 3...
+## 7  MULTIPOLYGON (((-76.00897 3...
+## 8  MULTIPOLYGON (((-76.56251 3...
+## 9  MULTIPOLYGON (((-78.30876 3...
+## 10 MULTIPOLYGON (((-80.02567 3...
+```
+]
+
+
+Let's incorporate these variables into our plot using `ggplot`.
+
+---
+
+## Choropleth map
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+.panel[.panel-name[Code]
+
+
+```r
+ggplot(nc) +
+* geom_sf(aes(fill = voted)) +
+  labs(title = "Higher population counties have more votes cast",
+       fill = "Total votes cast") 
+```
+]
+]
+
+--
+
+It is sometimes helpful to pick diverging colors,
+[colorbrewer2](http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3)
+can help.
+
+---
+
+## Choropleth map
+
+One way to set fill colors is with `scale_fill_gradient()`.
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-18-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+.panel[.panel-name[Code]
+
+```r
+ggplot(nc) +
+  geom_sf(aes(fill = voted)) +
+* scale_fill_gradient(low = "#fee8c8", high = "#7f0000") +
+  labs(title = "Higher population counties have more votes cast",
+       fill = "Total votes cast") 
+```
+]
+]
+
+---
+
+
+## "...it's just a population map!"
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Let's make it more informative 
+
+.panelset[
+.panel[.panel-name[Plot]
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.panel[.panel-name[Code]
+
+
+```r
+ggplot(nc) +
+* geom_sf(aes(fill = voted/regstrd)) +
+  scale_fill_gradient(low = "#fff7f3", high = "#49006a") +
+  labs(fill = "Votes cast per registered voter", 
+       title = "Early vote turnout varies by county")
+```
+]
+]
+
+
+---
+
+class: center, middle
+
+# Map layers
+
+---
+
+## Game Lands data
+
+The North Carolina Department of Environment and Natural Resources, 
+Wildlife Resources Commission and the NC Center for Geographic Information and 
+Analysis has a [shapefile data set](https://hub.arcgis.com/datasets/faaad7fcca8d4f67abdbb1bd4697f055_0) available on all public Game Lands in NC.
+
+
+```r
+nc_game &lt;- st_read("data/gamelands.shp", quiet = TRUE)
+```
+
+---
+
+## A closer look
+
+.midi[
+
+```r
+nc_game
+```
+
+```
+## Simple feature collection with 94 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.29534 ymin: 33.98542 xmax: -75.54947 ymax: 36.58814
+## geographic CRS: NAD27
+## First 10 features:
+##    OBJECTID                   GML_HAB  SUM_ACRES GameLandID Shape__Are
+## 1         1                     Alcoa 11395.9471          1   69931121
+## 2         2           Alligator River 24439.0891          2  151120825
+## 3         3                Angola Bay 34063.4468          3  204400526
+## 4         4              Bachelor Bay  2786.2577          4   17219484
+## 5         5             Bertie County  3883.7683          5   24044312
+## 6         6 Bladen Lakes State Forest 33671.8426          6  202085696
+## 7         7             Brinkleyville  1843.8439         92   11511489
+## 8         8                  Buckhorn   491.3477         81    3046371
+## 9         9                 Buckridge 17965.7187         10  110580903
+## 10       10              Buffalo Cove  6630.9453         11   41161465
+##    Shape__Len                       geometry
+## 1   549030.42 MULTIPOLYGON (((-80.07347 3...
+## 2   186792.83 MULTIPOLYGON (((-76.11832 3...
+## 3   105421.80 MULTIPOLYGON (((-77.86947 3...
+## 4    32891.84 MULTIPOLYGON (((-76.73896 3...
+## 5    83468.94 MULTIPOLYGON (((-76.9209 35...
+## 6   255198.44 MULTIPOLYGON (((-78.46171 3...
+## 7    46838.19 MULTIPOLYGON (((-77.90555 3...
+## 8    13445.00 MULTIPOLYGON (((-79.22056 3...
+## 9   142923.83 MULTIPOLYGON (((-76.10961 3...
+## 10   98754.34 MULTIPOLYGON (((-81.53307 3...
+```
+]
+
+---
+
+## Visualize `nc_game`
+
+
+```r
+ggplot(nc_game) +
+  geom_sf() +
+  labs(title = "North Carolina gamelands")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Visualize `nc_game`
+
+
+```r
+ggplot(nc_game) +
+  geom_sf(fill = "#ff6700") +
+  labs(title = "North Carolina gamelands")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Add layers
+
+.midi[
+
+```r
+ggplot(nc) +
+  geom_sf() +
+  geom_sf(data = nc_game, fill = "#ff6700", alpha = .5) +
+  labs(title = "North Carolina gamelands and counties")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Add layers and aesthetics
+
+.midi[
+
+```r
+ggplot(nc) +
+  geom_sf() +
+  geom_sf(data = nc_game, aes(alpha = SUM_ACRES), fill = "#ff6700") +
+  labs(title = "North Carolina gamelands and counties", fill = "Acres")
+```
+
+&lt;img src="23-spatial_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: center, middle
+
+# Spatial challenges
+
+---
+
+## Challenge #1
+
+Different types of data exist (raster and vector).
+
+---
+
+## Challenge #2
+
+The coordinate reference system (CRS) matters.
+
+    
+    ```r
+    Simple feature collection with 100 features and 1 field
+    geometry type:  MULTIPOLYGON
+    dimension:      XY
+    bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+    *epsg (SRID):    4326
+    *proj4string:    +proj=longlat +datum=WGS84 +no_defs
+    # A tibble: 100 x 2
+      NAME                                                geometry
+      &lt;chr&gt;                                     &lt;MULTIPOLYGON [°]&gt;
+    1 Ashe        (((-81.47276 36.23436, -81.54084 36.27251,  -...
+    ```
+
+
+---
+
+##  Challenge #3
+
+Manipulating spatial data objects is similar, but not identical to manipulating
+data frames. 
+
+Note the core data-wrangling functions from `dplyr` do work.
+
+
+---
+
+
+---
+
+class: center, middle
+
+# `dplyr` + `sf`
+
+---
+
+## `select`
+
+
+```r
+nc %&gt;% 
+  select(name, regstrd, voted)
+```
+
+```
+## Simple feature collection with 100 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+## First 10 features:
+##           name regstrd voted                       geometry
+## 1         ASHE   19414  8428 MULTIPOLYGON (((-81.47276 3...
+## 2    ALLEGHANY    7556  4101 MULTIPOLYGON (((-81.23989 3...
+## 3        SURRY   46666 23660 MULTIPOLYGON (((-80.45634 3...
+## 4    CURRITUCK   21803  7536 MULTIPOLYGON (((-76.00897 3...
+## 5  NORTHAMPTON   13891  6196 MULTIPOLYGON (((-77.21767 3...
+## 6     HERTFORD   14945  6955 MULTIPOLYGON (((-76.74506 3...
+## 7       CAMDEN    8128  3472 MULTIPOLYGON (((-76.00897 3...
+## 8        GATES    8294  3105 MULTIPOLYGON (((-76.56251 3...
+## 9       WARREN   13441  6878 MULTIPOLYGON (((-78.30876 3...
+## 10      STOKES   31649 14444 MULTIPOLYGON (((-80.02567 3...
+```
+
+---
+
+## `filter`
+
+
+```r
+nc %&gt;% 
+  filter(regstrd &gt; 100000)
+```
+
+```
+## Simple feature collection with 20 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -82.88111 ymin: 33.88199 xmax: -77.10377 ymax: 36.25709
+## geographic CRS: NAD27
+## First 10 features:
+##        name regstrd  voted mailed rejectd ml_rqst
+## 1   FORSYTH  270818 134770  35664      75   67472
+## 2  GUILFORD  381797 190530  42825     785   76615
+## 3  ALAMANCE  110127  52434  12788      19   22091
+## 4    ORANGE  111765  64016  22859      55   36560
+## 5    DURHAM  243045 138264  41767     348   70046
+## 6      WAKE  791821 421180 138483     781  244538
+## 7   IREDELL  130013  67128  14775       2   22390
+## 8  DAVIDSON  112872  54040  10012      87   16240
+## 9      PITT  122925  57304   9268      37   17595
+## 10  CATAWBA  108098  55018   8947      70   15004
+##                          geometry
+## 1  MULTIPOLYGON (((-80.0381 36...
+## 2  MULTIPOLYGON (((-79.53782 3...
+## 3  MULTIPOLYGON (((-79.24619 3...
+## 4  MULTIPOLYGON (((-79.01814 3...
+## 5  MULTIPOLYGON (((-79.01814 3...
+## 6  MULTIPOLYGON (((-78.92107 3...
+## 7  MULTIPOLYGON (((-80.72652 3...
+## 8  MULTIPOLYGON (((-80.06441 3...
+## 9  MULTIPOLYGON (((-77.47388 3...
+## 10 MULTIPOLYGON (((-80.96143 3...
+```
+
+---
+
+## `summarize`
+
+
+```r
+nc %&gt;% 
+  summarize(mean_registered  = mean(regstrd),
+            mean_voted = median(voted))
+```
+
+```
+## Simple feature collection with 1 feature and 2 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## geographic CRS: NAD27
+##   mean_registered mean_voted                       geometry
+## 1        73183.36      16217 MULTIPOLYGON (((-77.96073 3...
+```
+
+
+---
+
+## Geometries are "sticky"
+
+The geometry is kept until it is deliberated dropped using `st_drop_geometry`.
+
+--
+
+
+```r
+nc %&gt;% 
+  select(name, regstrd) %&gt;% 
+  filter(regstrd &gt; 100000) %&gt;% 
+* st_drop_geometry()
+```
+
+```
+##           name regstrd
+## 1      FORSYTH  270818
+## 2     GUILFORD  381797
+## 3     ALAMANCE  110127
+## 4       ORANGE  111765
+## 5       DURHAM  243045
+## 6         WAKE  791821
+## 7      IREDELL  130013
+## 8     DAVIDSON  112872
+## 9         PITT  122925
+## 10     CATAWBA  108098
+## 11    BUNCOMBE  206178
+## 12    JOHNSTON  142255
+## 13 MECKLENBURG  789547
+## 14    CABARRUS  149584
+## 15      GASTON  150779
+## 16  CUMBERLAND  225029
+## 17       UNION  167068
+## 18      ONSLOW  116300
+## 19 NEW HANOVER  177056
+## 20   BRUNSWICK  114115
+```
+
+---
+
+## References
+
+- [North Carolina Early Voting Statistics](https://electproject.github.io/Early-Vote-2020G/NC.html)
+- [Simple Features for R vignette](https://r-spatial.github.io/sf/)
+- [mapview vignette](https://r-spatial.github.io/mapview/index.html)
+- [Coordinate Reference Systems in R](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf)
+- [Geocomputation with R](https://geocompr.robinlovelace.net/spatial-class.html)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

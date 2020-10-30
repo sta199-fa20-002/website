@@ -151,7 +151,8 @@ lessons:
 
   - week: "Week 12"
     date: "Mon, Nov 02"
-    title: "Spatial data visualization"
+    title: "Spatial data + visualization"
+    slides: "23-spatial.html"
   - date: "Wed, Nov 04"
     title: "No lecture: Stats experience"
     hw: "stat-experience.html"
