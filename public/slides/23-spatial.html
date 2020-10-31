@@ -417,8 +417,6 @@ ggplot(nc) +
 ]
 ]
 
---
-
 It is sometimes helpful to pick diverging colors,
 [colorbrewer2](http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3)
 can help.
@@ -490,7 +488,7 @@ class: center, middle
 
 The North Carolina Department of Environment and Natural Resources, 
 Wildlife Resources Commission and the NC Center for Geographic Information and 
-Analysis has a [shapefile data set](https://hub.arcgis.com/datasets/faaad7fcca8d4f67abdbb1bd4697f055_0) available on all public Game Lands in NC.
+Analysis has a [shapefile data set](https://digital.ncdcr.gov/digital/collection/p15012coll6/id/425) available on all public Game Lands in NC.
 
 
 ```r
@@ -501,7 +499,7 @@ nc_game &lt;- st_read("data/gamelands.shp", quiet = TRUE)
 
 ## A closer look
 
-.midi[
+.small[
 
 ```r
 nc_game
@@ -592,7 +590,7 @@ ggplot(nc) +
 ggplot(nc) +
   geom_sf() +
   geom_sf(data = nc_game, aes(alpha = SUM_ACRES), fill = "#ff6700") +
-  labs(title = "North Carolina gamelands and counties", fill = "Acres")
+  labs(title = "North Carolina gamelands and counties")
 ```
 
 &lt;img src="23-spatial_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
@@ -639,9 +637,6 @@ Manipulating spatial data objects is similar, but not identical to manipulating
 data frames. 
 
 Note the core data-wrangling functions from `dplyr` do work.
-
-
----
 
 
 ---
