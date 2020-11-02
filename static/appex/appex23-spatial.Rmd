@@ -1,0 +1,91 @@
+---
+title: "AE 23: North Carolina Voting"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    theme: readable
+---
+
+### Assignments 
+
+- [HW 03](https://sta199-fa20-002.netlify.app/hw/hw-03.html) due Nov 8 at 11:59p
+- [Stats Exp #2](https://sta199-fa20-002.netlify.app/hw/stat-experience.html) due Nov 8 at 11:59p 
+  - No lecture Wednesday 
+
+  
+### Tea with a TA 
+
+Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching team. The only rule is these can't turn into office hours! 
+
+Tea with a TA counts as a statistics experience.
+
+[**Caroline Levenson**](https://www.linkedin.com/in/carolinelevenson/), **TODAY 1p - 2p**
+
+  - [Click here](https://forms.gle/FucAXE6bLeJVyqRY9) to sign up
+  
+### Nov 3 is Election Day! 
+
+If you're eligible, VOTE! Find out more information: https://vote.duke.edu/
+
+### Other events 
+
+[Electronic Undergraduate Statistics Research Conference (eUSR)](https://www.causeweb.org/usproc/eusrc/2020) Nov 6, 11:30a - 4:40p
+
+- [Click here](https://www.causeweb.org/usproc/eusrc/2020/register) to register 
+
+## Exercises 
+
+```{r packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(sf)
+```
+
+Today's data set comes from the [US Elections Project](https://electproject.github.io/Early-Vote-2020G/NC.html). We will focus specifically on early voting data for North Carolina as of November 1, 2020.
+
+The variables are 
+
+- `name`: county name
+- `regstrd`: number of registered voters
+- `voted`: number of individuals who have voted
+- `mailed`: number of mail ballots returned and accepted
+- `rejectd`: number of mail ballots rejected
+- `ml_rqst`: number of mail ballots requested
+
+
+We first read in the file `nc_votes_nov1.shp` with the `st_read` function, saving as
+`nc_votes`.
+
+```{r}
+nc_votes <- st_read("data/nc_votes_nov1.shp", quiet = TRUE)
+```
+
+### Exercise 1
+
+Examine the data frame `nc_votes_nov1`. How does it differ from the data frames we have seen before? What type of geometry is  associated with each simple feature?
+
+### Exercise 2
+
+Let's use `nc_votes` to create a map of North Carolina.
+
+```{r}
+ggplot(nc_votes) +
+  geom_sf()
+```
+
+Starting with the code above, update the visualization so that the counties have a fill color 
+corresponding to the percentage of requested mail-in ballots that have been returned and accepted. Include informative labels, colors and any other aesthetics.
+
+### Exercise 3
+
+4. Create a map of North Carolina where the counties have a fill color corresponding to the percentage of votes that were cast by mail. Include informative labels, colors and any other aesthetics.
+
+### Exercise 4
+
+Create an effective spatial data visualization using these data exploring a topic of your choosing. 
+
+
+<hr>
+
+Read more about factors to consider when creating election maps: https://www.nytimes.com/interactive/2020/10/30/opinion/election-results-maps.html
+
+
