@@ -14,7 +14,7 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Spatial data + visualization](https://sta199-fa20-002.netlify.app/slides/23-spatial.html) | [Spatial data + visualization](https://warpwire.duke.edu/w/lb0EAA/)| AE 23: Spatial data |
+| Monday    | [Spatial data + visualization](https://sta199-fa20-002.netlify.app/slides/23-spatial.html) | [Spatial data + visualization](https://warpwire.duke.edu/w/lb0EAA/)| [AE 23: Spatial data](https://sta199-fa20-002.netlify.app/appex/appex23-spatial.html) |
 | Wednesday | No lecture: Statistics experience | | |
 
 <!-- ## Readings -->

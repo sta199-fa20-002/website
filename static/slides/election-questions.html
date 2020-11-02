@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Questions about the Statistics + U.S. Elections</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/font-awesome/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/font-awesome/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Questions about the Statistics + U.S. Elections
+### Prof. Maria Tackett
+
+---
+
+
+
+
+
+
+class: middle
+
+
+### What are the different ways that pollsters determine likely voters vs. registered voters? Have those methods changed at all since 2016? 
+
+### What does that mean for a race where a lot of energy on both sides is going in to turning out the vote rather than just persuading "moderates." (I'll leave this to the campaign strategists 🙃)
+
+
+---
+
+## Adults vs. registered vs. likely voters
+
+.vocab[Adults:] People in the U.S. ages 18 and older
+
+.vocab[Registered voters:] People registered to vote.
+
+- Usually determined by a straightforward survey question about whether respondent is registered to vote in their election distribution
+
+.vocab[Likely voters:] More representative of the likely voter electorate
+
+---
+
+- Ask a series of questions about interest in upcoming election, past election participation, and intention to vote in upcoming election. 
+
+- Some adjustments made, e.g. adjustments made for young people ineligible to vote in previous elections
+
+- Use models to predict the likelihood a respondent will vote
+  - Some pollsters now asking if respondents have already voted
+
+**More info:**
+- [Marist Poll General Informaiton](http://maristpoll.marist.edu/methods/#sthash.5MX15H28.dpbs)
+- See [likely voter survey questions](https://scri.siena.edu/about-us/likely-voter-methodology/) from Sienna College Research Institute
+
+---
+
+class: middle
+
+### It has been said that the so-called "hidden votes" gave president Trump an edge in the last election, contradicting the polls. How has that been addressed after four years, if at all possible?
+
+---
+
+- There is little evidence of the "shy" Trump voter
+  - Study by the [American Association for Public Opinion Research](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) found that "interviewer administered polls did not under-estimate Trump’s support more than self-administered IVR (interactive voice response) and online surveys". 
+  
+--
+
+- In 2016, many state-level polls underestimated the number of white voters without a four-year college degree.
+  - Most polls have started weighting by education to reduce over-weighting of people with a college degree in the sample
+
+--
+
+- In general, some groups of people are hard to reach, so pollsters have to apply statistical methods to re-weight their sample, i.e. make it more representative of the actual electorate (not just representative of who responds to a poll)
+
+---
+
+### Read more about sampling weights 
+
+- [An Evaluation of 2016 Election Polls in the US](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) by the American Association for Public Opinion Research
+
+- [Trump Supporters Aren’t ‘Shy,’ But Polls Could Still Be Missing Some Of Them](https://fivethirtyeight.com/features/trump-supporters-arent-shy-but-polls-could-still-be-missing-some-of-them/) by FiveThirtyEight
+
+- [A Resource for State Preelection Polling](https://www.pewresearch.org/methods/2020/08/18/a-resource-for-state-preelection-polling/) by Pew Research
+
+
+---
+
+class: middle
+
+### Same as the candidates' campaigns, are election statistical analyses also focused mainly on "swing" states?
+
+---
+
+Though the discussion may focus primarily on swing states, statisticians are interested in all of the states!
+
+There is useful information to be learned about variability and error in predictions even from states where the outcome is unsurprising.
+--
+
+.pull-left[
+### Scenario 1
+
+|             | Predicted | Actual  | Error |
+|-------------|-----------|---------|-------|
+| Candidate A | **51%**       | 49.5%     | -1.5%   |
+| **Candidate B** | 49%       | **50.5%** | +1.5%   |
+
+**General consensus**: 😕
+
+**Statistician**: 😄
+]
+
+--
+
+.pull-right[
+### Scenario 2 
+
+|             | Predicted | Actual  | Error |
+|-------------|-----------|---------|-------|
+| **Candidate A** | **65%**       | **55%**     | -10%   |
+| Candidate B | 35%       | 45% | +10% |
+
+**General consensus**: 🙂
+
+**Statistician**: 😱
+]
+
+---
+
+### How long does it take for statistical models to be affected by current events,like a scandal?
+
+Statistical models are primarily rely on polling data, so they take current events into account only as quickly as the polls do. 
+
+
+
+
+---
+
+class: middle
+
+### Also how accurate are models really, when Hillary was favored by a decent margin four years ago and still lost?
+
+### What are some types of prediction model used, and what is more efficient? For example in the last election, there are many newspapers (if not say a lot) would predict Hillary to win, and some were against the odds to predict Trump win (and he actually did).
+
+---
+
+## Are models accurate?
+
+Models produce probabilities, not final answers! (Think about your logistic regression models.)
+  - In 2016: FiveThirtyEight gave Trump a 30% chance to win the day before the election; the Upshot forecast gave him an 15% chance. 
+  - Rare events do happen! **March Madness** 🏀
+  - Is 15% or 30% really that rare?
+
+---
+
+## Are models accurate?
+
+But, the models weren't perfect...
+
+--
+
+- In 2016, state polling errors were largely in the same direction 
+  - Clinton over-performed in a lot of blue states and under-performed in key Midwest states (**that's a problem! errors should be random**)
+
+--
+
+- Issues with polling get baked into the model (bad data in, bad data out). 
+
+--
+
+- Some models didn't accurately account for correlation between states, especially in the Midwest.
+
+--
+
+- Uncertainty was not effectively communicated to the general public
+
+---
+
+## Read more reflections on 2016 models 
+
+- [An Evaluation of 2016 Election Polls in the US](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) by the American Association for Public Opinion Research
+
+- [The Real Story of 2016](https://fivethirtyeight.com/features/the-real-story-of-2016/) by FiveThirtyEight
+
+- [Presidental Forecast Post- Mortem](https://www.nytimes.com/2016/11/16/upshot/presidential-forecast-postmortem.html#commentsContainer) by the Upshot
+
+---
+
+## Final thoughts 
+
+- Focus on state polls, not national polls! 
+
+--
+
+- Don't read too much into early results
+  - Can be potentially misleading based on who is expected to vote early, use mail-in voting, or vote on election day
+
+--
+
+- There is a lot of uncertainty this year! 
+
+--
+
+- Don't let predictions affect your behavior! **VOTE!**
+
+---
+
+## FiveThirtyEight election forecasts
+
+&lt;img src="img/fivethirtyeight.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+.midi[Screenshot on Nov 2 of [FiveThirtyEight election forecasts](https://projects.fivethirtyeight.com/2020-election-forecast/?cid=rrpromo)].
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

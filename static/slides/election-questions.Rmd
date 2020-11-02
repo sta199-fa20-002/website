@@ -1,0 +1,250 @@
+---
+title: "Questions about the Statistics + U.S. Elections"
+author: "Prof. Maria Tackett"
+output:
+  xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "sta199-slides.css"
+    logo: img/sta199-sticker-icon.png
+    lib_dir: libs/font-awesome
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%" 
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+# R options
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  warm = 1
+  )
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 3, fig.width = 5, dpi = 300, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center", 
+                      cache = TRUE) 
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+# For magick
+dev.off <- function(){
+  invisible(grDevices::dev.off())
+}
+# For ggplot2
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(patchwork)
+library(sf)
+library(mapview)
+xaringanExtra::use_panelset()
+```
+
+class: middle
+
+
+### What are the different ways that pollsters determine likely voters vs. registered voters? Have those methods changed at all since 2016? 
+
+### What does that mean for a race where a lot of energy on both sides is going in to turning out the vote rather than just persuading "moderates." (I'll leave this to the campaign strategists `r emo::ji("upside_down_face")`)
+
+
+---
+
+## Adults vs. registered vs. likely voters
+
+.vocab[Adults:] People in the U.S. ages 18 and older
+
+.vocab[Registered voters:] People registered to vote.
+
+- Usually determined by a straightforward survey question about whether respondent is registered to vote in their election distribution
+
+.vocab[Likely voters:] More representative of the likely voter electorate
+
+---
+
+- Ask a series of questions about interest in upcoming election, past election participation, and intention to vote in upcoming election. 
+
+- Some adjustments made, e.g. adjustments made for young people ineligible to vote in previous elections
+
+- Use models to predict the likelihood a respondent will vote
+  - Some pollsters now asking if respondents have already voted
+
+**More info:**
+- [Marist Poll General Informaiton](http://maristpoll.marist.edu/methods/#sthash.5MX15H28.dpbs)
+- See [likely voter survey questions](https://scri.siena.edu/about-us/likely-voter-methodology/) from Sienna College Research Institute
+
+---
+
+class: middle
+
+### It has been said that the so-called "hidden votes" gave president Trump an edge in the last election, contradicting the polls. How has that been addressed after four years, if at all possible?
+
+---
+
+- There is little evidence of the "shy" Trump voter
+  - Study by the [American Association for Public Opinion Research](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) found that "interviewer administered polls did not under-estimate Trump’s support more than self-administered IVR (interactive voice response) and online surveys". 
+  
+--
+
+- In 2016, many state-level polls underestimated the number of white voters without a four-year college degree.
+  - Most polls have started weighting by education to reduce over-weighting of people with a college degree in the sample
+
+--
+
+- In general, some groups of people are hard to reach, so pollsters have to apply statistical methods to re-weight their sample, i.e. make it more representative of the actual electorate (not just representative of who responds to a poll)
+
+---
+
+### Read more about sampling weights 
+
+- [An Evaluation of 2016 Election Polls in the US](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) by the American Association for Public Opinion Research
+
+- [Trump Supporters Aren’t ‘Shy,’ But Polls Could Still Be Missing Some Of Them](https://fivethirtyeight.com/features/trump-supporters-arent-shy-but-polls-could-still-be-missing-some-of-them/) by FiveThirtyEight
+
+- [A Resource for State Preelection Polling](https://www.pewresearch.org/methods/2020/08/18/a-resource-for-state-preelection-polling/) by Pew Research
+
+
+---
+
+class: middle
+
+### Same as the candidates' campaigns, are election statistical analyses also focused mainly on "swing" states?
+
+---
+
+Though the discussion may focus primarily on swing states, statisticians are interested in all of the states!
+
+There is useful information to be learned about variability and error in predictions even from states where the outcome is unsurprising.
+--
+
+.pull-left[
+### Scenario 1
+
+|             | Predicted | Actual  | Error |
+|-------------|-----------|---------|-------|
+| Candidate A | **51%**       | 49.5%     | -1.5%   |
+| **Candidate B** | 49%       | **50.5%** | +1.5%   |
+
+**General consensus**: `r emo::ji("confused")`
+
+**Statistician**: `r emo::ji("smile")`
+]
+
+--
+
+.pull-right[
+### Scenario 2 
+
+|             | Predicted | Actual  | Error |
+|-------------|-----------|---------|-------|
+| **Candidate A** | **65%**       | **55%**     | -10%   |
+| Candidate B | 35%       | 45% | +10% |
+
+**General consensus**: `r emo::ji("slightly_smiling_face")`
+
+**Statistician**: `r emo::ji("scream")`
+]
+
+---
+
+### How long does it take for statistical models to be affected by current events,like a scandal?
+
+Statistical models are primarily rely on polling data, so they take current events into account only as quickly as the polls do. 
+
+
+
+
+---
+
+class: middle
+
+### Also how accurate are models really, when Hillary was favored by a decent margin four years ago and still lost?
+
+### What are some types of prediction model used, and what is more efficient? For example in the last election, there are many newspapers (if not say a lot) would predict Hillary to win, and some were against the odds to predict Trump win (and he actually did).
+
+---
+
+## Are models accurate?
+
+Models produce probabilities, not final answers! (Think about your logistic regression models.)
+  - In 2016: FiveThirtyEight gave Trump a 30% chance to win the day before the election; the Upshot forecast gave him an 15% chance. 
+  - Rare events do happen! **March Madness** `r emo::ji("basketball")`
+  - Is 15% or 30% really that rare?
+
+---
+
+## Are models accurate?
+
+But, the models weren't perfect...
+
+--
+
+- In 2016, state polling errors were largely in the same direction 
+  - Clinton over-performed in a lot of blue states and under-performed in key Midwest states (**that's a problem! errors should be random**)
+
+--
+
+- Issues with polling get baked into the model (bad data in, bad data out). 
+
+--
+
+- Some models didn't accurately account for correlation between states, especially in the Midwest.
+
+--
+
+- Uncertainty was not effectively communicated to the general public
+
+---
+
+## Read more reflections on 2016 models 
+
+- [An Evaluation of 2016 Election Polls in the US](https://www.aapor.org/Education-Resources/Reports/An-Evaluation-of-2016-Election-Polls-in-the-U-S.aspx) by the American Association for Public Opinion Research
+
+- [The Real Story of 2016](https://fivethirtyeight.com/features/the-real-story-of-2016/) by FiveThirtyEight
+
+- [Presidental Forecast Post- Mortem](https://www.nytimes.com/2016/11/16/upshot/presidential-forecast-postmortem.html#commentsContainer) by the Upshot
+
+---
+
+## Final thoughts 
+
+- Focus on state polls, not national polls! 
+
+--
+
+- Don't read too much into early results
+  - Can be potentially misleading based on who is expected to vote early, use mail-in voting, or vote on election day
+
+--
+
+- There is a lot of uncertainty this year! 
+
+--
+
+- Don't let predictions affect your behavior! **VOTE!**
+
+---
+
+## FiveThirtyEight election forecasts
+
+```{r fig.align  = "center", out.width = "55%", echo = F}
+knitr::include_graphics("img/fivethirtyeight.png")
+```
+
+.midi[Screenshot on Nov 2 of [FiveThirtyEight election forecasts](https://projects.fivethirtyeight.com/2020-election-forecast/?cid=rrpromo)].
+
+
