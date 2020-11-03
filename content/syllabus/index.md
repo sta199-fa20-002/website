@@ -115,7 +115,7 @@ There will be three individual homework assignments in this course, one correspo
 
 Individual homework extensions will only be given for extenuating circumstances. Please contact Professor Tackett if you have an extenuating circumstance that prohibits you from completing the homework by the stated due date.
 
-*To accommodate unexpected events, the lowest lab grade will be dropped at the end of the semester.*
+*To accommodate unexpected events, the lowest homework grade will be dropped at the end of the semester.*
 
 ### Final Project 
 
