@@ -95,10 +95,6 @@ icu_test <- read_csv("data/icu_test.csv")
 _____ <- predict(_____, icu_test, type = "response")
 ```
 
-11. Classify the patients in `icu_test` as "survived" or "did not survive", using 0.50 as
-the decision boundary. Create a table of predicted status and actual status and
-report the percentage of patients correctly classified.
-
 # Submission
 
 Knit to PDF to create a PDF document. Knit and commit all remaining changes, 
