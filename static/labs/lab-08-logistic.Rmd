@@ -1,0 +1,110 @@
+---
+title: "Lab 08: Logistic regression"
+subtitle: "due Wed, Nov 11 at 11:59p"
+output: 
+  tufte::tufte_html:
+    highlight: pygments
+    css: "sta199-labs.css"
+link-citations: yes
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(tufte)
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE,     # for regression output
+  digits = 2
+  )
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Intensive Care Unit
+
+The Intensive Care Unit (ICU) is the specialized unit of a hospital that focuses
+on extremely severe and life-threatening medical issues (septic shock, organ 
+failure, major trauma, etc). Patients admitted to the ICU require constant 
+care and monitoring by highly-trained medical professionals and the use of 
+advanced equipment.
+
+Researchers are interested in the survival of patients admitted to the ICU. 
+Patients with a low predicted probability of survival can be triaged to more 
+medical resources and care, and patients with a high predicted probability of 
+survival can be triaged to another unit of the hospital. 
+
+The file `icu.csv` contains information for a random sample of 150 patients at 
+an Intensive Care Unit. Researchers are interested in predicting patient 
+survival. This data is from the [Data and Story Library (DASL)](http://lib.stat.cmu.edu/DASL/Datafiles/ICU.html).
+
+- `id`: patient ID code
+- `survive`: survival status (0 = patient died, 1 = patient survived to 
+discharge)
+- `age`: age (years)
+- `sex`: sex (0 = male, 1 = female)
+- `infection`: infection status (0 = no infection, 1 = infection suspected)
+- `sysbp`: systolic blood pressure (mm of Hg)
+- `pulse`: heart rate (beats per minute)
+- `emergency`: admission status (0 = elective admission, 1 = emergency 
+admission)
+
+# Exercises
+
+1. Create three effective, well-labeled visualizations to explore the 
+relationship between the variables below. Provide a brief one or two sentence
+comment on each.
+
+    - `age` and `survive`
+    - `emergency` and `survive`
+    - `sysbp` and `survive`
+  
+2. Fit a logistic regression model with `survive` as the response variable with the predictors `age`, 
+`sysbp` and `emergency`. Report the model output in tidy format.
+
+3. Write out the equation of the fitted logistic regression model. You can use "pred-log-odds" for the response variable.
+
+4. Provide an interpretation of $\hat{\beta}_{\text{emergency}}$ in the context
+of the problem. Your interpretation should involve **odds** or **odds ratios**,
+not **log odds**.
+
+5. Provide an interpretation of $\hat{\beta}_{\text{age}}$ in the context of the
+problem. Your interpretation should be in terms of **odds** or **odds ratios**,
+not log odds.
+
+6. An 87 year old patient is admitted in an emergency situation with a systolic
+blood pressure of 88 mm of Hg. What is this patient's predicted log-odds of
+survival?
+
+7. What is this patient's predicted probability of survival?
+
+8. The patient described in Exercises #6 and #7 survived. Is this result 
+surprising? Answer with justification.
+
+9. A patient is admitted in an emergency situation with a systolic blood 
+pressure of 80 mm of Hg. How young must the patient be in order to have
+a predicted probability of survival at least 0.50 based on the logistic
+regression model?
+
+10. The file `icu_test.csv` contains a test dataset of 50 patients not included
+in the original data. Fill in the code below to find the predicted probability of survival for each 
+patient using your logistic regression model from Exercise #2.
+
+
+```{r eval =  F}
+icu_test <- read_csv("data/icu_test.csv")
+_____ <- predict(_____, icu_test, type = "response")
+```
+
+11. Classify the patients in `icu_test` as "survived" or "did not survive", using 0.50 as
+the decision boundary. Create a table of predicted status and actual status and
+report the percentage of patients correctly classified.
+
+# Submission
+
+Knit to PDF to create a PDF document. Knit and commit all remaining changes, 
+and push your work to GitHub. Make sure all files are updated on your GitHub 
+repo.
+
+Please only upload your PDF document to Gradescope. Associate the "Overall"
+graded section with the first page of your PDF, and mark where each answer is 
+to the exercises. If any answer spans multiple pages, then mark all pages.
