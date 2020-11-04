@@ -558,10 +558,10 @@ text-decoration: italic;
 <li><p>What is this patient’s predicted probability of survival?</p></li>
 <li><p>The patient described in Exercises #6 and #7 survived. Is this result surprising? Answer with justification.</p></li>
 <li><p>A patient is admitted in an emergency situation with a systolic blood pressure of 80 mm of Hg. How young must the patient be in order to have a predicted probability of survival at least 0.50 based on the logistic regression model?</p></li>
-<li><p>The file <code>icu_test.csv</code> contains a test dataset of 50 patients not included in the original data. Fill in the code below to find the predicted probability of survival for each patient using your logistic regression model from Exercise #2.</p></li>
+<li><p>The file <code>icu_test.csv</code> contains a test dataset of 50 patients not included in the original data. Fill in the code below to find the model predictions for the 50 patients, and then calculate their predicted probabilities.</p></li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>icu_test &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/icu_test.csv&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>_____ &lt;-<span class="st"> </span><span class="kw">predict</span>(_____, icu_test, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a>_____ &lt;-<span class="st"> </span><span class="kw">augment</span>(_____, <span class="dt">newdata =</span> icu_test)</span></code></pre></div>
 </div>
 <div id="submission" class="section level1">
 <h1>Submission</h1>

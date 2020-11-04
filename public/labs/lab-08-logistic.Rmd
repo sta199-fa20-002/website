@@ -86,13 +86,12 @@ a predicted probability of survival at least 0.50 based on the logistic
 regression model?
 
 10. The file `icu_test.csv` contains a test dataset of 50 patients not included
-in the original data. Fill in the code below to find the predicted probability of survival for each 
-patient using your logistic regression model from Exercise #2.
+in the original data. Fill in the code below to find the model predictions for the 50 patients, and then calculate their predicted probabilities. 
 
 
 ```{r eval =  F}
 icu_test <- read_csv("data/icu_test.csv")
-_____ <- predict(_____, icu_test, type = "response")
+_____ <- augment(_____, newdata = icu_test)
 ```
 
 # Submission
