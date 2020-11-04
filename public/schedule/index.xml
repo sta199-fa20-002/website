@@ -1115,7 +1115,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-12/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Spatial data + visualization Spatial data + visualization AE 23: Spatial data   Wednesday No lecture: Statistics experience      Assignments          Peer review due Thu, Nov 5 at 11:59p   HW 03 due Sun, Nov 8 at 11:59p   Statistics experience #2 due Sun, Nov 8 at 11:59p    Announcements Tea with a TA!</description>
+      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Spatial data + visualization Spatial data + visualization AE 23: Spatial data   Wednesday No lecture: Statistics experience      Assignments          Peer review due Thu, Nov 5 at 11:59p   HW 03 due Sun, Nov 8 at 11:59p   Statistics experience #2 due Sun, Nov 8 at 11:59p   Lab 08 due Wed, Nov 11 at 11:59p    Announcements Tea with a TA!</description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -1171,6 +1171,10 @@ font-size: 18px;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/hw/stat-experience.html&#34;&gt;Statistics experience #2&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strong&gt;due Sun, Nov 8 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/labs/lab-08-logistic.html&#34;&gt;Lab 08&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Nov 11 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
