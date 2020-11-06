@@ -1184,12 +1184,87 @@ font-size: 18px;
   </item>
   
 <item>
-  <title>Week 13</title>
+  <title>Week 13: Web scraping &#43; functions</title>
   <link>/schedule/week-13/</link>
   <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
   
 <guid>/schedule/week-13/</guid>
-  <description>&lt;p&gt;Check back for details!&lt;/p&gt;
+  <description>&lt;style&gt;
+table {
+font-size: 18px;
+}
+
+&lt;/style&gt;
+&lt;h2 id=&#34;lectures&#34;&gt;Lectures&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Slides&lt;/th&gt;
+&lt;th&gt;Videos&lt;/th&gt;
+&lt;th&gt;Application Exercise (AE)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Monday&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/23-spatial.html&#34;&gt;Web scraping&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Web scraping&lt;/td&gt;
+&lt;td&gt;AE 25&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wednesday&lt;/td&gt;
+&lt;td&gt;Functions&lt;/td&gt;
+&lt;td&gt;Functions&lt;/td&gt;
+&lt;td&gt;AE 26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- ## Readings --&gt;
+&lt;!-- |            |   | --&gt;
+&lt;!-- |------------|---| --&gt;
+&lt;!-- |[Introduction to Modern Statistics: 4.1 Regression with multiple predictors](https://openintro-ims.netlify.app/multi-logistic-models.html#regression-multiple-predictors)| **Required**   | --&gt;
+&lt;h2 id=&#34;assignments&#34;&gt;Assignments&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/labs/peer-review.html&#34;&gt;Peer review&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Thu, Nov 5 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/hw/hw-03.html&#34;&gt;HW 03&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Sun, Nov 8 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/hw/stat-experience.html&#34;&gt;Statistics experience #2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Sun, Nov 8 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/labs/lab-08-logistic.html&#34;&gt;Lab 08&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Wed, Nov 11 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
+&lt;h3 id=&#34;tea-with-a-ta&#34;&gt;Tea with a TA!&lt;/h3&gt;
+&lt;p&gt;Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching time. The only rule is these can&amp;rsquo;t turn into office hours!&lt;/p&gt;
+&lt;p&gt;Tea with a TA counts as a statistics experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Upcoming Tea with a TA events&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/carolinelevenson/&#34;&gt;&lt;strong&gt;Caroline Levenson&lt;/strong&gt;&lt;/a&gt;, Mon, Nov 2, 1p - 2p&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://forms.gle/FucAXE6bLeJVyqRY9&#34;&gt;Click here&lt;/a&gt; to sign up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Caroline Levenson is a junior studying Statistics and Computer Science. She did not know she wanted to study statistics until taking this class. Since then, she has completed an independent study with Professor Tackett where she created an R Shiny app for data visualization. The project was with the Duke Law School where she continues to work as a research assistant. In addition, she has worked in industry primarily as a software engineer.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
   </item>
   
