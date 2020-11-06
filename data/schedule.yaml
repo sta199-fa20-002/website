@@ -168,7 +168,7 @@ lessons:
   - week: "Week 13"
     date: "Mon, Nov 09"
     title: "Web scraping"
-    slides: "24-web-scraping.html"
+    slides: "25-web-scraping.html"
   - date: "Wed, Nov 11"
     title: "Functions and automation"
   - date: "Thu, Nov 12"

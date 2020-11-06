@@ -39,7 +39,7 @@ xaringanExtra::use_panelset()
 
 class: middle center
 
-## [Click for PDF of slides](24-web-scraping.pdf)
+## [Click for PDF of slides](25-web-scraping.pdf)
 
 ---
 

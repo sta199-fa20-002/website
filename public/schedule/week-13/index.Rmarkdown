@@ -14,7 +14,7 @@ font-size: 18px;
 
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
-| Monday    | [Web scraping](https://sta199-fa20-002.netlify.app/slides/23-spatial.html) | Web scraping | AE 25 |
+| Monday    | [Web scraping](https://sta199-fa20-002.netlify.app/slides/25-web-scraping.html) | Web scraping | AE 25 |
 | Wednesday | Functions | Functions | AE 26 |
 
 <!-- ## Readings -->
