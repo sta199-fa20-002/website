@@ -1,6 +1,6 @@
 ---
 title: "Week 13: Web scraping + functions"
-weight: 12
+weight: 13
 ---
 
 <style>
@@ -27,9 +27,7 @@ font-size: 18px;
 
 |                        |   |
 |------------------------|---|
-| [Peer review](https://sta199-fa20-002.netlify.app/labs/peer-review.html)| **due Thu, Nov 5 at 11:59p** |
-|[HW 03](https://sta199-fa20-002.netlify.app/hw/hw-03.html) | **due Sun, Nov 8 at 11:59p**|
-|[Statistics experience #2](https://sta199-fa20-002.netlify.app/hw/stat-experience.html) | **due Sun, Nov 8 at 11:59p**|
+|[Lab 08](https://sta199-fa20-002.netlify.app/labs/lab-08-logistic.html) | **due Wed, Nov 11 at 11:59p**|
 |[Lab 08](https://sta199-fa20-002.netlify.app/labs/lab-08-logistic.html) | **due Wed, Nov 11 at 11:59p**|
 
 
