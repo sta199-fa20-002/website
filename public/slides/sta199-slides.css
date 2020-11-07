@@ -304,3 +304,10 @@ div.my-footer a {
   color: #F26BAA;
   margin-bottom: 2px;
 }
+
+.imageoverlay {
+  position: absolute;
+  top: 10%;
+  left: 65%;
+  border: 1px solid #ddd;
+}

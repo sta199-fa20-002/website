@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Functions + automation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Maria Tackett" />
+    <link href="libs/font-awesome/panelset-0.1.0/panelset.css" rel="stylesheet" />
+    <script src="libs/font-awesome/panelset-0.1.0/panelset.js"></script>
+    <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Functions + automation
+### Prof. Maria Tackett
+
+---
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="http://datasciencebox.org" target="_blank"&gt;datasciencebox.org&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+
+
+---
+
+class: middle center
+
+## [Click for PDF of slides](26-functions.pdf)
+
+---
+
+class: middle
+
+## Edinburgh College of Art Collection
+
+---
+
+
+
+
+```
+## # A tibble: 2,909 x 3
+##    title                  artist         link                                   
+##    &lt;chr&gt;                  &lt;chr&gt;          &lt;chr&gt;                                  
+##  1 Untitled (1963)        [Unknown] Bla… https://collections.ed.ac.uk/art/recor…
+##  2 Rooftops               A McIntosh     https://collections.ed.ac.uk/art/recor…
+##  3 Seated Male Nude (19 … A Robson       https://collections.ed.ac.uk/art/recor…
+##  4 Portrait of a Man (19… A Robson       https://collections.ed.ac.uk/art/recor…
+##  5 Portrait of a Woman (… A Scott        https://collections.ed.ac.uk/art/recor…
+##  6 Poirtrait of a Man     A Sinclair     https://collections.ed.ac.uk/art/recor…
+##  7 Portrait of a Man      A Sinclair     https://collections.ed.ac.uk/art/recor…
+##  8 Portrait of a Man      A Sinclair     https://collections.ed.ac.uk/art/recor…
+##  9 Standing Male Nude     A Wrever       https://collections.ed.ac.uk/art/recor…
+## 10 Untitled (Unknown)     A. Geraldine … https://collections.ed.ac.uk/art/recor…
+## # … with 2,899 more rows
+```
+
+---
+
+&lt;img src="img/26/untitled-1963.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="img/26/untitled-1963-headers-values.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="img/26/untitled-1963-to-df.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.small[
+
+```r
+# load packages ----------------------------------------------------------------
+library(tidyverse)
+library(rvest)
+
+# first url 
+
+## set url 
+first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+
+## read page at url
+page &lt;- read_html(first_info_url)
+
+## scrape headers 
+headers &lt;- page %&gt;%
+  html_nodes("th") %&gt;%
+  html_text()
+
+## scrape values 
+values &lt;- page %&gt;%
+  html_nodes("td") %&gt;%
+  html_text() %&gt;%
+  str_squish()
+
+## put together in a tibble and add link to help keep track ----
+tibble(headers, values) %&gt;%
+  pivot_wider(names_from = headers, values_from = values) %&gt;%
+  add_column(link = first_info_url)
+```
+]
+
+---
+
+class: middle
+
+# Functions
+
+---
+## When should you write a function?
+
+--
+
+Whenever you’ve copied and pasted a block of code more than twice.
+
+&lt;br&gt;&lt;br&gt;
+
+--
+
+.question[
+How many times will be need to copy and paste the code we developed to scrape 
+additional data on each art piece in the Edinburgh College of Art Collection?
+]
+
+---
+
+## Why functions?
+
+- Automate common tasks in a more powerful and general way than copy-and-pasting:
+    - You can give a function an evocative name that makes your code easier to understand.
+    - As requirements change, you only need to update code in one place, instead of many.
+    - You eliminate the chance of making incidental mistakes when you copy and paste (i.e. updating a variable name in one place, but not in another).
+
+--
+
+- Down the line: Improve your reach as a data scientist by writing functions 
+(and packages!) that others use
+
+---
+
+.question[
+How many inputs does the following code have?
+]
+
+.small[
+
+```r
+## set url ----
+first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+
+## read page at url ----
+page &lt;- read_html(first_info_url)
+
+## scrape headers ----
+headers &lt;- page %&gt;%
+  html_nodes("th") %&gt;%
+  html_text()
+
+## scrape values ----
+values &lt;- page %&gt;%
+  html_nodes("td") %&gt;%
+  html_text() %&gt;%
+  str_squish()
+
+## put together in a tibble and add link to help keep track ----
+tibble(headers, values) %&gt;%
+  pivot_wider(names_from = headers, values_from = values) %&gt;%
+  add_column(link = first_info_url)
+```
+]
+
+---
+
+.question[
+How many inputs does the following code have?
+]
+
+.small[
+
+```r
+## set url ----
+*first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+
+## read page at url ----
+*page &lt;- read_html(first_info_url)
+
+## scrape headers ----
+headers &lt;- page %&gt;%
+  html_nodes("th") %&gt;%
+  html_text()
+
+## scrape values ----
+values &lt;- page %&gt;%
+  html_nodes("td") %&gt;%
+  html_text() %&gt;%
+  str_squish()
+
+## put together in a tibble and add link to help keep track ----
+tibble(headers, values) %&gt;%
+  pivot_wider(names_from = headers, values_from = values) %&gt;%
+* add_column(link = first_info_url)
+```
+]
+
+---
+
+## Turn your code into a function
+
+- Pick a short but informative .vocab[name], preferably a verb.
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+```r
+scrape_art_info &lt;- 
+```
+
+---
+
+## Turn your code into a function
+
+- Pick a short but evocative .vocab[name], preferably a verb.
+- List inputs, or .vocab[arguments], to the function inside `function`. If we had more arguments the call would look like `function(x, y, z)`.
+
+&lt;br&gt;
+
+
+```r
+scrape_art_info &lt;- function(x){
+  
+  
+  
+  
+  
+}  
+```
+
+---
+
+## Turn your code into a function
+
+- Pick a short but informative .vocab[name], preferably a verb.
+- List inputs, or .vocab[arguments], to the function inside `function`. If we had more the call would look like `function(x, y, z)`.
+- Place the .vocab[code] you have developed in body of the function, a `{}` block that immediately follows `function(...)`.
+
+
+```r
+scrape_art_info &lt;- function(x){
+
+  # code we developed earlier to scrape info 
+  # on single art piece goes here
+  
+}
+```
+
+---
+
+.midi[
+
+```r
+scrape_art_info &lt;- function(x){
+  
+  # read page at url ----
+  page &lt;- read_html(x)
+  
+  # scrape headers ----
+  headers &lt;- page %&gt;%
+    html_nodes("th") %&gt;%
+    html_text()
+  
+  # scrape values ----
+  values &lt;- page %&gt;%
+    html_nodes("td") %&gt;%
+    html_text() %&gt;%
+    str_squish()
+
+  # put together in a tibble and add link to help keep track ----
+  tibble(headers, values) %&gt;%
+    pivot_wider(names_from = headers, values_from = values) %&gt;%
+    add_column(link = x)
+  
+}
+```
+]
+
+---
+
+## Function in action
+
+.midi[
+
+```r
+scrape_art_info(uoe_art$link[1]) %&gt;%
+  glimpse()
+```
+
+```
+## Rows: 1
+## Columns: 12
+## $ Artist             &lt;chr&gt; "[Unknown] Black"
+## $ Title              &lt;chr&gt; "Untitled"
+## $ Date               &lt;chr&gt; "1963"
+## $ Period             &lt;chr&gt; "20th century; 1960s"
+## $ Description        &lt;chr&gt; "Portrait of a woman"
+## $ Material           &lt;chr&gt; "graphite (mineral)/inorganic material/materials (…
+## $ Dimensions         &lt;chr&gt; "45.1cm H x 33cm W"
+## $ Collection         &lt;chr&gt; "Art Collection; Edinburgh College of Art"
+## $ Classification     &lt;chr&gt; "drawings (visual works); pencil drawings"
+## $ Signature          &lt;chr&gt; "Signature on drawing reads \"Black\", this is the…
+## $ `Accession Number` &lt;chr&gt; "EU2907"
+## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/record/22024?hig…
+```
+]
+
+&lt;img class="imageoverlay" src="img/26/untitled-1963.png" style="width:378px;height:300px;border:1"&gt;
+
+
+---
+
+## Function in action
+
+
+```r
+scrape_art_info(uoe_art$link[2]) %&gt;%
+  glimpse()
+```
+
+```
+## Rows: 1
+## Columns: 7
+## $ Artist             &lt;chr&gt; "A McIntosh"
+## $ Title              &lt;chr&gt; "Rooftops"
+## $ Material           &lt;chr&gt; "paint (coating)"
+## $ Collection         &lt;chr&gt; "Art Collection; Edinburgh College of Art"
+## $ Classification     &lt;chr&gt; "paintings (visual works)"
+## $ `Accession Number` &lt;chr&gt; "EU2339"
+## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/record/21465?hig…
+```
+
+&lt;img class="imageoverlay" src="img/26/rooftops.png" style="width:388px;height:250px;border:1"&gt;
+
+---
+
+## What goes in / what comes out?
+
+- They take input(s) defined in the function definition
+
+.midi[
+
+```r
+function([inputs separated by commas]){
+  # what to do with those inputs
+}
+```
+]
+
+- By default they return the last value computed in the function
+
+.midi[
+
+```r
+scrape_page &lt;- function(x){
+  # do bunch of stuff with the input...
+  
+  # return a tibble
+  tibble(...)
+}
+```
+]
+
+- You can define more outputs to be returned in a list as well as nice print methods (but we won't go there for now...)
+
+---
+
+.question[
+What is going on here?
+]
+
+
+```r
+add_2 &lt;- function(x){
+  x + 2
+  1000
+}
+```
+
+
+```r
+add_2(3)
+```
+
+```
+## [1] 1000
+```
+
+```r
+add_2(10)
+```
+
+```
+## [1] 1000
+```
+
+---
+
+## Naming functions
+
+&gt; "There are only two hard things in Computer Science: cache invalidation and naming things." - Phil Karlton
+
+
+--
+- Names should be short but clearly evoke what the function does
+
+--
+- Names should be verbs, not nouns
+
+--
+- Multi-word names should be separated by underscores (`snake_case` as opposed to `camelCase`)
+
+--
+- A family of functions should be named similarly (`scrape_page`, `scrape_art_info` OR `str_squish`, `str_trim`, `str_remove` etc.)
+
+--
+- Avoid overwriting existing (especially widely used) functions
+
+.small[
+
+```r
+# JUST DON'T
+mean &lt;- function(x){ 
+  x * 3 
+  }
+```
+]
+
+---
+
+class: middle
+
+# Automation
+
+---
+
+## Define the task
+
+- Goal: Scrape info on all 2909 art pieces in the collection
+- So far:
+.small[
+
+```r
+scrape_art_info(uoe_art$link[1])
+scrape_art_info(uoe_art$link[2])
+scrape_art_info(uoe_art$link[3])
+```
+]
+- What else do we need to do?
+  - Run the `scrape_art_info()` function on all 2909 links
+  - Combine the resulting data frames from each run into one giant data frame with 2909 rows
+  
+---
+
+## Inputs
+
+.question[
+You now have a function that will scrape the relevant info on art pieces given the URL of its individual info page. Where can we get a list of URLs of each of the art pieces in the collection?
+]
+
+--
+
+From the data frame you constructed in lab yesterday: `uoe_art$link`
+
+---
+
+## Iteration
+
+.question[
+How can we tell R to apply the `scrape_art_info()` function to each link in `uoe_art$link`?
+]
+
+--
+
+- Option 1: Write a .vocab[for loop], i.e. explicitly tell R to visit a link, apply the function, store the result, then visit the next link, apply the function, append the result to the stored result from the previous link, and so on and so forth.
+--
+
+- Option 2: .vocab[Map] the function to each element in the list of links, and let R take care of the storing and appending of results.
+
+--
+
+**We'll go with Option 2 for now.**
+
+---
+
+### `for` loop
+
+### 1) Set up a tibble to store the results
+
+
+```r
+n &lt;- 10
+first_n_art &lt;- tibble( artist = rep(NA_character_, n), 
+                       title = rep(NA_character_, n), 
+                       date = rep(NA_character_, n)
+# can make columns to include all 12 variables...
+  )
+first_n_art
+```
+
+```
+## # A tibble: 10 x 3
+##    artist title date 
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
+##  1 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  2 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  3 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  4 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  5 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  6 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  7 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  8 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+##  9 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
+## 10 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;
+```
+
+---
+
+## How does mapping work?
+
+Suppose we have exam 1 and exam 2 scores of 4 students stored in a list...
+
+
+```r
+exam_scores &lt;- list(
+  exam1 &lt;- c(80, 90, 70, 50),
+  exam2 &lt;- c(85, 83, 45, 60)
+)
+```
+
+--
+
+...and we find the mean score in each exam
+
+
+```r
+map(exam_scores, mean)
+```
+
+```
+## [[1]]
+## [1] 72.5
+## 
+## [[2]]
+## [1] 68.25
+```
+
+---
+
+...and suppose we want the results as a numeric (double) vector
+
+
+```r
+map_dbl(exam_scores, mean)
+```
+
+```
+## [1] 72.50 68.25
+```
+
+...or as a character string
+
+
+```r
+map_chr(exam_scores, mean)
+```
+
+```
+## [1] "72.500000" "68.250000"
+```
+
+---
+
+## `map_something`
+
+Functions for looping over an object and returning a value (of a specific type):
+
+* `map()` - returns a list
+* `map_lgl()` - returns a logical vector
+* `map_int()` - returns an integer vector
+* `map_dbl()` - returns a double vector
+* `map_chr()` - returns a character vector
+* `map_df()` / `map_dfr()` - returns a data frame by row binding
+* `map_dfc()` - returns a data frame by column binding
+* ...
+
+---
+
+## Go to each page, scrape art info 
+
+- Map the `scrape_art_info()` function
+- to each element of `uoe_art$link`
+- and return a data frame by row binding
+
+
+```r
+uoe_art_info &lt;- map_df(uoe_art$link, scrape_art_info)
+```
+
+---
+
+
+
+
+```
+## # A tibble: 500 x 14
+##    Artist Title Date  Period Description Material Dimensions Collection
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     
+##  1 [Unkn… Unti… 1963  20th … Portrait o… graphit… 45.1cm H … Art Colle…
+##  2 A McI… Roof… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        paint (… &lt;NA&gt;       Art Colle…
+##  3 A Rob… Seat… 19 N… 20th … Gained his… graphit… &lt;NA&gt;       Art Colle…
+##  4 A Rob… Port… 19 N… 20th … Gained his… graphit… &lt;NA&gt;       Art Colle…
+##  5 A Sco… Port… 1953  20th … Drawing fr… graphit… &lt;NA&gt;       Art Colle…
+##  6 A Sin… Poir… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;       Art Colle…
+##  7 A Sin… Port… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
+##  8 A Sin… Port… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
+##  9 A Wre… Stan… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
+## 10 A. Ge… Unti… Unkn… &lt;NA&gt;   Female nud… &lt;NA&gt;     75.2cm H … Art Colle…
+## # … with 490 more rows, and 6 more variables: Classification &lt;chr&gt;,
+## #   Signature &lt;chr&gt;, `Accession Number` &lt;chr&gt;, link &lt;chr&gt;, `Alternative
+## #   Title` &lt;chr&gt;, `Place Made` &lt;chr&gt;
+```
+
+---
+
+## What could go wrong?
+
+
+```r
+uoe_art_info &lt;- map_df(uoe_art$link, scrape_art_info)
+```
+
+- This will take a while to run
+- If you get `HTTP Error 429 (Too many requests)` you might want to slow down your hits by modifying your function to slow it down by adding a random wait (sleep) time between hitting each link
+
+
+```r
+scrape_art_info &lt;- function(x){
+  
+  # Sleep for randomly generated number of seconds
+  # Generated from a uniform distribution between 0 and 1
+* Sys.sleep(runif(1))
+  
+  # Rest of your function code goes here...
+}
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -129,7 +129,7 @@ We can visualize this in a tree-like structure.
 
 class: middle 
 
-### If we have access to an HTML document, then how can we easily extract information and get it in a format that's useful for anlaysis? 
+### If we have access to an HTML document, then how can we easily extract information and get it in a format that's useful for analysis? 
 
 ---
 
@@ -315,7 +315,7 @@ to `View &gt; Developer &gt; View Source`.
 
 .pull-left[
 - Open source tool that eases CSS selector generation and discovery
-- Easiest to use with the [Chrome Extension](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb) 
+- Can use through the [Chrome Extension](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb) or the bookmark available on [selectorgadget.com](https://selectorgadget.com/)
 - Find out more on the [SelectorGadget vignette](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html)
 ]
 .pull-right[
@@ -350,7 +350,7 @@ class: middle
 
 ## Top 250 movies on IMDB
 
-Take a look at the source code, look for the tag `table` tag:
+Take a look at the source code, look for the `table` tag:
 &lt;br&gt;
 http://www.imdb.com/chart/top
 
@@ -435,9 +435,7 @@ scores &lt;- page %&gt;%
 
 ```r
 imdb_top_250 &lt;- tibble(
-  title = titles, 
-  year = years, 
-  score = scores)
+  title = titles, year = years, score = scores)
 ```
 ]
 
