@@ -26,12 +26,3 @@ tvshows <- tibble(
   ___,
   ___
 )
-
-# add new variables ------------------------------------------------------------
-tvshows <- tvshows %>%
-  mutate(
-    genre = NA,
-    runtime = NA,
-    n_episode = NA,
-    keywords = NA
-  )
