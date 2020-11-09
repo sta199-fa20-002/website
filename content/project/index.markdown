@@ -10,7 +10,7 @@ Draft report due **Wednesday, October 28**
 
 Peer feedback due **Thursday, November 5**
 
-Final report due **Friday, November 13** 
+Final written report due **Sunday, November 15** 
 
 Presentation video, slides, repo due **Tuesday, November 17**
 
@@ -222,8 +222,8 @@ discussion forum.
 
 In addition to your Gradescope submissions, we will be checking your GitHub repository. This repository should be contributed to equally by all team members and should include
 
-- RMarkdown file (formatted to clearly present all of your code and results)
-that will output the proposal and write-up in one document
+- RMarkdown files (formatted to clearly present all of your code and results)
+that will output the proposal and write-up
 - Meaningful README file on the GitHub repository that contains a *codebook*
 for relevant variables
 - Dataset(s) (in csv or RData format, in a `/data` folder)

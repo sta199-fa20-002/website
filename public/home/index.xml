@@ -1201,7 +1201,7 @@ font-size: 18px;
       <pubDate>12 Mar 17 10:00 +0000</pubDate>
       
       <guid>/schedule/week-13/</guid>
-      <description>table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Web scraping Web scraping AE 25   Wednesday Functions Functions AE 26    Assignments          Lab 08 due Wed, Nov 11 at 11:59p   Lab 08 due Wed, Nov 11 at 11:59p    Announcements Tea with a TA!</description>
+      <description> table { font-size: 18px; }  Lectures     Slides Videos Application Exercise (AE)     Monday Web scraping Web scraping AE 25: Web scraping   Wednesday Functions Functions AE 26    Assignments          Lab 08 due Wed, Nov 11 at 11:59p   Written report due Sun, Nov 15 at 11:59p   Video presentation due Tue, Nov 17 at 11:59p   Final repo due Tue, Nov 17 at 11:59p   Watch and comment on presentations Nov 18 - Nov 20    </description>
       <content>&lt;style&gt;
 table {
 font-size: 18px;
@@ -1223,7 +1223,7 @@ font-size: 18px;
 &lt;td&gt;Monday&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/slides/25-web-scraping.html&#34;&gt;Web scraping&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;&lt;a href=&#34;https://warpwire.duke.edu/w/y8gEAA/&#34;&gt;Web scraping&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;AE 25&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/appex/appex25-web-scrape.html&#34;&gt;AE 25: Web scraping&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Wednesday&lt;/td&gt;
@@ -1251,25 +1251,23 @@ font-size: 18px;
 &lt;td&gt;&lt;strong&gt;due Wed, Nov 11 at 11:59p&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/labs/lab-08-logistic.html&#34;&gt;Lab 08&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;due Wed, Nov 11 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#written-report&#34;&gt;Written report&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Sun, Nov 15 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#presentation-slides&#34;&gt;Video presentation&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Tue, Nov 17 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#project-repository&#34;&gt;Final repo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;due Tue, Nov 17 at 11:59p&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://sta199-fa20-002.netlify.app/project/#peer-feedback&#34;&gt;Watch and comment on presentations&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Nov 18 - Nov 20&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;announcements&#34;&gt;Announcements&lt;/h2&gt;
-&lt;h3 id=&#34;tea-with-a-ta&#34;&gt;Tea with a TA!&lt;/h3&gt;
-&lt;p&gt;Hang out with the TAs from STA 199! This is a casual conversation and a fun opportunity to meet the members of the STA 199 teaching time. The only rule is these can&amp;rsquo;t turn into office hours!&lt;/p&gt;
-&lt;p&gt;Tea with a TA counts as a statistics experience.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Upcoming Tea with a TA events&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/carolinelevenson/&#34;&gt;&lt;strong&gt;Caroline Levenson&lt;/strong&gt;&lt;/a&gt;, Mon, Nov 2, 1p - 2p&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://forms.gle/FucAXE6bLeJVyqRY9&#34;&gt;Click here&lt;/a&gt; to sign up&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Caroline Levenson is a junior studying Statistics and Computer Science. She did not know she wanted to study statistics until taking this class. Since then, she has completed an independent study with Professor Tackett where she created an R Shiny app for data visualization. The project was with the Duke Law School where she continues to work as a research assistant. In addition, she has worked in industry primarily as a software engineer.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </content>
     </item>
     
@@ -1421,16 +1419,16 @@ Go to &lt;a href=&#34;http://studentaffairs.duke.edu/dukereach&#34;&gt;studentaf
       <description>Timeline Proposal due Friday, October 9
 Draft report due Wednesday, October 28
 Peer feedback due Thursday, November 5
-Final report due Friday, November 13
+Final written report due Sunday, November 15
 Presentation video, slides, repo due Tuesday, November 17
 Presentation comments due Friday, November 20
 Introduction TL;DR: Pick a dataset and do something with it. That is your final project.
-The final project for this class will consist of analysis on a dataset of your own choosing. The dataset may already exist, you may collect your own data by scraping the web.</description>
+The final project for this class will consist of analysis on a dataset of your own choosing.</description>
       <content>&lt;h2 id=&#34;timeline&#34;&gt;Timeline&lt;/h2&gt;
 &lt;p&gt;Proposal due &lt;strong&gt;Friday, October 9&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Draft report due &lt;strong&gt;Wednesday, October 28&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Peer feedback due &lt;strong&gt;Thursday, November 5&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Final report due &lt;strong&gt;Friday, November 13&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Final written report due &lt;strong&gt;Sunday, November 15&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Presentation video, slides, repo due &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Presentation comments due &lt;strong&gt;Friday, November 20&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
@@ -1646,8 +1644,8 @@ discussion forum.&lt;/li&gt;
 &lt;h2 id=&#34;project-repository&#34;&gt;Project repository&lt;/h2&gt;
 &lt;p&gt;In addition to your Gradescope submissions, we will be checking your GitHub repository. This repository should be contributed to equally by all team members and should include&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;RMarkdown file (formatted to clearly present all of your code and results)
-that will output the proposal and write-up in one document&lt;/li&gt;
+&lt;li&gt;RMarkdown files (formatted to clearly present all of your code and results)
+that will output the proposal and write-up&lt;/li&gt;
 &lt;li&gt;Meaningful README file on the GitHub repository that contains a &lt;em&gt;codebook&lt;/em&gt;
 for relevant variables&lt;/li&gt;
 &lt;li&gt;Dataset(s) (in csv or RData format, in a &lt;code&gt;/data&lt;/code&gt; folder)&lt;/li&gt;
