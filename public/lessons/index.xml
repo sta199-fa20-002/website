@@ -1623,6 +1623,15 @@ summary of what you have learned about your research question along with statist
 &lt;h2 id=&#34;presentation-slides&#34;&gt;Presentation Slides&lt;/h2&gt;
 &lt;p&gt;In addition to the write-up, your team must also create presentation
 slides that summarize and showcase your project. Introduce your research question and dataset, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality. For submission, convert these slides to a .pdf document to be submitted to Gradescope. The slides are due on &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The slide deck should have no more than &lt;strong&gt;6 content slides + 1 title slide&lt;/strong&gt;. Here is a &lt;em&gt;&lt;u&gt;suggested&lt;/u&gt;&lt;/em&gt; outline as you think through the slides; you do &lt;em&gt;&lt;u&gt;not&lt;/u&gt;&lt;/em&gt; have to use this exact format for the slide deck.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Title Slide&lt;/li&gt;
+&lt;li&gt;Slide 1: Introduce the topic and motivation&lt;/li&gt;
+&lt;li&gt;Slide 2: Introduce the data&lt;/li&gt;
+&lt;li&gt;Slide 3 - 4: Highlights from EDA&lt;/li&gt;
+&lt;li&gt;Slide 4 - 5: Inference / modeling&lt;/li&gt;
+&lt;li&gt;Slide 6: Conclusions + future work&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;video-presentation&#34;&gt;Video presentation&lt;/h2&gt;
 &lt;p&gt;Sometime before &lt;strong&gt;Tuesday, November 17&lt;/strong&gt;, you/your group will upload a video presentation of your project to Warpwire. Note that all members must present, and that a ten-minute time limit is &lt;strong&gt;strictly enforced&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;For the presentation, you can speak over your slide deck, similar to the lecture content videos. I recommend using Zoom to record your presentation; however, you can use whatever platform works best for your group. Below are a few resources to help you record video presentations:&lt;/p&gt;

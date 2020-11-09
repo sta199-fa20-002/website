@@ -198,6 +198,15 @@ summary of what you have learned about your research question along with statist
 In addition to the write-up, your team must also create presentation
 slides that summarize and showcase your project. Introduce your research question and dataset, showcase visualizations, and provide some conclusions. These slides should serve as a brief visual accompaniment to your write-up and will be graded for content and quality. For submission, convert these slides to a .pdf document to be submitted to Gradescope. The slides are due on **Tuesday, November 17**.
 
+The slide deck should have no more than **6 content slides + 1 title slide**. Here is a *<u>suggested</u>* outline as you think through the slides; you do *<u>not</u>* have to use this exact format for the slide deck.
+
+- Title Slide
+- Slide 1: Introduce the topic and motivation
+- Slide 2: Introduce the data
+- Slide 3 - 4: Highlights from EDA
+- Slide 4 - 5: Inference / modeling
+- Slide 6: Conclusions + future work
+
 ## Video presentation
 
 Sometime before **Tuesday, November 17**, you/your group will upload a video presentation of your project to Warpwire. Note that all members must present, and that a ten-minute time limit is **strictly enforced**.
