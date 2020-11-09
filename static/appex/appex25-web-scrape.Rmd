@@ -28,13 +28,13 @@ Add [SelectorGadget](https://selectorgadget.com/) to bookmark bar
 
 URL: http://www.imdb.com/chart/top
 
-R Script: [appex-25-web-scrape-movies.R](appex-25-web-scrape-movies.R)
+R Script: [appex-25-web-scrape-movies.R](appex25-web-scrape-movies.R)
 
 ## Scrape Top 100 TV shows
 
 URL: http://www.imdb.com/chart/tvmeter
 
-R Script: [appex-25-web-scrape-tv.R](appex-25-web-scrape-tv.R)
+R Script: [appex-25-web-scrape-tv.R](appex25-web-scrape-tv.R)
 
 
 <hr>
