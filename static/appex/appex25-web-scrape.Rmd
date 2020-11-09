@@ -26,7 +26,9 @@ Add [SelectorGadget](https://selectorgadget.com/) to bookmark bar
 
 ## Scrape IMDB Top 250 movies
 
-URL: 
+URL: http://www.imdb.com/chart/top
+
+R Script: [appex-25-web-scrape-movies.R](appex-25-web-scrape-movies.R)
 
 ## Scrape Top 100 TV shows
 

@@ -1,6 +1,6 @@
 ---
 title: "AE 25: Web scraping"
-date: "`r Sys.Date()`"
+date: "2020-11-08"
 output: 
   html_document: 
     theme: readable
@@ -26,9 +26,7 @@ Add [SelectorGadget](https://selectorgadget.com/) to bookmark bar
 
 ## Scrape IMDB Top 250 movies
 
-URL: http://www.imdb.com/chart/top
-
-R Script: [appex-25-web-scrape-movies.R](appex-25-web-scrape-movies.R)
+URL: 
 
 ## Scrape Top 100 TV shows
 
