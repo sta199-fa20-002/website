@@ -4,8 +4,6 @@
     <title>Functions + automation</title>
     <meta charset="utf-8" />
     <meta name="author" content="Prof. Maria Tackett" />
-    <link href="libs/font-awesome/panelset-0.1.0/panelset.css" rel="stylesheet" />
-    <script src="libs/font-awesome/panelset-0.1.0/panelset.js"></script>
     <link rel="stylesheet" href="sta199-slides.css" type="text/css" />
   </head>
   <body>
@@ -38,7 +36,8 @@ class: middle center
 
 class: middle
 
-## Edinburgh College of Art Collection
+# Edinburgh College of Art Collection
+## Abstract Art
 
 ---
 
@@ -46,22 +45,23 @@ class: middle
 
 
 ```
-## # A tibble: 2,909 x 3
-##    title                  artist         link                                   
-##    &lt;chr&gt;                  &lt;chr&gt;          &lt;chr&gt;                                  
-##  1 Untitled (1963)        [Unknown] Bla… https://collections.ed.ac.uk/art/recor…
-##  2 Rooftops               A McIntosh     https://collections.ed.ac.uk/art/recor…
-##  3 Seated Male Nude (19 … A Robson       https://collections.ed.ac.uk/art/recor…
-##  4 Portrait of a Man (19… A Robson       https://collections.ed.ac.uk/art/recor…
-##  5 Portrait of a Woman (… A Scott        https://collections.ed.ac.uk/art/recor…
-##  6 Poirtrait of a Man     A Sinclair     https://collections.ed.ac.uk/art/recor…
-##  7 Portrait of a Man      A Sinclair     https://collections.ed.ac.uk/art/recor…
-##  8 Portrait of a Man      A Sinclair     https://collections.ed.ac.uk/art/recor…
-##  9 Standing Male Nude     A Wrever       https://collections.ed.ac.uk/art/recor…
-## 10 Untitled (Unknown)     A. Geraldine … https://collections.ed.ac.uk/art/recor…
-## # … with 2,899 more rows
+## # A tibble: 180 x 3
+##    title                            artist       link                           
+##    &lt;chr&gt;                            &lt;chr&gt;        &lt;chr&gt;                          
+##  1 Untitled (1959)                  William Gear https://collections.ed.ac.uk/a…
+##  2 Abstract Brush Drawing (2018)    William Joh… https://collections.ed.ac.uk/a…
+##  3 Portrait of H.S. (1973)          William Joh… https://collections.ed.ac.uk/a…
+##  4 Red and Black (1976)             William Joh… https://collections.ed.ac.uk/a…
+##  5 Untitled (Landscape) (1943)      William Joh… https://collections.ed.ac.uk/a…
+##  6 Black Sitka (1961)               William Joh… https://collections.ed.ac.uk/a…
+##  7 Untitled (yellow triangle) (198… Mohamed Oun… https://collections.ed.ac.uk/a…
+##  8 Untitled - Abstract Print of Fo… Rena R. Sim… https://collections.ed.ac.uk/a…
+##  9 Untitled - Two Abstract Melting… Graeme Murr… https://collections.ed.ac.uk/a…
+## 10 Earth Element (1972)             William Joh… https://collections.ed.ac.uk/a…
+## # … with 170 more rows
 ```
 
+[Click here](scrape-art-info.R) to see the code used to scrape the data.
 ---
 
 &lt;img src="img/26/untitled-1963.png" width="80%" style="display: block; margin: auto;" /&gt;
@@ -86,7 +86,7 @@ library(rvest)
 # first url 
 
 ## set url 
-first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+first_info_url &lt;- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*"
 
 ## read page at url
 page &lt;- read_html(first_info_url)
@@ -116,6 +116,7 @@ class: middle
 # Functions
 
 ---
+
 ## When should you write a function?
 
 --
@@ -128,8 +129,12 @@ Whenever you’ve copied and pasted a block of code more than twice.
 
 .question[
 How many times will be need to copy and paste the code we developed to scrape 
-additional data on each art piece in the Edinburgh College of Art Collection?
+additional data on each abstract art piece in the Edinburgh College of Art Collection?
 ]
+
+--
+
+.vocab[179 more times!]
 
 ---
 
@@ -147,15 +152,13 @@ additional data on each art piece in the Edinburgh College of Art Collection?
 
 ---
 
-.question[
-How many inputs does the following code have?
-]
+## How many inputs in the following code?
 
 .small[
 
 ```r
 ## set url ----
-first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+first_info_url &lt;- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*"
 
 ## read page at url ----
 page &lt;- read_html(first_info_url)
@@ -180,15 +183,13 @@ tibble(headers, values) %&gt;%
 
 ---
 
-.question[
-How many inputs does the following code have?
-]
+## How many inputs in the following code?
 
 .small[
 
 ```r
 ## set url ----
-*first_info_url &lt;- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+*first_info_url &lt;- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*"
 
 ## read page at url ----
 *page &lt;- read_html(first_info_url)
@@ -308,23 +309,22 @@ scrape_art_info(uoe_art$link[1]) %&gt;%
 
 ```
 ## Rows: 1
-## Columns: 12
-## $ Artist             &lt;chr&gt; "[Unknown] Black"
+## Columns: 11
+## $ Artist             &lt;chr&gt; "William Gear (b.1915, d.1997)"
 ## $ Title              &lt;chr&gt; "Untitled"
-## $ Date               &lt;chr&gt; "1963"
-## $ Period             &lt;chr&gt; "20th century; 1960s"
-## $ Description        &lt;chr&gt; "Portrait of a woman"
-## $ Material           &lt;chr&gt; "graphite (mineral)/inorganic material/materials (…
-## $ Dimensions         &lt;chr&gt; "45.1cm H x 33cm W"
-## $ Collection         &lt;chr&gt; "Art Collection; Edinburgh College of Art"
-## $ Classification     &lt;chr&gt; "drawings (visual works); pencil drawings"
-## $ Signature          &lt;chr&gt; "Signature on drawing reads \"Black\", this is the…
-## $ `Accession Number` &lt;chr&gt; "EU2907"
-## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/record/22024?hig…
+## $ Date               &lt;chr&gt; "1959"
+## $ Period             &lt;chr&gt; "20th century; 1950s"
+## $ Description        &lt;chr&gt; "abstract with splashes of watery blue and bright …
+## $ Material           &lt;chr&gt; "acrylic paint/paint (coating)"
+## $ Collection         &lt;chr&gt; "Art Collection"
+## $ Classification     &lt;chr&gt; "Abstract (fine arts style); paintings (visual wor…
+## $ Signature          &lt;chr&gt; "signed and dated lower right hand corner"
+## $ `Accession Number` &lt;chr&gt; "EU0975"
+## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/./record/20144?h…
 ```
 ]
 
-&lt;img class="imageoverlay" src="img/26/untitled-1963.png" style="width:378px;height:300px;border:1"&gt;
+&lt;img class="imageoverlay" src="img/26/untitled.png" style="width:378px;height:300px;border:1"&gt;
 
 
 ---
@@ -339,17 +339,21 @@ scrape_art_info(uoe_art$link[2]) %&gt;%
 
 ```
 ## Rows: 1
-## Columns: 7
-## $ Artist             &lt;chr&gt; "A McIntosh"
-## $ Title              &lt;chr&gt; "Rooftops"
-## $ Material           &lt;chr&gt; "paint (coating)"
-## $ Collection         &lt;chr&gt; "Art Collection; Edinburgh College of Art"
-## $ Classification     &lt;chr&gt; "paintings (visual works)"
-## $ `Accession Number` &lt;chr&gt; "EU2339"
-## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/record/21465?hig…
+## Columns: 11
+## $ Artist             &lt;chr&gt; "William Johnstone (b.1897, d.1981) VIAF LC"
+## $ Title              &lt;chr&gt; "Abstract Brush Drawing"
+## $ Period             &lt;chr&gt; "20th century"
+## $ Description        &lt;chr&gt; "Abstract black wash"
+## $ Material           &lt;chr&gt; "paper (fibre product); watercolour (paint)/paint …
+## $ Dimensions         &lt;chr&gt; "75.5x55.8 cm"
+## $ Collection         &lt;chr&gt; "Art Collection; Hope Scott Collection"
+## $ Classification     &lt;chr&gt; "paintings 1901-2000; Abstract (fine arts style); …
+## $ Signature          &lt;chr&gt; "Signed in red in monogram."
+## $ `Accession Number` &lt;chr&gt; "EU0165"
+## $ link               &lt;chr&gt; "https://collections.ed.ac.uk/art/./record/388?hig…
 ```
 
-&lt;img class="imageoverlay" src="img/26/rooftops.png" style="width:388px;height:250px;border:1"&gt;
+&lt;img class="imageoverlay" src="img/26/abstract-brush-drawing.png" style="width:388px;height:250px;border:1"&gt;
 
 ---
 
@@ -455,7 +459,7 @@ class: middle
 
 ## Define the task
 
-- Goal: Scrape info on all 2909 art pieces in the collection
+- Goal: Scrape info on all 180 abstract art in the collection
 - So far:
 .small[
 
@@ -466,8 +470,8 @@ scrape_art_info(uoe_art$link[3])
 ```
 ]
 - What else do we need to do?
-  - Run the `scrape_art_info()` function on all 2909 links
-  - Combine the resulting data frames from each run into one giant data frame with 2909 rows
+  - Run the `scrape_art_info()` function on all 180 links
+  - Combine the resulting data frames from each run into one giant data frame with 180 rows
   
 ---
 
@@ -479,11 +483,35 @@ You now have a function that will scrape the relevant info on art pieces given t
 
 --
 
-From the data frame you constructed in lab yesterday: `uoe_art$link`
+From the original data frame!
+
+.midi[
+
+```r
+uoe_art
+```
+
+```
+## # A tibble: 180 x 3
+##    title                            artist       link                           
+##    &lt;chr&gt;                            &lt;chr&gt;        &lt;chr&gt;                          
+##  1 Untitled (1959)                  William Gear https://collections.ed.ac.uk/a…
+##  2 Abstract Brush Drawing (2018)    William Joh… https://collections.ed.ac.uk/a…
+##  3 Portrait of H.S. (1973)          William Joh… https://collections.ed.ac.uk/a…
+##  4 Red and Black (1976)             William Joh… https://collections.ed.ac.uk/a…
+##  5 Untitled (Landscape) (1943)      William Joh… https://collections.ed.ac.uk/a…
+##  6 Black Sitka (1961)               William Joh… https://collections.ed.ac.uk/a…
+##  7 Untitled (yellow triangle) (198… Mohamed Oun… https://collections.ed.ac.uk/a…
+##  8 Untitled - Abstract Print of Fo… Rena R. Sim… https://collections.ed.ac.uk/a…
+##  9 Untitled - Two Abstract Melting… Graeme Murr… https://collections.ed.ac.uk/a…
+## 10 Earth Element (1972)             William Joh… https://collections.ed.ac.uk/a…
+## # … with 170 more rows
+```
+]
 
 ---
 
-## Iteration
+## Automation
 
 .question[
 How can we tell R to apply the `scrape_art_info()` function to each link in `uoe_art$link`?
@@ -502,43 +530,11 @@ How can we tell R to apply the `scrape_art_info()` function to each link in `uoe
 
 ---
 
-### `for` loop
-
-### 1) Set up a tibble to store the results
-
-
-```r
-n &lt;- 10
-first_n_art &lt;- tibble( artist = rep(NA_character_, n), 
-                       title = rep(NA_character_, n), 
-                       date = rep(NA_character_, n)
-# can make columns to include all 12 variables...
-  )
-first_n_art
-```
-
-```
-## # A tibble: 10 x 3
-##    artist title date 
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
-##  1 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  2 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  3 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  4 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  5 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  6 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  7 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  8 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-##  9 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt; 
-## 10 &lt;NA&gt;   &lt;NA&gt;  &lt;NA&gt;
-```
-
----
-
 ## How does mapping work?
 
 Suppose we have exam 1 and exam 2 scores of 4 students stored in a list...
 
+.midi[
 
 ```r
 exam_scores &lt;- list(
@@ -546,11 +542,13 @@ exam_scores &lt;- list(
   exam2 &lt;- c(85, 83, 45, 60)
 )
 ```
+]
 
 --
 
 ...and we find the mean score in each exam
 
+.midi[
 
 ```r
 map(exam_scores, mean)
@@ -563,6 +561,7 @@ map(exam_scores, mean)
 ## [[2]]
 ## [1] 68.25
 ```
+]
 
 ---
 
@@ -576,6 +575,8 @@ map_dbl(exam_scores, mean)
 ```
 ## [1] 72.50 68.25
 ```
+
+--
 
 ...or as a character string
 
@@ -622,23 +623,47 @@ uoe_art_info &lt;- map_df(uoe_art$link, scrape_art_info)
 
 
 ```
-## # A tibble: 500 x 14
-##    Artist Title Date  Period Description Material Dimensions Collection
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     
-##  1 [Unkn… Unti… 1963  20th … Portrait o… graphit… 45.1cm H … Art Colle…
-##  2 A McI… Roof… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        paint (… &lt;NA&gt;       Art Colle…
-##  3 A Rob… Seat… 19 N… 20th … Gained his… graphit… &lt;NA&gt;       Art Colle…
-##  4 A Rob… Port… 19 N… 20th … Gained his… graphit… &lt;NA&gt;       Art Colle…
-##  5 A Sco… Port… 1953  20th … Drawing fr… graphit… &lt;NA&gt;       Art Colle…
-##  6 A Sin… Poir… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;       Art Colle…
-##  7 A Sin… Port… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
-##  8 A Sin… Port… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
-##  9 A Wre… Stan… &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;        graphit… &lt;NA&gt;       Art Colle…
-## 10 A. Ge… Unti… Unkn… &lt;NA&gt;   Female nud… &lt;NA&gt;     75.2cm H … Art Colle…
-## # … with 490 more rows, and 6 more variables: Classification &lt;chr&gt;,
-## #   Signature &lt;chr&gt;, `Accession Number` &lt;chr&gt;, link &lt;chr&gt;, `Alternative
-## #   Title` &lt;chr&gt;, `Place Made` &lt;chr&gt;
+## # A tibble: 180 x 14
+##    Artist Title Date  Period Description Material Collection Classification
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;         
+##  1 Willi… Unti… 1959  20th … abstract w… acrylic… Art Colle… Abstract (fin…
+##  2 Willi… Abst… &lt;NA&gt;  20th … Abstract b… paper (… Art Colle… paintings 190…
+##  3 Willi… Port… 1973  20th … Charcoal o… charcoa… Art Colle… Abstract (fin…
+##  4 Willi… Red … 1976  20th … Abstract b… ink/coa… Art Colle… paintings 190…
+##  5 Willi… Unti… 1943  20th … Abstract b… paper (… Art Colle… paintings 190…
+##  6 Willi… Blac… 1961  20th … Black land… canvas … Art Colle… oil paintings…
+##  7 Moham… Unti… 1989  20th … abstract t… acrylic… Art Colle… Abstract (fin…
+##  8 Rena … Unti… 1982  20th … Print in b… paper (… Art Colle… fine art; Abs…
+##  9 Graem… Unti… 1985… 20th … Print of a… Print    Art Colle… fine art; pri…
+## 10 Willi… Eart… 1972  20th … Abstract b… ink/coa… Art Colle… paintings 190…
+## # … with 170 more rows, and 6 more variables: Signature &lt;chr&gt;, `Accession
+## #   Number` &lt;chr&gt;, link &lt;chr&gt;, Dimensions &lt;chr&gt;, Subject &lt;chr&gt;, `Alternative
+## #   Title` &lt;chr&gt;
 ```
+
+---
+
+.midi[
+
+```
+## Rows: 180
+## Columns: 14
+## $ Artist              &lt;chr&gt; "William Gear (b.1915, d.1997)", "William Johnsto…
+## $ Title               &lt;chr&gt; "Untitled", "Abstract Brush Drawing", "Portrait o…
+## $ Date                &lt;chr&gt; "1959", NA, "1973", "1976", "1943", "1961", "1989…
+## $ Period              &lt;chr&gt; "20th century; 1950s", "20th century", "20th cent…
+## $ Description         &lt;chr&gt; "abstract with splashes of watery blue and bright…
+## $ Material            &lt;chr&gt; "acrylic paint/paint (coating)", "paper (fibre pr…
+## $ Collection          &lt;chr&gt; "Art Collection", "Art Collection; Hope Scott Col…
+## $ Classification      &lt;chr&gt; "Abstract (fine arts style); paintings (visual wo…
+## $ Signature           &lt;chr&gt; "signed and dated lower right hand corner", "Sign…
+## $ `Accession Number`  &lt;chr&gt; "EU0975", "EU0165", "EU0138", "EU0147", "EU0146",…
+## $ link                &lt;chr&gt; "https://collections.ed.ac.uk/art/./record/20144?…
+## $ Dimensions          &lt;chr&gt; NA, "75.5x55.8 cm", "45.7x40.6 cm", "77.4x58.4 cm…
+## $ Subject             &lt;chr&gt; NA, NA, NA, NA, NA, NA, "abstract", NA, NA, NA, N…
+## $ `Alternative Title` &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+```
+]
 
 ---
 

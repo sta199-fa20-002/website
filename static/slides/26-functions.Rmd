@@ -32,7 +32,6 @@ library(scales)
 library(here)
 library(rvest)
 library(DT)
-xaringanExtra::use_panelset()
 ```
 
 ---
@@ -45,19 +44,20 @@ class: middle center
 
 class: middle
 
-## Edinburgh College of Art Collection
+# Edinburgh College of Art Collection
+## Abstract Art
 
 ---
 
 ```{r include=FALSE}
-uoe_art <- read_csv("data/uoe-art.csv")
+uoe_art <- read_csv("data/uoe_abstract_art.csv")
 ```
 
 ```{r echo=FALSE}
-uoe_art %>%
-  arrange(link)
+uoe_art
 ```
 
+[Click here](scrape-art-info.R) to see the code used to scrape the data.
 ---
 
 ```{r echo=FALSE, out.width="80%"}
@@ -87,7 +87,7 @@ library(rvest)
 # first url 
 
 ## set url 
-first_info_url <- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+first_info_url <- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*"
 
 ## read page at url
 page <- read_html(first_info_url)
@@ -117,6 +117,7 @@ class: middle
 # Functions
 
 ---
+
 ## When should you write a function?
 
 --
@@ -129,8 +130,12 @@ Whenever you’ve copied and pasted a block of code more than twice.
 
 .question[
 How many times will be need to copy and paste the code we developed to scrape 
-additional data on each art piece in the Edinburgh College of Art Collection?
+additional data on each abstract art piece in the Edinburgh College of Art Collection?
 ]
+
+--
+
+.vocab[179 more times!]
 
 ---
 
@@ -148,14 +153,12 @@ additional data on each art piece in the Edinburgh College of Art Collection?
 
 ---
 
-.question[
-How many inputs does the following code have?
-]
+## How many inputs in the following code?
 
 .small[
 ```{r eval=FALSE}
 ## set url ----
-first_info_url <- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*"
+first_info_url <- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*"
 
 ## read page at url ----
 page <- read_html(first_info_url)
@@ -180,14 +183,12 @@ tibble(headers, values) %>%
 
 ---
 
-.question[
-How many inputs does the following code have?
-]
+## How many inputs in the following code?
 
 .small[
 ```{r eval=FALSE}
 ## set url ----
-first_info_url <- "https://collections.ed.ac.uk/art/record/22024?highlight=*:*" #<<
+first_info_url <- "https://collections.ed.ac.uk/art/./record/20144?highlight=*:*" #<<
 
 ## read page at url ----
 page <- read_html(first_info_url) #<<
@@ -301,25 +302,25 @@ scrape_art_info <- function(x){
 ## Function in action
 
 .midi[
-```{r cache=TRUE}
+```{r}
 scrape_art_info(uoe_art$link[1]) %>%
   glimpse()
 ```
 ]
 
-<img class="imageoverlay" src="img/26/untitled-1963.png" style="width:378px;height:300px;border:1">
+<img class="imageoverlay" src="img/26/untitled.png" style="width:378px;height:300px;border:1">
 
 
 ---
 
 ## Function in action
 
-```{r cache=TRUE}
+```{r}
 scrape_art_info(uoe_art$link[2]) %>%
   glimpse()
 ```
 
-<img class="imageoverlay" src="img/26/rooftops.png" style="width:388px;height:250px;border:1">
+<img class="imageoverlay" src="img/26/abstract-brush-drawing.png" style="width:388px;height:250px;border:1">
 
 ---
 
@@ -409,7 +410,7 @@ class: middle
 
 ## Define the task
 
-- Goal: Scrape info on all 2909 art pieces in the collection
+- Goal: Scrape info on all 180 abstract art in the collection
 - So far:
 .small[
 ```{r eval=FALSE}
@@ -419,8 +420,8 @@ scrape_art_info(uoe_art$link[3])
 ```
 ]
 - What else do we need to do?
-  - Run the `scrape_art_info()` function on all 2909 links
-  - Combine the resulting data frames from each run into one giant data frame with 2909 rows
+  - Run the `scrape_art_info()` function on all 180 links
+  - Combine the resulting data frames from each run into one giant data frame with 180 rows
   
 ---
 
@@ -432,11 +433,17 @@ You now have a function that will scrape the relevant info on art pieces given t
 
 --
 
-From the data frame you constructed in lab yesterday: `uoe_art$link`
+From the original data frame!
+
+.midi[
+```{r}
+uoe_art
+```
+]
 
 ---
 
-## Iteration
+## Automation
 
 .question[
 How can we tell R to apply the `scrape_art_info()` function to each link in `uoe_art$link`?
@@ -455,40 +462,28 @@ How can we tell R to apply the `scrape_art_info()` function to each link in `uoe
 
 ---
 
-### `for` loop
-
-### 1) Set up a tibble to store the results
-
-```{r}
-n <- 10
-first_n_art <- tibble( artist = rep(NA_character_, n), 
-                       title = rep(NA_character_, n), 
-                       date = rep(NA_character_, n)
-# can make columns to include all 12 variables...
-  )
-first_n_art
-```
-
----
-
 ## How does mapping work?
 
 Suppose we have exam 1 and exam 2 scores of 4 students stored in a list...
 
+.midi[
 ```{r}
 exam_scores <- list(
   exam1 <- c(80, 90, 70, 50),
   exam2 <- c(85, 83, 45, 60)
 )
 ```
+]
 
 --
 
 ...and we find the mean score in each exam
 
+.midi[
 ```{r}
 map(exam_scores, mean)
 ```
+]
 
 ---
 
@@ -497,6 +492,8 @@ map(exam_scores, mean)
 ```{r}
 map_dbl(exam_scores, mean)
 ```
+
+--
 
 ...or as a character string
 
@@ -534,12 +531,20 @@ uoe_art_info <- map_df(uoe_art$link, scrape_art_info)
 ---
 
 ```{r include=FALSE}
-uoe_art_info_1 <- read_csv("data/uoe-art-info-1.csv")
+uoe_art_info_1 <- read_csv("data/uoe_abstract_art_info.csv")
 ```
 
 ```{r echo=FALSE}
 uoe_art_info_1
 ```
+
+---
+
+.midi[
+```{r echo = F}
+glimpse(uoe_art_info_1)
+```
+]
 
 ---
 

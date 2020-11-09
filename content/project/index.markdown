@@ -170,6 +170,7 @@ Total                                                   | 60 pts
 **Results**                                             | 20 pts
 **Discussion**                                          | 10 pts
 
+
 ### Introduction and data
 
 The introduction should introduce your general research question and your data  (where it came from, how it was collected, what are the cases, what are the  variables, etc.). 
@@ -189,7 +190,6 @@ and presenting the results. Focus on methods that help you begin to answer your 
 
 This section is a conclusion and discussion. This will require a 
 summary of what you have learned about your research question along with statistical arguments supporting your conclusions. Also, critique your own methods and provide suggestions for improving your analysis. Issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here. A paragraph on what you would do differently if you were able to start over with the project or what you would do next if you were going to continue work on the project should also be included.
-
 
 
 ## Presentation Slides

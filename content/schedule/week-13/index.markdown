@@ -15,7 +15,7 @@ font-size: 18px;
 |           | Slides                   | Videos | Application Exercise (AE) |
 |-----------|--------------------------|--------|--------|
 | Monday    | [Web scraping](https://sta199-fa20-002.netlify.app/slides/25-web-scraping.html) | [Web scraping](https://warpwire.duke.edu/w/y8gEAA/) | [AE 25: Web scraping](https://sta199-fa20-002.netlify.app/appex/appex25-web-scrape.html) |
-| Wednesday | Functions | Functions | AE 26 |
+| Wednesday | [Functions + automation](https://sta199-fa20-002.netlify.app/slides/25-functions.html) | Functions | AE 26 |
 
 <!-- ## Readings -->
 
