@@ -7,7 +7,7 @@ library(rvest)
 url_base <- "https://collections.ed.ac.uk/art/search/*:*/Classification:%22abstract+%28fine+arts+style%29+%7C%7C%7C+Abstract+%28fine+arts+style%29%22?offset="
 urls <- paste0(url_base, seq(0,170, 10))
 
-scrape_art_data <- function (url){
+scrape_art_data <- function(url){
 # read in url ------------------------------------
 page <- read_html(url)
 
