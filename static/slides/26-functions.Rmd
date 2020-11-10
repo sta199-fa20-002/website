@@ -129,7 +129,7 @@ Whenever you’ve copied and pasted a block of code more than twice.
 --
 
 .question[
-How many times will be need to copy and paste the code we developed to scrape 
+How many times will we need to copy and paste the code we developed to scrape 
 additional data on each abstract art piece in the Edinburgh College of Art Collection?
 ]
 
@@ -315,10 +315,12 @@ scrape_art_info(uoe_art$link[1]) %>%
 
 ## Function in action
 
+.midi[
 ```{r}
 scrape_art_info(uoe_art$link[2]) %>%
   glimpse()
 ```
+]
 
 <img class="imageoverlay" src="img/26/abstract-brush-drawing.png" style="width:388px;height:250px;border:1">
 
@@ -540,11 +542,10 @@ uoe_art_info_1
 
 ---
 
-.midi[
 ```{r echo = F}
 glimpse(uoe_art_info_1)
 ```
-]
+
 
 ---
 
