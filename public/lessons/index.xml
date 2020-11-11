@@ -1837,7 +1837,7 @@ output:
 &lt;li&gt;Use the &lt;code&gt;kable&lt;/code&gt; function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed.
 &lt;ul&gt;
 &lt;li&gt;Use the &lt;code&gt;digits&lt;/code&gt; argument to display only 3 or 4 significant digits.&lt;/li&gt;
-&lt;li&gt;Use the &lt;code&gt;captions&lt;/code&gt; argument to add captions to your table.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;caption&lt;/code&gt; argument to add captions to your table.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

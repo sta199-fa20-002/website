@@ -436,7 +436,7 @@ mpg %>%
 
 - Use the `kable` function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed. 
   - Use the `digits` argument to display only 3 or 4 significant digits. 
-  - Use the `captions` argument to add captions to your table. 
+  - Use the `caption` argument to add captions to your table. 
 
 
 
