@@ -217,14 +217,29 @@ For the presentation, you can speak over your slide deck, similar to the lecture
 - [Windows 10 built-in screen recording functionality](https://www.youtube.com/watch?v=OfPbr1mRDuo)
 - [Kap for screen recording](https://getkap.co/)
 
-You will post the presentation video in Warpwire, which is accessible from the the course Sakai site (bottom of the left-hand tool bar). To post your video on Warpwire:
+You will post the presentation video in Warpwire, which is accessible from the the course Sakai site (bottom of the left-hand tool bar). 
+
+**To upload your video to Warpwire:**
 
 - Click the Warpwire tab in the course Sakai site.
 - Click the “+” and select “Upload files”.
 - Locate the video on your computer and click to upload.
 - Once you’ve uploaded the video to Warpwire, click to share the video and make
-a copy of the video’s URL. You will need this when you post the video in the 
+a copy of the video’s URL. You will need this when you post the video in the
 discussion forum.
+
+**To post the video to the discussion forum:**
+
+- Click the Presentations tab in the course Sakai site. 
+- Click the Presentations topic. 
+- Click "Start New Presentation". 
+- Make the title "Your Team Name: Project Title". For example, "Teaching Team: Analysis of Cars in the US".
+- Click the Warpwire icon (between the flag and shopping cart icons).
+- Select your video, then click “Insert 1 item.” This will embed your video in the conversation.
+- Under the video, paste the URL to your video.
+- You’re done! 
+
+You can see the Teaching team example in Sakai. 
 
 ## Project repository
 
@@ -304,4 +319,164 @@ of results is unclear.
 ## Late work policy
 
 **There is no late work accepted on this project.** Be sure to turn in your work early to avoid any technological mishaps.
+
+## Formatting + communication 
+
+### Suppress Code, Warnings, & Messages
+
+
+
+- Include the following code in a code chunk at the top of your .Rmd file to suppress all code, warnings, and other messages. Use the code chunk header `{r set-up, include = FALSE}` to suppress this set up code. 
+
+
+```r
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+### Headers
+
+- Use headers to clearly label each section. Make sure there is a space between the last `#` and the title, so the header renders correctly. For example, `###Section Title` will not render as header, but `### Section Title` will. 
+
+### References 
+
+- Include all references in a section called "References" at the end of the report. 
+- This course does not have specific requirements for formatting citations and references.
+- See [Section 4.5](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html) of the R Markdown Cookbook to learn about the citation functionality in R Markdown. 
+
+### Appendix
+
+- If you have additional work that does not fit or does not belong in the body of the report, you may put it at the end of the document in section called "Appendix". 
+- The items in the appendix should be properly labeled. 
+- The appendix should only be for additional material. The reader should be able to fully understand your report without viewing content in the appendix.
+
+### Resize figures
+
+- Resize plots and figures, so you have more space for the narrative. 
+    - **Resize individual figures**: Use the code chunk header `{r plot1, fig.height = 3, fig.width = 5}`, replacing `plot1` with a meaningful label and the height and width with values appropriate for your write up.
+    - **Resize all figures**: Include the `fig_width` and `fig_height` options in your YAML header as shown below:
+
+```
+---
+title: "Your Title"
+author: "Team Name + Group Members"
+output: 
+  pdf_document:
+    fig_width: 5
+    fig_height: 3
+---
+```
+ 
+Replace the height and width values with values appropriate for your write up.
+
+### Arranging plots
+
+Arrange plots in a grid, instead of one after the other. This is especially useful when displaying plots for exploratory data analysis and to check assumptions. 
+
+- If you're using ggplot2 functions, the `patchwork` package makes it easy to arrange plots in a grid. See the documentation and examples [here](https://patchwork.data-imaginist.com/).
+
+- If you're using base R function, i.e. when using the `emplogit` functions, put the code `par(mfrow = c(rows,columns))` before the code to make the plots. For example, `par(mfrow = c(2,3))` will arrange plots in a grid with 2 rows and 3 columns.
+
+### Plot titles and axis labels
+
+Be sure all plot titles and axis labels are visible and easy to read. 
+
+- Use informative titles, <u>not</u> variable names, for titles and axis labels.
+- Use `coord_flip()` to flip the *x* and *y* axes on the plot. This is useful if you a bar plot with an x-axis that is difficult to read due to overlapping text. 
+
+❌ **NO! The x-axis is hard to read because the names overlap.**
+
+
+```r
+ggplot(data = mpg, aes(x = manufacturer)) +
+  geom_bar()
+```
+
+<img src="/project/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+✅ **YES! Names are readable**
+
+
+```r
+ggplot(data = mpg, aes(x = manufacturer)) +
+  geom_bar() +
+  coord_flip()
+```
+
+<img src="/project/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+### Do a little more to make the plot look professional!
+
+- Informative title and axis labels
+- Flipped coordinates to make names readable
+- Arranged bars based on count
+- Capitalized manufacturer names
+- *Optional: Added color - Use a coordinated color scheme throughout paper / presentation*
+- *Optional: Applied a theme - Use same theme throughout paper / presentation*
+
+
+```r
+mpg %>%
+  count(manufacturer) %>%
+  mutate(manufacturer = str_to_title(manufacturer)) %>%
+  ggplot(aes(x = fct_reorder(manufacturer,n), y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +
+  labs(x = "Manufacturer", 
+       y = "Count", 
+       title = "The most common manufacturer is Dodge") +
+  theme_bw() 
+```
+
+<img src="/project/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+
+### Tables and model output
+
+- Use the `kable` function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed. 
+  - Use the `digits` argument to display only 3 or 4 significant digits. 
+  - Use the `captions` argument to add captions to your table. 
+
+
+
+```r
+model <- lm(mpg ~ hp, data = mtcars)
+tidy(model) %>%
+  kable(digits = 3)
+```
+
+
+
+|term        | estimate| std.error| statistic| p.value|
+|:-----------|--------:|---------:|---------:|-------:|
+|(Intercept) |   30.099|     1.634|    18.421|       0|
+|hp          |   -0.068|     0.010|    -6.742|       0|
+
+
+### Guidelines for communicating results 
+
+- **Don't use variable names in your narrative!** Use descriptive terms, so the reader understands your narrative without relying on the codebook.
+  - ❌ There is a negative linear relationship between mpg and hp.
+  - ✅ There is a negative linear relationship between a car's fuel economy (in miles per gallon) and its horsepower.
+- **Know your audience:** Your report should be written for a general audience who has an understanding of statistics at the level of STA 199.
+- **Avoid subject matter jargon:** Don't assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term. 
+- **Tell the "so what":** Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation. 
+- **Tell a story:** All visualizations, tables, model output, and narrative should tell a cohesive story!
+- **Use one voice:** Though multiple people are writing the report, it should read as if it's from a single author. At least one team member should read through the report before submission to ensure it reads like a cohesive document.
+
+### Additional resources
+
+- [R for Data Science](https://r4ds.had.co.nz/)
+- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+- [Slides in R using Xaringan](https://slides.yihui.org/xaringan/#1)
+- Data visualization
+  - [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/index.html)
+  - [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+  - [Data Visualization: A Practice Introduction](https://socviz.co/index.html)
+  - [Patchwork R Package](https://patchwork.data-imaginist.com/index.html)
+
+
+
+
 

@@ -1,6 +1,6 @@
 ---
 title: "AE 26: Functions + automation"
-date: "`r Sys.Date()`"
+date: "2020-11-11"
 output: 
   html_document: 
     theme: readable
@@ -40,12 +40,18 @@ See solutions for the [IMDB TV web scraping](appex25-web-scrape-tv-solutions.R).
 
 Write a function called `center_measures` that returns the mean and median of a numeric vector. Below is sample code to help you get started. **Complete exercise 1 in the file `appex26-center-measures.R`.**
 
-```{r}
+
+```r
 nums <- c(10, 5, -1, 0, 4)
 c(mean(nums), median(nums))
 ```
 
-```{r}
+```
+## [1] 3.6 4.0
+```
+
+
+```r
 center_measures <- function() {
   
 
@@ -61,7 +67,8 @@ Our goal is to get the details for the [39 landscape art pieces](https://collect
 
 Let's start by getting the title, artist, and link (URL) for the landscape art pieces. Fill in the code below to scrape this information for the first 10 landscape art pieces.
 
-```{r eval = F}
+
+```r
 url <- "https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset="
 
 page <- read_html(_____)
@@ -103,7 +110,8 @@ Test your function by scraping the title, artist and link for the first 10 lands
 
 Let's automate the process, so we can produce a single data frame that contains the  the artist, title, and link for all 39 landscape art pieces.
 
-```{r}
+
+```r
 url_base <- "https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset="
 landscape_urls <- paste0(url_base, seq(0, 30, 10))
 ```
@@ -114,7 +122,8 @@ Use the appropriate `map_` function to apply the function from Exercise 3 to `la
 
 Below is the code for `scrape_art_info`, a function to scrape the details for each art piece. 
 
-```{r}
+
+```r
 scrape_art_info <- function(x){
   
   # read page at url ----

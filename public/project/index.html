@@ -452,7 +452,8 @@ slides that summarize and showcase your project. Introduce your research questio
 <li><a href="https://www.youtube.com/watch?v=OfPbr1mRDuo">Windows 10 built-in screen recording functionality</a></li>
 <li><a href="https://getkap.co/">Kap for screen recording</a></li>
 </ul>
-<p>You will post the presentation video in Warpwire, which is accessible from the the course Sakai site (bottom of the left-hand tool bar). To post your video on Warpwire:</p>
+<p>You will post the presentation video in Warpwire, which is accessible from the the course Sakai site (bottom of the left-hand tool bar).</p>
+<p><strong>To upload your video to Warpwire:</strong></p>
 <ul>
 <li>Click the Warpwire tab in the course Sakai site.</li>
 <li>Click the “+” and select “Upload files”.</li>
@@ -461,6 +462,18 @@ slides that summarize and showcase your project. Introduce your research questio
 a copy of the video’s URL. You will need this when you post the video in the
 discussion forum.</li>
 </ul>
+<p><strong>To post the video to the discussion forum:</strong></p>
+<ul>
+<li>Click the Presentations tab in the course Sakai site.</li>
+<li>Click the Presentations topic.</li>
+<li>Click &ldquo;Start New Presentation&rdquo;.</li>
+<li>Make the title &ldquo;Your Team Name: Project Title&rdquo;. For example, &ldquo;Teaching Team: Analysis of Cars in the US&rdquo;.</li>
+<li>Click the Warpwire icon (between the flag and shopping cart icons).</li>
+<li>Select your video, then click “Insert 1 item.” This will embed your video in the conversation.</li>
+<li>Under the video, paste the URL to your video.</li>
+<li>You’re done!</li>
+</ul>
+<p>You can see the Teaching team example in Sakai.</p>
 <h2 id="project-repository">Project repository</h2>
 <p>In addition to your Gradescope submissions, we will be checking your GitHub repository. This repository should be contributed to equally by all team members and should include</p>
 <ul>
@@ -537,6 +550,160 @@ of results is unclear.</li>
 </ul>
 <h2 id="late-work-policy">Late work policy</h2>
 <p><strong>There is no late work accepted on this project.</strong> Be sure to turn in your work early to avoid any technological mishaps.</p>
+<h2 id="formatting--communication">Formatting + communication</h2>
+<h3 id="suppress-code-warnings--messages">Suppress Code, Warnings, &amp; Messages</h3>
+<ul>
+<li>Include the following code in a code chunk at the top of your .Rmd file to suppress all code, warnings, and other messages. Use the code chunk header <code>{r set-up, include = FALSE}</code> to suppress this set up code.</li>
+</ul>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">knitr<span style="color:#666">::</span>opts_chunk<span style="color:#666">$</span><span style="color:#00f">set</span>(echo <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">TRUE</span>,
+                      warning <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">FALSE</span>, 
+                      message <span style="color:#666">=</span> <span style="color:#008000;font-weight:bold">FALSE</span>)
+</code></pre></div><h3 id="headers">Headers</h3>
+<ul>
+<li>Use headers to clearly label each section. Make sure there is a space between the last <code>#</code> and the title, so the header renders correctly. For example, <code>###Section Title</code> will not render as header, but <code>### Section Title</code> will.</li>
+</ul>
+<h3 id="references">References</h3>
+<ul>
+<li>Include all references in a section called &ldquo;References&rdquo; at the end of the report.</li>
+<li>This course does not have specific requirements for formatting citations and references.</li>
+<li>See <a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html">Section 4.5</a> of the R Markdown Cookbook to learn about the citation functionality in R Markdown.</li>
+</ul>
+<h3 id="appendix">Appendix</h3>
+<ul>
+<li>If you have additional work that does not fit or does not belong in the body of the report, you may put it at the end of the document in section called &ldquo;Appendix&rdquo;.</li>
+<li>The items in the appendix should be properly labeled.</li>
+<li>The appendix should only be for additional material. The reader should be able to fully understand your report without viewing content in the appendix.</li>
+</ul>
+<h3 id="resize-figures">Resize figures</h3>
+<ul>
+<li>Resize plots and figures, so you have more space for the narrative.
+<ul>
+<li><strong>Resize individual figures</strong>: Use the code chunk header <code>{r plot1, fig.height = 3, fig.width = 5}</code>, replacing <code>plot1</code> with a meaningful label and the height and width with values appropriate for your write up.</li>
+<li><strong>Resize all figures</strong>: Include the <code>fig_width</code> and <code>fig_height</code> options in your YAML header as shown below:</li>
+</ul>
+</li>
+</ul>
+<pre><code>---
+title: &quot;Your Title&quot;
+author: &quot;Team Name + Group Members&quot;
+output: 
+  pdf_document:
+    fig_width: 5
+    fig_height: 3
+---
+</code></pre><p>Replace the height and width values with values appropriate for your write up.</p>
+<h3 id="arranging-plots">Arranging plots</h3>
+<p>Arrange plots in a grid, instead of one after the other. This is especially useful when displaying plots for exploratory data analysis and to check assumptions.</p>
+<ul>
+<li>
+<p>If you&rsquo;re using ggplot2 functions, the <code>patchwork</code> package makes it easy to arrange plots in a grid. See the documentation and examples <a href="https://patchwork.data-imaginist.com/">here</a>.</p>
+</li>
+<li>
+<p>If you&rsquo;re using base R function, i.e. when using the <code>emplogit</code> functions, put the code <code>par(mfrow = c(rows,columns))</code> before the code to make the plots. For example, <code>par(mfrow = c(2,3))</code> will arrange plots in a grid with 2 rows and 3 columns.</p>
+</li>
+</ul>
+<h3 id="plot-titles-and-axis-labels">Plot titles and axis labels</h3>
+<p>Be sure all plot titles and axis labels are visible and easy to read.</p>
+<ul>
+<li>Use informative titles, <u>not</u> variable names, for titles and axis labels.</li>
+<li>Use <code>coord_flip()</code> to flip the <em>x</em> and <em>y</em> axes on the plot. This is useful if you a bar plot with an x-axis that is difficult to read due to overlapping text.</li>
+</ul>
+<p>❌ <strong>NO! The x-axis is hard to read because the names overlap.</strong></p>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#00f">ggplot</span>(data <span style="color:#666">=</span> mpg, <span style="color:#00f">aes</span>(x <span style="color:#666">=</span> manufacturer)) <span style="color:#666">+</span>
+  <span style="color:#00f">geom_bar</span>()
+</code></pre></div><p><img src="/project/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>✅ <strong>YES! Names are readable</strong></p>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#00f">ggplot</span>(data <span style="color:#666">=</span> mpg, <span style="color:#00f">aes</span>(x <span style="color:#666">=</span> manufacturer)) <span style="color:#666">+</span>
+  <span style="color:#00f">geom_bar</span>() <span style="color:#666">+</span>
+  <span style="color:#00f">coord_flip</span>()
+</code></pre></div><p><img src="/project/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<h3 id="do-a-little-more-to-make-the-plot-look-professional">Do a little more to make the plot look professional!</h3>
+<ul>
+<li>Informative title and axis labels</li>
+<li>Flipped coordinates to make names readable</li>
+<li>Arranged bars based on count</li>
+<li>Capitalized manufacturer names</li>
+<li><em>Optional: Added color - Use a coordinated color scheme throughout paper / presentation</em></li>
+<li><em>Optional: Applied a theme - Use same theme throughout paper / presentation</em></li>
+</ul>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mpg <span style="color:#666">%&gt;%</span>
+  <span style="color:#00f">count</span>(manufacturer) <span style="color:#666">%&gt;%</span>
+  <span style="color:#00f">mutate</span>(manufacturer <span style="color:#666">=</span> <span style="color:#00f">str_to_title</span>(manufacturer)) <span style="color:#666">%&gt;%</span>
+  <span style="color:#00f">ggplot</span>(<span style="color:#00f">aes</span>(x <span style="color:#666">=</span> <span style="color:#00f">fct_reorder</span>(manufacturer,n), y <span style="color:#666">=</span> n)) <span style="color:#666">+</span>
+  <span style="color:#00f">geom_bar</span>(stat <span style="color:#666">=</span> <span style="color:#ba2121">&#34;identity&#34;</span>, fill <span style="color:#666">=</span> <span style="color:#ba2121">&#34;steelblue&#34;</span>) <span style="color:#666">+</span>
+  <span style="color:#00f">coord_flip</span>() <span style="color:#666">+</span>
+  <span style="color:#00f">labs</span>(x <span style="color:#666">=</span> <span style="color:#ba2121">&#34;Manufacturer&#34;</span>, 
+       y <span style="color:#666">=</span> <span style="color:#ba2121">&#34;Count&#34;</span>, 
+       title <span style="color:#666">=</span> <span style="color:#ba2121">&#34;The most common manufacturer is Dodge&#34;</span>) <span style="color:#666">+</span>
+  <span style="color:#00f">theme_bw</span>() 
+</code></pre></div><p><img src="/project/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<h3 id="tables-and-model-output">Tables and model output</h3>
+<ul>
+<li>Use the <code>kable</code> function from the knitr package to neatly output all tables and model output. This will also ensure all model coefficients are displayed.
+<ul>
+<li>Use the <code>digits</code> argument to display only 3 or 4 significant digits.</li>
+<li>Use the <code>captions</code> argument to add captions to your table.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">model <span style="color:#666">&lt;-</span> <span style="color:#00f">lm</span>(mpg <span style="color:#666">~</span> hp, data <span style="color:#666">=</span> mtcars)
+<span style="color:#00f">tidy</span>(model) <span style="color:#666">%&gt;%</span>
+  <span style="color:#00f">kable</span>(digits <span style="color:#666">=</span> <span style="color:#666">3</span>)
+</code></pre></div><table>
+<thead>
+<tr>
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">(Intercept)</td>
+<td align="right">30.099</td>
+<td align="right">1.634</td>
+<td align="right">18.421</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="left">hp</td>
+<td align="right">-0.068</td>
+<td align="right">0.010</td>
+<td align="right">-6.742</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="guidelines-for-communicating-results">Guidelines for communicating results</h3>
+<ul>
+<li><strong>Don&rsquo;t use variable names in your narrative!</strong> Use descriptive terms, so the reader understands your narrative without relying on the codebook.
+<ul>
+<li>❌ There is a negative linear relationship between mpg and hp.</li>
+<li>✅ There is a negative linear relationship between a car&rsquo;s fuel economy (in miles per gallon) and its horsepower.</li>
+</ul>
+</li>
+<li><strong>Know your audience:</strong> Your report should be written for a general audience who has an understanding of statistics at the level of STA 199.</li>
+<li><strong>Avoid subject matter jargon:</strong> Don&rsquo;t assume the audience knows all of the specific terminology related to your subject area. If you must use jargon, include a brief definition the first time you introduce a term.</li>
+<li><strong>Tell the &ldquo;so what&rdquo;:</strong> Your report and presentation should be more than a list of interpretations and technical definitions. Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation.</li>
+<li><strong>Tell a story:</strong> All visualizations, tables, model output, and narrative should tell a cohesive story!</li>
+<li><strong>Use one voice:</strong> Though multiple people are writing the report, it should read as if it&rsquo;s from a single author. At least one team member should read through the report before submission to ensure it reads like a cohesive document.</li>
+</ul>
+<h3 id="additional-resources">Additional resources</h3>
+<ul>
+<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a></li>
+<li><a href="https://slides.yihui.org/xaringan/#1">Slides in R using Xaringan</a></li>
+<li>Data visualization
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2 Reference</a></li>
+<li><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis</a></li>
+<li><a href="https://socviz.co/index.html">Data Visualization: A Practice Introduction</a></li>
+<li><a href="https://patchwork.data-imaginist.com/index.html">Patchwork R Package</a></li>
+</ul>
+</li>
+</ul>
 
       </div>
 
@@ -561,6 +728,7 @@ of results is unclear.</li>
     <li><a href="#peer-teamwork-evaluation">Peer teamwork evaluation</a></li>
     <li><a href="#additional-notes-and-tips">Additional notes and tips</a></li>
     <li><a href="#late-work-policy">Late work policy</a></li>
+    <li><a href="#formatting--communication">Formatting + communication</a></li>
   </ul>
 </nav>
         </div>
@@ -597,6 +765,17 @@ of results is unclear.</li>
     
 
     
+<script src="/js/math-code.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
   
 
