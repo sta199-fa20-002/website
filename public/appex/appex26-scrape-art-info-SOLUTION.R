@@ -5,9 +5,9 @@ library(rvest)
 
 # Exercise 2
 
-scrape_data <- function(x){
-  
-page <- read_html(x)
+url <- "https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset="
+
+page <- read_html(url)
 
 # title -----------------------------------------------------------------------
 titles <- page %>%
@@ -19,12 +19,12 @@ titles <- page %>%
 artists <- page %>%
   html_nodes(".artist") %>%
   html_text()
-  
+
 
 # link ------------------------------------------------------------------------
 links <- page %>%
-  html_nodes("h3 a")%>%
-  html_attr("href")
+  html_nodes("h3 a") %>%
+  html_attr("href") 
 
 links <- paste0("https://collections.ed.ac.uk/art/", links)
 
@@ -34,8 +34,6 @@ tibble(
   artist = artists, 
   link = links
 )
-}
-
 
 # Exercise 3
 
@@ -46,25 +44,47 @@ tibble(
 ## mixed media art pieces (pages 1 - 2).
 
 
+scrape_landscape_info <- function(x) {
+  page <- read_html(x)
+  
+  # title -----------------------------------------------------------------------
+  titles <- page %>%
+    html_nodes("h3 a") %>%
+    html_text() %>%
+    str_squish() 
+  
+  # artist -----------------------------------------------------------------------
+  artists <- page %>%
+    html_nodes(".artist") %>%
+    html_text()
+  
+  
+  # link ------------------------------------------------------------------------
+  links <- page %>%
+    html_nodes("h3 a") %>%
+    html_attr("href") 
+  
+  links <- paste0("https://collections.ed.ac.uk/art/", links)
+  
+  # make data frame ------------------------------------------------------------
+  tibble(
+    title = titles, 
+    artist = artists, 
+    link = links
+  )
+}
+
+scrape_landscape_info("https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset=")
+
 
 # Exercise 4
 
-## Let's automate the process, so we can create a single data frame that contains 
-## the  the artist, title, and link for all 70 mixed media art pieces. 
-
 url_base <- "https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset="
-mixed_media_urls <- paste0(url_base, seq(0, 30, 10))
+landscape_urls <- paste0(url_base, seq(0, 30, 10))
 
-mixed_media_data <- map_df(mixed_media_urls, scrape_data)
-
-## Use the appropriate `map_` function to apply the function from Exercise 3 to 
-## `mixed_media_urls`. Be sure to save the resulting data frame.
+landscape_info <- map_df(landscape_urls, scrape_landscape_info)
 
 # Exercise 5
-
-## Below is the code for `scrape_art_info`, a function to scrape the details for 
-## each art piece. Use the appropriate `map_` function to apply `scrape_art_info` 
-## to the data frame from the previous exercise to get the details for the 70 mixed media art pieces. 
 
 scrape_art_info <- function(x){
   
@@ -89,12 +109,8 @@ scrape_art_info <- function(x){
   
 }
 
+landscape_details <- map_df(landscape_info$link, scrape_art_info)
+
 # Exercise 6
 
-## Use the `write_csv` function to save the data frame from the previous exercise 
-## in your directory as a .csv file.
-
-data <- map_df(mixed_media_data$link, scrape_art_info)
-
-
-
+write_csv(landscape_details, "landscape-paintings.csv")
