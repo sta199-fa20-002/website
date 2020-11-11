@@ -57,6 +57,8 @@ center_measures <- function() {
 
 Our goal is to get the details for the [39 landscape art pieces](https://collections.ed.ac.uk/art/search/*/Classification:%22landscapes+%28representations%29+%7C%7C%7C+landscapes+%28representations%29%22?offset=) in the University of Edinburgh Art Collection. **Complete exercises 2 - 6 in the file `appex26-scrape-art-info.R`.**
 
+[**Click here for solutions to Ex 2-  6.**](appex26-scrape-art-info-SOLUTIONS.R)
+
 ## Exercise 2
 
 Let's start by getting the title, artist, and link (URL) for the landscape art pieces. Fill in the code below to scrape this information for the first 10 landscape art pieces.
