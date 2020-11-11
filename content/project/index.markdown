@@ -330,7 +330,7 @@ of results is unclear.
 
 
 ```r
-knitr::opts_chunk$set(echo = TRUE,
+knitr::opts_chunk$set(echo = FALSE,
                       warning = FALSE, 
                       message = FALSE)
 ```
