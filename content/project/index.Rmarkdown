@@ -161,14 +161,14 @@ Before you finalize your write up, make sure the printing of code chunks is off 
 
 Please be judicious in what you include in your final write-up.
 
-The written report is worth 60 points, broken down as
+The written report is worth 50 points, broken down as
 
-Total                                                   | 60 pts
+Total                                                   | 50 pts
 --------------------------------------------------------|--------
-**Introduction/data**                                   | 10 pts
-**Methodology**                                         | 20 pts
-**Results**                                             | 20 pts
-**Discussion**                                          | 10 pts
+**Introduction/data**                                   | 8 pts
+**Methodology**                                         | 17 pts
+**Results**                                             | 17 pts
+**Discussion**                                          | 8 pts
 
 
 ### Introduction and data
